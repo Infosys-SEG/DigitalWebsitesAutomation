@@ -75,9 +75,9 @@ public class SoftLogin
 		String prodvalu="";
 		int count=0;
 		driver= br.BrowserBanner(driver, functionality);
-		Thread.sleep(2000);
+		/*Thread.sleep(2000);
 		obj.scrollingToElementofAPage(driver, homepage.click_Close_cookies_Button);
-		homepage.click_Close_cookies_Button.submit();
+		homepage.click_Close_cookies_Button.submit();*/
 		
 		driver=dc.Loggedout_Coupons_Homepage(driver, functionality);
 		driver=po.Loggedout_Personalisedoffers(driver, functionality);
