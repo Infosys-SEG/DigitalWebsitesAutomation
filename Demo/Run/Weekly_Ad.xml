@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Weekly_Ad__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Weekly_Ad">
+                <methods>
+                    <include name="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added"/>
+                </methods>
+                <methods>
+                    <include name="TC02_Add_items_to_list_ADD_TO_LIST_button_add_item_again"/>
+                </methods>
+                <methods>
+                    <include name="TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again"/>
+                </methods>
+                <methods>
+                    <include name="TC01_Remove_items_from_the_list_Weekly_Circular"/>
+                </methods>
+                <methods>
+                    <include name="TC02_Remove_items_from_the_list_View_Details_screen"/>
+                </methods>
+                <methods>
+                    <include name="TC03_Remove_items_from_the_list_My_Shopping_List"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

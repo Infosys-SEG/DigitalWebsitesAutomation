@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Digital_Coupons__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Digital_Coupons">
+                <methods>
+                    <include name="TC_01_Shopping_List_Add_Coupons"/>
+                </methods>
+                <methods>
+                    <include name="TC_08_Shopping_List_Add_Coupons"/>
+                </methods>
+                <methods>
+                    <include name="TC_01_Add_Coupons_Guest_user"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

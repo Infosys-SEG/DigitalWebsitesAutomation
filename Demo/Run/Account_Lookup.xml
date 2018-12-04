@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Account_Lookup__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Account_Lookup">
+                <methods>
+                    <include name="TC001_AcctLookup_EnterPhoneNumber"/>
+                </methods>
+                <methods>
+                    <include name="TC002_AcctLookup_EnterCardNumber"/>
+                </methods>
+                <methods>
+                    <include name="TC003_Verify_Get_started_with_SEG_rewards_button_is_enabled"/>
+                </methods>
+                <methods>
+                    <include name="TC004_Validate_the_error_message_for_invalid_phone_number"/>
+                </methods>
+                <methods>
+                    <include name="TC005_Validate_the_error_message_for_invalid_card_number"/>
+                </methods>
+                <methods>
+                    <include name="TC008_Verify_the_phone_number_validation_for_NPA_code"/>
+                </methods>
+                <methods>
+                    <include name="TC-009_Verify_the_phone_number_validation_for_Central_Office_Code"/>
+                </methods>
+                <methods>
+                    <include name="TC010_Verify_the_phone_number_validation_for_Subscriber_number"/>
+                </methods>
+                <methods>
+                    <include name="TC011_Verify_the_error_message_if_NPA_number_range_format_is_invalid"/>
+                </methods>
+                <methods>
+                    <include name="TC012_Verify_the_error_message_if_Central_Office_Code_number_range_format_is_invalid"/>
+                </methods>
+                <methods>
+                    <include name="TC013_AcctLookup_EnterCRCNumber"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

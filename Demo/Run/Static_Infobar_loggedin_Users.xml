@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Static_Infobar_loggedin_Users__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Static_Infobar_loggedin_Users">
+                <methods>
+                    <include name="TC001_Static_barlinks_hard_log_in"/>
+                </methods>
+                <methods>
+                    <include name="TC002_Static_bar_Hard_log_in_links_navigation_Home_page"/>
+                </methods>
+                <methods>
+                    <include name="TC003_Static_bar_Hard_log_in_links_navigation_Account_setting_page"/>
+                </methods>
+                <methods>
+                    <include name="TC004_Static_bar_links_soft_log_in"/>
+                </methods>
+                <methods>
+                    <include name="TC005_Static_bar_soft_log_in_links_navigation_Home_page"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

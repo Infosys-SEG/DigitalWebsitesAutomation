@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Login_Or_Signup_Global_Nav__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Login_Or_Signup_Global_Nav">
+                <methods>
+                    <include name="TC001_Log_inSign_up_Global_nav"/>
+                </methods>
+                <methods>
+                    <include name="TC002_LogInSign_FullyEnrolled_Linked_to_SEG_rewards"/>
+                </methods>
+                <methods>
+                    <include name="TC003_LogInSign_FullyEnrolled_NOT_Linked_to_SEG_rewards"/>
+                </methods>
+                <methods>
+                    <include name="TC004_LogInSign_Pre_Enrolled_User"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

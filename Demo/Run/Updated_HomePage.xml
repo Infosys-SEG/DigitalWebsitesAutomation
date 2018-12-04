@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Updated_HomePage__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Updated_HomePage">
+                <methods>
+                    <include name="TC001_Home_page_for_Logged_out_user"/>
+                </methods>
+                <methods>
+                    <include name="TC002_Home_page_for_Soft_Login"/>
+                </methods>
+                <methods>
+                    <include name="TC003_Home_page_for_Hard_Login"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

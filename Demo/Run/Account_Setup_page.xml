@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Account_Setup_page__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Account_Setup_page">
+                <methods>
+                    <include name="TC001_Accountsetup_Fullyenrolled_user"/>
+                </methods>
+                <methods>
+                    <include name="TC002_Accountsetup_Preenrolled_user"/>
+                </methods>
+                <methods>
+                    <include name="TC003_Accountsetup_NetNew_user"/>
+                </methods>
+                <methods>
+                    <include name="TC004_Error_message_validation_Salutation"/>
+                </methods>
+                <methods>
+                    <include name="TC006_Error_message_validation_LastName"/>
+                </methods>
+                <methods>
+                    <include name="TC007_Error_message_validation_Number_not_allowed_in_FirstName_and_LastName"/>
+                </methods>
+                <methods>
+                    <include name="TC008_Error_message_validation_Birthday"/>
+                </methods>
+                <methods>
+                    <include name="TC009_Error_message_validation_Phone_Number"/>
+                </methods>
+                <methods>
+                    <include name="TC010_Error_message_validation_character_and_special_characters_in_Phone_Number"/>
+                </methods>
+                <methods>
+                    <include name="TC011_Error_message_validation_Phone_Number_Type"/>
+                </methods>
+                <methods>
+                    <include name="TC012_Error_message_validation_Address_field1"/>
+                </methods>
+                <methods>
+                    <include name="TC013_Error_message_validation_City"/>
+                </methods>
+                <methods>
+                    <include name="TC014_Error_message_validation_State"/>
+                </methods>
+                <methods>
+                    <include name="TC015_Error_message_validation_Zip_code"/>
+                </methods>
+                <methods>
+                    <include name="TC016_phone_number_validation_for_NPA_code"/>
+                </methods>
+                <methods>
+                    <include name="TC017_phone_number_validation_for_Central_Office_Code"/>
+                </methods>
+                <methods>
+                    <include name="TC018_phone_number_validation_for_Subscriber_number"/>
+                </methods>
+                <methods>
+                    <include name="TC019_error_message_Invalid_NPA_number_range_format"/>
+                </methods>
+                <methods>
+                    <include name="TC020_error_message_Invalid_Central_Office_Code_number_range_format"/>
+                </methods>
+                <methods>
+                    <include name="TC021_Specialcharacters_apostrophe,Dash"/>
+                </methods>
+                <methods>
+                    <include name="TC022_yes_no_radio_buttons_Save_coupons"/>
+                </methods>
+                <methods>
+                    <include name="TC023_ErrorMessage_validation_cellphone_and_Landline"/>
+                </methods>
+                <methods>
+                    <include name="TC024_Provide_Only_Landline_number"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

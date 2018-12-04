@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Fully_Enrolled_Customers_Flow__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Fully_Enrolled_Customers_Flow">
+                <methods>
+                    <include name="TC003_EnrollNewProgram_Phonenumber_VerifybyPII"/>
+                </methods>
+                <methods>
+                    <include name="TC006_EnrollinNewProgram_old_SEG_CRC_number_VerifybyPII"/>
+                </methods>
+                <methods>
+                    <include name="TC009_EnrollinNewProgram_PlentiCardNumber_VerifybyPII"/>
+                </methods>
+                <methods>
+                    <include name="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

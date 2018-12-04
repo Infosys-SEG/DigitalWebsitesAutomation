@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Enrollment_Status_Directions__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Enrollment_Status_Directions">
+                <methods>
+                    <include name="TC001_check_navigation_for_Fullyenrolled_User"/>
+                </methods>
+                <methods>
+                    <include name="TC002_check_navigation_for_PreEnrolled_User"/>
+                </methods>
+                <methods>
+                    <include name="TC003_check_navigation_for_New_User"/>
+                </methods>
+                <methods>
+                    <include name="TC004_check_navigation_for_Fully_Enrolled_but_not_linked"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

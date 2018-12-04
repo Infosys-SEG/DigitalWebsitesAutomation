@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="LoggedIn_for_Rewards_Section__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.LoggedIn_for_Rewards_Section">
+                <methods>
+                    <include name="TC001_Rewards_section_for_Hard_Logged_In_user"/>
+                </methods>
+                <methods>
+                    <include name="TC002_Rewards_section_for_Soft_Logged_In_user"/>
+                </methods>
+                <methods>
+                    <include name="TC003__Validate_Edit_Account_Details_for_Hard_Logged_In_user"/>
+                </methods>
+                <methods>
+                    <include name="TC004__Validate_Edit_Account_Details_for_Soft_Logged_In_user"/>
+                </methods>
+                <methods>
+                    <include name="TC005_Validate_the_functionality_of_Useful_Links_section_for_Hard_Login_user"/>
+                </methods>
+                <methods>
+                    <include name="TC006_Validate_the_functionality_of_Useful_Links_section_for_Soft_Login_user"/>
+                </methods>
+                <methods>
+                    <include name="TC007_Verify_the_Recent_Transactions_page_HardLogin"/>
+                </methods>
+                <methods>
+                    <include name="TC008_Verify_the_Recent_Transactions_page_SoftLogin"/>
+                </methods>
+                <methods>
+                    <include name="TC009_All_SEG_Users_Membership_Status"/>
+                </methods>
+                <methods>
+                    <include name="TC010_Expiry_dates_Rewards_page"/>
+                </methods>
+                <methods>
+                    <include name="TC011_Points_expiry_message_Rewards_page"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

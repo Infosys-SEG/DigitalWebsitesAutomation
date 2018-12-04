@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="HardLogin_Loggedin_Account__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.HardLogin_Loggedin_Account">
+                <methods>
+                    <include name="TC001_HardLogin_Access_features"/>
+                </methods>
+                <methods>
+                    <include name="TC002_HardLogin_Edit_PII_and_save"/>
+                </methods>
+                <methods>
+                    <include name="TC003_HardLogin_First_time_login_No_recaptcha"/>
+                </methods>
+                <methods>
+                    <include name="TC004_HardLogin_stateExpiry"/>
+                </methods>
+                <methods>
+                    <include name="TC006_HardLogin_CCC_number_and_Forgot_password_link"/>
+                </methods>
+                <methods>
+                    <include name="TC007_Hardlogin_Edit_PII_Update_Email"/>
+                </methods>
+                <methods>
+                    <include name="TC008_SMS_preferences_for_opt_in_and_opt_out_NOT_enrolled_for_marketing_SMS"/>
+                </methods>
+                <methods>
+                    <include name="TC010_SMS_preferences_for_opt_in_and_opt_out_user_opted_in_at_POS_for_marketing_SMS_Fully_Enrolled"/>
+                </methods>
+                <methods>
+                    <include name="TC011_SMS_preferences_for_opt_in_and_opt_out_user_previously_opted_in_for_SMS_SEG_fully_enrolled"/>
+                </methods>
+                <methods>
+                    <include name="TC012_Validate_HardLoginModal"/>
+                </methods>
+                <methods>
+                    <include name="TC013_EditAccountPage_CardNotPickedup"/>
+                </methods>
+                <methods>
+                    <include name="TC014_EditAccountPage_CardNhasbeenPickedup"/>
+                </methods>
+                <methods>
+                    <include name="TC015_EditAccountPage_CardisLostorStolen"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

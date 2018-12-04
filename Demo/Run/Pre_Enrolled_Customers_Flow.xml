@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Pre_Enrolled_Customers_Flow__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Pre_Enrolled_Customers_Flow">
+                <methods>
+                    <include name="TC001_EnrollNewProgram_Phonenumber"/>
+                </methods>
+                <methods>
+                    <include name="TC002_EnrollinNewProgram_old_SEG_CRC_number"/>
+                </methods>
+                <methods>
+                    <include name="TC003_EnrollinNewProgram_PlentiCardNumber"/>
+                </methods>
+                <methods>
+                    <include name="TC004_EnrollinNewProgram_G_AND_G card number"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
