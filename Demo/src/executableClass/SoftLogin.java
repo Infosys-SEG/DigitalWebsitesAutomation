@@ -69,8 +69,8 @@ public class SoftLogin
 		Computed_Personalisedoffers po=new Computed_Personalisedoffers();
 		Computed_WeeklyAd wa=new Computed_WeeklyAd();
 		Computed_MyRewards mr= new Computed_MyRewards();
-		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj = new Data();
+		/*POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		Data obj = new Data();*/
 		String prod="";
 		String prodvalu="";
 		int count=0;
