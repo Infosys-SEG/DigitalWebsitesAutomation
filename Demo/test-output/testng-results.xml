@@ -2,25 +2,32 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="SEG Roadrunner" duration-ms="27301" started-at="2018-12-04T11:58:36Z" finished-at="2018-12-04T11:59:03Z">
+  <suite name="Default suite" duration-ms="109713" started-at="2018-12-05T10:04:31Z" finished-at="2018-12-05T10:06:21Z">
     <groups>
     </groups>
-    <test name="SoftLogin__Chrome" duration-ms="27301" started-at="2018-12-04T11:58:36Z" finished-at="2018-12-04T11:59:03Z">
+    <test name="Default test" duration-ms="109713" started-at="2018-12-05T10:04:31Z" finished-at="2018-12-05T10:06:21Z">
       <class name="executableClass.SoftLogin">
-        <test-method status="FAIL" signature="TC003_SoftLogin_loggedout_user()[pri:3, instance:executableClass.SoftLogin@1ed4004b]" name="TC003_SoftLogin_loggedout_user" duration-ms="27189" started-at="2018-12-04T17:28:36Z" finished-at="2018-12-04T17:29:03Z">
-          <exception class="org.openqa.selenium.NoSuchFrameException">
+        <test-method status="FAIL" signature="TC003_SoftLogin_loggedout_user()[pri:3, instance:executableClass.SoftLogin@56ef9176]" name="TC003_SoftLogin_loggedout_user" duration-ms="109634" started-at="2018-12-05T15:34:31Z" finished-at="2018-12-05T15:36:21Z">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[No frame element found by name or id Fancybox-frame
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: rewards' (tried for 30 second(s) with 500 MILLISECONDS interval)
 Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
 System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
-Driver info: driver.version: unknown]]>
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52699}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90), userDataDir=C:\Users\ragunk\AppData\Local\Temp\scoped_dir15036_15480}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=70.0.3538.110, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6b87900fbcc9e4b2e4dae3df6d6d6c76]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchFrameException: No frame element found by name or id Fancybox-frame
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.id: rewards' (tried for 30 second(s) with 500 MILLISECONDS interval)
 Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
 System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
-Driver info: driver.version: unknown
-	at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.frame(RemoteWebDriver.java:930)
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52699}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90), userDataDir=C:\Users\ragunk\AppData\Local\Temp\scoped_dir15036_15480}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=70.0.3538.110, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6b87900fbcc9e4b2e4dae3df6d6d6c76
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:265)
+	at Utility.Data.waitForElement(Data.java:105)
+	at computedClass.Computed_MyRewards.loggedout_Myreward(Computed_MyRewards.java:255)
 	at executableClass.SoftLogin.TC003_SoftLogin_loggedout_user(SoftLogin.java:81)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -47,13 +54,43 @@ Driver info: driver.version: unknown
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"id","selector":"rewards"}
+  (Session info: chrome=70.0.3538.110)
+  (Driver info: chromedriver=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 17 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:52699}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90), userDataDir=C:\Users\ragunk\AppData\Local\Temp\scoped_dir15036_15480}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=70.0.3538.110, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6b87900fbcc9e4b2e4dae3df6d6d6c76
+*** Element info: {Using=id, value=rewards}
+	at sun.reflect.GeneratedConstructorAccessor30.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:635)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:417)
+	at org.openqa.selenium.By$ById.findElement(By.java:218)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:360)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy5.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:41)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:238)
+	... 28 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchFrameException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC003_SoftLogin_loggedout_user -->
       </class> <!-- executableClass.SoftLogin -->
-    </test> <!-- SoftLogin__Chrome -->
-  </suite> <!-- SEG Roadrunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

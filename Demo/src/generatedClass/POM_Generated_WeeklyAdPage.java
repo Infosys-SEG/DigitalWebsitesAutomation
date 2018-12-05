@@ -88,7 +88,7 @@ public class POM_Generated_WeeklyAdPage {
 	public WebElement txt_Product_Description_Text;
 	
 	// Associated Label : Product_Overlay_Close_Button
-	@FindBy(xpath = "//img[@alt='Close the product overlay']")
+	@FindBy(xpath = "//button[@aria-label='Close Product Overlay']")
 	public WebElement click_Product_Overlay_Close_Button;
 	
 

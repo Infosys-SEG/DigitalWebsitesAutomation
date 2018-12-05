@@ -99,24 +99,10 @@ public class Computed_SoftLogin
 		POM_Generated_SoftLoginPage softloginpage = new POM_Generated_SoftLoginPage(driver);
 		Data obj1=new Data();
 	
-		String Softloginhomepagehy="Harveys Supermarkets Home";
-		String Softloginhomepagewd="Winn-Dixie | Your Neighborhood Grocery Store";
-		String Softloginhomepagebi="BI-LO® - Real Savings Real Fresh";
-		String Softloginhomepage="";
-new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", functionality);
 		
-		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
-		{
-			Softloginhomepage=Softloginhomepagewd;
-		}
-		else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
-		{
-			Softloginhomepage=Softloginhomepagebi;
-		}
-		else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-		{
-			Softloginhomepage=Softloginhomepagehy;
-		}
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", functionality);
+		
+		
 		try
 		{		
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",functionality, TCName);
@@ -136,10 +122,9 @@ new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", functionalit
 			softloginpage.type_txt_Phone_Number_Field(Softlogin_Phone_number1);
 			softloginpage.type_txt_Zipcode_Field(Softlogin_Zipcode1);
 			softloginpage.click_click_Submit_Button();
-			obj1.waitForElement(driver, homepage.click_Logout_button);
-			String title1=driver.getTitle();
+			obj1.waitForElement(driver, homepage.click_Logout_button);	
 			
-			if(title1.equals(Softloginhomepage))
+			if(homepage.isDisplayed_click_Logout_button())
 			{	
 				Reporter.log("Logged in successfully using SoftLogin");
 			}

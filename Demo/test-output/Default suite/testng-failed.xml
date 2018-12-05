@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="ExectableClass.Main">
+      <class name="executableClass.SoftLogin">
         <methods>
-          <include name="report"/>
+          <include name="TC003_SoftLogin_loggedout_user"/>
         </methods>
-      </class> <!-- ExectableClass.Main -->
+      </class> <!-- executableClass.SoftLogin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

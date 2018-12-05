@@ -50,7 +50,7 @@ public class Computed_Digital_Coupons
     		value="harveyssupermarkets";
     		logo=homepage.click_Harveys_logo;
     	}
-    	String coup="https://"+value+".pdn.retaileriq.com - Google Chrome";
+    	String coup="https://"+value+".pdn.retaileriq.com";
 	    String ie="Windows Security";
 	    String bro="";
 		if(Readexcel_RowName.getValue("Chrome(Y/N)").equalsIgnoreCase("Y"))
@@ -66,9 +66,9 @@ public class Computed_Digital_Coupons
 		{
 			obj.waitForElementClickable(driver, logo);
 	        homepage.click_click_Close_cookies_Button();
+	        obj.waitForElementClickable(driver, logo);
 			logo.click();
-			obj.waitForElementClickable(driver, logo);
-			
+
 			obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
 			Runtime.getRuntime().exec(Val);
 			homepage.hover_click_Savings_link_Hover();
@@ -96,10 +96,11 @@ public class Computed_Digital_Coupons
 				}	
 			}
 			
-			obj.scrollingToElementofAPage(driver, homepage.click_HardLogin_button);
+			obj.movetoElementofAPage(driver, homepage.click_HardLogin_button);
+			obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
 			homepage.click_click_HardLogin_button();
 			obj.waitForElementClickable(driver, hardloginpage.click_Popup_Close_Button);
-			hardloginpage.click_click_Popup_Close_Button();
+			hardloginpage.click_click_Popup_Close_Button();	
 			
 			
 		}
@@ -139,7 +140,7 @@ public class Computed_Digital_Coupons
     		value="harveyssupermarkets";
     		logo=homepage.click_Harveys_logo;
     	}
-    	String coup="https://"+value+".pdn.retaileriq.com - Google Chrome";
+    	String coup="https://"+value+".pdn.retaileriq.com";
 	    String ie="Windows Security";
 	    String bro="";
 		if(Readexcel_RowName.getValue("Chrome(Y/N)").equalsIgnoreCase("Y"))
@@ -155,11 +156,11 @@ public class Computed_Digital_Coupons
 		{
 			obj.waitForElementClickable(driver, logo);
 			homepage.click_click_Close_cookies_Button();
-			logo.click();
 			obj.waitForElementClickable(driver, logo);
-			obj.scrollingToElementofAPage(driver, homepage.click_Digitial_Coupons_Logo);
-	
+			logo.click();
+			Thread.sleep(2000);
 			Runtime.getRuntime().exec(Val);
+			
 			
 			homepage.click_click_Digitial_Coupons_Logo();
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
@@ -186,7 +187,7 @@ public class Computed_Digital_Coupons
 			
 			
 			obj.movetoElementofAPage(driver, homepage.click_HardLogin_button);
-			
+			obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
 			homepage.click_click_HardLogin_button();
 			obj.waitForElementClickable(driver, hardloginpage.click_Popup_Close_Button);
 			hardloginpage.click_click_Popup_Close_Button();	
@@ -244,10 +245,10 @@ public class Computed_Digital_Coupons
 		try
 		{
 			obj.waitForElementClickable(driver, logo);	
-			homepage.click_click_Close_cookies_Button();
-			logo.click();
+			//homepage.click_click_Close_cookies_Button();
 			obj.waitForElementClickable(driver, logo);
-					
+			logo.click();
+		
 			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);	
 						
 			//To handle window pop up Authentication				
@@ -340,7 +341,7 @@ public class Computed_Digital_Coupons
     		value="harveyssupermarkets";
     		logo=homepage.click_Harveys_logo;
     	}
-    	String coup="https://"+value+".pdn.retaileriq.com - Google Chrome";
+    	String coup="https://"+value+".pdn.retaileriq.com";
 	    String ie="Windows Security";
 	    String bro="";
 		if(Readexcel_RowName.getValue("Chrome(Y/N)").equalsIgnoreCase("Y"))
@@ -355,9 +356,10 @@ public class Computed_Digital_Coupons
 		try
 		{
 			obj.waitForElementClickable(driver, logo);	
-			homepage.click_click_Close_cookies_Button();
-			logo.click();
+			//homepage.click_click_Close_cookies_Button();
 			obj.waitForElementClickable(driver, logo);
+			logo.click();
+			
 			Reporter.log("waiting for element");
 			Thread.sleep(2000);
 			obj.scrollingToElementofAPage(driver, homepage.click_Digitial_Coupons_Logo);
@@ -366,7 +368,6 @@ public class Computed_Digital_Coupons
 			//To handle window pop up Authentication				
 			Runtime.getRuntime().exec(Val);
 					
-		
 			homepage.click_click_Digitial_Coupons_Logo();
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();

@@ -69,16 +69,11 @@ public class SoftLogin
 		Computed_Personalisedoffers po=new Computed_Personalisedoffers();
 		Computed_WeeklyAd wa=new Computed_WeeklyAd();
 		Computed_MyRewards mr= new Computed_MyRewards();
-		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj = new Data();
+		
 		String prod="";
 		String prodvalu="";
 		int count=0;
 		driver= br.BrowserBanner(driver, functionality);
-		/*Thread.sleep(2000);
-		obj.scrollingToElementofAPage(driver, homepage.click_Close_cookies_Button);
-		homepage.click_Close_cookies_Button.submit();*/
-		
 		driver=dc.Loggedout_Coupons_Homepage(driver, functionality);
 		driver=po.Loggedout_Personalisedoffers(driver, functionality);
 		driver=wa.WeeklyAdPage(driver, functionality);

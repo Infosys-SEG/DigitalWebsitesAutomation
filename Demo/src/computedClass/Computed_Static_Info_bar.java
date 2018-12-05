@@ -150,7 +150,7 @@ public class Computed_Static_Info_bar
 				String[] pointsplit2 = verifypts.split(" ");
 				if(pointsplit[0].equals(pointsplit2[0]))
 				{
-					Reporter.log("Reward points anre equal");
+					  Reporter.log("Reward points are equal :"+pointsplit[0]);
 				}
 				else
 				{
@@ -214,6 +214,7 @@ public class Computed_Static_Info_bar
 					if(hardloginpage.isDisplayed_click_Popup_Close_Button())
 					{
 						hardloginpage.click_click_Popup_Close_Button();
+						Reporter.log("Hard login window is displayed by clicking on My Account");
 					}
 					else
 					{
