@@ -7,11 +7,11 @@
         <classes>
             <class name="executableClass.Static_Infobar_loggedin_Users">
                 <methods>
-                    <include name="TC001_Static_barlinks_hard_log_in"/>
-                    <include name="TC002_Static_bar_Hard_log_in_links_navigation_Home_page"/>
-                    <include name="TC003_Static_bar_Hard_log_in_links_navigation_Account_setting_page"/>
-                    <include name="TC004_Static_bar_links_soft_log_in"/>
-                    <include name="TC005_Static_bar_soft_log_in_links_navigation_Home_page"/>
+                    <include name="TC001_Staticbar_links_Hardlogin"/>
+                    <include name="TC002_Staticbar_Hardlogin_links_navigation_Homepage"/>
+                    <include name="TC003_Staticbar_Hard_login_links_navigation_Account_setting_page"/>
+                    <include name="TC004_Staticbar_links_Softlogin"/>
+                    <include name="TC005_Staticbar_Softlogin_links_navigation_Homepage"/>
                 </methods>
             </class>
         </classes>

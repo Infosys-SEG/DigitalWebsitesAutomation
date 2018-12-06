@@ -19,14 +19,14 @@ import generatedClass.POM_Generated_SoftLoginPage;
 public class Computed_SoftLogin 
 {
 	//Softlogin by clicking save coupon button in homepage
-	public WebDriver SoftLogin_SaveCoupon(WebDriver driver,String functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver SoftLogin_SaveCoupon(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_SoftLoginPage softloginpage = new POM_Generated_SoftLoginPage(driver);
 		Data obj=new Data();
 		WebElement logo = null;
 		
-		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", functionality);
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", Functionality);
 		
 		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 		{
@@ -45,7 +45,7 @@ public class Computed_SoftLogin
 		}
 		try
 		{		
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet",functionality, TCName);
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality, TCName);
 		    String Softlogin_Phone_number1= Readexcel_RowName.getValue("Softlogin_Phone_number");
 		    String Softlogin_Zipcode1= Readexcel_RowName.getValue("Softlogin_Zipcode");
 		  
@@ -96,7 +96,7 @@ public class Computed_SoftLogin
 	}
 	
 	//Softlogin by clicking Rewards button 
-	public WebDriver SoftLogin_Rewards(WebDriver driver,String functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver SoftLogin_Rewards(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_LoggedOut_RewardsPage logoutrewardspage = new POM_Generated_LoggedOut_RewardsPage(driver);
@@ -104,12 +104,12 @@ public class Computed_SoftLogin
 		Data obj1=new Data();
 	
 		
-		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", functionality);
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", Functionality);
 		
 		
 		try
 		{		
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet",functionality, TCName);
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality, TCName);
 		    String Softlogin_Phone_number1= Readexcel_RowName.getValue("Softlogin_Phone_number");
 		    String Softlogin_Zipcode1= Readexcel_RowName.getValue("Softlogin_Zipcode");
 		  

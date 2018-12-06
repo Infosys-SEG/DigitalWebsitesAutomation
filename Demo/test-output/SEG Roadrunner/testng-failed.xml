@@ -2,18 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [SEG Roadrunner]">
   <parameter name="BrowserType" value="Chrome"/>
-  <parameter name="Banner" value="Bilo"/>
-  <test name="SoftLogin__Chrome(failed)">
+  <parameter name="Banner" value="Winndixie"/>
+  <test name="Static_Infobar_loggedin_Users__Chrome(failed)">
     <parameter name="BrowserType" value="Chrome"/>
-    <parameter name="Banner" value="Bilo"/>
+    <parameter name="Banner" value="Winndixie"/>
     <classes>
-      <class name="executableClass.SoftLogin">
+      <class name="executableClass.Static_Infobar_loggedin_Users">
         <methods>
-          <include name="TC001_SoftLogin_Phone_And_Zip_login"/>
-          <include name="TC003_SoftLogin_loggedout_user"/>
-          <include name="TC002_SoftLogin_unable_to_view_account"/>
+          <include name="TC003_Staticbar_Hard_login_links_navigation_Account_setting_page"/>
         </methods>
-      </class> <!-- executableClass.SoftLogin -->
+      </class> <!-- executableClass.Static_Infobar_loggedin_Users -->
     </classes>
-  </test> <!-- SoftLogin__Chrome(failed) -->
+  </test> <!-- Static_Infobar_loggedin_Users__Chrome(failed) -->
 </suite> <!-- Failed suite [SEG Roadrunner] -->

@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="executableClass.Pre_Enrolled_Customers_Flow">
+      <class name="executableClass.Static_Infobar_loggedin_Users">
         <methods>
-          <include name="TC001_EnrollNewProgram_Phonenumber"/>
+          <include name="TC001_Staticbar_links_Hardlogin"/>
         </methods>
-      </class> <!-- executableClass.Pre_Enrolled_Customers_Flow -->
+      </class> <!-- executableClass.Static_Infobar_loggedin_Users -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

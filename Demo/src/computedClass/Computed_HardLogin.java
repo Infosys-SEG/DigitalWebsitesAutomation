@@ -4,8 +4,9 @@ import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.Reporter;
 import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_HardLoginPage;
@@ -16,7 +17,7 @@ public class Computed_HardLogin
 {
 	// Global hardlogin
 	
-	public WebDriver Global_HardLogin(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Global_HardLogin(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);
@@ -27,7 +28,7 @@ public class Computed_HardLogin
 	     
 	    try
 		{	
-	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
 	    	
@@ -44,6 +45,7 @@ public class Computed_HardLogin
 	    	hardloginpage.type_txt_Password_Field(Hardlogin_Password);
 	    	hardloginpage.click_click_Login_Button();
 	    	obj.waitForElementClickable(driver, homepage.click_Logout_button);
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
 	    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 	    	{
 	    		homepage.click_click_Winndixie_logo();
@@ -65,24 +67,35 @@ public class Computed_HardLogin
 	    
 	    return driver;
 	}
-	@Test
-	public WebDriver Account_HardLogin(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	
+	
+	public WebDriver Account_HardLogin(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);
 		POM_Generated_StaticInfoBar staticinfobar = new POM_Generated_StaticInfoBar(driver);
-		
-		Data obj=new Data();
-		
-		String editacctext="Edit Account Details";
-		
-	    
+		WebElement logo = null;
+		Data obj=new Data();   
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
+		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+		{
+			logo=homepage.click_Winndixie_logo;
+		}
+		if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+		{
+			logo=homepage.click_Bilo_logo;
+		}
+		if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
+		{
+			logo=homepage.click_Harveys_logo;
+		}	
 	    try
 		{	
-	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
-	    	
+	    	obj.waitForElementClickable(driver, logo);
+	    	logo.click();
 	    	obj.waitForElementClickable(driver, staticinfobar.click_Static_info_My_Account_Link);
 	    	staticinfobar.click_click_Static_info_My_Account_Link();
 	    	obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
@@ -90,24 +103,13 @@ public class Computed_HardLogin
 	    	hardloginpage.type_txt_Password_Field(Hardlogin_Password);
 	    	hardloginpage.click_click_Login_Button();
 	    	obj.waitForElement(driver, staticinfobar.click_Static_info_My_Account_Text);
-	    	if(editacctext.equals(staticinfobar.getText_click_Static_info_My_Account_Text()))
+	    	if(staticinfobar.isDisplayed_click_Static_info_My_Account_Text())
 	    	{
-	    		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
-	    		{
-	    			homepage.click_click_Winndixie_logo();
-	    		}
-	    		if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
-	    		{
-	    			homepage.click_click_Bilo_logo();
-	    		}
-	    		if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-	    		{
-	    			homepage.click_click_Harveys_logo();
-	    		}	
+	    		Reporter.log("Hardlogin successful from my account page");
 	    	}
 	    	else
 	    	{
-	    		Assert.fail("Hardlogin failed");
+	    		Assert.fail("Hardlogin failed from My Account page");
 	    		
 	    	}
 		}
@@ -116,7 +118,6 @@ public class Computed_HardLogin
 	    	Assert.fail("Error in Hardlogin Page");
 	    	
 	    }
-	    
 	    
 	    return driver;
 	}	

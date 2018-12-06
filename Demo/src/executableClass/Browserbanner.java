@@ -18,11 +18,11 @@ public class Browserbanner
 	{
 		
 		BrowserFactory browserFactory = new BrowserFactory();
-		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		
-		String Winndixie="http://scqa.winndixie.com";
-		String Bilo="http://scqa.bi-lo.com";
-		String Harveys="http://scqa.harveyssupermarkets.com";
+		
+		String Winndixie="https://scqa.winndixie.com";
+		String Bilo="https://scqa.bi-lo.com";
+		String Harveys="https://scqa.harveyssupermarkets.com";
 		String url = null;
 		String browser = null;
 		String func=Functionality;

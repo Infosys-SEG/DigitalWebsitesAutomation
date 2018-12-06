@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import Utility.Data;
 import Utility.Readexcel_RowName;
+import generatedClass.POM_Generated_ContactInfoPage;
 import generatedClass.POM_Generated_HardLoginPage;
 import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_LoggedIn_RewardsPage;
@@ -20,32 +21,28 @@ public class Computed_Static_Info_bar
 	{
 		POM_Generated_StaticInfoBar staticinfobar = new POM_Generated_StaticInfoBar(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		
 		Data obj=new Data();
 		String Global="Global";
-		
-		String urlwd="https://winndixie.pdn.retaileriq.com/weeklyad/storelocator/";
-		String urlhy="https://harveyssupermarkets.pdn.retaileriq.com/weeklyad/storelocator/?location=greasemonkey";
-		String urlbi="https://bi-lo.pdn.retaileriq.com/weeklyad/storelocator/";
-		String weeklyadurl="";
 		String value="";
 		WebElement logo=null;
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Global,Functionality);
 		
 		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 		{
-			weeklyadurl=urlwd;
+			
 			value="winndixie";
 			logo=homepage.click_Winndixie_logo;
 		}
 		else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 		{
-			weeklyadurl=urlbi;
+			
 			value="bi-lo";
 			logo=homepage.click_Bilo_logo;
 		}
 		else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 		{
-			weeklyadurl=urlhy;
+			
 			value="harveyssupermarkets";
 			logo=homepage.click_Harveys_logo;
 		}
@@ -63,6 +60,8 @@ public class Computed_Static_Info_bar
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
+			obj.waitForElementClickable(driver, logo);
+			logo.click();
 			obj.waitForElementClickable(driver,staticinfobar.click_Static_info_WeeklyAds_link);
 			if(staticinfobar.isDisplayed_click_Static_info_WeeklyAds_link())
 			{
@@ -76,16 +75,6 @@ public class Computed_Static_Info_bar
 				{
 					Assert.fail("Weekly ad text is not displaying");
 				}
-				obj.waitForElementClickable(driver, staticinfobar.click_Home_Link);
-				
-				if(weeklyadurl.equals(driver.getCurrentUrl()))
-				{
-					logo.click();
-				}
-				else
-				{
-					Assert.fail("WeeklyAd page url is wrong");
-				}	
 			}
 			else
 			{
@@ -94,6 +83,7 @@ public class Computed_Static_Info_bar
 		}
 		catch(Exception e)
 		{
+			System.out.println(e);
 			Assert.fail("Error in weekly ad link");
 		}
 		return driver;
@@ -175,6 +165,7 @@ public class Computed_Static_Info_bar
 	{
 		POM_Generated_StaticInfoBar staticinfobar= new POM_Generated_StaticInfoBar(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);
 		Data obj=new Data();
 		String Global="Global";
@@ -208,9 +199,10 @@ public class Computed_Static_Info_bar
 					Assert.fail("My Account text is not displaying");
 				}
 				staticinfobar.click_click_Static_info_My_Account_Link();
-				obj.waitForElement(driver, hardloginpage.click_Popup_Close_Button);
 				if(MyAccfunc.equalsIgnoreCase("SoftLogin"))
 				{
+					obj.waitForElement(driver, hardloginpage.click_Popup_Close_Button);
+				
 					if(hardloginpage.isDisplayed_click_Popup_Close_Button())
 					{
 						hardloginpage.click_click_Popup_Close_Button();
@@ -219,6 +211,19 @@ public class Computed_Static_Info_bar
 					else
 					{
 						Assert.fail("Hard Login popup is not displaying");
+					}
+				}
+				else if(MyAccfunc.equalsIgnoreCase("HardLogin"))
+				{
+					obj.waitForElementClickable(driver, contactinfopage.txt_Fname_Field);
+					if(contactinfopage.isDisplayed_txt_Fname_Field())
+					{
+						
+						Reporter.log("My Account page is displayed for hardlogin user by clicking on My Account static info bar");
+					}
+					else
+					{
+						Assert.fail("My Account page is displayed for hardlogin user by clicking on My Account static info bar");
 					}
 				}
 			}

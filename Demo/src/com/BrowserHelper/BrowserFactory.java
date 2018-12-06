@@ -2,19 +2,23 @@ package com.BrowserHelper;
 
 
 import java.awt.Robot;
+import java.io.File;
+import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 public class BrowserFactory 
 {
 		static WebDriver driver;
         Robot rb;
        
-        public WebDriver startbrowser(String browserName,String URL) throws InterruptedException
+        public WebDriver startbrowser(String browserName,String URL) throws InterruptedException, IOException
         {
        
         if(browserName.equalsIgnoreCase("Safari"))
@@ -34,12 +38,13 @@ public class BrowserFactory
         }
         else if(browserName.equalsIgnoreCase("IE"))
         {
+    
+        	DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+        	capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
         	
-                        DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-                        capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-                        System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe"); 
-                        driver = new InternetExplorerDriver();
-                        driver.manage().window().maximize();
+        	System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe"); 
+        	driver = new InternetExplorerDriver();
+        	driver.manage().window().maximize();
         }
         
        
