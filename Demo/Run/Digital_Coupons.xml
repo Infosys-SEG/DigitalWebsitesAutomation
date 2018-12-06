@@ -8,11 +8,7 @@
             <class name="executableClass.Digital_Coupons">
                 <methods>
                     <include name="TC_01_Shopping_List_Add_Coupons"/>
-                </methods>
-                <methods>
                     <include name="TC_08_Shopping_List_Add_Coupons"/>
-                </methods>
-                <methods>
                     <include name="TC_01_Add_Coupons_Guest_user"/>
                 </methods>
             </class>

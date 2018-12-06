@@ -64,8 +64,7 @@ public class Computed_Digital_Coupons
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
-			obj.waitForElementClickable(driver, logo);
-	        homepage.click_click_Close_cookies_Button();
+			
 	        obj.waitForElementClickable(driver, logo);
 			logo.click();
 
@@ -155,13 +154,10 @@ public class Computed_Digital_Coupons
 		try
 		{
 			obj.waitForElementClickable(driver, logo);
-			homepage.click_click_Close_cookies_Button();
-			obj.waitForElementClickable(driver, logo);
+			
 			logo.click();
 			Thread.sleep(2000);
 			Runtime.getRuntime().exec(Val);
-			
-			
 			homepage.click_click_Digitial_Coupons_Logo();
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
@@ -194,7 +190,7 @@ public class Computed_Digital_Coupons
 		}
 		catch(Exception e)
 		{
-			
+		System.out.println(e);	
 			Assert.fail("Error in Digital coupons page");
 			
 		}	
@@ -245,8 +241,7 @@ public class Computed_Digital_Coupons
 		try
 		{
 			obj.waitForElementClickable(driver, logo);	
-			//homepage.click_click_Close_cookies_Button();
-			obj.waitForElementClickable(driver, logo);
+		
 			logo.click();
 		
 			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);	
@@ -356,14 +351,12 @@ public class Computed_Digital_Coupons
 		try
 		{
 			obj.waitForElementClickable(driver, logo);	
-			//homepage.click_click_Close_cookies_Button();
-			obj.waitForElementClickable(driver, logo);
+			
 			logo.click();
 			
 			Reporter.log("waiting for element");
 			Thread.sleep(2000);
-			obj.scrollingToElementofAPage(driver, homepage.click_Digitial_Coupons_Logo);
-			Reporter.log("element scrolled");
+			
 			
 			//To handle window pop up Authentication				
 			Runtime.getRuntime().exec(Val);

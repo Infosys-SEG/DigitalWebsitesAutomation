@@ -213,8 +213,21 @@ public class Computed_FullyEnrollment_Flow
 			{
 				Assert.fail("ZipCode is not pre populating");
 			}
-			String pat=System.getProperty("user.dir")+"\\Screenshots\\FullyEnrolled\\"+TCName+"_"+"ContactInfo";
-			obj.Ashot_Screenshot(driver, pat);
+			if((contactinfopage.isSelected_click_TextMeOffers_Yes_Button() || contactinfopage.isSelected_click_TextMeOffers_No_Button()))
+			{
+				if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("Y"))
+				{
+					contactinfopage.click_click_TextMeOffers_Yes_Button();
+				}
+				else
+				{
+					contactinfopage.click_click_TextMeOffers_No_Button();
+				}
+			}
+			else
+			{
+				Assert.fail("Text_Me_Offers radio button is already selected");
+			}
 		
 			contactinfopage.click_click_Submit_Form_Button();			
 	    	obj.waitForElementClickable(driver, accountsecuritypage.txt_Email_Address_Field);
@@ -236,7 +249,7 @@ public class Computed_FullyEnrollment_Flow
 		POM_Generated_CongratulationsPage congratulationspage = new POM_Generated_CongratulationsPage(driver);
 		Data obj=new Data();
 	
-		String congrats="Thank you for signing up!";
+		
 	   
 	    new Readexcel_RowName().excelRead("Global_TestData_Sheet","FullyEnrolled",TCName);
 		try
@@ -374,16 +387,16 @@ public class Computed_FullyEnrollment_Flow
 			obj.waitForElementClickable(driver, accountsecuritypage.click_Security_Next_Button);
 			accountsecuritypage.click_click_Security_Next_Button();
 			obj.waitForElement(driver, congratulationspage.txt_ThankYou_Message_Text);
-			String s3=congratulationspage.getText_txt_ThankYou_Message_Text();
-			if(s3.equalsIgnoreCase(congrats))
+			
+			if(congratulationspage.isDisplayed_txt_ThankYou_Message_Text())
 			{
-				
-			}
+				Reporter.log("Congratulations Message is displayed correctly");
+			}	
 			else
 			{
-				Assert.fail("Error in Congratulations page");
+				Assert.fail("Congratulations Message not displayed");
+				
 			}
-			
 		}
 		catch (Exception e) 
 		{

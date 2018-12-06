@@ -8,14 +8,8 @@
             <class name="executableClass.Fully_Enrolled_Customers_Flow">
                 <methods>
                     <include name="TC003_EnrollNewProgram_Phonenumber_VerifybyPII"/>
-                </methods>
-                <methods>
                     <include name="TC006_EnrollinNewProgram_old_SEG_CRC_number_VerifybyPII"/>
-                </methods>
-                <methods>
                     <include name="TC009_EnrollinNewProgram_PlentiCardNumber_VerifybyPII"/>
-                </methods>
-                <methods>
                     <include name="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII"/>
                 </methods>
             </class>

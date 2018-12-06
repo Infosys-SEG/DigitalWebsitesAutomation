@@ -23,6 +23,7 @@ public class Pre_Enrolled_Customers_Flow
 		Browserbanner br=new Browserbanner();
 		Computed_PreEnrollment_Flow cp= new Computed_PreEnrollment_Flow();
 		driver=br.BrowserBanner(driver, functionality);
+		driver = br.Clearcookie(driver, functionality);
 		driver=cp.neworpresignup(driver,tcname);
 		driver=cp.neworprecardnumber(driver, functionality, tcname);
 		driver=cp.neworprecontactinfo(driver, functionality, tcname);
@@ -39,6 +40,7 @@ public class Pre_Enrolled_Customers_Flow
 		Browserbanner br=new Browserbanner();
 		Computed_PreEnrollment_Flow cp= new Computed_PreEnrollment_Flow();
 		driver=br.BrowserBanner(driver, functionality);
+		driver = br.Clearcookie(driver, functionality);
 		driver=cp.neworpresignup(driver,tcname);
 		driver=cp.neworprecardnumber(driver, functionality, tcname);
 		driver=cp.neworprecontactinfo(driver, functionality, tcname);
@@ -55,6 +57,7 @@ public class Pre_Enrolled_Customers_Flow
 		Browserbanner br=new Browserbanner();
 		Computed_PreEnrollment_Flow cp= new Computed_PreEnrollment_Flow();
 		driver=br.BrowserBanner(driver, functionality);
+		driver = br.Clearcookie(driver, functionality);
 		driver=cp.neworpresignup(driver,tcname);
 		driver=cp.neworprecardnumber(driver, functionality, tcname);
 		driver=cp.neworprecontactinfo(driver, functionality, tcname);

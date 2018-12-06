@@ -8,14 +8,8 @@
             <class name="executableClass.Enrollment_Status_Directions">
                 <methods>
                     <include name="TC001_check_navigation_for_Fullyenrolled_User"/>
-                </methods>
-                <methods>
                     <include name="TC002_check_navigation_for_PreEnrolled_User"/>
-                </methods>
-                <methods>
                     <include name="TC003_check_navigation_for_New_User"/>
-                </methods>
-                <methods>
                     <include name="TC004_check_navigation_for_Fully_Enrolled_but_not_linked"/>
                 </methods>
             </class>

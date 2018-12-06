@@ -8,29 +8,13 @@
             <class name="executableClass.Reset_PIN">
                 <methods>
                     <include name="TC001_Reset_PIN_Account_settings_page"/>
-                </methods>
-                <methods>
                     <include name="TC002_Reset_PIN_Account_settings_page_cancel"/>
-                </methods>
-                <methods>
                     <include name="TC003_Error_message_validation__unmatched_PIN"/>
-                </methods>
-                <methods>
                     <include name="TC004_Error_message_validation_repeating_digit_PIN_number"/>
-                </methods>
-                <methods>
                     <include name="TC005_Error_message_validation_easily_guessable_format"/>
-                </methods>
-                <methods>
                     <include name="TC006_Error_message_validation_last_4_digit_of_registered_phone_number_as_new_PIN"/>
-                </methods>
-                <methods>
                     <include name="TC007_Error_message_validation_registered_HouseNumber_as_new_PIN"/>
-                </methods>
-                <methods>
                     <include name="TC008_Error_message_validation_Last__4_digits_of_CRC"/>
-                </methods>
-                <methods>
                     <include name="TC009_Error_message_validation_user_fails_to_set_pin_after_3_tries"/>
                 </methods>
             </class>

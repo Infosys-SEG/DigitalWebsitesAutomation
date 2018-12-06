@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="executableClass.SoftLogin">
+      <class name="executableClass.Pre_Enrolled_Customers_Flow">
         <methods>
-          <include name="TC003_SoftLogin_loggedout_user"/>
+          <include name="TC001_EnrollNewProgram_Phonenumber"/>
         </methods>
-      </class> <!-- executableClass.SoftLogin -->
+      </class> <!-- executableClass.Pre_Enrolled_Customers_Flow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

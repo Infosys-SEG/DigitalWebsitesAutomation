@@ -88,7 +88,8 @@ public class Computed_Personalisedoffers
 			obj.waitForElement(driver, weeklyadpage.txt_Your_WeeklyAd_Text);
 			if(weeklyadpage.isDisplayed_txt_Your_WeeklyAd_Text())
 			{
-				obj.scrollingToElementofAPage(driver, personalizedofferspage.click_View_Deals_Link);
+				
+				obj.movetoElementofAPage(driver, personalizedofferspage.click_View_Deals_Link);
 				personalizedofferspage.click_click_View_Deals_Link();
 			}
 			else

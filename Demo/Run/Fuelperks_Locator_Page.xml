@@ -8,8 +8,6 @@
             <class name="executableClass.Fuelperks_Locator_Page">
                 <methods>
                     <include name="TC001_Fuelperks_locator_Search_with_ZIP"/>
-                </methods>
-                <methods>
                     <include name="TC002_Fuelperks_locator_Search_with_city_and_state"/>
                 </methods>
             </class>

@@ -8,14 +8,8 @@
             <class name="executableClass.Login_Or_Signup_Global_Nav">
                 <methods>
                     <include name="TC001_Log_inSign_up_Global_nav"/>
-                </methods>
-                <methods>
                     <include name="TC002_LogInSign_FullyEnrolled_Linked_to_SEG_rewards"/>
-                </methods>
-                <methods>
                     <include name="TC003_LogInSign_FullyEnrolled_NOT_Linked_to_SEG_rewards"/>
-                </methods>
-                <methods>
                     <include name="TC004_LogInSign_Pre_Enrolled_User"/>
                 </methods>
             </class>

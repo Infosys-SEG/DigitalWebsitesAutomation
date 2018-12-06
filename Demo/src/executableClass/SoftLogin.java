@@ -20,7 +20,7 @@ import generatedClass.POM_Generated_Homepage;
 
 public class SoftLogin 
 {
-	WebDriver driver = null;
+	WebDriver driver;
 	String functionality="SoftLogin";
 	
 	@Test (priority=1)
@@ -34,16 +34,21 @@ public class SoftLogin
 		Computed_Personalisedoffers po=new Computed_Personalisedoffers();
 		Computed_WeeklyAd wa=new Computed_WeeklyAd();
 		Computed_Static_Info_bar sib = new Computed_Static_Info_bar();
+		
 		String prod="";
 		String prodvalu="";
 		int count=0;
 		driver= br.BrowserBanner(driver, functionality);
+		driver=br.Clearcookie(driver, functionality);
+		//homepage.click_click_Close_cookies_Button();
 		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 		driver=dc.Loggedin_Coupons_Homepage(driver, functionality, prod, count);
 		driver=po.Loggedin_Personalisedoffers(driver, functionality);
+		driver=wa.WeeklyAdPage(driver, functionality);
 		driver=wa.AddProduct(driver, prod, count, prodvalu);
 		driver=sib.LoginStaticinfobar_Rewards(driver, functionality);
 		driver=sib.LoginStaticinfobar_MyAccount(driver, functionality, functionality);
+		driver.close();
 	}
 	
 	@Test(priority=2)
@@ -54,9 +59,12 @@ public class SoftLogin
 		Browserbanner br=new Browserbanner();
 		Computed_SoftLogin softlogin= new Computed_SoftLogin();
 		Computed_Static_Info_bar sib = new Computed_Static_Info_bar();
+		
 		driver= br.BrowserBanner(driver, functionality);
+		driver=br.Clearcookie(driver, functionality);
 		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 		driver=sib.LoginStaticinfobar_MyAccount(driver, functionality, functionality);
+		driver.close();
 	}
 	
 	@Test(priority=3)
@@ -69,15 +77,18 @@ public class SoftLogin
 		Computed_Personalisedoffers po=new Computed_Personalisedoffers();
 		Computed_WeeklyAd wa=new Computed_WeeklyAd();
 		Computed_MyRewards mr= new Computed_MyRewards();
-		
+	
 		String prod="";
 		String prodvalu="";
 		int count=0;
 		driver= br.BrowserBanner(driver, functionality);
+		driver=br.Clearcookie(driver, functionality);
+	
 		driver=dc.Loggedout_Coupons_Homepage(driver, functionality);
 		driver=po.Loggedout_Personalisedoffers(driver, functionality);
 		driver=wa.WeeklyAdPage(driver, functionality);
 		driver=wa.AddProduct(driver, prod, count, prodvalu);
-		driver=mr.loggedout_Myreward(driver, functionality);
+		driver=mr.loggedout_Myreward_loginpopup(driver, functionality);
+		driver.close();
 	}
 }

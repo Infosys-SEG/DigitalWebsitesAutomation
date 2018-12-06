@@ -24,24 +24,24 @@ public class Computed_SoftLogin
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_SoftLoginPage softloginpage = new POM_Generated_SoftLoginPage(driver);
 		Data obj=new Data();
+		WebElement logo = null;
 		
-		String Softloginhomepagehy="Harveys Supermarkets Home";
-		String Softloginhomepagewd="Winn-Dixie | Your Neighborhood Grocery Store";
-		String Softloginhomepagebi="BI-LO® - Real Savings Real Fresh";
-		String Softloginhomepage="";
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", functionality);
 		
 		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 		{
-			Softloginhomepage=Softloginhomepagewd;
+			
+			logo=homepage.click_Winndixie_logo;
 		}
 		else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 		{
-			Softloginhomepage=Softloginhomepagebi;
+			
+			logo = homepage.click_Bilo_logo;
 		}
 		else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 		{
-			Softloginhomepage=Softloginhomepagehy;
+			
+			logo = homepage.click_Harveys_logo;
 		}
 		try
 		{		
@@ -49,6 +49,9 @@ public class Computed_SoftLogin
 		    String Softlogin_Phone_number1= Readexcel_RowName.getValue("Softlogin_Phone_number");
 		    String Softlogin_Zipcode1= Readexcel_RowName.getValue("Softlogin_Zipcode");
 		  
+		    obj.waitForElementClickable(driver, logo);
+			logo.click();
+			
 			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
 	    	obj.scrollingToElementofAPage(driver, (WebElement) homepage.click_Save_Coupon_Button);
 	  		//obj.waitForElementClickable(driver, (WebElement) sl.click_HomePage_Coupons_Button_List);
@@ -74,15 +77,16 @@ public class Computed_SoftLogin
 			softloginpage.type_txt_Zipcode_Field(Softlogin_Zipcode1);
 			softloginpage.click_click_Submit_Button();
 			obj.waitForElement(driver, homepage.click_Logout_button);
-			String title1=driver.getTitle();
-			if(title1.equals(Softloginhomepage))
+
+			
+			if(homepage.isDisplayed_click_Logout_button())
 			{	
 				Reporter.log("Logged in successfully using SoftLogin");
 			}
 			else
 			{
 				Assert.fail("Softlogin failed");
-			}		
+			}
 		}
 		catch (Exception e)
 		{
@@ -135,7 +139,7 @@ public class Computed_SoftLogin
 		}
 		catch (Exception e)
 		{
-			Assert.fail("Error in Softlogin Page or invalid credentials");
+				Assert.fail("Error in Softlogin Page or invalid credentials");
 	    }	
 		
 		

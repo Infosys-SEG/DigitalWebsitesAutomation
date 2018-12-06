@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.Reporter;
 import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_Homepage;
@@ -227,100 +229,55 @@ public class Computed_MyRewards
 		
 		return driver;
 	}
-	@Test
-	public WebDriver loggedout_Myreward(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	
+	public WebDriver loggedout_Myreward_loginpopup(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_LoggedOut_RewardsPage logoutrewardspage = new POM_Generated_LoggedOut_RewardsPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_SoftLoginPage softloginpage = new POM_Generated_SoftLoginPage(driver);
 		Data obj1 =new Data();
 		String global="Global";
-		String value="";
 		
+		WebElement logo = null;
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",global,Functionality);
     	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
     	{  	
-    		value="winndixie";
+    		
+    		logo = homepage.click_Winndixie_logo;
     		
         }
     	if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
     	{
-    		value="bi-lo";
+    		
+    		logo= homepage.click_Bilo_logo;
     	}
     	if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
     	{
-    		value="harveyssupermarkets";
+    	
+    		logo=homepage.click_Harveys_logo;
     	}
-    	String hom= driver.getCurrentUrl();
+    	
+    	obj1.scrollingToElementofAPage(driver, logo);
+    	logo.click();
     	obj1.waitForElement(driver, homepage.click_Rewards_link_Hover);
     	homepage.hover_click_Rewards_link_Hover();
     	homepage.click_click_Rewards_Rewards_Button();
-    	logoutrewardspage.click_click_RegisterNow_Button_1();
-    	String reg=driver.getCurrentUrl();
-    	String reg1="https://scqa."+value+".com/register-now";
-    	if(reg1.equalsIgnoreCase(reg))
-    	{
-    		System.out.println("User is navigated to register now page");
-    	}
-    	Thread.sleep(100);
-    	driver.navigate().to(hom);
-    	obj1.waitForElement(driver, homepage.click_Rewards_link_Hover);
-    	homepage.hover_click_Rewards_link_Hover();
-    	homepage.click_click_Rewards_Rewards_Button();
-        Thread.sleep(200);
+       obj1.waitForElementClickable(driver, logoutrewardspage.click_Rewards_Login_Button);
         
-    	//logged out rewards page title
-    	String title2=driver.getTitle();
-		System.out.println("Logged out rewards page title:"+title2);
-		
-		//validating logged out rewards page URL
-    	String lorurl=driver.getCurrentUrl();
-		String lorurl1="https://scqa."+value+".com/rewards-logged-out";
-		if(lorurl.equalsIgnoreCase(lorurl1))
-		{
-			System.out.println("User is navigated to logged out rewards page");
-		}
-		else
-		{
-			System.out.println("User is not navigated to logged out rewards page");
-		}
-		
-		//Logged out rewards page header
-		String a1=logoutrewardspage.getText_txt_Rewards_Title_Text();
-		System.out.println("Logged out rewards page header:" +a1);
+    	
 		
 		//Functionality of Login button in logged out rewards page
 		logoutrewardspage.click_click_Rewards_Login_Button();
 		if(softloginpage.isDisplayed_click_Pop_Up_Close_Button())
 		{
-			System.out.println("On clicking Login button,Soft login modal is displayed");
+			Reporter.log("On clicking Login button,Soft login modal is displayed");
 		}
 		else
 		{
-			System.out.println("On clicking Login button,Soft login modal is not displayed");
+			Assert.fail("On clicking Login button,Soft login modal is not displayed");
 		}
 		Thread.sleep(150);
 		softloginpage.click_click_Pop_Up_Close_Button();
-		
-		//functionality of Register now button
-		
-		obj1.scrollingToElementofAPage(driver, logoutrewardspage.click_RegisterNow_Button_2);
-		logoutrewardspage.click_click_RegisterNow_Button_2();
-		String r1="https://scqa."+value+".com/segrewards/account-lookup";
-		String r2 = driver.getCurrentUrl();
-	    if(r1.equalsIgnoreCase(r2))
-	      {
-		  System.out.println("On clicking Register Now button, account look up page is displayed");
-	      }
-	    else
-	    {
-	    	System.out.println("On clicking Register Now button, account look up page is not displayed");	
-	    }
-		driver.navigate().to(lorurl);
-		Thread.sleep(200);
-		String r3=logoutrewardspage.getText_txt_Call_Us_At_Text();
-		String r4=logoutrewardspage.getText_txt_Call_Us_At_MobileNum_Text();
-		System.out.println("Helpline text:" +r3  +r4);
 		
 		return driver;	
 	}

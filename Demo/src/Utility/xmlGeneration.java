@@ -131,7 +131,8 @@ public class xmlGeneration
 			Classname_val.setValue(TestSet_Name);
 			((org.w3c.dom.Element) Class).setAttributeNode(Classname_val);
 			
-			
+			Node methods = (Node) doc.createElement("methods");
+			((Node) Class).appendChild((Node) methods);
 					
 				
 			for (int i = 1; i < s; i++) 
@@ -139,8 +140,7 @@ public class xmlGeneration
 				
 				// adding method name methods include
 				
-				Node methods = (Node) doc.createElement("methods");
-				((Node) Class).appendChild((Node) methods);
+				
 				
 				Node include = (Node) doc.createElement("include");
 				((Node) methods).appendChild((Node) include);

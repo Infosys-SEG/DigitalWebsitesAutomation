@@ -8,8 +8,6 @@
             <class name="executableClass.Persist_Data_During_Enrollment">
                 <methods>
                     <include name="TC001_Enrollment_DataPersistency__ActiveSession"/>
-                </methods>
-                <methods>
                     <include name="TC002_Enrollment_DataPersistency__ClosetheBrower"/>
                 </methods>
             </class>

@@ -8,26 +8,12 @@
             <class name="executableClass.Store_Locator">
                 <methods>
                     <include name="TC001_StoreLocator"/>
-                </methods>
-                <methods>
                     <include name="TC002_StoreLocator_no_search_in_global_nav"/>
-                </methods>
-                <methods>
                     <include name="TC_01_Store_Locator_Page"/>
-                </methods>
-                <methods>
                     <include name="TC_02_Store_Locator_ZipCode"/>
-                </methods>
-                <methods>
                     <include name="TC_03_Store_Locator_ChangeLocation"/>
-                </methods>
-                <methods>
                     <include name="TC_04_Store_Locator_City_And_State"/>
-                </methods>
-                <methods>
                     <include name="TC_06_Search__invalid_Zip_code_More_than_5_digits"/>
-                </methods>
-                <methods>
                     <include name="TC_08_Store_Locator_Page_logged_in"/>
                 </methods>
             </class>

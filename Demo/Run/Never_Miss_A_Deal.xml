@@ -8,8 +8,6 @@
             <class name="executableClass.Never_Miss_A_Deal">
                 <methods>
                     <include name="TC001_Not_picked_up_a_card_in_the_store"/>
-                </methods>
-                <methods>
                     <include name="TC002_UserhasAlreadyPickedupthe_CardatStore"/>
                 </methods>
             </class>

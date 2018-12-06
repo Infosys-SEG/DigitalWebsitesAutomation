@@ -191,8 +191,7 @@ public class Computed_PreEnrollment_Flow
 			{
 				Assert.fail("State is pre populating");
 			}
-		//	String statcod=PE.getValue_ddl_PreEnrollment_State();
-		//	obj.WriteXLSXFile(sn, "State_Code", i, statcod);
+		
 			obj.scrollingToElementofAPage(driver, contactinfopage.txt_Primary_Phone_Number_Field);
 			if (contactinfopage.getValue_txt_Primary_Phone_Number_Field().equals(""))
 			{
@@ -211,6 +210,23 @@ public class Computed_PreEnrollment_Flow
 			{
 				Assert.fail("ZipCode is pre populating");
 			}
+			
+			if(!(contactinfopage.isSelected_click_TextMeOffers_Yes_Button() || contactinfopage.isSelected_click_TextMeOffers_No_Button()))
+			{
+				if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("Y"))
+				{
+					contactinfopage.click_click_TextMeOffers_Yes_Button();
+				}
+				else
+				{
+					contactinfopage.click_click_TextMeOffers_No_Button();
+				}
+			}
+			else
+			{
+				Assert.fail("Text_Me_Offers radio button is already selected");
+			}
+				
 			contactinfopage.click_click_Submit_Form_Button();;			
 			obj.waitForElementClickable(driver, accountsecuritypage.txt_Email_Address_Field);
 			
@@ -230,7 +246,7 @@ public class Computed_PreEnrollment_Flow
 		POM_Generated_AccountSecurityPage accountsecuritypage = new  POM_Generated_AccountSecurityPage(driver);
 		POM_Generated_CongratulationsPage congratulationspage = new POM_Generated_CongratulationsPage(driver);
 		Data obj=new Data();
-		String congrats="Thank you for signing up!";
+		
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality , TCName);
 		try
@@ -298,14 +314,14 @@ public class Computed_PreEnrollment_Flow
 			
 			obj.waitForElement(driver, congratulationspage.txt_ThankYou_Message_Text);
 			
-			String s3=congratulationspage.getText_txt_ThankYou_Message_Text();
-			if(s3.equalsIgnoreCase(congrats))
+			
+			if(congratulationspage.isDisplayed_txt_ThankYou_Message_Text())
 			{
 				Reporter.log("Congratulations Message is displayed correctly");
 			}	
 			else
 			{
-				Assert.fail("Error in Congratulations Message");
+				Assert.fail("Congratulations Message not displayed");
 				
 			}
 		}

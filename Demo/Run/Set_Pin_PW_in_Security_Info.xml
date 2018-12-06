@@ -8,38 +8,16 @@
             <class name="executableClass.Set_Pin_PW_in_Security_Info">
                 <methods>
                     <include name="TC001_FullyEnrolled_NavigateTo_PasswordSetScreen_WithCardNumber"/>
-                </methods>
-                <methods>
                     <include name="TC003_FullyEnrolled_NavigateTo_NeverMissaDealPage_WithCardNumber"/>
-                </methods>
-                <methods>
                     <include name="TC004_FullyEnrolled_NoPinNoPassword_WithCardNumber"/>
-                </methods>
-                <methods>
                     <include name="TC005_FullyEnrolledUser_PasswordSetScreen"/>
-                </methods>
-                <methods>
                     <include name="TC006_FullyEnrolledUser_PasswordSetScreen_ErrorMessageValidation"/>
-                </methods>
-                <methods>
                     <include name="TC007_FullyEnrolled_ValidatePinScreen"/>
-                </methods>
-                <methods>
                     <include name="TC008_FullyEnrolledUser_PinSetScreen_ErrorMessageValidation"/>
-                </methods>
-                <methods>
                     <include name="TC011_FullyEnrolled_NavigateTo_PasswordSetScreen_WithPhoneNumber"/>
-                </methods>
-                <methods>
                     <include name="TC013_PreEnrolled_NoPinNoPassword_WithCardNumber"/>
-                </methods>
-                <methods>
                     <include name="TC014_PreEnrolled_NoPinNoPassword_WithPhoneNumber"/>
-                </methods>
-                <methods>
                     <include name="TC015_FullyEnrolled_Check_T_And_C"/>
-                </methods>
-                <methods>
                     <include name="TC016_PreEnrolled_Check_T_And_C"/>
                 </methods>
             </class>

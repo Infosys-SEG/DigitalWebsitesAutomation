@@ -8,14 +8,8 @@
             <class name="executableClass.Pre_Enrolled_Customers_Flow">
                 <methods>
                     <include name="TC001_EnrollNewProgram_Phonenumber"/>
-                </methods>
-                <methods>
                     <include name="TC002_EnrollinNewProgram_old_SEG_CRC_number"/>
-                </methods>
-                <methods>
                     <include name="TC003_EnrollinNewProgram_PlentiCardNumber"/>
-                </methods>
-                <methods>
                     <include name="TC004_EnrollinNewProgram_G_AND_G card number"/>
                 </methods>
             </class>

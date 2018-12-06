@@ -34,6 +34,7 @@ public class Computed_WeeklyAd
 		Data obj=new Data();
 		String url="";
 		String storezip="";
+		WebElement logo = null;
 	    try
     	{
 	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
@@ -42,18 +43,21 @@ public class Computed_WeeklyAd
 	    		storezip="32254";
 	    		value="winndixie";
 	    		url="https://winndixie.pdn.retaileriq.com/weeklyad/storelocator/";
+	    		logo= homepage.click_Winndixie_logo;
 	    	}
 	    	else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 	    	{
 	    		storezip="32256";
 	    		value="bi-lo";
 	    		url="https://bi-lo.pdn.retaileriq.com/weeklyad/storelocator/";
+	    		logo = homepage.click_Bilo_logo;
 	    	}
 	    	else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 	    	{
 	    		storezip="32256";
 	    		value="harveyssupermarkets";
 	    		url="https://harveyssupermarkets.pdn.retaileriq.com/weeklyad/storelocator/";	
+	    		logo = homepage.click_Harveys_logo;
 	    	}
 	    	String wa_orP="https://"+value+".pdn.retaileriq.com/weeklyad/ - Google Chrome";
 	    	String ie="Windows Security";
@@ -68,6 +72,8 @@ public class Computed_WeeklyAd
 	    	}
 	    	String Val = obj.popuppath()+" "+bro;
     	
+	    	obj.waitForElementClickable(driver, logo);
+	    	logo.click();
     		obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
     		Runtime.getRuntime().exec(Val);
     		
@@ -147,7 +153,7 @@ public class Computed_WeeklyAd
 							weeklyadpage.click_click_Product_AddToList_Overlay_Button();
 							prodvalu=weeklyadpage.click_Product_AddToList_Overlay_Button.getAttribute("productkey");
 							obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);
-							weeklyadpage.click_click_Product_RemoveFromList_Overlay_Button();					
+							weeklyadpage.click_click_Product_Overlay_Close_Button();					
 							count=count+1;
 							this.count=count;
 							this.prod=prod;
