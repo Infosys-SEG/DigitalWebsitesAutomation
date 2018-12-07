@@ -8,7 +8,7 @@
             <class name="executableClass.User_Status_After_SoftLogin">
                 <methods>
                     <include name="TC001_Soft_login_fully_enrolled_user"/>
-                    <include name="TC002_Soft_login_Pre-enrolled_user"/>
+                    <include name="TC002_Soft_login_Pre_enrolled_user"/>
                 </methods>
             </class>
         </classes>

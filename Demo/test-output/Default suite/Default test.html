@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Dec 06 17:18:00 IST 2018</td>
+<td>Started on:</td><td>Fri Dec 07 10:35:17 IST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>8 seconds (8373 ms)</td>
+<tr><td>Total time:</td><td>63 seconds (63899 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,21 +75,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='executableClass.Static_Infobar_loggedin_Users.TC001_Staticbar_links_Hardlogin()'><b>TC001_Staticbar_links_Hardlogin</b><br>Test class: executableClass.Static_Infobar_loggedin_Users</td>
-<td><div><pre>org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
-Build info: version: &apos;unknown&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
-System info: host: &apos;VDI-HDQ-0027&apos;, ip: &apos;10.211.4.91&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
-Driver info: driver.version: InternetExplorerDriver
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:91)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:241)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:227)
-	at org.openqa.selenium.ie.InternetExplorerDriver.run(InternetExplorerDriver.java:180)
-	at org.openqa.selenium.ie.InternetExplorerDriver.&lt;init&gt;(InternetExplorerDriver.java:172)
-	at org.openqa.selenium.ie.InternetExplorerDriver.&lt;init&gt;(InternetExplorerDriver.java:144)
-	at com.BrowserHelper.BrowserFactory.startbrowser(BrowserFactory.java:46)
-	at executableClass.Browserbanner.BrowserBanner(Browserbanner.java:61)
-	at executableClass.Static_Infobar_loggedin_Users.TC001_Staticbar_links_Hardlogin(Static_Infobar_loggedin_Users.java:31)
+<td title='executableClass.PII_Validation.TC001_Select_PII_Verification_method_to_verify_customer_identity_using_Plenti_Card_number()'><b>TC001_Select_PII_Verification_method_to_verify_customer_identity_using_Plenti_Card_number</b><br>Test class: executableClass.PII_Validation<br/>
+<a href="#Output-1164365897" onClick='toggleBox("Output-1164365897", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1164365897" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1164365897">
+Register button clicked successfully<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: Card Number is already registered or Invalid card number
+	at org.testng.Assert.fail(Assert.java:94)
+	at computedClass.Computed_FullyEnrollment_Flow.fullcardnumber(Computed_FullyEnrollment_Flow.java:67)
+	at executableClass.PII_Validation.TC001_Select_PII_Verification_method_to_verify_customer_identity_using_Plenti_Card_number(PII_Validation.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -115,49 +112,11 @@ Driver info: driver.version: InternetExplorerDriver
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(Unknown Source)
-	at java.net.SocketInputStream.read(Unknown Source)
-	at org.apache.http.impl.conn.LoggingInputStream.read(LoggingInputStream.java:84)
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165)
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:142)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:88)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:108)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:64)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	... 34 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace315072539", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace315072539'><pre>org.openqa.selenium.WebDriverException: java.net.SocketException: Connection reset
-Build info: version: &apos;unknown&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
-System info: host: &apos;VDI-HDQ-0027&apos;, ip: &apos;10.211.4.91&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
-Driver info: driver.version: InternetExplorerDriver
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:91)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:241)
-	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:227)
-	at org.openqa.selenium.ie.InternetExplorerDriver.run(InternetExplorerDriver.java:180)
-	at org.openqa.selenium.ie.InternetExplorerDriver.&lt;init&gt;(InternetExplorerDriver.java:172)
-	at org.openqa.selenium.ie.InternetExplorerDriver.&lt;init&gt;(InternetExplorerDriver.java:144)
-	at com.BrowserHelper.BrowserFactory.startbrowser(BrowserFactory.java:46)
-	at executableClass.Browserbanner.BrowserBanner(Browserbanner.java:61)
-	at executableClass.Static_Infobar_loggedin_Users.TC001_Staticbar_links_Hardlogin(Static_Infobar_loggedin_Users.java:31)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1164365897", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1164365897'><pre>java.lang.AssertionError: Card Number is already registered or Invalid card number
+	at org.testng.Assert.fail(Assert.java:94)
+	at computedClass.Computed_FullyEnrollment_Flow.fullcardnumber(Computed_FullyEnrollment_Flow.java:67)
+	at executableClass.PII_Validation.TC001_Select_PII_Verification_method_to_verify_customer_identity_using_Plenti_Card_number(PII_Validation.java:30)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -183,37 +142,9 @@ Driver info: driver.version: InternetExplorerDriver
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.net.SocketException: Connection reset
-	at java.net.SocketInputStream.read(Unknown Source)
-	at java.net.SocketInputStream.read(Unknown Source)
-	at org.apache.http.impl.conn.LoggingInputStream.read(LoggingInputStream.java:84)
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:282)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138)
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165)
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111)
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72)
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:142)
-	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:88)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:108)
-	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:64)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:141)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	... 34 more
 </pre></div></td>
-<td>8</td>
-<td>executableClass.Static_Infobar_loggedin_Users@56ef9176</td></tr>
+<td>63</td>
+<td>executableClass.PII_Validation@56ef9176</td></tr>
 </table><p>
 </body>
 </html>

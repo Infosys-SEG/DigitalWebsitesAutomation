@@ -1,171 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="5" passed="4">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
     <line>
-      <![CDATA[Reward points are equal :255]]>
-    </line>
-    <line>
-      <![CDATA[My Account page is displayed for hardlogin user by clicking on My Account static info bar]]>
-    </line>
-    <line>
-      <![CDATA[Reward points are equal :255]]>
-    </line>
-    <line>
-      <![CDATA[My Account page is displayed for hardlogin user by clicking on My Account static info bar]]>
-    </line>
-    <line>
       <![CDATA[Logged in successfully using SoftLogin]]>
     </line>
     <line>
-      <![CDATA[Hardlogin successful from my account page]]>
-    </line>
-    <line>
-      <![CDATA[Logged in successfully using SoftLogin]]>
-    </line>
-    <line>
-      <![CDATA[Reward points are equal :255]]>
-    </line>
-    <line>
-      <![CDATA[Hard login window is displayed by clicking on My Account]]>
-    </line>
-    <line>
-      <![CDATA[Logged in successfully using SoftLogin]]>
-    </line>
-    <line>
-      <![CDATA[Reward points are equal :255]]>
-    </line>
-    <line>
-      <![CDATA[Hard login window is displayed by clicking on My Account]]>
+      <![CDATA[Contactinfo page is displayed for preenrolled user through softlogin by clicking one quick thing button]]>
     </line>
   </reporter-output>
-  <suite name="SEG Roadrunner" duration-ms="948210" started-at="2018-12-06T12:23:07Z" finished-at="2018-12-06T12:38:55Z">
+  <suite name="SEG Roadrunner" duration-ms="96408" started-at="2018-12-07T06:54:53Z" finished-at="2018-12-07T06:56:30Z">
     <groups>
     </groups>
-    <test name="Static_Infobar_loggedin_Users__Chrome" duration-ms="948210" started-at="2018-12-06T12:23:07Z" finished-at="2018-12-06T12:38:55Z">
-      <class name="executableClass.Static_Infobar_loggedin_Users">
-        <test-method status="PASS" signature="TC001_Staticbar_links_Hardlogin()[pri:1, instance:executableClass.Static_Infobar_loggedin_Users@1ed4004b]" name="TC001_Staticbar_links_Hardlogin" duration-ms="191976" started-at="2018-12-06T17:53:07Z" finished-at="2018-12-06T17:56:19Z">
-          <reporter-output>
-            <line>
-              <![CDATA[Reward points are equal :255]]>
-            </line>
-            <line>
-              <![CDATA[My Account page is displayed for hardlogin user by clicking on My Account static info bar]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC001_Staticbar_links_Hardlogin -->
-        <test-method status="PASS" signature="TC002_Staticbar_Hardlogin_links_navigation_Homepage()[pri:2, instance:executableClass.Static_Infobar_loggedin_Users@1ed4004b]" name="TC002_Staticbar_Hardlogin_links_navigation_Homepage" duration-ms="159462" started-at="2018-12-06T17:56:19Z" finished-at="2018-12-06T17:58:59Z">
-          <reporter-output>
-            <line>
-              <![CDATA[Reward points are equal :255]]>
-            </line>
-            <line>
-              <![CDATA[My Account page is displayed for hardlogin user by clicking on My Account static info bar]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC002_Staticbar_Hardlogin_links_navigation_Homepage -->
-        <test-method status="FAIL" signature="TC003_Staticbar_Hard_login_links_navigation_Account_setting_page()[pri:3, instance:executableClass.Static_Infobar_loggedin_Users@1ed4004b]" name="TC003_Staticbar_Hard_login_links_navigation_Account_setting_page" duration-ms="101984" started-at="2018-12-06T17:58:59Z" finished-at="2018-12-06T18:00:41Z">
-          <exception class="org.openqa.selenium.WebDriverException">
-            <message>
-              <![CDATA[unknown error: Element <img src="/-/media/media/common framework media/logos/winndixie_logo.png?la=en&amp;mw=1382" alt="Winn-Dixie logo" width="260" height="39"> is not clickable at point (213, 49). Other element would receive the click: <div class="SEGHardLoginModal modal in" tabindex="-1" id="SEGHardLoginModal" data-backdrop="true" role="dialog" aria-described="Login form" style="display: block;">...</div>
-  (Session info: chrome=70.0.3538.110)
-  (Driver info: chromedriver=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 52 milliseconds
-Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
-System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:51346}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90), userDataDir=C:\Users\ragunk\AppData\Local\Temp\scoped_dir7212_14981}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=70.0.3538.110, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 60701cc4ff3960539373d93c3021cea5]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: unknown error: Element <img src="/-/media/media/common framework media/logos/winndixie_logo.png?la=en&amp;mw=1382" alt="Winn-Dixie logo" width="260" height="39"> is not clickable at point (213, 49). Other element would receive the click: <div class="SEGHardLoginModal modal in" tabindex="-1" id="SEGHardLoginModal" data-backdrop="true" role="dialog" aria-described="Login form" style="display: block;">...</div>
-  (Session info: chrome=70.0.3538.110)
-  (Driver info: chromedriver=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 52 milliseconds
-Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
-System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:51346}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90), userDataDir=C:\Users\ragunk\AppData\Local\Temp\scoped_dir7212_14981}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, version=70.0.3538.110, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
-Session ID: 60701cc4ff3960539373d93c3021cea5
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:635)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:274)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy5.click(Unknown Source)
-	at computedClass.Computed_MyStore.SetStore(Computed_MyStore.java:45)
-	at executableClass.Static_Infobar_loggedin_Users.TC003_Staticbar_Hard_login_links_navigation_Account_setting_page(Static_Infobar_loggedin_Users.java:74)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1129)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:746)
-	at org.testng.TestRunner.run(TestRunner.java:600)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
-	at org.testng.TestNG.runSuites(TestNG.java:1104)
-	at org.testng.TestNG.run(TestNG.java:1076)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+    <test name="User_Status_After_SoftLogin__Chrome" duration-ms="96408" started-at="2018-12-07T06:54:53Z" finished-at="2018-12-07T06:56:30Z">
+      <class name="executableClass.User_Status_After_SoftLogin">
+        <test-method status="PASS" signature="TC001_Soft_login_fully_enrolled_user()[pri:1, instance:executableClass.User_Status_After_SoftLogin@1ed4004b]" name="TC001_Soft_login_fully_enrolled_user" duration-ms="54517" started-at="2018-12-07T12:24:53Z" finished-at="2018-12-07T12:25:48Z">
           <reporter-output>
             <line>
               <![CDATA[Logged in successfully using SoftLogin]]>
             </line>
-            <line>
-              <![CDATA[Hardlogin successful from my account page]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- TC003_Staticbar_Hard_login_links_navigation_Account_setting_page -->
-        <test-method status="PASS" signature="TC004_Staticbar_links_Softlogin()[pri:4, instance:executableClass.Static_Infobar_loggedin_Users@1ed4004b]" name="TC004_Staticbar_links_Softlogin" duration-ms="249469" started-at="2018-12-06T18:00:41Z" finished-at="2018-12-06T18:04:50Z">
+        </test-method> <!-- TC001_Soft_login_fully_enrolled_user -->
+        <test-method status="PASS" signature="TC002_Soft_login_Pre_enrolled_user()[pri:2, instance:executableClass.User_Status_After_SoftLogin@1ed4004b]" name="TC002_Soft_login_Pre_enrolled_user" duration-ms="41853" started-at="2018-12-07T12:25:48Z" finished-at="2018-12-07T12:26:30Z">
           <reporter-output>
             <line>
-              <![CDATA[Logged in successfully using SoftLogin]]>
-            </line>
-            <line>
-              <![CDATA[Reward points are equal :255]]>
-            </line>
-            <line>
-              <![CDATA[Hard login window is displayed by clicking on My Account]]>
+              <![CDATA[Contactinfo page is displayed for preenrolled user through softlogin by clicking one quick thing button]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC004_Staticbar_links_Softlogin -->
-        <test-method status="PASS" signature="TC005_Staticbar_Softlogin_links_navigation_Homepage()[pri:5, instance:executableClass.Static_Infobar_loggedin_Users@1ed4004b]" name="TC005_Staticbar_Softlogin_links_navigation_Homepage" duration-ms="245242" started-at="2018-12-06T18:04:50Z" finished-at="2018-12-06T18:08:55Z">
-          <reporter-output>
-            <line>
-              <![CDATA[Logged in successfully using SoftLogin]]>
-            </line>
-            <line>
-              <![CDATA[Reward points are equal :255]]>
-            </line>
-            <line>
-              <![CDATA[Hard login window is displayed by clicking on My Account]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC005_Staticbar_Softlogin_links_navigation_Homepage -->
-      </class> <!-- executableClass.Static_Infobar_loggedin_Users -->
-    </test> <!-- Static_Infobar_loggedin_Users__Chrome -->
+        </test-method> <!-- TC002_Soft_login_Pre_enrolled_user -->
+      </class> <!-- executableClass.User_Status_After_SoftLogin -->
+    </test> <!-- User_Status_After_SoftLogin__Chrome -->
   </suite> <!-- SEG Roadrunner -->
 </testng-results>

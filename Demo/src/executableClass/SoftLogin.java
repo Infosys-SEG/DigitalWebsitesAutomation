@@ -9,14 +9,12 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import Utility.Data;
 import computedClass.Computed_Digital_Coupons;
 import computedClass.Computed_MyRewards;
 import computedClass.Computed_Personalisedoffers;
 import computedClass.Computed_SoftLogin;
 import computedClass.Computed_Static_Info_bar;
 import computedClass.Computed_WeeklyAd;
-import generatedClass.POM_Generated_Homepage;
 
 public class SoftLogin 
 {
@@ -40,7 +38,7 @@ public class SoftLogin
 		int count=0;
 		driver= br.BrowserBanner(driver, functionality);
 		driver=br.Clearcookie(driver, functionality);
-		//homepage.click_click_Close_cookies_Button();
+		
 		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 		driver=dc.Loggedin_Coupons_Homepage(driver, functionality, prod, count);
 		driver=po.Loggedin_Personalisedoffers(driver, functionality);

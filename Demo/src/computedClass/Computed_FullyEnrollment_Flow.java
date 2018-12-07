@@ -17,6 +17,7 @@ import generatedClass.POM_Generated_AccountSecurityPage;
 import generatedClass.POM_Generated_CongratulationsPage;
 import generatedClass.POM_Generated_ContactInfoPage;
 import generatedClass.POM_Generated_Homepage;
+import generatedClass.POM_Generated_One_Quick_Thing_Popup;
 import generatedClass.POM_Generated_VerificationPage;
 public class Computed_FullyEnrollment_Flow 
 {
@@ -38,15 +39,16 @@ public class Computed_FullyEnrollment_Flow
 	}
 
 	//Account lookup page 
-	public WebDriver fullcardnumber(WebDriver driver, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver fullcardnumber(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_AccountLookupPage accountlookuppage = new POM_Generated_AccountLookupPage(driver);
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
+		POM_Generated_One_Quick_Thing_Popup onequickthing = new POM_Generated_One_Quick_Thing_Popup(driver);
 		Data obj= new Data();
 	   
 		try
 		{
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet","FullyEnrolled",TCName); 	
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName); 	
 			
 			obj.waitForElementClickable(driver, accountlookuppage.txt_Card_Number_Field);
 			if(Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("Card")||Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("CRC"))
@@ -59,6 +61,9 @@ public class Computed_FullyEnrollment_Flow
 			}
 			obj.scrollingToElementofAPage(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
 			accountlookuppage.click_click_Get_Started_With_SEG_Button();	
+			obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
+			onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
+			
 			obj.waitForElement(driver, verificationpage.txt_VerificationPage_HeaderName_Text);
 		
 		}
@@ -69,7 +74,7 @@ public class Computed_FullyEnrollment_Flow
 		return driver;
 	}	
 	
-	public WebDriver Verificationpage(WebDriver driver, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver Verificationpage(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		
@@ -78,7 +83,7 @@ public class Computed_FullyEnrollment_Flow
 	   
 		try
 		{
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet","FullyEnrolled",TCName); 	
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName); 	
 	
 			
 			if(!verificationpage.getText_txt_VerificationPage_HeaderName_Text().equals("Hi "+Readexcel_RowName.getValue("FirstName")+"! Thanks for helping us find your account"))
@@ -112,14 +117,14 @@ public class Computed_FullyEnrollment_Flow
 	
 	
 	//Verify by PII page
-	public WebDriver fullverifybypii(WebDriver driver, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver fullverifybypii(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		Data obj=new Data();
 		try
 		{
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet","FullyEnrolled", TCName);	
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality, TCName);	
 			verificationpage.type_txt_PII_Verification_Month_Field(Readexcel_RowName.getValue("Month"));
 			verificationpage.type_txt_PII_Verification_Date_Field(Readexcel_RowName.getValue("Date"));
 			verificationpage.type_txt_PII_Verification_Year_Field(Readexcel_RowName.getValue("Year"));
@@ -148,14 +153,14 @@ public class Computed_FullyEnrollment_Flow
 	}
 	
 	//Contact info page
-	public WebDriver fullcontactinfo(WebDriver driver,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver fullcontactinfo(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		POM_Generated_AccountSecurityPage accountsecuritypage = new POM_Generated_AccountSecurityPage(driver);
 		Data obj=new Data();
 	    try
 	    {
-	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet","FullyEnrolled",TCName);
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		    if(!contactinfopage.getText_txt_HeaderName_Text().equals("Hello "+Readexcel_RowName.getValue("FirstName")))
 		    {		
 		    	Assert.fail("Verification page header is displaying wrongly");
@@ -242,7 +247,7 @@ public class Computed_FullyEnrollment_Flow
 	}
 	
 	//Account info page
-	public WebDriver fullaccountinfo(WebDriver driver,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver fullaccountinfo(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 
 		POM_Generated_AccountSecurityPage accountsecuritypage = new POM_Generated_AccountSecurityPage(driver);
@@ -251,7 +256,7 @@ public class Computed_FullyEnrollment_Flow
 	
 		
 	   
-	    new Readexcel_RowName().excelRead("Global_TestData_Sheet","FullyEnrolled",TCName);
+	    new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		try
 		{
 			boolean presentt;
@@ -355,7 +360,11 @@ public class Computed_FullyEnrollment_Flow
 				}
 			}
 			obj.scrollingToElementofAPage(driver, accountsecuritypage.click_Terms_And_Condition_Checkbox);
-			accountsecuritypage.click_click_Terms_And_Condition_Checkbox();
+			if(!accountsecuritypage.isSelected_click_Terms_And_Condition_Checkbox())
+			{
+				accountsecuritypage.click_click_Terms_And_Condition_Checkbox();
+			}
+			
 			boolean present2;
 			try 
 			{

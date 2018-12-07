@@ -20,10 +20,10 @@ public class POMComputed
 			String packAge="generatedClass";   
 			//String sheetName="Specify the package";
 			//String inputfile="Input file Path";
-			String sheetName="AccountSecurityPage";
+			String sheetName="One_Quick_Thing_Popup";
 			String inputfile="\\\\winndixieus.wd.com\\HDQ\\Users\\ragunk\\Desktop\\Automation\\LocatorsSheet.xlsx";
 			
-			String className="POM_Generated_AccountSecurityPage";
+			String className="POM_Generated_One_Quick_Thing_Popup";
 			
 			@SuppressWarnings("resource")
 			XSSFWorkbook wb=new XSSFWorkbook(new FileInputStream(new File(inputfile)));

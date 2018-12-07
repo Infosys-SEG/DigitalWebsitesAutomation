@@ -22,10 +22,10 @@ public class Fully_Enrolled_Customers_Flow
 		Computed_FullyEnrollment_Flow cf= new Computed_FullyEnrollment_Flow();
 		driver=br.BrowserBanner(driver, functionality);
 		driver= cf.fullsignup(driver);
-		driver= cf.fullcardnumber(driver, tcname);
-		driver= cf.fullverifybypii(driver, tcname);
-		driver=cf.fullcontactinfo(driver, tcname);
-		driver=cf.fullaccountinfo(driver, tcname);
+		driver= cf.fullcardnumber(driver, functionality, tcname);
+		driver= cf.fullverifybypii(driver, functionality,tcname);
+		driver=cf.fullcontactinfo(driver,functionality, tcname);
+		driver=cf.fullaccountinfo(driver,functionality, tcname);
 	}
 	
 	@Test
@@ -39,10 +39,10 @@ public class Fully_Enrolled_Customers_Flow
 		Computed_FullyEnrollment_Flow cf= new Computed_FullyEnrollment_Flow();
 		driver=br.BrowserBanner(driver, functionality);
 		driver= cf.fullsignup(driver);
-		driver= cf.fullcardnumber(driver, tcname);
-		driver= cf.fullverifybypii(driver, tcname);
-		driver=cf.fullcontactinfo(driver, tcname);
-		driver=cf.fullaccountinfo(driver, tcname);
+		driver= cf.fullcardnumber(driver, functionality,tcname);
+		driver= cf.fullverifybypii(driver,functionality, tcname);
+		driver=cf.fullcontactinfo(driver, functionality,tcname);
+		driver=cf.fullaccountinfo(driver, functionality,tcname);
 	}
 	
 	@Test
@@ -56,10 +56,10 @@ public class Fully_Enrolled_Customers_Flow
 		Computed_FullyEnrollment_Flow cf= new Computed_FullyEnrollment_Flow();
 		driver=br.BrowserBanner(driver, functionality);
 		driver= cf.fullsignup(driver);
-		driver= cf.fullcardnumber(driver, tcname);
-		driver= cf.fullverifybypii(driver, tcname);
-		driver=cf.fullcontactinfo(driver, tcname);
-		driver=cf.fullaccountinfo(driver, tcname);
+		driver= cf.fullcardnumber(driver, functionality,tcname);
+		driver= cf.fullverifybypii(driver, functionality,tcname);
+		driver=cf.fullcontactinfo(driver, functionality, tcname);
+		driver=cf.fullaccountinfo(driver, functionality,tcname);
 	}
 	
 	@Test
@@ -73,9 +73,9 @@ public class Fully_Enrolled_Customers_Flow
 		Computed_FullyEnrollment_Flow cf= new Computed_FullyEnrollment_Flow();
 		driver=br.BrowserBanner(driver, functionality);
 		driver= cf.fullsignup(driver);
-		driver= cf.fullcardnumber(driver, tcname);
-		driver= cf.fullverifybypii(driver, tcname);
-		driver=cf.fullcontactinfo(driver, tcname);
-		driver=cf.fullaccountinfo(driver, tcname);
+		driver= cf.fullcardnumber(driver,functionality, tcname);
+		driver= cf.fullverifybypii(driver, functionality,tcname);
+		driver=cf.fullcontactinfo(driver, functionality,tcname);
+		driver=cf.fullaccountinfo(driver, functionality,tcname);
 	}
 }

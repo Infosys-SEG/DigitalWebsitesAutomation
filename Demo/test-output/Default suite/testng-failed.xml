@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="executableClass.Static_Infobar_loggedin_Users">
+      <class name="executableClass.PII_Validation">
         <methods>
-          <include name="TC001_Staticbar_links_Hardlogin"/>
+          <include name="TC001_Select_PII_Verification_method_to_verify_customer_identity_using_Plenti_Card_number"/>
         </methods>
-      </class> <!-- executableClass.Static_Infobar_loggedin_Users -->
+      </class> <!-- executableClass.PII_Validation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
