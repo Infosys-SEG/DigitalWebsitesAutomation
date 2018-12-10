@@ -36,6 +36,7 @@ public class Computed_PreEnrollment_Flow
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in Signup page");
 		}
 		return driver;
@@ -70,15 +71,15 @@ public class Computed_PreEnrollment_Flow
 				obj.scrollingToElementofAPage(driver, accountlookuppage.click_Signup_As_New_Member_Button);
 				accountlookuppage.click_click_Signup_As_New_Member_Button();
 			}
-			obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
-			onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
+			/*obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
+			onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();*/
 			obj.waitForElement(driver, contactinfopage.txt_HeaderName_Text)	;
 			
 			Reporter.log("Account lookup page completed successfully");
 		}	
 		catch (Exception e) 
 		{
-			Reporter.log("Invalid Card number or Error in Account lookup page");
+			Assert.fail("Invalid Card number or Error in Account lookup page");
         }
 		return driver;
 	}
@@ -95,6 +96,7 @@ public class Computed_PreEnrollment_Flow
 		{
 			if(!contactinfopage.getText_txt_HeaderName_Text().equals("Hello"))
 			{
+				driver.close();
 				Assert.fail("Contact info header is displaying wrongly");
 			}
 			if (contactinfopage.getValue_ddl_Salutation_Field().equals("--"))
@@ -103,6 +105,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Salutation is pre populating");
 			}
 			if (contactinfopage.getValue_txt_Fname_Field().equals(""))
@@ -111,6 +114,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("FirstName is pre populating");
 			}
 			if (contactinfopage.getValue_txt_Address_Field().equals(""))
@@ -119,6 +123,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Address is pre populating");
 			}
 			if (contactinfopage.getValue_txt_Lname_Field().equals(""))
@@ -127,6 +132,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("LastName is pre populating");
 			}	
 			if (Readexcel_RowName.getValue("Address2")!=null)
@@ -137,6 +143,7 @@ public class Computed_PreEnrollment_Flow
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Additional Address is pre populating");
 				}
 			
@@ -145,6 +152,7 @@ public class Computed_PreEnrollment_Flow
 			{
 				if (!contactinfopage.getValue_txt_Additional_Address_Field().equals(""))
 				{
+					driver.close();
 					Assert.fail("Additional Address is pre populating");
 				}
 			}
@@ -155,6 +163,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Month is pre populating");
 			}	
 			if (contactinfopage.getValue_txt_Date_Field().equals(""))
@@ -163,6 +172,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Date is pre populating");
 			}
 		
@@ -172,6 +182,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Year is pre populating");
 			}	
 			obj.scrollingToElementofAPage(driver, contactinfopage.txt_City_Field);
@@ -181,6 +192,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("City is pre populating");
 			}
 			obj.scrollingToElementofAPage(driver, contactinfopage.ddl_State_Field);
@@ -192,6 +204,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("State is pre populating");
 			}
 		
@@ -202,6 +215,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Primary_Phone_Number is pre populating");
 			}
 			obj.scrollingToElementofAPage(driver, contactinfopage.txt_Zipcode_Field);
@@ -211,6 +225,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("ZipCode is pre populating");
 			}
 			
@@ -227,6 +242,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Text_Me_Offers radio button is already selected");
 			}
 				
@@ -237,6 +253,7 @@ public class Computed_PreEnrollment_Flow
 		}
 		catch (Exception e) 
 		{
+			driver.close();
 			Assert.fail("Error in Contactinfo page");
 			
     	}
@@ -260,6 +277,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Email address is pre populating");
 			}
 		
@@ -269,6 +287,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Password is pre populating");
 			}				
 			if (accountsecuritypage.getValue_txt_Set_Password2_Field().equals(""))
@@ -277,6 +296,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Confirm Password is pre populating");
 			}	 	
 
@@ -286,6 +306,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Pin is pre populating");
 			} 					
 			if (accountsecuritypage.getValue_txt_Set_Pin2_Field().equals(""))
@@ -294,8 +315,11 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Confirm Pin is pre populating");
 			}
+			
+			
 			obj.scrollingToElementofAPage(driver, accountsecuritypage.click_Terms_And_Condition_Checkbox);
 			accountsecuritypage.click_click_Terms_And_Condition_Checkbox();
 			
@@ -324,12 +348,14 @@ public class Computed_PreEnrollment_Flow
 			}	
 			else
 			{
+				driver.close();
 				Assert.fail("Congratulations Message not displayed");
 				
 			}
 		}
 		catch (Exception e) 
 		{	
+			driver.close();
 			Assert.fail("Error in Accountinfo page");
 			
 		}

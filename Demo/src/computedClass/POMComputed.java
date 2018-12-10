@@ -26,6 +26,7 @@ public class POMComputed
 			String className="POM_Generated_One_Quick_Thing_Popup";
 			
 			@SuppressWarnings("resource")
+		
 			XSSFWorkbook wb=new XSSFWorkbook(new FileInputStream(new File(inputfile)));
 			
 			XSSFSheet sheet1=wb.getSheet(sheetName);

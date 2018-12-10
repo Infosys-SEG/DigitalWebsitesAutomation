@@ -69,6 +69,7 @@ public class Computed_FullyEnrollment_Flow
 		}
 		catch (Exception e) 
 		{
+			driver.close();
 			Assert.fail("Card Number is already registered or Invalid card number");
 	    }
 		return driver;
@@ -88,7 +89,8 @@ public class Computed_FullyEnrollment_Flow
 			
 			if(!verificationpage.getText_txt_VerificationPage_HeaderName_Text().equals("Hi "+Readexcel_RowName.getValue("FirstName")+"! Thanks for helping us find your account"))
 			{
-					Assert.fail("Verification page header is displaying wrongly");
+				driver.close();
+				Assert.fail("Verification page header is displaying wrongly");
 			}
 			if(Readexcel_RowName.getValue("Verify_By(SMS/Email/PII)").equalsIgnoreCase("PII")) 
 			{
@@ -109,6 +111,7 @@ public class Computed_FullyEnrollment_Flow
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in verification page");
 		}
 		return driver;
@@ -147,6 +150,7 @@ public class Computed_FullyEnrollment_Flow
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Invalid PII verification details");
 		}
 		return driver;
@@ -163,75 +167,89 @@ public class Computed_FullyEnrollment_Flow
 	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		    if(!contactinfopage.getText_txt_HeaderName_Text().equals("Hello "+Readexcel_RowName.getValue("FirstName")))
 		    {		
+		    	driver.close();
 		    	Assert.fail("Verification page header is displaying wrongly");
 		    }
 		    if (!contactinfopage.getValue_ddl_Salutation_Field().equals(Readexcel_RowName.getValue("Salutation")))
 		    {
+		    	driver.close();
 		    	Assert.fail("Salutation is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Fname_Field().equals(Readexcel_RowName.getValue("FirstName")))
 		    {
+		    	driver.close();
 		    	Assert.fail("First Name is not pre populating");
 			}	
 		    if (!contactinfopage.getValue_txt_Address_Field().equals(Readexcel_RowName.getValue("Address1")))
 		    {
+		    	driver.close();
 		    	Assert.fail("Address is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Lname_Field().equals(Readexcel_RowName.getValue("LastName")))
 		    {
+		    	driver.close();
 		    	Assert.fail("Last Name is not pre populating");
 			}	
 		    if (!(contactinfopage.getValue_txt_Additional_Address_Field()).equals(String.valueOf(Readexcel_RowName.getValue("Address2")).replace( "null","")))
 		    {
+		    	driver.close();
 		    	Assert.fail("Additional address is not pre populating");
 			}
 		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_Month_Field);
 		    if (!contactinfopage.getValue_txt_Month_Field().equals(Readexcel_RowName.getValue("Month")))
 		    {
+		    	driver.close();
 		    	Assert.fail("Month is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Date_Field().equals(Readexcel_RowName.getValue("Date")))
 		    {
+		    	driver.close();
 		    	Assert.fail("Date is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Year_Field().equals(Readexcel_RowName.getValue("Year")))
 		    {
+		    	driver.close();
 		    	Assert.fail("Year is not pre populating");
 			}		
 		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_City_Field);
 		    if (!contactinfopage.getValue_txt_City_Field().equals(Readexcel_RowName.getValue("City")))
 		    {
+		    	driver.close();
 		    	Assert.fail("City is not pre populating");
 			}
 		    obj.scrollingToElementofAPage(driver, contactinfopage.ddl_State_Field);
 		    if (!contactinfopage.getValue_ddl_State_Field().equals(Readexcel_RowName.getValue("State_Code")))
 		    {
+		    	driver.close();
 		    	Assert.fail("State is not pre populating");
 			}
 		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_Primary_Phone_Number_Field);
 			if (!contactinfopage.getValue_txt_Primary_Phone_Number_Field().equals(Readexcel_RowName.getValue("Primary_Phone")))
 			{
+				driver.close();
 				Assert.fail("Primary Phone number is not pre populating");
 			}
 			obj.scrollingToElementofAPage(driver, contactinfopage.txt_Zipcode_Field);
 			if (!contactinfopage.getValue_txt_Zipcode_Field().equals(Readexcel_RowName.getValue("Zip")))
 			{
+				driver.close();
 				Assert.fail("ZipCode is not pre populating");
 			}
-			if((contactinfopage.isSelected_click_TextMeOffers_Yes_Button() || contactinfopage.isSelected_click_TextMeOffers_No_Button()))
+			if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("Y"))
 			{
-				if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("Y"))
+				if(!contactinfopage.isSelected_click_TextMeOffers_Yes_Button())
 				{
-					contactinfopage.click_click_TextMeOffers_Yes_Button();
-				}
-				else
-				{
-					contactinfopage.click_click_TextMeOffers_No_Button();
+					driver.close();
+					Assert.fail("Text_Me_Offers radio button is not selected");
 				}
 			}
-			else
+			else if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("N"))
 			{
-				Assert.fail("Text_Me_Offers radio button is already selected");
+				if(!contactinfopage.isSelected_click_TextMeOffers_No_Button())
+				{
+					driver.close();
+					Assert.fail("Text_Me_Offers radio button is not selected");
+				}
 			}
 		
 			contactinfopage.click_click_Submit_Form_Button();			
@@ -241,6 +259,7 @@ public class Computed_FullyEnrollment_Flow
 	    }
 	    catch(Exception e)
 	    {
+	    	driver.close();
 	    	Assert.fail("Error in contactinfo page");
 	    }
 		return driver;
@@ -281,11 +300,13 @@ public class Computed_FullyEnrollment_Flow
 				{
 					if(!accountsecuritypage.isDisplayed_click_Email_Address_Message_Verify())
 					{	
+						driver.close();
 						Assert.fail("Email message is not displayed");
 					}
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Email address is not pre populating or not matched");
 				}
 			}
@@ -313,6 +334,7 @@ public class Computed_FullyEnrollment_Flow
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Password is pre populating");
 				}				
 				if (accountsecuritypage.getValue_txt_Set_Password2_Field().equals(""))
@@ -321,6 +343,7 @@ public class Computed_FullyEnrollment_Flow
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Confirm Password is pre populating");
 				}
 			}
@@ -348,6 +371,7 @@ public class Computed_FullyEnrollment_Flow
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Pin is pre populating");
 				} 					
 				if (accountsecuritypage.getValue_txt_Set_Pin2_Field().equals(""))
@@ -356,6 +380,7 @@ public class Computed_FullyEnrollment_Flow
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Confirm Pin is pre populating");
 				}
 			}
@@ -403,12 +428,14 @@ public class Computed_FullyEnrollment_Flow
 			}	
 			else
 			{
+				driver.close();
 				Assert.fail("Congratulations Message not displayed");
 				
 			}
 		}
 		catch (Exception e) 
 		{
+			driver.close();
 			Assert.fail("Error in Accountinfo Page");
 	    }
 		return driver;

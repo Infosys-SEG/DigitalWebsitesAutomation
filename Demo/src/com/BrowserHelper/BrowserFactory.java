@@ -31,22 +31,25 @@ public class BrowserFactory
         	chromeOptions.addArguments("--start-maximized");
         	chromeOptions.addArguments("--dns-prefetch-disable");
         	driver = new ChromeDriver(chromeOptions);
-        	     
+        	  driver.get(URL);  
         }
         else if(browserName.equalsIgnoreCase("IE"))
         {
-    
-        	DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-        	capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
-        	
         	System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe"); 
+        	/*DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+        	capabilities.setCapability("requireWindowFocus", true);  
+        	capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
+        	capabilities.setCapability("ie.ensureCleanSession", true);
+        	capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+        	capabilities.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, true);*/     	
         	driver = new InternetExplorerDriver();
         	driver.manage().window().maximize();
+        	//driver.navigate().to(URL);
         }
         
        
        
-        driver.get(URL);
+        driver.get(URL);  
         
       //wait
         Thread.sleep(1000);

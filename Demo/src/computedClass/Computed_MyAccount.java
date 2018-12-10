@@ -158,6 +158,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Salutation").equals(contactinfopage.getValue_ddl_Salutation_Field()))
 						{
+							driver.close();
 							Assert.fail("Salutation has not changed after save");
 						}
 					}
@@ -165,6 +166,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("FirstName").equals(contactinfopage.getValue_txt_Fname_Field()))
 						{
+							driver.close();
 							Assert.fail("FirstName has not changed after save");
 						}
 					}
@@ -172,6 +174,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("LastName").equals(contactinfopage.getValue_txt_Lname_Field()))
 						{
+							driver.close();
 							Assert.fail("LastName has not changed after save");
 						}
 					}
@@ -179,6 +182,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Month").equals(contactinfopage.getValue_txt_Month_Field()))
 						{
+							driver.close();
 							Assert.fail("Month has not changed after save");
 						}
 					}
@@ -186,6 +190,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Date").equals(contactinfopage.getValue_txt_Date_Field()))
 						{
+							driver.close();
 							Assert.fail("Date has not changed after save");
 						}
 					}
@@ -193,6 +198,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Year").equals(contactinfopage.getValue_txt_Year_Field()))
 						{
+							driver.close();
 							Assert.fail("Year has not changed after save");
 						}
 					}
@@ -200,6 +206,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("EmailAddress").equals(accountsecuritypage.getValue_txt_Email_Address_Field()))
 						{
+							driver.close();
 							Assert.fail("EmailAddress has not changed after save");
 						}
 					}
@@ -207,6 +214,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Address1").equals(contactinfopage.getValue_txt_Address_Field()))
 						{
+							driver.close();
 							Assert.fail("Address1 has not changed after save");
 						}
 					}
@@ -214,6 +222,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Address2").equals(contactinfopage.getValue_txt_Additional_Address_Field()))
 						{
+							driver.close();
 							Assert.fail("Address2 has not changed after save");
 						}
 					}
@@ -221,6 +230,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Primary_Phone").equals(contactinfopage.getValue_txt_Primary_Phone_Number_Field()))
 						{
+							driver.close();
 							Assert.fail("Primary_Phone has not changed after save");
 						}
 					}
@@ -228,6 +238,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("City").equals(contactinfopage.getValue_txt_City_Field()))
 						{
+							driver.close();
 							Assert.fail("City has not changed after save");
 						}
 					}
@@ -235,6 +246,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("State").equals(contactinfopage.getValue_ddl_State_Field()))
 						{
+							driver.close();
 							Assert.fail("State has not changed after save");
 						}
 					}
@@ -242,28 +254,34 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Zip").equals(contactinfopage.getValue_txt_Zipcode_Field()))
 						{
+							driver.close();
 							Assert.fail("Zip has not changed after save");
 						}
 					}
 					if(!myaccountpage.getValue_txt_Set_Password1_Field().equalsIgnoreCase(""))
 					{
+						driver.close();
 						Assert.fail("Password1 is displaying some values after saved");
 					}
 					if(!myaccountpage.getValue_txt_Set_Password2_Field().equalsIgnoreCase(""))
 					{
+						driver.close();
 						Assert.fail("Password2 is displaying some values after saved");
 					}
 					if(!myaccountpage.getValue_txt_Set_Pin1_Field().equalsIgnoreCase(""))
 					{
+						driver.close();
 						Assert.fail("Pin1 is displaying some values after saved");
 					}
 					if(!myaccountpage.getValue_txt_Set_Pin2_Field().equalsIgnoreCase(""))
 					{
+						driver.close();
 						Assert.fail("Pin2 is displaying some values after saved");
 					}
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Your changes have been saved. message is not displaying");
 				}	
 			}
@@ -275,81 +293,100 @@ public class Computed_MyAccount
 				{
 					if(!Salutation1.equals(contactinfopage.getValue_ddl_Salutation_Field()))
 					{
+						driver.close();
 						Assert.fail("salutation has changed for cancel");
 					}
 					if(!FirstName1.equals(contactinfopage.getValue_txt_Fname_Field()))
 					{
+						driver.close();
 						Assert.fail("FirstName has changed for cancel");
 					}
 					if(!LastName1.equals(contactinfopage.getValue_txt_Lname_Field()))
 					{
+						driver.close();
 						Assert.fail("LastName has changed for cancel");
 					}
 					if(!Month1.equals(contactinfopage.getValue_txt_Month_Field()))
 					{
+						driver.close();
 						Assert.fail("Month has changed for cancel");
 					}
 					if(!Date1.equals(contactinfopage.getValue_txt_Date_Field()))
 					{
+						driver.close();
 						Assert.fail("Date has changed for cancel");
 					}
 					if(!Year1.equals(contactinfopage.getValue_txt_Year_Field()))
 					{
+						driver.close();
 						Assert.fail("Year has changed for cancel");
 					}
 					if(!EmailAddress1.equals(accountsecuritypage.getValue_txt_Email_Address_Field()))
 					{
+						driver.close();
 						Assert.fail("EmailAddress has changed for cancel");
 					}
 					if(!Address11.equals(contactinfopage.getValue_txt_Address_Field()))
 					{
+						driver.close();
 						Assert.fail("Address1 has changed for cancel");
 					}
 					if(!Address12.equals(contactinfopage.getValue_txt_Additional_Address_Field()))
 					{
+						driver.close();
 						Assert.fail("Address2 has changed for cancel");
 					}
 					if(!Primary_Phone_Number.equals(contactinfopage.getValue_txt_Primary_Phone_Number_Field()))
 					{
+						driver.close();
 						Assert.fail("Primary_Phone_Number has changed for cancel");
 					}
 					if(!City1.equals(contactinfopage.getValue_txt_City_Field()))
 					{
+						driver.close();
 						Assert.fail("City has changed for cancel");
 					}
 					if(!State1.equals(contactinfopage.getValue_ddl_State_Field()))
 					{
+						driver.close();
 						Assert.fail("State has changed for cancel");
 					}
 					if(!Zip1.equals(contactinfopage.getValue_txt_Zipcode_Field()))
 					{
+						driver.close();
 						Assert.fail("Zip has changed for cancel");
 					}
 					if(!myaccountpage.getValue_txt_Set_Password1_Field().equalsIgnoreCase(""))
 					{
+						driver.close();
 						Assert.fail("Password1 is displaying some values after cancel");
 					}
 					if(!myaccountpage.getValue_txt_Set_Password2_Field().equalsIgnoreCase(""))
 					{
+						driver.close();
 						Assert.fail("Password2 is displaying some values after cancel");
 					}
 					if(!myaccountpage.getValue_txt_Set_Pin1_Field().equalsIgnoreCase(""))
 					{
+						driver.close();
 						Assert.fail("Pin1 is displaying some values after cancel");
 					}
 					if(!myaccountpage.getValue_txt_Set_Pin2_Field().equalsIgnoreCase(""))
 					{
+						driver.close();
 						Assert.fail("Pin2 is displaying some values after cancel");
 					}
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Your changes have been not saved. message is not displaying");
 				}	
 			}
 	    }
 	    catch(Exception e)
 	    {
+	    	driver.close();
 	    	Assert.fail("Error in Edit Account Details page");
 	    }
 		return driver;

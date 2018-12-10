@@ -32,4 +32,39 @@ public class PII_Validation
 		driver=FullyEnrollment_Flow.fullverifybypii(driver, functionality, tcname);
 		driver.close();
 	}
+	
+	@Test (priority=2)
+	public void TC013_Verify_that_if_customer_is_already_authenticated_with_cell_number () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as tcname
+		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		Browserbanner browserbanner=new Browserbanner();
+		Computed_FullyEnrollment_Flow FullyEnrollment_Flow = new Computed_FullyEnrollment_Flow();
+	
+		driver= browserbanner.BrowserBanner(driver, functionality);
+		driver= browserbanner.Clearcookie(driver, functionality);
+		driver=FullyEnrollment_Flow.fullsignup(driver);
+		driver=FullyEnrollment_Flow.fullcardnumber(driver,functionality, tcname);
+		driver=FullyEnrollment_Flow.Verificationpage(driver,functionality, tcname);
+		driver=FullyEnrollment_Flow.fullverifybypii(driver, functionality, tcname);
+		driver.close();
+	}
+	
+	
+	@Test (priority=3)
+	public void TC019_Select_PII_Verification_method_to_verify_customer_identity_using_Registered_Phone_number () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as tcname
+		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		Browserbanner browserbanner=new Browserbanner();
+		Computed_FullyEnrollment_Flow FullyEnrollment_Flow = new Computed_FullyEnrollment_Flow();
+	
+		driver= browserbanner.BrowserBanner(driver, functionality);
+		driver= browserbanner.Clearcookie(driver, functionality);
+		driver=FullyEnrollment_Flow.fullsignup(driver);
+		driver=FullyEnrollment_Flow.fullcardnumber(driver,functionality, tcname);
+		driver=FullyEnrollment_Flow.Verificationpage(driver,functionality, tcname);
+		driver=FullyEnrollment_Flow.fullverifybypii(driver, functionality, tcname);
+		driver.close();
+	}
 }

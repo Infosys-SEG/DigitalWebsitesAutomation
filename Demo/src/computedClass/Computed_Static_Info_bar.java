@@ -73,17 +73,19 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Weekly ad text is not displaying");
 				}
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Weekly ad link is not displaying");
 			}
 		}
 		catch(Exception e)
 		{
-			System.out.println(e);
+			driver.close();
 			Assert.fail("Error in weekly ad link");
 		}
 		return driver;
@@ -131,6 +133,7 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("My Rewards text is not displaying");
 				}
 				staticinfobar.click_click_Static_info_My_Rewards_Link();
@@ -144,17 +147,20 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
+					driver.close();
 					Assert.fail("Different points");
 				}
 				logo.click();			
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("My Rewards link is not displaying");
 			}	
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in rewards link");
 		}
 	return driver;
@@ -196,6 +202,7 @@ public class Computed_Static_Info_bar
 			{
 				if(!staticinfobar.isDisplayed_click_Static_info_My_Account_Text())
 				{
+					driver.close();
 					Assert.fail("My Account text is not displaying");
 				}
 				staticinfobar.click_click_Static_info_My_Account_Link();
@@ -210,6 +217,7 @@ public class Computed_Static_Info_bar
 					}
 					else
 					{
+						driver.close();
 						Assert.fail("Hard Login popup is not displaying");
 					}
 				}
@@ -223,17 +231,20 @@ public class Computed_Static_Info_bar
 					}
 					else
 					{
+						driver.close();
 						Assert.fail("My Account page is displayed for hardlogin user by clicking on My Account static info bar");
 					}
 				}
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("My Account link is not displaying");
 			}	
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in MyAccount link");
 		}
 		

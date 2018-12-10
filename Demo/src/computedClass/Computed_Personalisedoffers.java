@@ -94,12 +94,14 @@ public class Computed_Personalisedoffers
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Error in Your WeeklyAd text");
 			
 			}
 		}
 	    catch(Exception e)
 	    {
+	    	driver.close();
 	    	Assert.fail("Error in personalised offers page");
 		}	
 	    return driver; 	
@@ -188,12 +190,14 @@ public class Computed_Personalisedoffers
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Error in Your WeeklyAd text");
 			
 			}
 		}
 	    catch(Exception e)
 	    {
+	    	driver.close();
 	    	Assert.fail("Error in Weekly Ad page");
 		}	
 	    return driver; 	

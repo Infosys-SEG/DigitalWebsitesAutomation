@@ -87,11 +87,13 @@ public class Computed_SoftLogin
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Softlogin failed");
 			}
 		}
 		catch (Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in Softlogin Page or invalid credentials");
 	    }	
 		return driver;	
@@ -156,12 +158,14 @@ public class Computed_SoftLogin
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Softlogin failed");
 			}		
 		}
 		catch (Exception e)
 		{
-				Assert.fail("Error in Softlogin Page or invalid credentials");
+			driver.close();
+			Assert.fail("Error in Softlogin Page or invalid credentials");
 	    }	
 		
 		
@@ -228,12 +232,14 @@ public class Computed_SoftLogin
 			}
 			else
 			{
+				driver.close();
 				Assert.fail("Contactinfo page is not displayed for preenrolled user through softlogin by clicking one quick thing button");
 			}		
 		}
 		catch (Exception e)
 		{
-				Assert.fail("Error in Softlogin Page or one quick thing popup");
+			driver.close();
+			Assert.fail("Error in Softlogin Page or one quick thing popup");
 	    }	
 		
 		

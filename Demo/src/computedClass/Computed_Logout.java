@@ -23,11 +23,13 @@ public class Computed_Logout
 			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);
 			if(!homepage.isDisplayed_click_Login_Or_Signup_Button())
 			{
+				driver.close();
 				Assert.fail("Error in Logout Page");
 			}
 		}
 		catch(Exception e)
 	    {
+			driver.close();
 	    	Assert.fail("Error in Logout Page");
 	    	
 	    }

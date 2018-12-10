@@ -34,6 +34,7 @@ public class Computed_Shopping_List
 			int scl=Integer.parseInt(sc);
 			if(scl!=count)
 			{
+				driver.close();
 				Assert.fail("count not updated");
 			}
 			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
@@ -147,6 +148,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==false)
 		    	{
+		    		driver.close();
 		    		Assert.fail("Products are not added in shoppinglist");
 		    		
 		    	}
@@ -155,6 +157,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==false)
 		    	{
+		    		driver.close();
 		    		Assert.fail("Products are not removed in shoppinglist");
 		    		
 		    	}
@@ -163,6 +166,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==false)
 		    	{
+		    		driver.close();
 		    		Assert.fail("Products are not removed from shoppinglist");
 		    		
 		    	}
@@ -173,6 +177,7 @@ public class Computed_Shopping_List
 	    }
 	    catch(Exception e)
 	    {
+	    	driver.close();
 	    	Assert.fail("Error in shopping list");
 	    	obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
 	    	shoppinglistpage.click_click_Close_Button();
@@ -194,6 +199,7 @@ public class Computed_Shopping_List
 			int scl=Integer.parseInt(sc);
 			if(scl!=count)
 			{
+				driver.close();
 				Assert.fail("count not updated");
 			}
 			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
@@ -285,6 +291,7 @@ public class Computed_Shopping_List
 			   
 				if(chk==false)
 				{
+					driver.close();
 					Assert.fail("Coupons are not added in shoppinglist");
 			    		
 				}
@@ -294,6 +301,7 @@ public class Computed_Shopping_List
 	    }
 	    catch(Exception e)
 	    {
+	    	driver.close();
 	    	Assert.fail("Error in shopping list");
 	    	obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
 	    	shoppinglistpage.click_click_Close_Button();

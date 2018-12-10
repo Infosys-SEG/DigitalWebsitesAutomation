@@ -74,6 +74,7 @@ public class Computed_EnrollmentVerify
     	}
     	catch(Exception e)
 		{
+    		driver.close();
 			Assert.fail("Error in Fuel rewards page after enrollment");
 		}	
 	    try
@@ -89,6 +90,7 @@ public class Computed_EnrollmentVerify
 	    }
 	    catch(Exception e)
 		{
+	    	driver.close();
 			Assert.fail("Error in Digital coupons page after enrollment");
 			
 		}	
@@ -101,12 +103,14 @@ public class Computed_EnrollmentVerify
 		    String namev= loginrewardspage.getText_txt_MyRewards_Name_Verify();
 		    if(!namev.equals("Hello "+Readexcel_RowName.getValue("FirstName")+"!"))
 		    {
+		    	driver.close();
 		    	Assert.fail("Incorrect rewards page");
 		    }
 		    obj.waitForElementClickable(driver, loginrewardspage.click_MyRewards_Edit_Acc_Det_Link);
 	    }
 	    catch(Exception e)
 	    {
+	    	driver.close();
 			Assert.fail("Error in rewards page after enrollment");
 			
 		}	
@@ -117,42 +121,52 @@ public class Computed_EnrollmentVerify
 	    	obj.waitForElement(driver, loginrewardspage.click_EditAccountDetails_Page_Text);
 	    	if (!contactinfopage.getValue_ddl_Salutation_Field().equals(Readexcel_RowName.getValue("Salutation")))
 	    	{
+	    		driver.close();
 	    		Assert.fail("Salutation is not pre populating");
 	    	}
 		    if (!contactinfopage.getValue_txt_Fname_Field().equals(Readexcel_RowName.getValue("FirstName")))
 			{
+		    	driver.close();
 		    	Assert.fail("First Name is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Lname_Field().equals(Readexcel_RowName.getValue("LastName")))
 			{
+		    	driver.close();
 		    	Assert.fail("Last Name is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Month_Field().equals(Readexcel_RowName.getValue("Month")))
 			{
+		    	driver.close();
 		    	Assert.fail("Month is not pre populating");
 			}
 			if (!contactinfopage.getValue_txt_Date_Field().equals(Readexcel_RowName.getValue("Date")))
 			{
+				driver.close();
 				Assert.fail("Date is not pre populating");
 			}
 			if (!contactinfopage.getValue_txt_Year_Field().equals(Readexcel_RowName.getValue("Year")))
 			{
+				driver.close();
 				Assert.fail("Year is pre populating");
 			}		
 			if (!accountsecuritypage.getValue_txt_Email_Address_Field().equals(Readexcel_RowName.getValue("EmailAddress")))
 			{
+				driver.close();
 				Assert.fail("Email address is not pre populating");
 			}
 			if (!contactinfopage.getValue_txt_Address_Field().equals(Readexcel_RowName.getValue("Address1")))
 			{
+				driver.close();
 				Assert.fail("Address is not pre populating");
 			}
 			if (!(contactinfopage.getValue_txt_Additional_Address_Field().replace("", "null")).equals(String.valueOf(Readexcel_RowName.getValue("Address2"))))
 			{
+				driver.close();
 				Assert.fail("Additional address is not pre populating");
 			}			
 			if (!contactinfopage.getValue_txt_Primary_Phone_Number_Field().equals(Readexcel_RowName.getValue("Primary_Phone")))
 			{
+				driver.close();
 				Assert.fail("Primary phone number is not pre populating");
 			}
 			/*if(ReadExcel.getValue("save_coupons(Y/N)").equalsIgnoreCase("N"))
@@ -167,6 +181,7 @@ public class Computed_EnrollmentVerify
 	    }
 	    catch(Exception e)
 	    {
+	    	driver.close();
 	    	Assert.fail("Error in Edit Account Details page after enrollment");
 			
 		}	

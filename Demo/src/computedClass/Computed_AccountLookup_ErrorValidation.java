@@ -35,6 +35,7 @@ public class Computed_AccountLookup_ErrorValidation
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in accountlookup page");
 		}
 		return driver;
@@ -55,16 +56,19 @@ public class Computed_AccountLookup_ErrorValidation
 				}
 				else
 				{	
+					driver.close();
 					Assert.fail("Error message mismatched");	 
 				}
 			}		
 			else
 			{	
+				driver.close();
 				Assert.fail("Error message mismatched or not displayed");	 
 			}
 		}
 		catch(Exception e)
 		{	
+			driver.close();
 			Assert.fail("Wrong phone number");
 		}    		
 		return driver;		
@@ -85,16 +89,19 @@ public class Computed_AccountLookup_ErrorValidation
 				}
 				else
 				{	
+					driver.close();
 					Assert.fail("Error message mismatched");	 
 				}
 			}		
 			else
 			{	
+				driver.close();
 				Assert.fail("Error message mismatched or not displayed");	 
 			}
 		}
 		catch(Exception e)
 		{	
+			driver.close();
 			Assert.fail("Wrong phone number");
 		}    		
 		return driver;		
@@ -115,16 +122,19 @@ public class Computed_AccountLookup_ErrorValidation
 				}
 				else
 				{	
+					driver.close();
 					Assert.fail("Error message mismatched");	 
 				}
 			}		
 			else
 			{	
+				driver.close();
 				Assert.fail("Error message mismatched or not displayed");	 
 			}
 		}
 		catch(Exception e)
 		{	
+			driver.close();
 			Assert.fail("Un Expected Error");
 		}    		
 		return driver;		
@@ -150,6 +160,7 @@ public class Computed_AccountLookup_ErrorValidation
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in accountlookup page");
 		}
 		return driver;
@@ -170,16 +181,19 @@ public class Computed_AccountLookup_ErrorValidation
 				}
 				else
 				{	
+					driver.close();
 					Assert.fail("Error message mismatched");	 
 				}
 			}		
 			else
 			{	
+				driver.close();
 				Assert.fail("Error message mismatched or not displayed");	 
 			}
 		}
 		catch(Exception e)
 		{	
+			driver.close();
 			Assert.fail("Wrong Card number");
 		}    		
 		return driver;		
@@ -200,16 +214,19 @@ public class Computed_AccountLookup_ErrorValidation
 				}
 				else
 				{	
+					driver.close();
 					Assert.fail("Error message mismatched");	 
 				}
 			}		
 			else
 			{	
+				driver.close();
 				Assert.fail("Error message mismatched or not displayed");	 
 			}
 		}
 		catch(Exception e)
 		{	
+			driver.close();
 			Assert.fail("Wrong Card number");
 		}    		
 		return driver;		

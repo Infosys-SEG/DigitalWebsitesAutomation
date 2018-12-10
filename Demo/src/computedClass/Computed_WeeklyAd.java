@@ -98,11 +98,13 @@ public class Computed_WeeklyAd
 			}
     		else
     		{
+    			driver.close();
     			Assert.fail("Error in Your WeeklyAd text");
     		}
     	}
     	catch(Exception e)
 		{
+    		driver.close();
     		Assert.fail("Error in Weekly Ad page");
 		}		    
 	    return driver; 
@@ -178,6 +180,7 @@ public class Computed_WeeklyAd
 					{
 						if(weeklyadpage.isDisplayed_click_Product_RemoveFromList_Button())
 						{
+							driver.close();
 							Assert.fail("Items removed from shopping list is still displaying as remove from list");
 							
 						}
@@ -195,6 +198,7 @@ public class Computed_WeeklyAd
 		}
 		catch(Exception e)
 		{	
+			driver.close();
 			Assert.fail("Error in Add to list");
 		}	
 		return driver;
@@ -259,6 +263,7 @@ public class Computed_WeeklyAd
 		}
 		catch(Exception e)
 	    {
+			driver.close();
 			Assert.fail("Error in Weekly Ad page or remove from list");
 	    }		
 		return driver;		

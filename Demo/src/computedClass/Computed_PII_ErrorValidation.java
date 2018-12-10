@@ -39,6 +39,7 @@ public class Computed_PII_ErrorValidation
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
 		return driver;
@@ -64,6 +65,7 @@ public class Computed_PII_ErrorValidation
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
 		return driver;

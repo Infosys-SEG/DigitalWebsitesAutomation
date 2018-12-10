@@ -27,7 +27,8 @@ public class Readexcel_RowName
 		{
 			System.out.println("error");
 		}
-		wb = new XSSFWorkbook(fs);
+		wb=new XSSFWorkbook(fs);
+		
 		Sheet sh = wb.getSheet(SheetName);
 		excelValue = new HashMap();
 		int lastRow = sh.getLastRowNum();

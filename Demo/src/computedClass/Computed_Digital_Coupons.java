@@ -105,6 +105,7 @@ public class Computed_Digital_Coupons
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in Digital coupons page");
 			
 		}	
@@ -190,7 +191,7 @@ public class Computed_Digital_Coupons
 		}
 		catch(Exception e)
 		{
-		System.out.println(e);	
+			driver.close();	
 			Assert.fail("Error in Digital coupons page");
 			
 		}	
@@ -301,6 +302,7 @@ public class Computed_Digital_Coupons
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in Digital coupons page");
 			
 		}	
@@ -410,6 +412,7 @@ public class Computed_Digital_Coupons
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in Digital coupons page");
 			
 		}	

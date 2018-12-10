@@ -75,6 +75,7 @@ public class Computed_MyStore
 		
 		catch (NoSuchElementException e1)
 		{
+			driver.close();
 			Assert.fail("Store links are not displayed");
 			
 		}
@@ -93,6 +94,7 @@ public class Computed_MyStore
 				String rad=storelocatorpage.getValue_ddl_Radius_Dropdown();
 				if(!rad.equals("10 miles"))
 				{
+					driver.close();
 					Assert.fail("Default radius is not 10");
 				}
 				storelocatorpage.type_txt_Enter_Zip_Or_City_Field(Readexcel_RowName.getValue("Change_Zipcode"));
@@ -112,6 +114,7 @@ public class Computed_MyStore
 					String addr=storelocatorpage.getText_txt_StreetAddr_Text();
 					if(!sdetails.equals(addr))
 					{
+						driver.close();
 						Assert.fail("Store address not changed");
 					}
 				}
@@ -121,17 +124,20 @@ public class Computed_MyStore
 					{
 						if(	storelocatorpage.isDisplayed_click_Invalid_Store_Error_Text())
 						{
+							driver.close();
 							Assert.fail("No stores found");
 							storelocatorpage.click_click_Home_Button();
 						}
 						else	
 						{
+							driver.close();
 							Assert.fail("No stores found error message is not displaying");
 							storelocatorpage.click_click_Home_Button();
 						}
 					}
 					catch (NoSuchElementException e1)
 					{
+						driver.close();
 						Assert.fail("No stores found error message is not displaying");
 						storelocatorpage.click_click_Home_Button();
 					}
@@ -144,6 +150,7 @@ public class Computed_MyStore
 		}
 		catch(Exception e)
 		{
+			driver.close();
 			Assert.fail("Error in my store page");
 		}
 		
