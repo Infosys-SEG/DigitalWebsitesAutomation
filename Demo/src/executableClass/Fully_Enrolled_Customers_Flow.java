@@ -70,7 +70,7 @@ public class Fully_Enrolled_Customers_Flow
 		//For getting current method name and passing as TCName
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		String Functionality=functionality;	
-		System.out.println();
+		
 		driver=browserbanner.BrowserBanner(driver, Functionality);
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver= FullyEnrollment_Flow.SignUpPage(driver);
