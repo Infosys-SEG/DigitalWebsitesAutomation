@@ -2,14 +2,12 @@ package computedClass;
 import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-
 import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_AccountLookupPage;
@@ -22,7 +20,7 @@ import generatedClass.POM_Generated_VerificationPage;
 public class Computed_FullyEnrollment_Flow 
 {
 	//signup page
-	public WebDriver fullsignup(WebDriver driver) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver SignUpPage(WebDriver driver) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_AccountLookupPage accountlookuppage = new POM_Generated_AccountLookupPage(driver);
@@ -39,18 +37,21 @@ public class Computed_FullyEnrollment_Flow
 	}
 
 	//Account lookup page 
-	public WebDriver fullcardnumber(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver AccountLookupPage(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_AccountLookupPage accountlookuppage = new POM_Generated_AccountLookupPage(driver);
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		POM_Generated_One_Quick_Thing_Popup onequickthing = new POM_Generated_One_Quick_Thing_Popup(driver);
 		Data obj= new Data();
-	   
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet", Functionality, TCName);
+		
 		try
 		{
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName); 	
+			
+			
 			
 			obj.waitForElementClickable(driver, accountlookuppage.txt_Card_Number_Field);
+			
 			if(Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("Card")||Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("CRC"))
 			{
 				accountlookuppage.type_txt_Card_Number_Field(Readexcel_RowName.getValue("Phone/Card_Number"));
@@ -69,7 +70,8 @@ public class Computed_FullyEnrollment_Flow
 		}
 		catch (Exception e) 
 		{
-			driver.close();
+		//	driver.close();
+			System.out.println(e);
 			Assert.fail("Card Number is already registered or Invalid card number");
 	    }
 		return driver;
@@ -107,6 +109,7 @@ public class Computed_FullyEnrollment_Flow
 			else if(Readexcel_RowName.getValue("Verify_By(SMS/Email/PII)").equalsIgnoreCase("Email"))
 			{
 				verificationpage.click_click_Email_Verification_Button();
+				
 			}			
 		}
 		catch(Exception e)
@@ -120,7 +123,7 @@ public class Computed_FullyEnrollment_Flow
 	
 	
 	//Verify by PII page
-	public WebDriver fullverifybypii(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver VerifyByPIIPage(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
@@ -157,7 +160,7 @@ public class Computed_FullyEnrollment_Flow
 	}
 	
 	//Contact info page
-	public WebDriver fullcontactinfo(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver ContactInfoPage(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		POM_Generated_AccountSecurityPage accountsecuritypage = new POM_Generated_AccountSecurityPage(driver);
@@ -224,9 +227,35 @@ public class Computed_FullyEnrollment_Flow
 		    	Assert.fail("State is not pre populating");
 			}
 		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_Primary_Phone_Number_Field);
-			if (!contactinfopage.getValue_txt_Primary_Phone_Number_Field().equals(Readexcel_RowName.getValue("Primary_Phone")))
+		    System.out.println(contactinfopage.getValue_txt_Primary_Phone_Number_Field());
+		    System.out.println(Readexcel_RowName.getValue("Primary_Phone"));
+			if (contactinfopage.getValue_txt_Primary_Phone_Number_Field().equals(Readexcel_RowName.getValue("Primary_Phone")))
 			{
-				driver.close();
+				try
+				{
+					if(contactinfopage.isDisplayed_txt_Error_Invalid_PhoneNumber())
+					{
+						contactinfopage.type_txt_Primary_Phone_Number_Field("Change_Phone_Number");
+					}
+				}
+				catch(Exception e)
+				{
+					try
+					{
+						if(contactinfopage.isDisplayed_txt_Error_AlreadyRegistered_PhoneNo())
+						{
+							contactinfopage.type_txt_Primary_Phone_Number_Field("Change_Phone_Number");
+						}
+					}
+					catch(Exception e1)
+					{
+						
+					}
+				}
+			}
+			else
+			{
+				//driver.close();
 				Assert.fail("Primary Phone number is not pre populating");
 			}
 			obj.scrollingToElementofAPage(driver, contactinfopage.txt_Zipcode_Field);
@@ -239,16 +268,16 @@ public class Computed_FullyEnrollment_Flow
 			{
 				if(!contactinfopage.isSelected_click_TextMeOffers_Yes_Button())
 				{
-					driver.close();
-					Assert.fail("Text_Me_Offers radio button is not selected");
+					//driver.close();
+					//Assert.fail("Text_Me_Offers radio button is not selected");
 				}
 			}
 			else if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("N"))
 			{
 				if(!contactinfopage.isSelected_click_TextMeOffers_No_Button())
 				{
-					driver.close();
-					Assert.fail("Text_Me_Offers radio button is not selected");
+					//driver.close();
+					//Assert.fail("Text_Me_Offers radio button is not selected");
 				}
 			}
 		
@@ -259,14 +288,14 @@ public class Computed_FullyEnrollment_Flow
 	    }
 	    catch(Exception e)
 	    {
-	    	driver.close();
+	    	//driver.close();
 	    	Assert.fail("Error in contactinfo page");
 	    }
 		return driver;
 	}
 	
 	//Account info page
-	public WebDriver fullaccountinfo(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver AccountSecurityPage(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 
 		POM_Generated_AccountSecurityPage accountsecuritypage = new POM_Generated_AccountSecurityPage(driver);
@@ -302,6 +331,14 @@ public class Computed_FullyEnrollment_Flow
 					{	
 						driver.close();
 						Assert.fail("Email message is not displayed");
+					}
+					if(accountsecuritypage.isDisplayed_txt_Error_InvalidEmail())
+					{
+						accountsecuritypage.type_txt_Email_Address_Field("Change_EmailAddress");
+					}
+					else if(accountsecuritypage.isDisplayed_txt_Error_AlreadyRegistered_Email())
+					{
+						accountsecuritypage.type_txt_Email_Address_Field("Change_EmailAddress");
 					}
 				}
 				else

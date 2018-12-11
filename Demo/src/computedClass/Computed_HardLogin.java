@@ -79,7 +79,7 @@ public class Computed_HardLogin
 		
 		Data obj=new Data();
 		
-		String editacctext="Edit Account Details";
+		String editacctext="Edit account details";
 		
 	    
 	    try

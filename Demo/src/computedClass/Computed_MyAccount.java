@@ -28,6 +28,7 @@ public class Computed_MyAccount
 		
 	    try
 	    {
+	    	
 			String savedmsg="Your changes have been saved.";
 			String cancelmsg="Your changes have not been saved.";
 			
@@ -40,7 +41,7 @@ public class Computed_MyAccount
 			String Month1=contactinfopage.getValue_txt_Month_Field();
 			String Date1=contactinfopage.getValue_txt_Date_Field();
 			String Year1=contactinfopage.getValue_txt_Year_Field();
-			String EmailAddress1=accountsecuritypage.getValue_txt_Email_Address_Field();
+			String EmailAddress1=myaccountpage.getValue_txt_Email_Address_Field();
 			String Address11=contactinfopage.getValue_txt_Address_Field();
 			String Address12=contactinfopage.getValue_txt_Additional_Address_Field();
 			String Primary_Phone_Number=contactinfopage.getValue_txt_Primary_Phone_Number_Field();
@@ -75,7 +76,7 @@ public class Computed_MyAccount
 			
 			if (Readexcel_RowName.getValue("EmailAddress")!=null)
 			{
-				accountsecuritypage.type_txt_Email_Address_Field(Readexcel_RowName.getValue("EmailAddress"));
+				myaccountpage.type_txt_Email_Address_Field(Readexcel_RowName.getValue("EmailAddress"));
 			}
 			if (Readexcel_RowName.getValue("Address1")!=null)
 			{
@@ -204,7 +205,7 @@ public class Computed_MyAccount
 					}
 					if(Readexcel_RowName.getValue("EmailAddress")!=null)
 					{
-						if(!Readexcel_RowName.getValue("EmailAddress").equals(accountsecuritypage.getValue_txt_Email_Address_Field()))
+						if(!Readexcel_RowName.getValue("EmailAddress").equals(myaccountpage.getValue_txt_Email_Address_Field()))
 						{
 							driver.close();
 							Assert.fail("EmailAddress has not changed after save");
@@ -321,7 +322,7 @@ public class Computed_MyAccount
 						driver.close();
 						Assert.fail("Year has changed for cancel");
 					}
-					if(!EmailAddress1.equals(accountsecuritypage.getValue_txt_Email_Address_Field()))
+					if(!EmailAddress1.equals(myaccountpage.getValue_txt_Email_Address_Field()))
 					{
 						driver.close();
 						Assert.fail("EmailAddress has changed for cancel");

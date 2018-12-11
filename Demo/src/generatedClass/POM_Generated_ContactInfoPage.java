@@ -19,7 +19,7 @@ public class POM_Generated_ContactInfoPage {
 
 
 	// Associated Label : HeaderName_Text
-	@FindBy(xpath = "//div[@class='plenti-header-info']/h1")
+	@FindBy(xpath = "//h1[contains(text(),'Hello')]")
 	public WebElement txt_HeaderName_Text;
 	
 	// Associated Label : Salutation_Field

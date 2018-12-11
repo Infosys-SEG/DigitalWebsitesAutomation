@@ -18,7 +18,7 @@ public class POM_Generated_VerificationPage {
 
 
 	// Associated Label : VerificationPage_HeaderName_Text
-	@FindBy(xpath = "//div[@class='plenti-header-info']/h1")
+	@FindBy(xpath = "//h1[contains(text(),'Thanks for helping us find your account')]")
 	public WebElement txt_VerificationPage_HeaderName_Text;
 	
 	// Associated Label : SMS_Verification_Button
@@ -32,6 +32,10 @@ public class POM_Generated_VerificationPage {
 	// Associated Label : PII_Verification_Button
 	@FindBy(name = "PII")
 	public WebElement click_PII_Verification_Button;
+	
+	// Associated Label : PII_Page_HeaderName_Text
+	@FindBy(xpath = "//h1[text()='Answer Questions']")
+	public WebElement txt_PII_Page_HeaderName_Text;
 	
 	// Associated Label : PII_Verification_Month_Field
 	@FindBy(id = "PIItxtMonth")
@@ -280,6 +284,52 @@ public class POM_Generated_VerificationPage {
 	// selected or Not :  PII_Verification_Button
 	public boolean isSelected_click_PII_Verification_Button(){
 		if(click_PII_Verification_Button.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  PII_Page_HeaderName_Text
+	public void type_txt_PII_Page_HeaderName_Text(String value) {
+		txt_PII_Page_HeaderName_Text.clear();
+		txt_PII_Page_HeaderName_Text.sendKeys(value);
+	}
+
+	//click:  PII_Page_HeaderName_Text
+	public void click_txt_PII_Page_HeaderName_Text(){
+		txt_PII_Page_HeaderName_Text.click();
+	}
+
+	// Hover:  PII_Page_HeaderName_Text
+	public void hover_txt_PII_Page_HeaderName_Text(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_PII_Page_HeaderName_Text).build().perform();
+	}
+
+	// visible or Not :  PII_Page_HeaderName_Text
+	public boolean isDisplayed_txt_PII_Page_HeaderName_Text(){
+		if(txt_PII_Page_HeaderName_Text.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  PII_Page_HeaderName_Text
+	public boolean isEnabled_txt_PII_Page_HeaderName_Text(){
+		if(txt_PII_Page_HeaderName_Text.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  PII_Page_HeaderName_Text
+	public String getCssValue_txt_PII_Page_HeaderName_Text(String attribute) {
+		return txt_PII_Page_HeaderName_Text.getCssValue(attribute);
+	}
+
+	//Get the text :  PII_Page_HeaderName_Text
+	public String getText_txt_PII_Page_HeaderName_Text(){
+		return txt_PII_Page_HeaderName_Text.getText();
+	}
+
+	//Get the value :  PII_Page_HeaderName_Text
+	public String getValue_txt_PII_Page_HeaderName_Text(){
+		return txt_PII_Page_HeaderName_Text.getAttribute("value");
+	}
+	// selected or Not :  PII_Page_HeaderName_Text
+	public boolean isSelected_txt_PII_Page_HeaderName_Text(){
+		if(txt_PII_Page_HeaderName_Text.isSelected()) { return true; } else { return false;} 
 	}
 
 	// Type:  PII_Verification_Month_Field

@@ -20,10 +20,10 @@ public class POMComputed
 			String packAge="generatedClass";   
 			//String sheetName="Specify the package";
 			//String inputfile="Input file Path";
-			String sheetName="One_Quick_Thing_Popup";
-			String inputfile="\\\\winndixieus.wd.com\\HDQ\\Users\\ragunk\\Desktop\\Automation\\LocatorsSheet.xlsx";
+			String sheetName="VerificationPage";
+			String inputfile="\\\\winndixieus.wd.com\\HDQ\\Users\\ragunk\\Desktop\\Automation\\Locators.xlsx";
 			
-			String className="POM_Generated_One_Quick_Thing_Popup";
+			String className="POM_Generated_VerificationPage";
 			
 			@SuppressWarnings("resource")
 		

@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
+    <line>
+      <![CDATA[Register button clicked successfully]]>
+    </line>
+    <line>
+      <![CDATA[PII Verification page displayed successfully]]>
+    </line>
+    <line>
+      <![CDATA[PII Verification done successfully]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28198" started-at="2018-12-10T15:00:43Z" finished-at="2018-12-10T15:01:11Z">
+  <suite name="Default suite" duration-ms="83986" started-at="2018-12-11T12:47:39Z" finished-at="2018-12-11T12:49:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28198" started-at="2018-12-10T15:00:43Z" finished-at="2018-12-10T15:01:11Z">
-      <class name="executableClass.Static_Infobar_loggedin_Users">
-        <test-method status="FAIL" signature="TC003_Staticbar_Hard_login_links_navigation_Account_setting_page()[pri:3, instance:executableClass.Static_Infobar_loggedin_Users@13deb50e]" name="TC003_Staticbar_Hard_login_links_navigation_Account_setting_page" duration-ms="28153" started-at="2018-12-10T20:30:43Z" finished-at="2018-12-10T20:31:11Z">
-          <exception class="org.openqa.selenium.WebDriverException">
+    <test name="Default test" duration-ms="83986" started-at="2018-12-11T12:47:39Z" finished-at="2018-12-11T12:49:03Z">
+      <class name="executableClass.Fully_Enrolled_Customers_Flow">
+        <test-method status="FAIL" signature="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII()[pri:4, instance:executableClass.Fully_Enrolled_Customers_Flow@271053e1]" name="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII" duration-ms="83953" started-at="2018-12-11T18:17:39Z" finished-at="2018-12-11T18:19:03Z">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:43392
-Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
-System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
-Driver info: driver.version: RemoteWebDriver]]>
+              <![CDATA[Error in contactinfo page]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:43392
-Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:19:58.91Z'
-System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:92)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy5.click(Unknown Source)
-	at generatedClass.POM_Generated_Homepage.click_click_Close_cookies_Button(POM_Generated_Homepage.java:395)
-	at executableClass.Browserbanner.Clearcookie(Browserbanner.java:96)
-	at executableClass.Static_Infobar_loggedin_Users.TC003_Staticbar_Hard_login_links_navigation_Account_setting_page(Static_Infobar_loggedin_Users.java:71)
+              <![CDATA[java.lang.AssertionError: Error in contactinfo page
+	at org.testng.Assert.fail(Assert.java:94)
+	at computedClass.Computed_FullyEnrollment_Flow.ContactInfoPage(Computed_FullyEnrollment_Flow.java:292)
+	at executableClass.Fully_Enrolled_Customers_Flow.TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII(Fully_Enrolled_Customers_Flow.java:81)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -58,48 +51,22 @@ Driver info: driver.version: RemoteWebDriver
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-Caused by: java.net.ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:43392
-	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:242)
-	at okhttp3.internal.connection.RealConnection.connect(RealConnection.java:160)
-	at okhttp3.internal.connection.StreamAllocation.findConnection(StreamAllocation.java:257)
-	at okhttp3.internal.connection.StreamAllocation.findHealthyConnection(StreamAllocation.java:135)
-	at okhttp3.internal.connection.StreamAllocation.newStream(StreamAllocation.java:114)
-	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.java:42)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.java:93)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.java:126)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:147)
-	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.java:121)
-	at okhttp3.RealCall.getResponseWithInterceptorChain(RealCall.java:200)
-	at okhttp3.RealCall.execute(RealCall.java:77)
-	at org.openqa.selenium.remote.internal.OkHttpClient.execute(OkHttpClient.java:105)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:155)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	... 37 more
-Caused by: java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at okhttp3.internal.platform.Platform.connectSocket(Platform.java:129)
-	at okhttp3.internal.connection.RealConnection.connectSocket(RealConnection.java:240)
-	... 57 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
+            <line>
+              <![CDATA[Register button clicked successfully]]>
+            </line>
+            <line>
+              <![CDATA[PII Verification page displayed successfully]]>
+            </line>
+            <line>
+              <![CDATA[PII Verification done successfully]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- TC003_Staticbar_Hard_login_links_navigation_Account_setting_page -->
-      </class> <!-- executableClass.Static_Infobar_loggedin_Users -->
+        </test-method> <!-- TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII -->
+      </class> <!-- executableClass.Fully_Enrolled_Customers_Flow -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

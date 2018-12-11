@@ -17,13 +17,12 @@ import generatedClass.POM_Generated_AccountSecurityPage;
 import generatedClass.POM_Generated_CongratulationsPage;
 import generatedClass.POM_Generated_ContactInfoPage;
 import generatedClass.POM_Generated_Homepage;
-import generatedClass.POM_Generated_One_Quick_Thing_Popup;
 
 public class Computed_PreEnrollment_Flow 
 {
 
 	//Signup page
-	public WebDriver neworpresignup(WebDriver driver,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver SignUpPage(WebDriver driver) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		Data obj=new Data();
@@ -43,11 +42,11 @@ public class Computed_PreEnrollment_Flow
 	}
 	
 	//Accountlookup page for pre enrolled and net new user
-	public WebDriver neworprecardnumber(WebDriver driver, String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver AccountLookupPage(WebDriver driver, String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_AccountLookupPage accountlookuppage = new POM_Generated_AccountLookupPage(driver);
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
-		POM_Generated_One_Quick_Thing_Popup onequickthing = new POM_Generated_One_Quick_Thing_Popup(driver);
+		//POM_Generated_One_Quick_Thing_Popup onequickthing = new POM_Generated_One_Quick_Thing_Popup(driver);
 		Data obj=new Data();
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
@@ -85,7 +84,7 @@ public class Computed_PreEnrollment_Flow
 	}
 	
 	//Contact info page
-	public WebDriver neworprecontactinfo(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver ContactInfoPage(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{	
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		POM_Generated_AccountSecurityPage accountsecuritypage = new POM_Generated_AccountSecurityPage(driver);
@@ -261,7 +260,7 @@ public class Computed_PreEnrollment_Flow
 	}
 	
 	//Account Info page
-	public WebDriver neworpreaccountinfo(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver AccountSecurityPage(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_AccountSecurityPage accountsecuritypage = new  POM_Generated_AccountSecurityPage(driver);
 		POM_Generated_CongratulationsPage congratulationspage = new POM_Generated_CongratulationsPage(driver);

@@ -13,38 +13,37 @@ public class Pre_Enrolled_Customers_Flow
 {
 	WebDriver driver = null;
 	String functionality = "Pre_Enrolled_Customers_Flow";
+	Browserbanner browserbanner=new Browserbanner();
+	Computed_PreEnrollment_Flow preenrollmentflow= new Computed_PreEnrollment_Flow();
 	
 	@Test
 	public void TC001_EnrollNewProgram_Phonenumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();		
-		
-		Browserbanner br=new Browserbanner();
-		Computed_PreEnrollment_Flow cp= new Computed_PreEnrollment_Flow();
-		driver=br.BrowserBanner(driver, functionality);
-		driver = br.Clearcookie(driver, functionality);
-		driver=cp.neworpresignup(driver,tcname);
-		driver=cp.neworprecardnumber(driver, functionality, tcname);
-		driver=cp.neworprecontactinfo(driver, functionality, tcname);
-		driver=cp.neworpreaccountinfo(driver, functionality, tcname);
-		
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String Functionality=functionality;
+		driver=browserbanner.BrowserBanner(driver, Functionality);
+		driver = browserbanner.Clearcookie(driver, Functionality);
+		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver.close();
 	}
 	
 	@Test
 	public void TC002_EnrollinNewProgram_old_SEG_CRC_number () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();		
-		
-		Browserbanner br=new Browserbanner();
-		Computed_PreEnrollment_Flow cp= new Computed_PreEnrollment_Flow();
-		driver=br.BrowserBanner(driver, functionality);
-		driver = br.Clearcookie(driver, functionality);
-		driver=cp.neworpresignup(driver,tcname);
-		driver=cp.neworprecardnumber(driver, functionality, tcname);
-		driver=cp.neworprecontactinfo(driver, functionality, tcname);
-		driver=cp.neworpreaccountinfo(driver, functionality, tcname);
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String Functionality=functionality;
+		driver=browserbanner.BrowserBanner(driver, Functionality);
+		driver = browserbanner.Clearcookie(driver, Functionality);
+		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver.close();
 		
 	}
 	
@@ -52,16 +51,15 @@ public class Pre_Enrolled_Customers_Flow
 	public void TC003_EnrollinNewProgram_PlentiCardNumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();		
-		
-		Browserbanner br=new Browserbanner();
-		Computed_PreEnrollment_Flow cp= new Computed_PreEnrollment_Flow();
-		driver=br.BrowserBanner(driver, functionality);
-		driver = br.Clearcookie(driver, functionality);
-		driver=cp.neworpresignup(driver,tcname);
-		driver=cp.neworprecardnumber(driver, functionality, tcname);
-		driver=cp.neworprecontactinfo(driver, functionality, tcname);
-		driver=cp.neworpreaccountinfo(driver, functionality, tcname);
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String Functionality=functionality;
+		driver=browserbanner.BrowserBanner(driver, Functionality);
+		driver = browserbanner.Clearcookie(driver, Functionality);
+		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver.close();
 		
 	}
 	
@@ -69,15 +67,15 @@ public class Pre_Enrolled_Customers_Flow
 	public void TC004_EnrollinNewProgram_G_AND_G_card_number () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();		
-		
-		Browserbanner br=new Browserbanner();
-		Computed_PreEnrollment_Flow cp= new Computed_PreEnrollment_Flow();
-		driver=br.BrowserBanner(driver, functionality);
-		driver=cp.neworpresignup(driver,tcname);
-		driver=cp.neworprecardnumber(driver, functionality, tcname);
-		driver=cp.neworprecontactinfo(driver, functionality, tcname);
-		driver=cp.neworpreaccountinfo(driver, functionality, tcname);
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String Functionality=functionality;
+		driver=browserbanner.BrowserBanner(driver, Functionality);
+		driver = browserbanner.Clearcookie(driver, Functionality);
+		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver.close();
 		
 	}
 }

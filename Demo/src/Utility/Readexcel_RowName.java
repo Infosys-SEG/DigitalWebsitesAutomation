@@ -38,23 +38,18 @@ public class Readexcel_RowName
 		for (rowNum = 1; rowNum <= lastRow; rowNum++)
 		{
 			row = sh.getRow(rowNum);
-			if (SheetName.equalsIgnoreCase("Global"))
+			
+			if (row.getCell(0).getStringCellValue().equalsIgnoreCase(testCaseName))
 			{
-				if (row.getCell(0).getStringCellValue().equalsIgnoreCase(testCaseName))
-				{
-					break;
-				}
+				
+				break;
 			}
-			else
-			{		
-				if (row.getCell(0).getStringCellValue().equalsIgnoreCase(testCaseName))
-				{
-					break;
-				}
-			}
+			
+			
 		}
 		for (int i = 1; i < row.getLastCellNum(); i++)
 		{
+			
 			if (row.getCell(i).getCellType() == 1)
 				excelValue.put(row0.getCell(i).getStringCellValue(), row.getCell(i).getStringCellValue());
 			else if (row.getCell(i).getCellType() == 0)
