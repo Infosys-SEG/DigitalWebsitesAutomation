@@ -175,7 +175,7 @@ public class Computed_FullyEnrollment_Flow
 		    }
 		    if (!contactinfopage.getValue_ddl_Salutation_Field().equals(Readexcel_RowName.getValue("Salutation")))
 		    {
-		    	driver.close();
+		    	//driver.close();
 		    	Assert.fail("Salutation is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Fname_Field().equals(Readexcel_RowName.getValue("FirstName")))
@@ -185,7 +185,7 @@ public class Computed_FullyEnrollment_Flow
 			}	
 		    if (!contactinfopage.getValue_txt_Address_Field().equals(Readexcel_RowName.getValue("Address1")))
 		    {
-		    	driver.close();
+		    //	driver.close();
 		    	Assert.fail("Address is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Lname_Field().equals(Readexcel_RowName.getValue("LastName")))
@@ -227,29 +227,39 @@ public class Computed_FullyEnrollment_Flow
 		    	Assert.fail("State is not pre populating");
 			}
 		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_Primary_Phone_Number_Field);
-		    System.out.println(contactinfopage.getValue_txt_Primary_Phone_Number_Field());
-		    System.out.println(Readexcel_RowName.getValue("Primary_Phone"));
+		    
 			if (contactinfopage.getValue_txt_Primary_Phone_Number_Field().equals(Readexcel_RowName.getValue("Primary_Phone")))
 			{
 				try
 				{
 					if(contactinfopage.isDisplayed_txt_Error_Invalid_PhoneNumber())
 					{
-						contactinfopage.type_txt_Primary_Phone_Number_Field("Change_Phone_Number");
+					
+						contactinfopage.type_txt_Primary_Phone_Number_Field(Readexcel_RowName.getValue("Change_Phone_Number"));
 					}
-				}
+				}				
 				catch(Exception e)
 				{
 					try
 					{
 						if(contactinfopage.isDisplayed_txt_Error_AlreadyRegistered_PhoneNo())
 						{
-							contactinfopage.type_txt_Primary_Phone_Number_Field("Change_Phone_Number");
+							contactinfopage.type_txt_Primary_Phone_Number_Field(Readexcel_RowName.getValue("Change_Phone_Number"));
 						}
 					}
 					catch(Exception e1)
 					{
-						
+						try
+						{
+							if(contactinfopage.isDisplayed_txt_Error_Invalid_PhoneType())
+							{
+								contactinfopage.type_txt_Primary_Phone_Number_Field(Readexcel_RowName.getValue("Change_Phone_Number"));
+							}
+						}
+						catch(Exception e2)
+						{
+							
+						}
 					}
 				}
 			}
@@ -266,21 +276,32 @@ public class Computed_FullyEnrollment_Flow
 			}
 			if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("Y"))
 			{
-				if(!contactinfopage.isSelected_click_TextMeOffers_Yes_Button())
+				if(contactinfopage.isSelected_click_TextMeOffers_Yes_Button())
 				{
 					//driver.close();
 					//Assert.fail("Text_Me_Offers radio button is not selected");
+				}
+				else
+				{
+					contactinfopage.click_click_TextMeOffers_Yes_Button();
 				}
 			}
 			else if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("N"))
 			{
-				if(!contactinfopage.isSelected_click_TextMeOffers_No_Button())
+				if(contactinfopage.isSelected_click_TextMeOffers_No_Button())
 				{
 					//driver.close();
 					//Assert.fail("Text_Me_Offers radio button is not selected");
 				}
+				else
+				{
+					
+					contactinfopage.click_click_TextMeOffers_No_Button();
+					contactinfopage.click_click_TextMeOffers_No_Button();
+				}
 			}
-		
+			Thread.sleep(1000);
+			obj.waitForElementClickable(driver, contactinfopage.click_Submit_Form_Button);
 			contactinfopage.click_click_Submit_Form_Button();			
 	    	obj.waitForElementClickable(driver, accountsecuritypage.txt_Email_Address_Field);
 			
@@ -289,6 +310,7 @@ public class Computed_FullyEnrollment_Flow
 	    catch(Exception e)
 	    {
 	    	//driver.close();
+	    	System.out.println(e);
 	    	Assert.fail("Error in contactinfo page");
 	    }
 		return driver;
@@ -327,23 +349,37 @@ public class Computed_FullyEnrollment_Flow
 			{
 				if (accountsecuritypage.getValue_txt_Email_Address_Field().equals(Readexcel_RowName.getValue("EmailAddress")))
 				{
-					if(!accountsecuritypage.isDisplayed_click_Email_Address_Message_Verify())
+					/*if(!accountsecuritypage.isDisplayed_click_Email_Address_Message_Verify())
 					{	
-						driver.close();
+						//driver.close();
 						Assert.fail("Email message is not displayed");
-					}
-					if(accountsecuritypage.isDisplayed_txt_Error_InvalidEmail())
+					}*/
+					try
 					{
-						accountsecuritypage.type_txt_Email_Address_Field("Change_EmailAddress");
+						if(accountsecuritypage.isDisplayed_txt_Error_InvalidEmail())
+						{
+							accountsecuritypage.type_txt_Email_Address_Field(Readexcel_RowName.getValue("Change_EmailAddress"));
+						}
 					}
-					else if(accountsecuritypage.isDisplayed_txt_Error_AlreadyRegistered_Email())
+					catch(Exception e)
 					{
-						accountsecuritypage.type_txt_Email_Address_Field("Change_EmailAddress");
+						
+						try
+						{
+							if(accountsecuritypage.isDisplayed_txt_Error_AlreadyRegistered_Email())
+							{
+								accountsecuritypage.type_txt_Email_Address_Field("Change_EmailAddress");
+							}
+						}
+						catch(Exception e1)
+						{
+							
+						}
 					}
 				}
 				else
 				{
-					driver.close();
+					//driver.close();
 					Assert.fail("Email address is not pre populating or not matched");
 				}
 			}

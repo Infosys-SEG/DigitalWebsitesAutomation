@@ -11,21 +11,21 @@
       <![CDATA[PII Verification done successfully]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="83986" started-at="2018-12-11T12:47:39Z" finished-at="2018-12-11T12:49:03Z">
+  <suite name="Default suite" duration-ms="50878" started-at="2018-12-12T10:43:12Z" finished-at="2018-12-12T10:44:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="83986" started-at="2018-12-11T12:47:39Z" finished-at="2018-12-11T12:49:03Z">
+    <test name="Default test" duration-ms="50878" started-at="2018-12-12T10:43:12Z" finished-at="2018-12-12T10:44:03Z">
       <class name="executableClass.Fully_Enrolled_Customers_Flow">
-        <test-method status="FAIL" signature="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII()[pri:4, instance:executableClass.Fully_Enrolled_Customers_Flow@271053e1]" name="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII" duration-ms="83953" started-at="2018-12-11T18:17:39Z" finished-at="2018-12-11T18:19:03Z">
+        <test-method status="FAIL" signature="TC009_EnrollinNewProgram_PlentiCardNumber_VerifybyPII()[pri:3, instance:executableClass.Fully_Enrolled_Customers_Flow@271053e1]" name="TC009_EnrollinNewProgram_PlentiCardNumber_VerifybyPII" duration-ms="50853" started-at="2018-12-12T16:13:12Z" finished-at="2018-12-12T16:14:03Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Error in contactinfo page]]>
+              <![CDATA[Salutation is not pre populating]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Error in contactinfo page
+              <![CDATA[java.lang.AssertionError: Salutation is not pre populating
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_FullyEnrollment_Flow.ContactInfoPage(Computed_FullyEnrollment_Flow.java:292)
-	at executableClass.Fully_Enrolled_Customers_Flow.TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII(Fully_Enrolled_Customers_Flow.java:81)
+	at computedClass.Computed_FullyEnrollment_Flow.ContactInfoPage(Computed_FullyEnrollment_Flow.java:179)
+	at executableClass.Fully_Enrolled_Customers_Flow.TC009_EnrollinNewProgram_PlentiCardNumber_VerifybyPII(Fully_Enrolled_Customers_Flow.java:64)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -65,7 +65,7 @@
               <![CDATA[PII Verification done successfully]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII -->
+        </test-method> <!-- TC009_EnrollinNewProgram_PlentiCardNumber_VerifybyPII -->
       </class> <!-- executableClass.Fully_Enrolled_Customers_Flow -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

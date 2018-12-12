@@ -32,8 +32,12 @@ public class POM_Generated_Homepage {
 	public WebElement click_Bilo_logo;
 	
 	// Associated Label : Login_Or_Signup_Button
-	@FindBy(id = "login-overlay")
+	@FindBy(xpath = "//button[text()='Log in / Register']")
 	public WebElement click_Login_Or_Signup_Button;
+	
+	// Associated Label : Close_Button
+	@FindBy(xpath = "//button[text()='Close']")
+	public WebElement click_Close_Button;
 	
 	// Associated Label : Logout_button
 	@FindBy(id = "btnLogout1")
@@ -102,6 +106,14 @@ public class POM_Generated_Homepage {
 	// Associated Label : Save_Coupon_Button
 	@FindBy(xpath = "//input[@value='Save coupon']")
 	public List<WebElement> click_Save_Coupon_Button;
+	
+	// Associated Label : NeverMissADeal_text
+	@FindBy(xpath = "//h1[text()='Never miss out on a deal ']")
+	public WebElement txt_NeverMissADeal_text;
+	
+	// Associated Label : Homebanner_carousel
+	@FindBy(xpath = "//div[@id='HomeCarousel']")
+	public WebElement txt_Homebanner_carousel;
 	
 
 //*******************************************************************************
@@ -268,6 +280,46 @@ public class POM_Generated_Homepage {
 	// selected or Not :  Login_Or_Signup_Button
 	public boolean isSelected_click_Login_Or_Signup_Button(){
 		if(click_Login_Or_Signup_Button.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Close_Button
+	public void click_click_Close_Button(){
+		click_Close_Button.click();
+	}
+
+	// Hover:  Close_Button
+	public void hover_click_Close_Button(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Close_Button).build().perform();
+	}
+
+	// visible or Not :  Close_Button
+	public boolean isDisplayed_click_Close_Button(){
+		if(click_Close_Button.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Close_Button
+	public boolean isEnabled_click_Close_Button(){
+		if(click_Close_Button.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Close_Button
+	public String getCssValue_click_Close_Button(String attribute) {
+		return click_Close_Button.getCssValue(attribute);
+	}
+
+	//Get the text :  Close_Button
+	public String getText_click_Close_Button(){
+		return click_Close_Button.getText();
+	}
+
+	//Get the value :  Close_Button
+	public String getValue_click_Close_Button(){
+		return click_Close_Button.getAttribute("value");
+	}
+	// selected or Not :  Close_Button
+	public boolean isSelected_click_Close_Button(){
+		if(click_Close_Button.isSelected()) { return true; } else { return false;} 
 	}
 
 	//click:  Logout_button
@@ -948,6 +1000,98 @@ public class POM_Generated_Homepage {
 	// selected or Not :  Save_Coupon_Button
 	public boolean isSelected_click_Save_Coupon_Button(){
 		if(((WebElement) click_Save_Coupon_Button).isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  NeverMissADeal_text
+	public void type_txt_NeverMissADeal_text(String value) {
+		txt_NeverMissADeal_text.clear();
+		txt_NeverMissADeal_text.sendKeys(value);
+	}
+
+	//click:  NeverMissADeal_text
+	public void click_txt_NeverMissADeal_text(){
+		txt_NeverMissADeal_text.click();
+	}
+
+	// Hover:  NeverMissADeal_text
+	public void hover_txt_NeverMissADeal_text(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_NeverMissADeal_text).build().perform();
+	}
+
+	// visible or Not :  NeverMissADeal_text
+	public boolean isDisplayed_txt_NeverMissADeal_text(){
+		if(txt_NeverMissADeal_text.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  NeverMissADeal_text
+	public boolean isEnabled_txt_NeverMissADeal_text(){
+		if(txt_NeverMissADeal_text.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  NeverMissADeal_text
+	public String getCssValue_txt_NeverMissADeal_text(String attribute) {
+		return txt_NeverMissADeal_text.getCssValue(attribute);
+	}
+
+	//Get the text :  NeverMissADeal_text
+	public String getText_txt_NeverMissADeal_text(){
+		return txt_NeverMissADeal_text.getText();
+	}
+
+	//Get the value :  NeverMissADeal_text
+	public String getValue_txt_NeverMissADeal_text(){
+		return txt_NeverMissADeal_text.getAttribute("value");
+	}
+	// selected or Not :  NeverMissADeal_text
+	public boolean isSelected_txt_NeverMissADeal_text(){
+		if(txt_NeverMissADeal_text.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Homebanner_carousel
+	public void type_txt_Homebanner_carousel(String value) {
+		txt_Homebanner_carousel.clear();
+		txt_Homebanner_carousel.sendKeys(value);
+	}
+
+	//click:  Homebanner_carousel
+	public void click_txt_Homebanner_carousel(){
+		txt_Homebanner_carousel.click();
+	}
+
+	// Hover:  Homebanner_carousel
+	public void hover_txt_Homebanner_carousel(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Homebanner_carousel).build().perform();
+	}
+
+	// visible or Not :  Homebanner_carousel
+	public boolean isDisplayed_txt_Homebanner_carousel(){
+		if(txt_Homebanner_carousel.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Homebanner_carousel
+	public boolean isEnabled_txt_Homebanner_carousel(){
+		if(txt_Homebanner_carousel.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Homebanner_carousel
+	public String getCssValue_txt_Homebanner_carousel(String attribute) {
+		return txt_Homebanner_carousel.getCssValue(attribute);
+	}
+
+	//Get the text :  Homebanner_carousel
+	public String getText_txt_Homebanner_carousel(){
+		return txt_Homebanner_carousel.getText();
+	}
+
+	//Get the value :  Homebanner_carousel
+	public String getValue_txt_Homebanner_carousel(){
+		return txt_Homebanner_carousel.getAttribute("value");
+	}
+	// selected or Not :  Homebanner_carousel
+	public boolean isSelected_txt_Homebanner_carousel(){
+		if(txt_Homebanner_carousel.isSelected()) { return true; } else { return false;} 
 	}
 
 }

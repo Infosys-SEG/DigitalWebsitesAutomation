@@ -8,15 +8,17 @@ import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.testng.Reporter;
 
 import Utility.Data;
 import Utility.Readexcel_RowName;
-import generatedClass.POM_Generated_AccountSecurityPage;
 import generatedClass.POM_Generated_CongratulationsPage;
 import generatedClass.POM_Generated_ContactInfoPage;
 import generatedClass.POM_Generated_DigitalCouponsPage;
 import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_LoggedIn_RewardsPage;
+import generatedClass.POM_Generated_MyAccountPage;
+
 
 public class Computed_EnrollmentVerify 
 {
@@ -25,14 +27,16 @@ public class Computed_EnrollmentVerify
 	{
 		POM_Generated_CongratulationsPage congratulationspage = new POM_Generated_CongratulationsPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
 		POM_Generated_LoggedIn_RewardsPage loginrewardspage = new POM_Generated_LoggedIn_RewardsPage(driver);
 		POM_Generated_DigitalCouponsPage digitalcouponspage = new POM_Generated_DigitalCouponsPage(driver);
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
-		POM_Generated_AccountSecurityPage accountsecuritypage = new POM_Generated_AccountSecurityPage(driver);
+		
 		Data obj=new Data();
 		String neverdealsurl="";
 		String v="";
-		
+		String notpickeduptext = "";
+		String pickeduptext = "";
 	    new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
     	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
     	{
@@ -60,12 +64,41 @@ public class Computed_EnrollmentVerify
 			bro=ie;
 		}
 		String Val = obj.popuppath()+" "+bro;
-		
+		 String cardstatus = Readexcel_RowName.getValue("Phone/Card_Number");
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		try 
     	{
     		obj.waitForElement(driver, congratulationspage.txt_ThankYou_Message_Text);
 		    neverdealsurl=driver.getCurrentUrl();
+		    
+		    if(congratulationspage.isDisplayed_click_CloseModal_Button())
+		    {
+		    	congratulationspage.click_click_CloseModal_Button();
+		    }
+		   
+		    
+		    if(cardstatus.startsWith("722"))
+		    {
+		    	
+		    }
+		    else
+		    {
+		    	try
+		    	{
+		    		if(congratulationspage.isDisplayed_txt_Pick_Up_Text())
+		    		{
+		    			Reporter.log("Pickup text message is displayed");
+		    		}
+		    		else
+		    		{
+		    			Assert.fail("Pickup text message is not displayed");
+		    		}
+		    	}
+		    	catch(Exception e)
+		    	{
+		    		Assert.fail("Pickup text message is not displayed");
+		    	}
+		    }
 		    obj.scrollingToElementofAPage(driver, congratulationspage.click_Fuel_Rewards_Link);
 		    congratulationspage.click_click_Fuel_Rewards_Link();
 		    obj.waitForElementClickable(driver, congratulationspage.txt_Fuel_Rewards_Page_Button);
@@ -114,11 +147,44 @@ public class Computed_EnrollmentVerify
 			Assert.fail("Error in rewards page after enrollment");
 			
 		}	
-		
+	
 	    try
 	    {
 	    	loginrewardspage.click_click_MyRewards_Edit_Acc_Det_Link();
 	    	obj.waitForElement(driver, loginrewardspage.click_EditAccountDetails_Page_Text);
+	    	
+	    	try
+	 	    {
+	    		if(cardstatus.startsWith("722"))
+	    		{
+	    			//String rewardstatus = Readexcel_RowName.getValue("Phone/Card_Number");
+	    			if(myaccountpage.getText_txt_Rewards_Card_Number_Text().equalsIgnoreCase(pickeduptext))
+	    			{
+	    				Reporter.log("pickedup text is displayed");
+	    			}
+	    			else
+	    			{
+	    				Assert.fail("pickedup text not matched or not displayed");
+	    			}
+	    		}
+	    		else
+	    		{
+	    			if(myaccountpage.getText_txt_Pick_Up_Text().equalsIgnoreCase(notpickeduptext))
+	    			{
+	    				Reporter.log("not pickedup text is displayed");
+	    			}
+	    			else
+	    			{
+	    				Assert.fail("not pickedup text not matched or not displayed");
+	    			}
+		    	
+	    		}
+	 	    }
+	    	catch(Exception e1)
+	    	{
+	    		Assert.fail("Error in rewards status in my account page");
+	    	} 	
+	    	
 	    	if (!contactinfopage.getValue_ddl_Salutation_Field().equals(Readexcel_RowName.getValue("Salutation")))
 	    	{
 	    		driver.close();
@@ -149,7 +215,7 @@ public class Computed_EnrollmentVerify
 				driver.close();
 				Assert.fail("Year is pre populating");
 			}		
-			if (!accountsecuritypage.getValue_txt_Email_Address_Field().equals(Readexcel_RowName.getValue("EmailAddress")))
+			if (!myaccountpage.getValue_txt_Email_Address_Field().equals(Readexcel_RowName.getValue("EmailAddress")))
 			{
 				driver.close();
 				Assert.fail("Email address is not pre populating");

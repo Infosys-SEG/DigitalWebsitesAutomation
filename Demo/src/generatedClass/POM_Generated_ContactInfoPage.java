@@ -106,6 +106,10 @@ public class POM_Generated_ContactInfoPage {
 	@FindBy(xpath = "//span[@id='error-invalidphone'][@style='display: block;']")
 	public WebElement txt_Error_Invalid_PhoneNumber;
 	
+	// Associated Label : Error_Invalid_PhoneType
+	@FindBy(xpath = "//span[@id='error-phoneTypephone'][@style='display: block;']")
+	public WebElement txt_Error_Invalid_PhoneType;
+	
 	// Associated Label : Error_Address_Blank
 	@FindBy(xpath = "//span[@id='erroraddress'][@style='display: block;']")
 	public WebElement txt_Error_Address_Blank;
@@ -1133,6 +1137,52 @@ public class POM_Generated_ContactInfoPage {
 	// selected or Not :  Error_Invalid_PhoneNumber
 	public boolean isSelected_txt_Error_Invalid_PhoneNumber(){
 		if(txt_Error_Invalid_PhoneNumber.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Error_Invalid_PhoneType
+	public void type_txt_Error_Invalid_PhoneType(String value) {
+		txt_Error_Invalid_PhoneType.clear();
+		txt_Error_Invalid_PhoneType.sendKeys(value);
+	}
+
+	//click:  Error_Invalid_PhoneType
+	public void click_txt_Error_Invalid_PhoneType(){
+		txt_Error_Invalid_PhoneType.click();
+	}
+
+	// Hover:  Error_Invalid_PhoneType
+	public void hover_txt_Error_Invalid_PhoneType(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Error_Invalid_PhoneType).build().perform();
+	}
+
+	// visible or Not :  Error_Invalid_PhoneType
+	public boolean isDisplayed_txt_Error_Invalid_PhoneType(){
+		if(txt_Error_Invalid_PhoneType.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Error_Invalid_PhoneType
+	public boolean isEnabled_txt_Error_Invalid_PhoneType(){
+		if(txt_Error_Invalid_PhoneType.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Error_Invalid_PhoneType
+	public String getCssValue_txt_Error_Invalid_PhoneType(String attribute) {
+		return txt_Error_Invalid_PhoneType.getCssValue(attribute);
+	}
+
+	//Get the text :  Error_Invalid_PhoneType
+	public String getText_txt_Error_Invalid_PhoneType(){
+		return txt_Error_Invalid_PhoneType.getText();
+	}
+
+	//Get the value :  Error_Invalid_PhoneType
+	public String getValue_txt_Error_Invalid_PhoneType(){
+		return txt_Error_Invalid_PhoneType.getAttribute("value");
+	}
+	// selected or Not :  Error_Invalid_PhoneType
+	public boolean isSelected_txt_Error_Invalid_PhoneType(){
+		if(txt_Error_Invalid_PhoneType.isSelected()) { return true; } else { return false;} 
 	}
 
 	// Type:  Error_Address_Blank

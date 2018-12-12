@@ -29,6 +29,10 @@ public class POM_Generated_CongratulationsPage {
 	@FindBy(xpath = "//h1[text()='Thank you for signing up! ']")
 	public WebElement txt_ThankYou_Message_Text;
 	
+	// Associated Label : Pick_Up_Text
+	@FindBy(xpath = "//h4[text()='Pick up your SE Grocers rewards card in store ']")
+	public WebElement txt_Pick_Up_Text;
+	
 	// Associated Label : Digital_coupons_button
 	@FindBy(xpath = "//a[text()='Digital Coupons']")
 	public WebElement click_Digital_coupons_button;
@@ -176,6 +180,52 @@ public class POM_Generated_CongratulationsPage {
 	// selected or Not :  ThankYou_Message_Text
 	public boolean isSelected_txt_ThankYou_Message_Text(){
 		if(txt_ThankYou_Message_Text.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Pick_Up_Text
+	public void type_txt_Pick_Up_Text(String value) {
+		txt_Pick_Up_Text.clear();
+		txt_Pick_Up_Text.sendKeys(value);
+	}
+
+	//click:  Pick_Up_Text
+	public void click_txt_Pick_Up_Text(){
+		txt_Pick_Up_Text.click();
+	}
+
+	// Hover:  Pick_Up_Text
+	public void hover_txt_Pick_Up_Text(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Pick_Up_Text).build().perform();
+	}
+
+	// visible or Not :  Pick_Up_Text
+	public boolean isDisplayed_txt_Pick_Up_Text(){
+		if(txt_Pick_Up_Text.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Pick_Up_Text
+	public boolean isEnabled_txt_Pick_Up_Text(){
+		if(txt_Pick_Up_Text.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Pick_Up_Text
+	public String getCssValue_txt_Pick_Up_Text(String attribute) {
+		return txt_Pick_Up_Text.getCssValue(attribute);
+	}
+
+	//Get the text :  Pick_Up_Text
+	public String getText_txt_Pick_Up_Text(){
+		return txt_Pick_Up_Text.getText();
+	}
+
+	//Get the value :  Pick_Up_Text
+	public String getValue_txt_Pick_Up_Text(){
+		return txt_Pick_Up_Text.getAttribute("value");
+	}
+	// selected or Not :  Pick_Up_Text
+	public boolean isSelected_txt_Pick_Up_Text(){
+		if(txt_Pick_Up_Text.isSelected()) { return true; } else { return false;} 
 	}
 
 	//click:  Digital_coupons_button

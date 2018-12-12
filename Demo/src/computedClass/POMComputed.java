@@ -20,10 +20,10 @@ public class POMComputed
 			String packAge="generatedClass";   
 			//String sheetName="Specify the package";
 			//String inputfile="Input file Path";
-			String sheetName="VerificationPage";
+			String sheetName="CongratulationsPage";
 			String inputfile="\\\\winndixieus.wd.com\\HDQ\\Users\\ragunk\\Desktop\\Automation\\Locators.xlsx";
 			
-			String className="POM_Generated_VerificationPage";
+			String className="POM_Generated_CongratulationsPage";
 			
 			@SuppressWarnings("resource")
 		
