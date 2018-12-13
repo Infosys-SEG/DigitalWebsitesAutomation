@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Never_Miss_A_Deal__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Never_Miss_A_Deal">
+                <methods>
+                    <include name="TC001_Not_picked_up_a_card_in_the_store"/>
+                    <include name="TC002_UserhasAlreadyPickedupthe_CardatStore"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Fuelperks_Locator_Page__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Fuelperks_Locator_Page">
+                <methods>
+                    <include name="TC001_Fuelperks_locator_Search_with_ZIP"/>
+                    <include name="TC002_Fuelperks_locator_Search_with_city_and_state"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

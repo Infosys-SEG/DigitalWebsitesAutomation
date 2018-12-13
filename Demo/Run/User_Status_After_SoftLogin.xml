@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="User_Status_After_SoftLogin__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.User_Status_After_SoftLogin">
+                <methods>
+                    <include name="TC001_Soft_login_fully_enrolled_user"/>
+                    <include name="TC002_Soft_login_Pre_enrolled_user"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

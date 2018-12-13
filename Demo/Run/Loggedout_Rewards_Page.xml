@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Loggedout_Rewards_Page__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Loggedout_Rewards_Page">
+                <methods>
+                    <include name="TC001_Rewards_Page_for_Logged_Out_users"/>
+                    <include name="TC002_Validate_the_functionality_of_Enroll_Now_button"/>
+                    <include name="TC003_Validate_the_functionality_of_Log_in_button"/>
+                    <include name="TC004_Verify_whether_respective_banner_helpline_is_displayed_with_Need_help_text"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

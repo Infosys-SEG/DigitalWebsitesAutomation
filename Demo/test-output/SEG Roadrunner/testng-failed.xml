@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [SEG Roadrunner]">
+  <parameter name="BrowserType" value="Chrome"/>
+  <parameter name="Banner" value="Winndixie"/>
+  <test name="Static_Infobar_loggedin_Users__Chrome(failed)">
+    <parameter name="BrowserType" value="Chrome"/>
+    <parameter name="Banner" value="Winndixie"/>
+    <classes>
+      <class name="executableClass.Static_Infobar_loggedin_Users">
+        <methods>
+          <include name="TC003_Staticbar_Hard_login_links_navigation_Account_setting_page"/>
+        </methods>
+      </class> <!-- executableClass.Static_Infobar_loggedin_Users -->
+    </classes>
+  </test> <!-- Static_Infobar_loggedin_Users__Chrome(failed) -->
+</suite> <!-- Failed suite [SEG Roadrunner] -->

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Persist_Data_During_Enrollment__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Persist_Data_During_Enrollment">
+                <methods>
+                    <include name="TC001_Enrollment_DataPersistency__ActiveSession"/>
+                    <include name="TC002_Enrollment_DataPersistency__ClosetheBrower"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

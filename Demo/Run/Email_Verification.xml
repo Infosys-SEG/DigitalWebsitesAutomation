@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Email_Verification__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Email_Verification">
+                <methods>
+                    <include name="TC005_NEXT_button_should_be_grayed_out_till_customer_enter_6_digits"/>
+                    <include name="TC006_Validate_that_customer_is_not_able_to_enter_more_than_6_digits"/>
+                    <include name="TC007_Validate_NEXT_button_is_enabled_once_customer_entered_6_digits"/>
+                    <include name="TC008_Verify_the_error_message_if_customer_enter_wrong_6_digit_through_Email_verification_method"/>
+                    <include name="TC009_Validate_the_error_message_if_customer_enter_invalid_EMAIL_verification_code_for_first_time"/>
+                    <include name="TC010_Validate_the_error_message_if_customer_enter_invalid_EMAIL_verification_code_for_second_time"/>
+                    <include name="TC011_Validate_the_error_message_if_customer_enter_invalid_EMAIL_verification_code_for_third_time"/>
+                    <include name="TC012_Verify_that_customer_is_not_able_to_enter_characters_or_special_characters_in_SMS_verification_label_text_box."/>
+                    <include name="TC013_Validate_the_blocked_list_of_email_domains_should_not_be_allowed."/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
