@@ -48,8 +48,6 @@ public class Computed_FullyEnrollment_Flow
 		try
 		{
 			
-			
-			
 			obj.waitForElementClickable(driver, accountlookuppage.txt_Card_Number_Field);
 			
 			if(Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("Card")||Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("CRC"))
@@ -62,9 +60,15 @@ public class Computed_FullyEnrollment_Flow
 			}
 			obj.scrollingToElementofAPage(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
 			accountlookuppage.click_click_Get_Started_With_SEG_Button();	
-			obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
-			onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
-			
+			try
+			{
+				obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
+				onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
+			}
+			catch(Exception e1)
+			{
+				
+			}
 			obj.waitForElement(driver, verificationpage.txt_VerificationPage_HeaderName_Text);
 		
 		}

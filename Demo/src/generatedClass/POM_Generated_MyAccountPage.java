@@ -77,8 +77,14 @@ public class POM_Generated_MyAccountPage {
 	@FindBy(id = "errorconfirmPin")
 	public WebElement txt_Error_NotMatchingPIns_Msg;
 	
+	//Associated Label : click_Info_Icon
+	@FindBy(id="setInfo")
+	public WebElement click_Info_Icon;
+	
 	// Associated Label : Error_Pin_Modal_Msg
-	@FindBy(xpath = "//div[@id='message1']")
+	//@FindBy(xpath = "//div[@class='modalshow']//*[contains(text(),'Must not be four repeating')]")
+	@FindBy(xpath = "//strong[contains(text(),'Must not be four repeating')][1]")
+	//@FindBy(css=".pin-tooltip")
 	public WebElement txt_Error_Pin_Modal_Msg;
 	
 	// Associated Label : Error_InvalidPins_3Times_Msg

@@ -17,6 +17,7 @@ import generatedClass.POM_Generated_AccountSecurityPage;
 import generatedClass.POM_Generated_CongratulationsPage;
 import generatedClass.POM_Generated_ContactInfoPage;
 import generatedClass.POM_Generated_Homepage;
+import generatedClass.POM_Generated_One_Quick_Thing_Popup;
 
 public class Computed_PreEnrollment_Flow 
 {
@@ -46,7 +47,7 @@ public class Computed_PreEnrollment_Flow
 	{
 		POM_Generated_AccountLookupPage accountlookuppage = new POM_Generated_AccountLookupPage(driver);
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
-		//POM_Generated_One_Quick_Thing_Popup onequickthing = new POM_Generated_One_Quick_Thing_Popup(driver);
+		POM_Generated_One_Quick_Thing_Popup onequickthing = new POM_Generated_One_Quick_Thing_Popup(driver);
 		Data obj=new Data();
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
@@ -70,8 +71,15 @@ public class Computed_PreEnrollment_Flow
 				obj.scrollingToElementofAPage(driver, accountlookuppage.click_Signup_As_New_Member_Button);
 				accountlookuppage.click_click_Signup_As_New_Member_Button();
 			}
-			/*obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
-			onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();*/
+			try
+			{
+				obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
+				onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
+			}
+			catch(Exception e1)
+			{
+				
+			}
 			obj.waitForElement(driver, contactinfopage.txt_HeaderName_Text)	;
 			
 			Reporter.log("Account lookup page completed successfully");

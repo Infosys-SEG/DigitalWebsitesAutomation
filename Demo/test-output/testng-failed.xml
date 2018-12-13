@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="executableClass.Fully_Enrolled_Customers_Flow">
+      <class name="executableClass.Static_Infobar_loggedin_Users">
         <methods>
-          <include name="TC009_EnrollinNewProgram_PlentiCardNumber_VerifybyPII"/>
+          <include name="TC003_Staticbar_Hard_login_links_navigation_Account_setting_page"/>
         </methods>
-      </class> <!-- executableClass.Fully_Enrolled_Customers_Flow -->
+      </class> <!-- executableClass.Static_Infobar_loggedin_Users -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
