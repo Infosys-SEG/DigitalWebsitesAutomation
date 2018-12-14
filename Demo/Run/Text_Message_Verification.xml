@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Text_Message_Verification__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="">
+                <methods>
+                    <include name="TC012_Validate the error message if customer enter invalid SMS verification code for third time"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

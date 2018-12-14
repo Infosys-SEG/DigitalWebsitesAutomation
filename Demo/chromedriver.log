@@ -1,0 +1,15 @@
+[0.062][INFO]:      ChromeDriver 22.0.1203.0 D:\Kiran\D foldef\New folder\selenium\chromedriver.exe
+[0.708][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chromeOptions": {
+      "args": [ "--start-maximized" ],
+      "extensions": [  ]
+   },
+   "platform": "ANY",
+   "version": ""
+}
+
+[0.708][INFO]:      Launching chrome: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --ignore-certificate-errors --disable-popup-blocking --homepage=about:blank --start-maximized
+[45.818][SEVERE]:   Failed to initialize connection
+[56.111][INFO]:     Chrome still running after 10s
+[56.111][INFO]:     Chrome shutdown

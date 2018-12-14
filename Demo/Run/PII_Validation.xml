@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="PII_Validation__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.PII_Validation">
+                <methods>
+                    <include name="TC001_Select_PII_Verification_method_to_verify_customer_identity_using_Plenti_Card_number"/>
+                    <include name="TC002_Validate_the_error_message_if_customer_enter_invalid_Date_of_Birth_Month_in_single_digit"/>
+                    <include name="TC003_Validate_the_error_message_if_customer_enter_invalid_Date_of_Birth_Month_above_12"/>
+                    <include name="TC004_Validate_the_error_message_if_customer_entered_date_of_birth_in_wrong_format_Date_value_in_month_field"/>
+                    <include name="TC005_Validate_the_error_message_if_customer_entered_invalid_date_Date_in_single_digit"/>
+                    <include name="TC006_Validate_the_error_message_if_customer_entered_invalid_date_date_above_31"/>
+                    <include name="TC007_Validate_the_error_message_if_customer_entered_invalid_year_More_than_100_years_past"/>
+                    <include name="TC008_Validate_the_error_message_if_customer_entered_invalid_year_Year_in_Future"/>
+                    <include name="TC009_Validate_the_error_message_if_customer_entered_NotInUse_Zip_Codes"/>
+                    <include name="TC010_Enter_characters_or_special_characters_in_Zip_Code_field"/>
+                    <include name="TC011_Enter_Zip_code_less_than_5_digits"/>
+                    <include name="TC012_Enter_Zip_Code_greater_than_5_digits"/>
+                    <include name="TC013_Verify_that_if_customer_is_already_authenticated_with_cell_number"/>
+                    <include name="TC014_Verify_the_phone_number_validation_for_NPA_code"/>
+                    <include name="TC015_Verify_the_phone_number_validation_for_Subsciber_number"/>
+                    <include name="TC016_Verify_the_error_message_if_NPA_number_range_format_is_invalid"/>
+                    <include name="TC017_Verify_the_error_message_if_Central_Office_Code_number_range_format_is_invalid"/>
+                    <include name="TC018_Verify_the_phone_number_validation_for_Central_Office_Code"/>
+                    <include name="TC019_Select_PII_Verification_method_to_verify_customer_identity_using_Registered_Phone_number"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

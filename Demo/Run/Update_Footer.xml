@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite PUBLIC "SYSTEM" "http://testng.org/testng-1.0.dtd">
+<suite name="SEG Roadrunner">
+    <test name="Update_Footer__Chrome">
+        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="Banner" value="Winndixie"/>
+        <classes>
+            <class name="executableClass.Update_Footer">
+                <methods>
+                    <include name="TC001_Rewards_Terms_and_conditions"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
