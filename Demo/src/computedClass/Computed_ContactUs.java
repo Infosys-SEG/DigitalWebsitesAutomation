@@ -1,11 +1,7 @@
 package computedClass;
 
 import java.awt.AWTException;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
-
-import javax.swing.text.TabableView;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
