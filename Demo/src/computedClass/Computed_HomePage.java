@@ -2,22 +2,18 @@ package computedClass;
 
 
 	import java.awt.AWTException;
-	import java.io.FileNotFoundException;
-	import java.io.IOException;
-    import java.util.List;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
 
-    import org.apache.poi.util.SystemOutLogger;
-    import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-	import org.testng.Assert;
-	import org.testng.Reporter;
-	import Utility.Data;
-	import Utility.Readexcel_RowName;
-	
-	import generatedClass.POM_Generated_HardLoginPage;
-	import generatedClass.POM_Generated_Homepage;
-	
-	import generatedClass.POM_Generated_StaticInfoBar;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.Reporter;
+
+import Utility.Data;
+import Utility.Readexcel_RowName;
+import generatedClass.POM_Generated_Homepage;
 
 	public class Computed_HomePage {
          
@@ -57,7 +53,7 @@ package computedClass;
 		}	
 		public WebDriver Home_topbanner(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 		{
-			POM_Generated_StaticInfoBar staticinfobar = new POM_Generated_StaticInfoBar(driver);
+			
 			POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 			
 			try
@@ -89,10 +85,11 @@ package computedClass;
 			POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 			String curl=driver.getCurrentUrl();
 			
-			try{
-				  if(!(value.equals("harveyssupermarkets")))
-						  {
-				   if(homepage.isDisplayed_click_Online_Grocery_Logo())				
+			try
+			{
+				if(!(value.equals("harveyssupermarkets")))
+				{
+					if(homepage.isDisplayed_click_Online_Grocery_Logo())				
 					{  	
 						String 	logo1=homepage.getText_click_Online_Grocery_Logo();	
 						Reporter.log(logo1 +" logo is displayed in home page");

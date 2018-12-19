@@ -7,8 +7,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
 import Utility.ReadExcel;
 import Utility.Readexcel_RowName;
 
@@ -22,15 +24,15 @@ public class Computed_DB
 	    String chain="";
 	    if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 		{
-			 chain="1";
+			 chain="' and CHAIN_ID = 1";
 		}
 		else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 		{
-			chain="2";
+			chain="' and CHAIN_ID <> 1";
 		}
 		else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 		{
-			chain="3";
+			chain="' and CHAIN_ID <> 1";
 		}
 	    		
 	   
@@ -57,27 +59,30 @@ public class Computed_DB
 			{
 				sysdate = dt.getString(1);
 			}
-			 if(cardtype.equalsIgnoreCase("Card"))
-			 {
-				 String cn=String.valueOf(Readexcel_RowName.getValue("Phone/Card_Number")).replace("null", "");
-				 String mail=String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "");
-				 value=" where ALIAS_NUMBER='"+cn+"' and CHAIN_ID="+chain+" and EMAIL_ADDRESS='"+mail+"'";
+			if(cardtype.equalsIgnoreCase("Card"))
+			{
+				String cn=String.valueOf(Readexcel_RowName.getValue("Phone/Card_Number")).replace("null", "");
+				String mail=String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "");
+				value=" where ALIAS_NUMBER='"+cn+chain+" and EMAIL_ADDRESS='"+mail+"'";
 				
-			 }
-			 else if(cardtype.equalsIgnoreCase("Phone"))
-			 {
-				 String mob=String.valueOf(Readexcel_RowName.getValue("Primary_Phone")).replace("null", "");
-				 String mail=String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "");
-				 value=" where MOBILE_PHONE='"+mob+"' and CHAIN_ID="+chain+" and D.LAST_UPDATE_DT='"+sysdate+"' and EMAIL_ADDRESS='"+mail+"'";
+			}
+			else if(cardtype.equalsIgnoreCase("Phone"))
+			{
+				String mob=String.valueOf(Readexcel_RowName.getValue("Primary_Phone")).replace("null", "");
+				String mail=String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "");
+				value=" where MOBILE_PHONE='"+mob+chain+" and EMAIL_ADDRESS='"+mail+"'";
 			
-			 }
-			 else  if(cardtype.equalsIgnoreCase("CRC"))
-			 {
-				 String cn=String.valueOf(Readexcel_RowName.getValue("Phone/Card_Number")).replace("null", "");
-				 String mail=String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "");
-				 value=" where B.CRC_ID='"+cn+"' and CHAIN_ID="+chain+" and D.LAST_UPDATE_DT='"+sysdate+"' and EMAIL_ADDRESS='"+mail+"'";
-			 }
-			String SQL = "select * from ODSCustomer_QA.dbo.CUST_ALIAS A join ODSCustomer_QA.dbo.CUST B on A.MEMBER_ID = B.MEMBER_ID join ODSCustomer_QA.dbo.CUST_MEMBERSHIP C on A.MEMBER_ID = C.MEMBER_ID join ODSCustomer_QA.dbo.CUST_ADDR D on B.CRC_ID=D.CRC_ID" +value;	
+			}
+			else  if(cardtype.equalsIgnoreCase("CRC"))
+			{
+				String cn=String.valueOf(Readexcel_RowName.getValue("Phone/Card_Number")).replace("null", "");
+				String mail=String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "");
+				value=" where B.CRC_ID='"+cn+chain+" and EMAIL_ADDRESS='"+mail+"'";
+			}
+			String colnames = "SALUTATION, FIRST_NAME, LAST_NAME, BIRTH_DT, MOBILE_PHONE, EMAIL_ADDRESS, STREET_ADDRESS_1, STREET_ADDRESS_2, CITY_NAME, STATE_CODE, POSTAL_CODE, ALIAS_NUMBER, B.CRC_ID as B_CRC_ID, ENROLLMENT_STATUS, A.LAST_UPDATE_SOURCE as A_LAST_UPDATE_SOURCE, B.LAST_UPDATE_SOURCE as B_LAST_UPDATE_SOURCE, C.LAST_UPDATE_SOURCE as C_LAST_UPDATE_SOURCE, D.LAST_UPDATE_SOURCE as D_LAST_UPDATE_SOURCE, A.LAST_UPDATE_DT as A_LAST_UPDATE_DT, B.LAST_UPDATE_DT as B_LAST_UPDATE_DT, D.LAST_UPDATE_DT as D_LAST_UPDATE_DT";
+				
+			String SQL = "select "+colnames+" from ODSCustomer_QA.dbo.CUST_ALIAS as A join ODSCustomer_QA.dbo.CUST as B on A.MEMBER_ID = B.MEMBER_ID join ODSCustomer_QA.dbo.CUST_MEMBERSHIP as C on A.MEMBER_ID = C.MEMBER_ID join ODSCustomer_QA.dbo.CUST_ADDR as D on B.CRC_ID=D.CRC_ID" +value;	
+			
 			rs = stmt.executeQuery(SQL);  
 			String B_CRC_ID=null;
 			while (rs.next()) 
@@ -94,16 +99,16 @@ public class Computed_DB
 				String STATE_CODE = rs.getString("STATE_CODE");
 				String POSTAL_CODE = rs.getString("POSTAL_CODE");
 				String ALIAS_NUMBER = rs.getString("ALIAS_NUMBER");
-			    B_CRC_ID = rs.getString("CRC_ID");
+			    B_CRC_ID = rs.getString("B_CRC_ID");
 				String ENROLLMENT_STATUS = rs.getString("ENROLLMENT_STATUS");
-				String CHAIN_ID = rs.getString("CHAIN_ID");
-				String A_LAST_UPDATE_SOURCE = rs.getString("LAST_UPDATE_SOURCE");
-				String B_LAST_UPDATE_SOURCE = rs.getString("LAST_UPDATE_SOURCE");
-				String C_LAST_UPDATE_SOURCE = rs.getString("LAST_UPDATE_SOURCE");
-				String D_LAST_UPDATE_SOURCE = rs.getString("LAST_UPDATE_SOURCE");
-				String A_LAST_UPDATE_DT = rs.getString("LAST_UPDATE_DT");
-				String B_LAST_UPDATE_DT = rs.getString("LAST_UPDATE_DT");
-				String D_LAST_UPDATE_DT= rs.getString("LAST_UPDATE_DT");
+				
+				String A_LAST_UPDATE_SOURCE = rs.getString("A_LAST_UPDATE_SOURCE");
+				String B_LAST_UPDATE_SOURCE = rs.getString("B_LAST_UPDATE_SOURCE");
+				String C_LAST_UPDATE_SOURCE = rs.getString("C_LAST_UPDATE_SOURCE");
+				String D_LAST_UPDATE_SOURCE = rs.getString("D_LAST_UPDATE_SOURCE");
+				String A_LAST_UPDATE_DT = rs.getString("A_LAST_UPDATE_DT");
+				String B_LAST_UPDATE_DT = rs.getString("B_LAST_UPDATE_DT");
+				String D_LAST_UPDATE_DT= rs.getString("D_LAST_UPDATE_DT");
 				
 				SALUTATION = (String.valueOf(SALUTATION).replace("null", "")).trim();
 				FIRST_NAME = (String.valueOf(FIRST_NAME).replace("null", "")).trim();
@@ -119,7 +124,7 @@ public class Computed_DB
 				ALIAS_NUMBER = (String.valueOf(ALIAS_NUMBER).replace("null", "")).trim();
 				B_CRC_ID = (String.valueOf(B_CRC_ID).replace("null", "")).trim();
 				ENROLLMENT_STATUS= (String.valueOf(ENROLLMENT_STATUS).replace("null", "")).trim();
-				CHAIN_ID= (String.valueOf(CHAIN_ID).replace("null", "")).trim();
+				
 				A_LAST_UPDATE_SOURCE=(String.valueOf(A_LAST_UPDATE_SOURCE).replace("null", "")).trim();
 				B_LAST_UPDATE_SOURCE=(String.valueOf(B_LAST_UPDATE_SOURCE).replace("null", "")).trim();
 				C_LAST_UPDATE_SOURCE=(String.valueOf(C_LAST_UPDATE_SOURCE).replace("null", "")).trim();
@@ -132,49 +137,40 @@ public class Computed_DB
 			    {
 					if(!ALIAS_NUMBER.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Phone/Card_Number")).replace("null", "")))
 					{
+						
 						Assert.fail("Card_Number not matched with DB");
 					}
-					else
-					{
-						System.out.println(ALIAS_NUMBER);
-					}
+					
 			    }
 				else if(cardtype.equalsIgnoreCase("CRC"))
 			    {
 					if(!B_CRC_ID.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Phone/Card_Number")).replace("null", "")))
 					{
+						
 						Assert.fail("CRC Card_Number not matched with DB");
 					}
-					else
-					{
-						System.out.println(B_CRC_ID);
-					}
+					
 			    }
 				
 				if(!ENROLLMENT_STATUS.equalsIgnoreCase("E"))				
 				{
+				
 					Assert.fail("ENROLLMENT_STATUS not changed to E in DB");
 				}
-				if(!CHAIN_ID.equalsIgnoreCase(chain))				
-				{
-					System.out.println(chain);
-					System.out.println(CHAIN_ID);
-					//Assert.fail("chainid not matched with DB");
-				}
-				else
-				{
-					System.out.println(chain);
-				}
+				
 				if(!SALUTATION.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Salutation")).replace("null", "")))
 				{
+					
 					Assert.fail("Salutation not matched with DB");
 				}
 				if(!FIRST_NAME.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("FirstName")).replace("null", "")))
 				{
+					
 					Assert.fail("FirstName not matched with DB");
 				}
 				if(!LAST_NAME.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("LastName")).replace("null", "")))
 				{
+					
 					Assert.fail("LastName not matched with DB");
 				}
 				
@@ -183,81 +179,91 @@ public class Computed_DB
 				String Year=String.valueOf(Readexcel_RowName.getValue("Year")).replace("null", "");
 				if(!BIRTH_DT.equalsIgnoreCase(Year+"-"+Month+"-"+Date))
 				{
+					
 					Assert.fail("DOB not matched with DB");
 				}
 				if(!MOBILE_PHONE.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Primary_Phone")).replace("null", "")))
 				{
+				
 					Assert.fail("Primary_Phone not matched with DB");
 				}
 				if(!EMAIL_ADDRESS.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "")))
 				{
+					
 					Assert.fail("EmailAddress not matched with DB");
 				}
 				if(!STREET_ADDRESS_1.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Address1")).replace("null", "")))
 				{
+					
 					Assert.fail("STREET_ADDRESS_1 not matched with DB");
 				}
 				if(!STREET_ADDRESS_2.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Address2")).replace("null", "")))
 				{
+					
 					Assert.fail("STREET_ADDRESS_2 not matched with DB");
 				}
 				if(!CITY_NAME.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("City")).replace("null", "")))
 				{
+				
 					Assert.fail("City not matched with DB");
 				}
 				if(!STATE_CODE.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("State_Code")).replace("null", "")))
 				{
-					System.out.println(STATE_CODE);
-					//Assert.fail("State_Code not matched with DB");
+					
+					Assert.fail("State_Code not matched with DB");
 				}
 				if(!POSTAL_CODE.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Zip")).replace("null", "")))
 				{
+					
 					Assert.fail("Zip not matched with DB");
 				}
-				System.out.println(A_LAST_UPDATE_SOURCE);
+				
 				if(!A_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
 				{
-					//Assert.fail("Last updated source in cust alias table is not changed to web");
+					
+					Assert.fail("Last updated source in cust alias table is not changed to web");
 				}
-				System.out.println(B_LAST_UPDATE_SOURCE);
+				
 				if(!B_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
 				{
-					//Assert.fail("Last updated source in cust tablee is not changed to web");
+					
+					Assert.fail("Last updated source in cust tablee is not changed to web");
 				}
-				System.out.println(C_LAST_UPDATE_SOURCE);
+				
 				if(!C_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
 				{
-					//Assert.fail("Last updated source in membership table is not changed to web");
+				
+					Assert.fail("Last updated source in membership table is not changed to web");
 				}
-				System.out.println(D_LAST_UPDATE_SOURCE);
+				
 				if(!D_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
-				{
-					//Assert.fail("Last updated source in address table is not changed to web");
+				{	
+					Assert.fail("Last updated source in address table is not changed to web");
 				}
 				String[] A_LAST_UPDATE_DT_Split=A_LAST_UPDATE_DT.split(" ");
 				String[] B_LAST_UPDATE_DT_Split=B_LAST_UPDATE_DT.split(" ");
 				String[] D_LAST_UPDATE_DT_Split=D_LAST_UPDATE_DT.split(" ");
 				if(!A_LAST_UPDATE_DT_Split[0].equalsIgnoreCase(sysdate))
 				{
-					System.out.println(A_LAST_UPDATE_DT_Split[0]);
-					//Assert.fail("Last updated date in cust alias table is not changed in DB");
+					
+					Assert.fail("Last updated date in cust alias table is not changed in DB");
 				}
 				if(!B_LAST_UPDATE_DT_Split[0].equalsIgnoreCase(sysdate))
 				{
-					System.out.println(B_LAST_UPDATE_DT_Split[0]);
-					//Assert.fail("Last updated date in cust table is not changed in DB");
+					
+					Assert.fail("Last updated date in cust table is not changed in DB");
 				}
 				if(!D_LAST_UPDATE_DT_Split[0].equalsIgnoreCase(sysdate))
 				{
-					System.out.println(D_LAST_UPDATE_DT_Split[0]);
-					//Assert.fail("Last updated date in address table is not changed in DB");
+					
+					Assert.fail("Last updated date in address table is not changed in DB");
 				}	
 	        }
 			
 		} 		
 	    catch(Exception e) 
 		{
-	    	e.printStackTrace();
+	    	
 		}
 	    finally 
 	    {  

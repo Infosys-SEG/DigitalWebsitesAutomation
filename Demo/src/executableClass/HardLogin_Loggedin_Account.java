@@ -109,7 +109,43 @@ public class HardLogin_Loggedin_Account
 	}
 	
 	
+	@Test(priority=6)
+    public void TC008_SMS_preferences_for_opt_in_and_opt_out_NOT_enrolled_for_marketing_SMS () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+
+    {
+		//For getting current method name and passing as tcname
+
+        String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();    
+        Browserbanner br=new Browserbanner();
+        Computed_HardLogin hardlogin = new Computed_HardLogin();
+        Computed_SoftLogin softlogin =  new Computed_SoftLogin();
+        Computed_MyAccount myAcct = new Computed_MyAccount();
+        driver= br.BrowserBanner(driver, functionality);
+        driver=br.Clearcookie(driver, functionality);
+        driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
+        driver=hardlogin.Account_HardLogin(driver, functionality,tcname);    
+        driver=myAcct.MarketingSMS_NotEnrolled(driver, functionality, tcname);
+        driver.close();
+    }
 	
+	@Test(priority=7)
+    public void TC011_SMS_preferences_for_opt_in_and_opt_out_user_previously_opted_in_for_SMS_SEG_fully_enrolled () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+
+    {
+		//For getting current method name and passing as tcname
+
+        String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();    
+        Browserbanner br=new Browserbanner();
+        Computed_HardLogin hardlogin = new Computed_HardLogin();
+        Computed_SoftLogin softlogin =  new Computed_SoftLogin();
+        Computed_MyAccount myAcct = new Computed_MyAccount();
+        driver= br.BrowserBanner(driver, functionality);
+        driver=br.Clearcookie(driver, functionality);
+        driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
+        driver=hardlogin.Account_HardLogin(driver, functionality,tcname);    
+        driver=myAcct.MarketingSMS_AlreadyEnrolled(driver, functionality, tcname);
+        driver.close();
+    }
 	
 
 	

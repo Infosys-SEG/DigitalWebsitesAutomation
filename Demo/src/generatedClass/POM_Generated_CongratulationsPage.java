@@ -42,7 +42,7 @@ public class POM_Generated_CongratulationsPage {
 	public WebElement txt_Fuel_Rewards_Page_Button;
 	
 	// Associated Label : Fuel_Rewards_Link
-	@FindBy(xpath = "//a[@href='http://www.fuelrewards.com/']")
+	@FindBy(xpath = "//a[@href='http://www.fuelrewards.com/' or text()='Fuel Rewards']")
 	public WebElement click_Fuel_Rewards_Link;
 	
 	// Associated Label : My_Rewards_Link

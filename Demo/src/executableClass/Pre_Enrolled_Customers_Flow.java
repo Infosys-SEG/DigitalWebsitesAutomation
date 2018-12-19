@@ -7,6 +7,9 @@ import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+
+import computedClass.Computed_DB;
+import computedClass.Computed_EnrollmentVerify;
 import computedClass.Computed_PreEnrollment_Flow;
 
 public class Pre_Enrolled_Customers_Flow 
@@ -15,6 +18,8 @@ public class Pre_Enrolled_Customers_Flow
 	String functionality = "Pre_Enrolled_Customers_Flow";
 	Browserbanner browserbanner=new Browserbanner();
 	Computed_PreEnrollment_Flow preenrollmentflow= new Computed_PreEnrollment_Flow();
+	Computed_EnrollmentVerify Enrollmentverify= new Computed_EnrollmentVerify();
+	Computed_DB db = new Computed_DB();
 	
 	@Test
 	public void TC001_EnrollNewProgram_Phonenumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
@@ -28,7 +33,9 @@ public class Pre_Enrolled_Customers_Flow
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
 		driver.close();
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
 	}
 	
 	@Test
@@ -43,7 +50,9 @@ public class Pre_Enrolled_Customers_Flow
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
 		driver.close();
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
 		
 	}
 	
@@ -59,7 +68,9 @@ public class Pre_Enrolled_Customers_Flow
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
 		driver.close();
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
 		
 	}
 	
@@ -75,7 +86,9 @@ public class Pre_Enrolled_Customers_Flow
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
 		driver.close();
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
 		
 	}
 }

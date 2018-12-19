@@ -62,11 +62,11 @@ public class POM_Generated_MyAccountPage {
 	public WebElement txt_Cancel_Message_Text;
 	
 	// Associated Label : Error_SetPwd_Msg
-	@FindBy(xpath = "//span[@class='pwdErr']")
+	@FindBy(xpath = "//span[@class='pwdErr'][@style='display: block;']")
 	public WebElement txt_Error_SetPwd_Msg;
 	
 	// Associated Label : Error_NotMatchingPwds_Msg
-	@FindBy(xpath = "//span[contains(text(),'passwords do not match')]")
+	@FindBy(xpath = "//span[contains(text(),'passwords do not match')][@style='display: block;']")
 	public WebElement txt_Error_NotMatchingPwds_Msg;
 	
 	// Associated Label : Error_SetPin_Msg

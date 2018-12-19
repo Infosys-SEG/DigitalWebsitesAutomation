@@ -5,11 +5,13 @@ import java.awt.AWTException;
 import java.io.IOException;
 
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
 import Utility.Data;
 import Utility.Readexcel_RowName;
+import Utility.Writeexcel_RowName;
 import generatedClass.POM_Generated_ContactInfoPage;
 import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_MyAccountPage;
@@ -21,6 +23,7 @@ public class Computed_MyAccount
 	{
 		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
 		POM_Generated_ContactInfoPage  contactinfopage = new POM_Generated_ContactInfoPage(driver);
+		
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_StaticInfoBar staticinfobar = new POM_Generated_StaticInfoBar(driver);
 		
@@ -376,14 +379,33 @@ public class Computed_MyAccount
 	public WebDriver MyAccount_ResetPIN(WebDriver driver,String Functionality,String TCName,String opt) throws IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
-		
+		String a;
 		Data obj=new Data();
 		
 	    try
 	    {
 			String savedmsg="Your changes have been saved.";
 			String cancelmsg="Your changes have not been saved.";
-			
+			a=myaccountpage.txt_Set_Pin1_Field.getAttribute("placeholder");
+			System.out.println(a);
+		    if(a.equals("Enter new PIN"))
+		    {
+		    	Reporter.log("Watermark text is displayed for Set PIN field as "+a);
+		    }
+		    else
+		    {
+		    	Assert.fail("Watermark text is displayed for Set PIN field as "+a);
+		    }
+		    a=myaccountpage.txt_Set_Pin2_Field.getAttribute("placeholder");
+			System.out.println(a);
+		    if(a.equals("Confirm new PIN"))
+		    {
+		    	Reporter.log("Watermark text is displayed for confirm PIN field as "+a);
+		    }
+		    else
+		    {
+		    	Assert.fail("Watermark text is displayed for confirm PIN field as "+a);
+		    }
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 			
 			if(Readexcel_RowName.getValue("Pin")!=null)
@@ -418,7 +440,7 @@ public class Computed_MyAccount
 				if(cancelmsg.equals(myaccountpage.getText_txt_Cancel_Message_Text()))
 				{
 					System.out.println(myaccountpage.getValue_txt_Set_Pin1_Field());
-					if (myaccountpage.getValue_txt_Set_Pin1_Field()==null)
+					if (myaccountpage.getValue_txt_Set_Pin1_Field().isEmpty())
 					{
 					Reporter.log("PIN does not get saved after clicking Cancel button");
 					}
@@ -446,7 +468,7 @@ public class Computed_MyAccount
 		    {
 			    new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 			//	String savedmsg="Your changes have been saved.";
-				//String cancelmsg="Your changes have not been saved.";
+			//	String cancelmsg="Your changes have not been saved.";
 				String PIN_Repeat=Readexcel_RowName.getValue("PIN_Repeat");
 				String PIN_Phone=Readexcel_RowName.getValue("PIN_Phone");
 				String PIN_EasilyGuessable=Readexcel_RowName.getValue("PIN_EasilyGuessable");
@@ -696,5 +718,395 @@ public class Computed_MyAccount
 		    }
 			return driver;
 	}
+	
+	public WebDriver MyAccount_ResetPassword(WebDriver driver,String Functionality,String TCName,String opt) throws IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
+		String a;
+		Data obj=new Data();
+		Writeexcel_RowName obj1=new Writeexcel_RowName();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;	
+	    try
+	    {
+			String savedmsg="Your changes have been saved.";
+			String cancelmsg="Your changes have not been saved.";
+			
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+			String Password=Readexcel_RowName.getValue("Password");
+			a=myaccountpage.txt_Set_Password1_Field.getAttribute("placeholder");
+			System.out.println(a);
+		    if(a.equals("Enter new password"))
+		    {
+		    	Reporter.log("Watermark text is displayed for Set Password field as "+a);
+		    }
+		    else
+		    {
+		    	Assert.fail("Watermark text is displayed for Set Password field as "+a);
+		    }
+		    a=myaccountpage.txt_Set_Password2_Field.getAttribute("placeholder");
+			System.out.println(a);
+		    if(a.equals("Confirm new password"))
+		    {
+		    	Reporter.log("Watermark text is displayed for confirm Password field as "+a);
+		    }
+		    else
+		    {
+		    	Assert.fail("Watermark text is displayed for confirm Password field as "+a);
+		    }
+			if(Readexcel_RowName.getValue("Password")!=null)
+			{
+				System.out.println(Readexcel_RowName.getValue("Password"));
+				myaccountpage.type_txt_Set_Password1_Field(Readexcel_RowName.getValue("Password"));
+			}	
+			if(Readexcel_RowName.getValue("Confirm_Password")!=null)
+			{
+				System.out.println(Readexcel_RowName.getValue("Confirm_Password"));
+				myaccountpage.type_txt_Set_Password2_Field(Readexcel_RowName.getValue("Confirm_Password"));
+				
+			}
+		   
+			
+			if(opt.equalsIgnoreCase("Save"))
+			{
+				myaccountpage.click_click_Save_Button();
+				obj.waitForElement(driver, myaccountpage.txt_Saved_Message_Text);
+				if(savedmsg.equals(myaccountpage.getText_txt_Saved_Message_Text()))
+				{
+					Reporter.log("Password got saved successfully");
+					System.out.println(Password);
+					obj1.excelwrite(Functionality, TCName, "Hardlogin_Password", Password);
+				}
+				else
+				{
+					Assert.fail("save message is not displaying");
+				}	
+			}
+			else if(opt.equalsIgnoreCase("Cancel"))
+			{
+				myaccountpage.click_click_Cancel_Button();
+				obj.waitForElement(driver, myaccountpage.txt_Cancel_Message_Text);
+				System.out.println(myaccountpage.getText_txt_Cancel_Message_Text());
+				if(cancelmsg.equals(myaccountpage.getText_txt_Cancel_Message_Text()))
+				{
+					System.out.println(myaccountpage.getValue_txt_Set_Password1_Field());
+					if (myaccountpage.getValue_txt_Set_Password1_Field().isEmpty())
+					{
+					Reporter.log("Password does not get saved after clicking Cancel button");
+					}
+				}
+				else
+				{
+					Assert.fail("ResetPassword is not cancelled");
+				}	
+			}
+			jse.executeScript("scroll(0, -250);");
+	    }
+	    catch(Exception e)
+	    {
+	    	System.out.println(e);
+	    	Assert.fail("Error in Reset Password ");
+	    }
+		return driver;
+	}
+
+	public WebDriver MyAccount_ResetPassword_ToOldPassword(WebDriver driver,String Functionality,String TCName,String opt) throws IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
 		
+		Data obj=new Data();
+		Writeexcel_RowName obj1=new Writeexcel_RowName();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;	
+	    try
+	    {
+			String savedmsg="Your changes have been saved.";
+			String cancelmsg="Your changes have not been saved.";
+			
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+			String Password=Readexcel_RowName.getValue("Old_Password");
+			
+			if(Readexcel_RowName.getValue("Old_Password")!=null)
+			{
+				System.out.println(Readexcel_RowName.getValue("Old_Password"));
+				myaccountpage.type_txt_Set_Password1_Field(Readexcel_RowName.getValue("Old_Password"));
+			}	
+			if(Readexcel_RowName.getValue("Old_Password")!=null)
+			{
+				System.out.println(Readexcel_RowName.getValue("Old_Password"));
+				myaccountpage.type_txt_Set_Password2_Field(Readexcel_RowName.getValue("Old_Password"));
+				
+			}
+		   
+			
+			if(opt.equalsIgnoreCase("Save"))
+			{
+				myaccountpage.click_click_Save_Button();
+				obj.waitForElement(driver, myaccountpage.txt_Saved_Message_Text);
+				if(savedmsg.equals(myaccountpage.getText_txt_Saved_Message_Text()))
+				{
+					Reporter.log("old password is set");
+					System.out.println(Password);
+					obj1.excelwrite(Functionality, TCName, "Hardlogin_Password", Password);
+				}
+				else
+				{
+					Assert.fail("old password is not set");
+				}	
+			}
+			else if(opt.equalsIgnoreCase("Cancel"))
+			{
+				myaccountpage.click_click_Cancel_Button();
+				obj.waitForElement(driver, myaccountpage.txt_Cancel_Message_Text);
+				if(cancelmsg.equals(myaccountpage.getText_txt_Cancel_Message_Text()))
+				{
+					System.out.println(myaccountpage.getValue_txt_Set_Password1_Field());
+					if (myaccountpage.getValue_txt_Set_Password1_Field().isEmpty())
+					{
+					Reporter.log("Password does not get saved after clicking Cancel button");
+					}
+				}
+				else
+				{
+					Assert.fail("ResetPassword is not cancelled");
+				}	
+			}
+			jse.executeScript("scroll(0, -250);");
+	    }
+	    catch(Exception e)
+	    {
+	    	System.out.println(e);
+	    	Assert.fail("Error in Reset PIN ");
+	    }
+		return driver;
+	}
+	public WebDriver ResetPassword_ErrorMsgValidation(WebDriver driver,String Functionality,String TCName) throws IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
+		
+		 try
+		    {
+			    new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+				String Pwd_Lessthan8Digits=Readexcel_RowName.getValue("Pwd_Lessthan8Digits");
+				String Pwd_Greaterthan16Digits=Readexcel_RowName.getValue("Pwd_Greaterthan16Digits");
+				String Pwd_NoCaps=Readexcel_RowName.getValue("Pwd_NoCaps");
+				String Pwd_NoNumber=Readexcel_RowName.getValue("Pwd_NoNumber");
+				String Pwd_NoLower=Readexcel_RowName.getValue("Pwd_NoLower");
+				String Password = Readexcel_RowName.getValue("Password");
+				String Confirm_Password = Readexcel_RowName.getValue("Confirm_Password");
+				String Error_Msg;
+			
+	    // Not Matching Passwords error validation
+				myaccountpage.type_txt_Set_Password1_Field(Password);
+				myaccountpage.type_txt_Set_Password2_Field(Confirm_Password);
+				myaccountpage.click_click_Save_Button();
+				new Readexcel_RowName().excelRead("ErrorMessageSheet",Functionality,"Error_NotMatching_Passwords");
+				Error_Msg= Readexcel_RowName.getValue("Error_Message");
+				if(myaccountpage.isDisplayed_txt_Error_NotMatchingPwds_Msg())
+				    {
+				     if(Error_Msg.equals(myaccountpage.getText_txt_Error_NotMatchingPwds_Msg()))
+				     {
+				     Reporter.log("Error message is displayed when Passwords are not matching : "+myaccountpage.getText_txt_Error_NotMatchingPwds_Msg());
+					 }
+				     else
+				     {
+				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_NotMatchingPwds_Msg()); 
+				     }    
+				    }
+					else
+					{
+						Assert.fail("Error message is not displayed when Passwords are not matching :"+myaccountpage.getText_txt_Error_NotMatchingPwds_Msg());
+					}	
+		      	myaccountpage.click_click_Cancel_Button();
+	   // Password is less than 8 digits
+				myaccountpage.type_txt_Set_Password1_Field(Pwd_Lessthan8Digits);
+				myaccountpage.click_txt_Set_Password2_Field();
+				new Readexcel_RowName().excelRead("ErrorMessageSheet",Functionality,"Error_Password_Requirement");
+				Error_Msg= Readexcel_RowName.getValue("Error_Message");
+				if(myaccountpage.isDisplayed_txt_Error_SetPwd_Msg())
+				    {
+				     if(Error_Msg.equals(myaccountpage.getText_txt_Error_SetPwd_Msg()))
+				     {
+				     Reporter.log("Error message is displayed when Password is less than 8 digits : "+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					 }
+				     else
+				     {
+				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
+				     }    
+				    }
+					else
+					{
+						Assert.fail("Error message is not displayed when Password is less than 8 digits :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					}	
+		      	myaccountpage.click_click_Cancel_Button();
+		 // Password is greater than 16 digits
+				myaccountpage.type_txt_Set_Password1_Field(Pwd_Greaterthan16Digits);
+				myaccountpage.click_txt_Set_Password2_Field();
+				if(myaccountpage.isDisplayed_txt_Error_SetPwd_Msg())
+				    {
+				     if(Error_Msg.equals(myaccountpage.getText_txt_Error_SetPwd_Msg()))
+				     {
+				     Reporter.log("Error message is displayed when Password is more than 16 digits : "+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					 }
+				     else
+				     {
+				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
+				     }    
+				    }
+					else
+					{
+						Assert.fail("Error message is not displayed when Password is more than 16 digits :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					}	
+		      	myaccountpage.click_click_Cancel_Button();
+	    // Password does not have capital letter
+				myaccountpage.type_txt_Set_Password1_Field(Pwd_NoCaps);
+				myaccountpage.click_txt_Set_Password2_Field();
+				if(myaccountpage.isDisplayed_txt_Error_SetPwd_Msg())
+				    {
+				     if(Error_Msg.equals(myaccountpage.getText_txt_Error_SetPwd_Msg()))
+				     {
+				     Reporter.log("Error message is displayed when Password does not have any capital letter : "+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					 }
+				     else
+				     {
+				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
+				     }    
+				    }
+					else
+					{
+						Assert.fail("Error message is not displayed when Password doesnt have any capital letter :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					}	
+		      	myaccountpage.click_click_Cancel_Button();
+	  // Password does not have number
+				myaccountpage.type_txt_Set_Password1_Field(Pwd_NoNumber);
+				myaccountpage.click_txt_Set_Password2_Field();
+				if(myaccountpage.isDisplayed_txt_Error_SetPwd_Msg())
+				    {
+				     if(Error_Msg.equals(myaccountpage.getText_txt_Error_SetPwd_Msg()))
+				     {
+				     Reporter.log("Error message is displayed when Password does not have any number : "+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					 }
+				     else
+				     {
+				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
+				     }    
+				    }
+					else
+					{
+						Assert.fail("Error message is not displayed when Password doesnt have any number :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					}	
+		      	myaccountpage.click_click_Cancel_Button();
+		        // Password does not have lower letter
+				myaccountpage.type_txt_Set_Password1_Field(Pwd_NoLower);
+				myaccountpage.click_txt_Set_Password2_Field();
+				if(myaccountpage.isDisplayed_txt_Error_SetPwd_Msg())
+				    {
+				     if(Error_Msg.equals(myaccountpage.getText_txt_Error_SetPwd_Msg()))
+				     {
+				     Reporter.log("Error message is displayed when Password does not have any lower letter : "+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					 }
+				     else
+				     {
+				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
+				     }    
+				    }
+					else
+					{
+						Assert.fail("Error message is not displayed when Password doesnt have any lower letter :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
+					}	
+		      	myaccountpage.click_click_Cancel_Button();
+	
+		   
+		      	
+	      }
+					 catch(Exception e)
+					    {
+					    	System.out.println(e);
+					    	Assert.fail("Error in Reset Password ");
+					    }
+						return driver;
+	}
+	
+	public WebDriver MarketingSMS_NotEnrolled(WebDriver driver,String Functionality,String TCName) throws IOException, InterruptedException, AWTException 
+	{
+		
+		POM_Generated_ContactInfoPage contactInfo = new POM_Generated_ContactInfoPage(driver);
+		Data obj=new Data();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		try
+		{
+		   obj.waitForElement(driver, contactInfo.txt_Fname_Field);
+		   //scroll down
+		   jse.executeScript("scroll(0, 150);");
+		   if(contactInfo.isEnabled_click_TextMeOffers_Yes_Button())
+		   {
+			   Reporter.log("Text Me offers Yes radio button is displayed" );
+			   if(!contactInfo.isSelected_click_TextMeOffers_Yes_Button())
+			   {
+				   Reporter.log("Yes button is not checked" );
+			   }
+			   else
+		       {
+				   Assert.fail("Yes button is checked");
+			   } 
+		   }
+		  else
+			 {
+				 Assert.fail("Text Me offers Yes radio button is not displayed");
+			 }	   
+		   if(contactInfo.isEnabled_click_TextMeOffers_No_Button())
+		   {
+			   Reporter.log("Text Me offers No radio button is displayed" );
+			   if(!contactInfo.isSelected_click_TextMeOffers_No_Button())
+			   {
+				   Reporter.log("No button is not checked" );
+			   }
+			   else
+		       {
+				   Assert.fail("No button is checked");
+			   } 
+		   }
+		  else
+			 {
+				 Assert.fail("Text Me offers No radio button is not displayed");
+			 }	   
+		   
+		}
+		 catch(Exception e)
+	    {
+	    	System.out.println(e);
+	    	Assert.fail("Text Me offer section is not displayed. check your test data");
+	    }
+		return driver;
+
+		}
+	
+	public WebDriver MarketingSMS_AlreadyEnrolled(WebDriver driver,String Functionality,String TCName) throws IOException, InterruptedException, AWTException 
+	{
+		
+		POM_Generated_ContactInfoPage contactInfo = new POM_Generated_ContactInfoPage(driver);
+		Data obj=new Data();
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		try
+		{
+		   obj.waitForElement(driver, contactInfo.txt_Fname_Field);
+		   //scroll down
+		   jse.executeScript("scroll(0, 150);");
+		   if(!contactInfo.isEnabled_click_TextMeOffers_Yes_Button())
+		   {
+			   Reporter.log("Text Me offers section is not displayed" );
+			 
+		   }	   
+		   else
+		   {
+			   Assert.fail("Text Me offers section is displayed");  
+		   }
+		}
+		 catch(Exception e)
+	    {
+	    	System.out.println(e);
+	    	Reporter.log("Text Me offer section is not displayed since marketing sms is already enrolled");
+	    }
+		return driver;
+
+		}
+
 }

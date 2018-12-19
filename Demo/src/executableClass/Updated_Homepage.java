@@ -11,9 +11,9 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import computedClass.Computed_HardLogin;
 import computedClass.Computed_HomePage;
 import computedClass.Computed_SoftLogin;
-import computedClass.Computed_HardLogin;
 
 
 public class Updated_Homepage
@@ -24,8 +24,8 @@ public class Updated_Homepage
 	@Test (priority=1)
 	public void TC001_Home_page_for_Logged_out_user () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
-		//For getting current method name and passing as tcname
-		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		
+	
 		Browserbanner browserbanner=new Browserbanner();
 	
 		Computed_HomePage homepage = new Computed_HomePage();

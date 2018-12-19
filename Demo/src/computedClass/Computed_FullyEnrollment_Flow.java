@@ -158,7 +158,7 @@ public class Computed_FullyEnrollment_Flow
 		}
 		catch(Exception e)
 		{
-			driver.close();
+			//driver.close();
 			Assert.fail("Invalid PII verification details");
 		}
 		return driver;
@@ -354,7 +354,7 @@ public class Computed_FullyEnrollment_Flow
 			obj.waitForElementClickable(driver, contactinfopage.click_Submit_Form_Button);
 			contactinfopage.click_click_Submit_Form_Button();		
 			Thread.sleep(1000);
-			System.out.println("1");
+			
 	    	obj.waitForElement(driver, accountsecuritypage.txt_Account_Security_Verify_Text);
 			
 	    	Reporter.log("Contact info page completed successfully");

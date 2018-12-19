@@ -33,8 +33,9 @@ public class Fully_Enrolled_Customers_Flow
 		driver=FullyEnrollment_Flow.ContactInfoPage(driver,Functionality, TCName);
 		driver=FullyEnrollment_Flow.AccountSecurityPage(driver,Functionality, TCName);
 		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		driver.close();
 		db.DB_CheckEnrolledDetails(Functionality, TCName);
-		//driver.close();
+	
 	}
 	
 	@Test(priority=2)
@@ -53,8 +54,8 @@ public class Fully_Enrolled_Customers_Flow
 		driver=FullyEnrollment_Flow.ContactInfoPage(driver,Functionality, TCName);
 		driver=FullyEnrollment_Flow.AccountSecurityPage(driver,Functionality, TCName);
 		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		driver.close();
 		db.DB_CheckEnrolledDetails(Functionality, TCName);
-		//driver.close();
 	}
 	
 	@Test(priority=3)
@@ -72,8 +73,8 @@ public class Fully_Enrolled_Customers_Flow
 		driver=FullyEnrollment_Flow.ContactInfoPage(driver,Functionality, TCName);
 		driver=FullyEnrollment_Flow.AccountSecurityPage(driver,Functionality, TCName);
 		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		driver.close();
 		db.DB_CheckEnrolledDetails(Functionality, TCName);
-		//driver.close();
 	}
 	
 	@Test(priority=4)
@@ -94,6 +95,7 @@ public class Fully_Enrolled_Customers_Flow
 		driver=FullyEnrollment_Flow.ContactInfoPage(driver,Functionality, TCName);
 		driver=FullyEnrollment_Flow.AccountSecurityPage(driver,Functionality, TCName);
 		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		driver.close();
 		db.DB_CheckEnrolledDetails(Functionality, TCName);
 	}
 }
