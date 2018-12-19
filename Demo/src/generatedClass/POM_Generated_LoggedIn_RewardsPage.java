@@ -82,7 +82,7 @@ public class POM_Generated_LoggedIn_RewardsPage {
 	public WebElement txt_Usefullink_FindFuel_Link;
 	
 	// Associated Label : MyRewards_Name_Verify
-	@FindBy(xpath = "//div[contains(text(),'Hello ')]")
+	@FindBy(xpath = "//div[@class='col-md-4 col-sm-4 col-xs-12 rew-right']//div[contains(text(),'Hello ')]")
 	public WebElement txt_MyRewards_Name_Verify;
 	
 	// Associated Label : MyRewards_Edit_Acc_Det_Link

@@ -1,7 +1,6 @@
 package Utility;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -10,8 +9,6 @@ import javax.imageio.ImageIO;
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -21,6 +18,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
@@ -32,40 +30,6 @@ public class Data
 	WebDriverWait webDriverWait;
 	String Pass_screenShot=".\\ScreenShot_Pass\\";
 	String Fail_screenShot=".\\ScreenShot_Failed\\";	
-	public String WriteXLSXFile(String sheet,String col,int row,String Value) throws IOException 
-	{	
-		String val=Value;
-		//System.out.println(PT);
-		String mainSheet = sheet;
-		String Filepath = System.getProperty("user.dir")+"\\TestData\\Global_TestData_Sheet.xlsx";
-		FileInputStream file = new FileInputStream(Filepath);
-		XSSFWorkbook wb = new XSSFWorkbook(file);
-		
-		
-		XSSFRow row1 = null;
-		int col_Num=0;
-		XSSFSheet sheet1 = wb.getSheet(mainSheet);
-		row1 = sheet1.getRow(0);
-		for(int f = 0; f < row1.getLastCellNum(); f++)
-        {
-            if(row1.getCell(f).getStringCellValue().trim().equals(col))
-            {
-                 col_Num = f;
-            }
-        }
-
-		sheet1.getRow(row).createCell(col_Num).setCellValue(val);
-		file.close();
-		FileOutputStream fileOut = new FileOutputStream(Filepath);
-		wb.write(fileOut);
-		wb.close();
-	     
-		fileOut.flush();
-		   
-		fileOut.close();
-		
-		return val;	
-	}
 	
 	//Get row num
 	public int rownum(String SheetName) throws IOException
@@ -136,6 +100,15 @@ public class Data
 	
 	//move to element
 	public WebDriver movetoElementofAPage(WebDriver driver,WebElement item) 
+	{
+		Actions actions = new Actions(driver);
+
+		actions.moveToElement(item).build().perform();
+		return driver;
+	}
+	
+	//move to element and click
+	public WebDriver movetoElementofAPage_Click(WebDriver driver,WebElement item) 
 	{
 		Actions actions = new Actions(driver);
 

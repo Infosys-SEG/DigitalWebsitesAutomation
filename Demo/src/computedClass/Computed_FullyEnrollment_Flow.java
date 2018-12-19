@@ -298,7 +298,7 @@ public class Computed_FullyEnrollment_Flow
 						}
 						catch(Exception e2)
 						{
-							
+							Reporter.log("Valid phone number");
 						}
 					}
 				}
@@ -347,9 +347,15 @@ public class Computed_FullyEnrollment_Flow
 				}
 			}
 			Thread.sleep(1000);
+			
 			obj.waitForElementClickable(driver, contactinfopage.click_Submit_Form_Button);
-			contactinfopage.click_click_Submit_Form_Button();			
-	    	obj.waitForElementClickable(driver, accountsecuritypage.txt_Email_Address_Field);
+			
+			obj.movetoElementofAPage(driver, contactinfopage.click_Submit_Form_Button);
+			obj.waitForElementClickable(driver, contactinfopage.click_Submit_Form_Button);
+			contactinfopage.click_click_Submit_Form_Button();		
+			Thread.sleep(1000);
+			System.out.println("1");
+	    	obj.waitForElement(driver, accountsecuritypage.txt_Account_Security_Verify_Text);
 			
 	    	Reporter.log("Contact info page completed successfully");
 	    }

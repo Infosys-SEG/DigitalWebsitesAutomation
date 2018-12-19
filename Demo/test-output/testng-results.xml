@@ -19,22 +19,25 @@
     <line>
       <![CDATA[Coupon Modal is displayed]]>
     </line>
+    <line>
+      <![CDATA[Pickup text message is displayed]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="117204" started-at="2018-12-14T11:20:10Z" finished-at="2018-12-14T11:22:07Z">
+  <suite name="Default suite" duration-ms="147632" started-at="2018-12-18T10:54:26Z" finished-at="2018-12-18T10:56:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="117204" started-at="2018-12-14T11:20:10Z" finished-at="2018-12-14T11:22:07Z">
+    <test name="Default test" duration-ms="147632" started-at="2018-12-18T10:54:26Z" finished-at="2018-12-18T10:56:54Z">
       <class name="executableClass.Fully_Enrolled_Customers_Flow">
-        <test-method status="FAIL" signature="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII()[pri:4, instance:executableClass.Fully_Enrolled_Customers_Flow@271053e1]" name="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII" duration-ms="117108" started-at="2018-12-14T16:50:10Z" finished-at="2018-12-14T16:52:07Z">
+        <test-method status="FAIL" signature="TC003_EnrollNewProgram_Phonenumber_VerifybyPII()[pri:1, instance:executableClass.Fully_Enrolled_Customers_Flow@42dafa95]" name="TC003_EnrollNewProgram_Phonenumber_VerifybyPII" duration-ms="147540" started-at="2018-12-18T16:24:26Z" finished-at="2018-12-18T16:26:54Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Error in Digital coupons page after enrollment]]>
+              <![CDATA[Error in Fuel rewards page after enrollment]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Error in Digital coupons page after enrollment
+              <![CDATA[java.lang.AssertionError: Error in Fuel rewards page after enrollment
 	at org.junit.Assert.fail(Assert.java:88)
-	at computedClass.Computed_EnrollmentVerify.Enrollverify(Computed_EnrollmentVerify.java:149)
-	at executableClass.Fully_Enrolled_Customers_Flow.TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII(Fully_Enrolled_Customers_Flow.java:90)
+	at computedClass.Computed_EnrollmentVerify.Enrollverify(Computed_EnrollmentVerify.java:133)
+	at executableClass.Fully_Enrolled_Customers_Flow.TC003_EnrollNewProgram_Phonenumber_VerifybyPII(Fully_Enrolled_Customers_Flow.java:35)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -82,8 +85,11 @@
             <line>
               <![CDATA[Coupon Modal is displayed]]>
             </line>
+            <line>
+              <![CDATA[Pickup text message is displayed]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII -->
+        </test-method> <!-- TC003_EnrollNewProgram_Phonenumber_VerifybyPII -->
       </class> <!-- executableClass.Fully_Enrolled_Customers_Flow -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

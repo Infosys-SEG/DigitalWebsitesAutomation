@@ -36,7 +36,7 @@ public class Computed_EnrollmentVerify
 		String neverdealsurl="";
 		String v="";
 		String notpickeduptext = "";
-		String pickeduptext = "";
+		String pickeduptext = "Rewards #: ";
 	    new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
     	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
     	{
@@ -52,7 +52,8 @@ public class Computed_EnrollmentVerify
     	{
     		v="harveyssupermarkets";		
     	}
-    	String coup="https://"+v+".pdn.retaileriq.com - Google Chrome";
+    	String fuelrewardsurl = "https://www.fuelrewards.com/";
+    	String coup="https://"+v+".pdn.retaileriq.com";
 	    String ie="Windows Security";
 	    String bro="";
 		if(Readexcel_RowName.getValue("Chrome(Y/N)").equalsIgnoreCase("Y"))
@@ -109,9 +110,19 @@ public class Computed_EnrollmentVerify
     	{
     		
 		    
-		    obj.scrollingToElementofAPage(driver, congratulationspage.click_Fuel_Rewards_Link);
+		    obj.movetoElementofAPage(driver, congratulationspage.click_Fuel_Rewards_Link);
 		    congratulationspage.click_click_Fuel_Rewards_Link();
+		    
 		    obj.waitForElementClickable(driver, congratulationspage.txt_Fuel_Rewards_Page_Button);
+		    if(driver.getCurrentUrl().equalsIgnoreCase(fuelrewardsurl))
+		    {
+		    	Reporter.log("fuel rewards url is correct");
+		    }
+		    else
+		    {
+		    	Assert.fail("Fuel rewards url is wrong");
+		    }
+		    System.out.println(driver.getCurrentUrl());
 		    driver.get(neverdealsurl);
 		    obj.waitForElement(driver, congratulationspage.txt_ThankYou_Message_Text);
     	}
@@ -121,7 +132,7 @@ public class Computed_EnrollmentVerify
     		System.out.println(e);
 			Assert.fail("Error in Fuel rewards page after enrollment");
 		}	
-	    try
+	    /*try
 	    {
 	    	try
 			{
@@ -150,7 +161,7 @@ public class Computed_EnrollmentVerify
 	    	System.out.println(e2);
 			Assert.fail("Error in Digital coupons page after enrollment");
 			
-		}	
+		}	*/
 	    
 	    try
 	    {
@@ -166,13 +177,15 @@ public class Computed_EnrollmentVerify
 			{
 				
 			}
-	    	obj.scrollingToElementofAPage(driver, congratulationspage.click_My_Rewards_Link);
+	    	Thread.sleep(1000);
+	    	obj.movetoElementofAPage(driver, congratulationspage.click_My_Rewards_Link);
+	    	obj.waitForElementClickable(driver, congratulationspage.click_My_Rewards_Link);
 	    	congratulationspage.click_click_My_Rewards_Link();
 		    obj.waitForElement(driver, loginrewardspage.txt_MyRewards_Name_Verify);
 		    String namev= loginrewardspage.getText_txt_MyRewards_Name_Verify();
 		    if(!namev.equals("Hello "+Readexcel_RowName.getValue("FirstName")+"!"))
 		    {
-		    	driver.close();
+		    	//driver.close();
 		    	Assert.fail("Incorrect rewards page");
 		    }
 		    obj.waitForElementClickable(driver, loginrewardspage.click_MyRewards_Edit_Acc_Det_Link);
@@ -196,27 +209,27 @@ public class Computed_EnrollmentVerify
 	    		{
 	    			//String rewardstatus = Readexcel_RowName.getValue("Phone/Card_Number");
 	    			System.out.println(myaccountpage.getText_txt_Rewards_Card_Number_Text());
-	    			/*if(myaccountpage.getText_txt_Rewards_Card_Number_Text().equalsIgnoreCase(pickeduptext))
+	    			if(myaccountpage.getText_txt_Rewards_Card_Number_Text().equalsIgnoreCase(pickeduptext+cardstatus))
 	    			{
-	    				Reporter.log("pickedup text is displayed");
+	    				Reporter.log("pickedup text is displayed with card status");
 	    			}
 	    			else
 	    			{
 	    				Assert.fail("pickedup text not matched or not displayed");
-	    			}*/
+	    			}
 	    		}
 	    		else
 	    			
 	    		{
 	    			System.out.println(myaccountpage.getText_txt_Pick_Up_Text());
-	    			/*if(myaccountpage.getText_txt_Pick_Up_Text().equalsIgnoreCase(notpickeduptext))
+	    			if(myaccountpage.getText_txt_Pick_Up_Text().equalsIgnoreCase(notpickeduptext))
 	    			{
 	    				Reporter.log("not pickedup text is displayed");
 	    			}
 	    			else
 	    			{
 	    				Assert.fail("not pickedup text not matched or not displayed");
-	    			}*/
+	    			}
 		    	
 	    		}
 	 	    }

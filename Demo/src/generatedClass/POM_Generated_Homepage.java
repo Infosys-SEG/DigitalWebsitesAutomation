@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 public class POM_Generated_Homepage { 
 	WebDriver driver;
@@ -114,6 +116,10 @@ public class POM_Generated_Homepage {
 	// Associated Label : Homebanner_carousel
 	@FindBy(xpath = "//div[@id='HomeCarousel']")
 	public WebElement txt_Homebanner_carousel;
+	
+	// Associated Label : Home_bottomblock_title
+	@FindBy(xpath = "//h2[@class='subTitleHead text-center']")
+	public WebElement txt_Home_bottomblock_title;
 	
 
 //*******************************************************************************
@@ -1092,6 +1098,52 @@ public class POM_Generated_Homepage {
 	// selected or Not :  Homebanner_carousel
 	public boolean isSelected_txt_Homebanner_carousel(){
 		if(txt_Homebanner_carousel.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Home_bottomblock_title
+	public void type_txt_Home_bottomblock_title(String value) {
+		txt_Home_bottomblock_title.clear();
+		txt_Home_bottomblock_title.sendKeys(value);
+	}
+
+	//click:  Home_bottomblock_title
+	public void click_txt_Home_bottomblock_title(){
+		txt_Home_bottomblock_title.click();
+	}
+
+	// Hover:  Home_bottomblock_title
+	public void hover_txt_Home_bottomblock_title(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Home_bottomblock_title).build().perform();
+	}
+
+	// visible or Not :  Home_bottomblock_title
+	public boolean isDisplayed_txt_Home_bottomblock_title(){
+		if(txt_Home_bottomblock_title.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Home_bottomblock_title
+	public boolean isEnabled_txt_Home_bottomblock_title(){
+		if(txt_Home_bottomblock_title.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Home_bottomblock_title
+	public String getCssValue_txt_Home_bottomblock_title(String attribute) {
+		return txt_Home_bottomblock_title.getCssValue(attribute);
+	}
+
+	//Get the text :  Home_bottomblock_title
+	public String getText_txt_Home_bottomblock_title(){
+		return txt_Home_bottomblock_title.getText();
+	}
+
+	//Get the value :  Home_bottomblock_title
+	public String getValue_txt_Home_bottomblock_title(){
+		return txt_Home_bottomblock_title.getAttribute("value");
+	}
+	// selected or Not :  Home_bottomblock_title
+	public boolean isSelected_txt_Home_bottomblock_title(){
+		if(txt_Home_bottomblock_title.isSelected()) { return true; } else { return false;} 
 	}
 
 }

@@ -1,16 +1,19 @@
 package executableClass;
 
+import java.awt.AWTException;
 import java.io.IOException;
 
-import Utility.Writeexcel_RowName;
+import computedClass.Computed_DB;
 
 public class Test {
 
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-
-		Writeexcel_RowName rn = new Writeexcel_RowName();
-		rn.excelwrite("Fully_Enrolled_Customers_Flow", "TC003_EnrollNewProgram_Phonenumber_VerifybyPII", "Change_Phone_Number", "5035019925");
+	public static void main(String[] args) throws IOException, InterruptedException, AWTException {
+		
+		Computed_DB db= new Computed_DB();
+		
+		db.DB_CheckEnrolledDetails("Fully_Enrolled_Customers_Flow", "TC003_EnrollNewProgram_Phonenumber_VerifybyPII");
+		System.out.println("Done");
 	}
+	
 
 }

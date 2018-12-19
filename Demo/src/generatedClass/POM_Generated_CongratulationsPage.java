@@ -30,7 +30,7 @@ public class POM_Generated_CongratulationsPage {
 	public WebElement txt_ThankYou_Message_Text;
 	
 	// Associated Label : Pick_Up_Text
-	@FindBy(xpath = "//h4[text()='Pick up your SE Grocers rewards card in store ']")
+	@FindBy(xpath = "//h4[text()='Pick up your SE Grocers rewards card in store']")
 	public WebElement txt_Pick_Up_Text;
 	
 	// Associated Label : Digital_coupons_button

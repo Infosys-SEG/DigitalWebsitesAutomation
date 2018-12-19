@@ -5,7 +5,7 @@
     <classes>
       <class name="executableClass.Fully_Enrolled_Customers_Flow">
         <methods>
-          <include name="TC012_EnrollinNewProgram_G_AND_G_cardNumber_VerifybyPII"/>
+          <include name="TC003_EnrollNewProgram_Phonenumber_VerifybyPII"/>
         </methods>
       </class> <!-- executableClass.Fully_Enrolled_Customers_Flow -->
     </classes>

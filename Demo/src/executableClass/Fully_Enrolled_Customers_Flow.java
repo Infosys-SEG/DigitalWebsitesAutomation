@@ -7,6 +7,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import computedClass.Computed_DB;
 import computedClass.Computed_EnrollmentVerify;
 import computedClass.Computed_FullyEnrollment_Flow;
 public class Fully_Enrolled_Customers_Flow 
@@ -16,7 +17,7 @@ public class Fully_Enrolled_Customers_Flow
 	Browserbanner browserbanner=new Browserbanner();
 	Computed_FullyEnrollment_Flow FullyEnrollment_Flow= new Computed_FullyEnrollment_Flow();
 	Computed_EnrollmentVerify Enrollmentverify = new Computed_EnrollmentVerify();
-	
+	Computed_DB  db = new Computed_DB(); 
 	@Test(priority=1)
 	public void TC003_EnrollNewProgram_Phonenumber_VerifybyPII () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
@@ -31,6 +32,8 @@ public class Fully_Enrolled_Customers_Flow
 		driver= FullyEnrollment_Flow.VerifyByPIIPage(driver, Functionality,TCName);
 		driver=FullyEnrollment_Flow.ContactInfoPage(driver,Functionality, TCName);
 		driver=FullyEnrollment_Flow.AccountSecurityPage(driver,Functionality, TCName);
+		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
 		//driver.close();
 	}
 	
@@ -49,6 +52,8 @@ public class Fully_Enrolled_Customers_Flow
 		driver= FullyEnrollment_Flow.VerifyByPIIPage(driver, Functionality,TCName);
 		driver=FullyEnrollment_Flow.ContactInfoPage(driver,Functionality, TCName);
 		driver=FullyEnrollment_Flow.AccountSecurityPage(driver,Functionality, TCName);
+		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
 		//driver.close();
 	}
 	
@@ -67,6 +72,7 @@ public class Fully_Enrolled_Customers_Flow
 		driver=FullyEnrollment_Flow.ContactInfoPage(driver,Functionality, TCName);
 		driver=FullyEnrollment_Flow.AccountSecurityPage(driver,Functionality, TCName);
 		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
 		//driver.close();
 	}
 	
@@ -88,5 +94,6 @@ public class Fully_Enrolled_Customers_Flow
 		driver=FullyEnrollment_Flow.ContactInfoPage(driver,Functionality, TCName);
 		driver=FullyEnrollment_Flow.AccountSecurityPage(driver,Functionality, TCName);
 		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
 	}
 }

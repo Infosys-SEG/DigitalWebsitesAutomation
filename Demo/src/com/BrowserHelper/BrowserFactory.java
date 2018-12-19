@@ -30,7 +30,7 @@ public class BrowserFactory
         	chromeOptions.addArguments("--start-maximized");
         	chromeOptions.addArguments("--dns-prefetch-disable");
         	driver = new ChromeDriver(chromeOptions);
-        	  driver.get(URL);  
+        	driver.get(URL);  
         }
         else if(browserName.equalsIgnoreCase("IE"))
         {
