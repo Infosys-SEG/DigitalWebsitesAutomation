@@ -32,10 +32,12 @@ public class Writeexcel_RowName
 			row = sh.getRow(rowNum);
 			if (row.getCell(0).getStringCellValue().equalsIgnoreCase(TCName))
 			{
+				System.out.println(TCName);
 				for (int i = 1; i < row.getLastCellNum(); i++)
 				{
 					if(row0.getCell(i).getStringCellValue().equalsIgnoreCase(ColumnName))
 					{
+						System.out.println(ColumnName);
 						sh.getRow(rowNum).createCell(i).setCellValue(Value);
 						fs.close();
 						FileOutputStream fileOut = new FileOutputStream(Filepath);

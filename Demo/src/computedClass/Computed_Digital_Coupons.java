@@ -160,6 +160,7 @@ public class Computed_Digital_Coupons
 			Thread.sleep(2000);
 			Runtime.getRuntime().exec(Val);
 			homepage.click_click_Digitial_Coupons_Logo();
+			
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
@@ -182,16 +183,18 @@ public class Computed_Digital_Coupons
 				}	
 			}
 			
+			Thread.sleep(2000);
+			obj.movetoElementofAPage_Click(driver, homepage.click_HardLogin_button);
 			
-			obj.movetoElementofAPage(driver, homepage.click_HardLogin_button);
-			obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
-			homepage.click_click_HardLogin_button();
+			
+			
 			obj.waitForElementClickable(driver, hardloginpage.click_Popup_Close_Button);
 			hardloginpage.click_click_Popup_Close_Button();	
 		}
 		catch(Exception e)
 		{
-			driver.close();	
+			//driver.close();	
+			System.out.println(e);
 			Assert.fail("Error in Digital coupons page");
 			
 		}	
@@ -362,7 +365,8 @@ public class Computed_Digital_Coupons
 			
 			//To handle window pop up Authentication				
 			Runtime.getRuntime().exec(Val);
-					
+			
+				
 			homepage.click_click_Digitial_Coupons_Logo();
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
@@ -412,7 +416,8 @@ public class Computed_Digital_Coupons
 		}
 		catch(Exception e)
 		{
-			driver.close();
+			//driver.close();
+			System.out.println(e);
 			Assert.fail("Error in Digital coupons page");
 			
 		}	

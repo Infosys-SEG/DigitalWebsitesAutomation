@@ -10,6 +10,7 @@ import java.sql.Statement;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import Utility.ReadExcel;
 import Utility.Readexcel_RowName;
@@ -83,7 +84,8 @@ public class Computed_DB
 				
 			String SQL = "select "+colnames+" from ODSCustomer_QA.dbo.CUST_ALIAS as A join ODSCustomer_QA.dbo.CUST as B on A.MEMBER_ID = B.MEMBER_ID join ODSCustomer_QA.dbo.CUST_MEMBERSHIP as C on A.MEMBER_ID = C.MEMBER_ID join ODSCustomer_QA.dbo.CUST_ADDR as D on B.CRC_ID=D.CRC_ID" +value;	
 			
-			rs = stmt.executeQuery(SQL);  
+			rs = stmt.executeQuery(SQL); 
+			Reporter.log("Query Executed Successfully");
 			String B_CRC_ID=null;
 			while (rs.next()) 
 			{
@@ -140,6 +142,10 @@ public class Computed_DB
 						
 						Assert.fail("Card_Number not matched with DB");
 					}
+					else
+					{
+						Reporter.log("Card_Number matched with DB");
+					}
 					
 			    }
 				else if(cardtype.equalsIgnoreCase("CRC"))
@@ -149,7 +155,10 @@ public class Computed_DB
 						
 						Assert.fail("CRC Card_Number not matched with DB");
 					}
-					
+					else
+					{
+						Reporter.log("CRC Card_Number matched with DB");
+					}
 			    }
 				
 				if(!ENROLLMENT_STATUS.equalsIgnoreCase("E"))				
@@ -157,23 +166,38 @@ public class Computed_DB
 				
 					Assert.fail("ENROLLMENT_STATUS not changed to E in DB");
 				}
+				else
+				{
+					Reporter.log("ENROLLMENT_STATUS changed to E in DB");
+				}
 				
 				if(!SALUTATION.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Salutation")).replace("null", "")))
 				{
 					
 					Assert.fail("Salutation not matched with DB");
 				}
+				else
+				{
+					Reporter.log("Salutation not matched with DB");
+				}
 				if(!FIRST_NAME.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("FirstName")).replace("null", "")))
 				{
 					
 					Assert.fail("FirstName not matched with DB");
+				}
+				else
+				{
+					Reporter.log("FirstName matched with DB");
 				}
 				if(!LAST_NAME.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("LastName")).replace("null", "")))
 				{
 					
 					Assert.fail("LastName not matched with DB");
 				}
-				
+				else
+				{
+					Reporter.log("LastName matched with DB");
+				}
 				String Date=String.valueOf(Readexcel_RowName.getValue("Date")).replace("null", "");
 				String Month=String.valueOf(Readexcel_RowName.getValue("Month")).replace("null", "");
 				String Year=String.valueOf(Readexcel_RowName.getValue("Year")).replace("null", "");
@@ -182,63 +206,107 @@ public class Computed_DB
 					
 					Assert.fail("DOB not matched with DB");
 				}
+				else
+				{
+					Reporter.log("DOB matched with DB");
+				}
 				if(!MOBILE_PHONE.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Primary_Phone")).replace("null", "")))
 				{
 				
 					Assert.fail("Primary_Phone not matched with DB");
+				}
+				else
+				{
+					Reporter.log("Primary_Phone matched with DB");
 				}
 				if(!EMAIL_ADDRESS.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "")))
 				{
 					
 					Assert.fail("EmailAddress not matched with DB");
 				}
+				else
+				{
+					Reporter.log("EmailAddress matched with DB");
+				}
 				if(!STREET_ADDRESS_1.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Address1")).replace("null", "")))
 				{
 					
 					Assert.fail("STREET_ADDRESS_1 not matched with DB");
+				}
+				else
+				{
+					Reporter.log("STREET_ADDRESS_1 matched with DB");
 				}
 				if(!STREET_ADDRESS_2.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Address2")).replace("null", "")))
 				{
 					
 					Assert.fail("STREET_ADDRESS_2 not matched with DB");
 				}
+				else
+				{
+					Reporter.log("STREET_ADDRESS_2 matched with DB");
+				}
 				if(!CITY_NAME.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("City")).replace("null", "")))
 				{
 				
 					Assert.fail("City not matched with DB");
+				}
+				else
+				{
+					Reporter.log("City matched with DB");
 				}
 				if(!STATE_CODE.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("State_Code")).replace("null", "")))
 				{
 					
 					Assert.fail("State_Code not matched with DB");
 				}
+				else
+				{
+					Reporter.log("State_Code matched with DB");
+				}
 				if(!POSTAL_CODE.equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("Zip")).replace("null", "")))
 				{
 					
 					Assert.fail("Zip not matched with DB");
 				}
-				
+				else
+				{
+					Reporter.log("Zip matched with DB");
+				}
 				if(!A_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
 				{
 					
 					Assert.fail("Last updated source in cust alias table is not changed to web");
 				}
-				
+				else
+				{
+					Reporter.log("Last updated source in cust alias table is changed to web");
+				}
 				if(!B_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
 				{
 					
-					Assert.fail("Last updated source in cust tablee is not changed to web");
+					Assert.fail("Last updated source in cust table is not changed to web");
 				}
-				
+				else
+				{
+					Reporter.log("Last updated source in cust table is changed to web");
+				}
 				if(!C_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
 				{
 				
 					Assert.fail("Last updated source in membership table is not changed to web");
 				}
-				
+				else
+				{
+					Reporter.log("Last updated source in membership table is changed to web");
+				}
 				if(!D_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
 				{	
 					Assert.fail("Last updated source in address table is not changed to web");
+				}
+				else
+				{
+					Reporter.log("Last updated source in address table is changed to web");
 				}
 				String[] A_LAST_UPDATE_DT_Split=A_LAST_UPDATE_DT.split(" ");
 				String[] B_LAST_UPDATE_DT_Split=B_LAST_UPDATE_DT.split(" ");
@@ -248,16 +316,28 @@ public class Computed_DB
 					
 					Assert.fail("Last updated date in cust alias table is not changed in DB");
 				}
+				else
+				{
+					Reporter.log("Last updated date in cust alias table is changed in DB");
+				}
 				if(!B_LAST_UPDATE_DT_Split[0].equalsIgnoreCase(sysdate))
 				{
 					
 					Assert.fail("Last updated date in cust table is not changed in DB");
 				}
+				else
+				{
+					Reporter.log("Last updated date in cust table is changed in DB");
+				}
 				if(!D_LAST_UPDATE_DT_Split[0].equalsIgnoreCase(sysdate))
 				{
 					
 					Assert.fail("Last updated date in address table is not changed in DB");
-				}	
+				}
+				else
+				{
+					Reporter.log("Last updated date in address table is changed in DB");
+				}
 	        }
 			
 		} 		

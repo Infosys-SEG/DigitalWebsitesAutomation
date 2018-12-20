@@ -21,31 +21,33 @@ public class SoftLogin
 	WebDriver driver;
 	String functionality="SoftLogin";
 	
+	Browserbanner browserbanner=new Browserbanner();
+	Computed_SoftLogin softlogin = new Computed_SoftLogin();
+	Computed_Digital_Coupons coupons=new Computed_Digital_Coupons();	
+	Computed_Personalisedoffers deals=new Computed_Personalisedoffers();
+	Computed_WeeklyAd weeklyad=new Computed_WeeklyAd();
+	Computed_Static_Info_bar staticinfobar = new Computed_Static_Info_bar();
+	Computed_MyRewards rewards= new Computed_MyRewards();
+	
 	@Test (priority=1)
 	public void TC001_SoftLogin_Phone_And_Zip_login () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		Browserbanner br=new Browserbanner();
-		Computed_SoftLogin softlogin = new Computed_SoftLogin();
-		Computed_Digital_Coupons dc=new Computed_Digital_Coupons();	
-		Computed_Personalisedoffers po=new Computed_Personalisedoffers();
-		Computed_WeeklyAd wa=new Computed_WeeklyAd();
-		Computed_Static_Info_bar sib = new Computed_Static_Info_bar();
-		
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		String prod="";
 		String prodvalu="";
 		int count=0;
-		driver= br.BrowserBanner(driver, functionality);
-		driver=br.Clearcookie(driver, functionality);
+		String Functionality = functionality;
 		
-		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
-		driver=dc.Loggedin_Coupons_Homepage(driver, functionality, prod, count);
-		driver=po.Loggedin_Personalisedoffers(driver, functionality);
-		driver=wa.WeeklyAdPage(driver, functionality);
-		driver=wa.AddProduct(driver, prod, count, prodvalu);
-		driver=sib.LoginStaticinfobar_Rewards(driver, functionality);
-		driver=sib.LoginStaticinfobar_MyAccount(driver, functionality, functionality);
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		driver=softlogin.SoftLogin_Rewards(driver, Functionality,TCName);
+		driver=coupons.Loggedin_Coupons_Homepage(driver, Functionality, prod, count);
+		driver=deals.Loggedin_Personalisedoffers(driver, Functionality,TCName);
+		driver=weeklyad.WeeklyAdPage(driver, Functionality);
+		driver=weeklyad.AddProduct(driver, prod, count, prodvalu);
+		driver=staticinfobar.LoginStaticinfobar_Rewards(driver, Functionality);
+		driver=staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality);
 		driver.close();
 	}
 	
@@ -54,39 +56,32 @@ public class SoftLogin
 	{
 		//For getting current method name and passing as tcname
 		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		Browserbanner br=new Browserbanner();
-		Computed_SoftLogin softlogin= new Computed_SoftLogin();
-		Computed_Static_Info_bar sib = new Computed_Static_Info_bar();
+		String Functionality = functionality;
 		
-		driver= br.BrowserBanner(driver, functionality);
-		driver=br.Clearcookie(driver, functionality);
-		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
-		driver=sib.LoginStaticinfobar_MyAccount(driver, functionality, functionality);
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		driver=softlogin.SoftLogin_Rewards(driver, Functionality,tcname);
+		driver=staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality);
 		driver.close();
 	}
 	
 	@Test(priority=3)
 	public void TC003_SoftLogin_loggedout_user () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
-		//For getting current method name and passing as tcname
-	//	String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		Browserbanner br=new Browserbanner();
-		Computed_Digital_Coupons dc=new Computed_Digital_Coupons();	
-		Computed_Personalisedoffers po=new Computed_Personalisedoffers();
-		Computed_WeeklyAd wa=new Computed_WeeklyAd();
-		Computed_MyRewards mr= new Computed_MyRewards();
-	
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String Functionality = functionality;	
+		
 		String prod="";
 		String prodvalu="";
 		int count=0;
-		driver= br.BrowserBanner(driver, functionality);
-		driver=br.Clearcookie(driver, functionality);
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
 	
-		driver=dc.Loggedout_Coupons_Homepage(driver, functionality);
-		driver=po.Loggedout_Personalisedoffers(driver, functionality);
-		driver=wa.WeeklyAdPage(driver, functionality);
-		driver=wa.AddProduct(driver, prod, count, prodvalu);
-		driver=mr.loggedout_Myreward_loginpopup(driver, functionality);
+		driver=coupons.Loggedout_Coupons_Homepage(driver, Functionality);
+		driver=deals.Loggedout_Personalisedoffers(driver, Functionality,TCName);
+		driver=weeklyad.WeeklyAdPage(driver, Functionality);
+		driver=weeklyad.AddProduct(driver, prod, count, prodvalu);
+		driver=rewards.loggedout_Myreward_loginpopup(driver, Functionality);
 		driver.close();
 	}
 }

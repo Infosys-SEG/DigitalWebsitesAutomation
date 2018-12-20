@@ -24,7 +24,7 @@ public class HardLogin_Loggedin_Account
 	public void TC001_HardLogin_Access_features () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		Browserbanner br=new Browserbanner();
 		Computed_HardLogin hardlogin = new Computed_HardLogin();
 		Computed_Digital_Coupons dc=new Computed_Digital_Coupons();	
@@ -37,9 +37,9 @@ public class HardLogin_Loggedin_Account
 		int count=0;
 		driver= br.BrowserBanner(driver, functionality);
 		driver=br.Clearcookie(driver, functionality);
-		driver=hardlogin.Global_HardLogin(driver, functionality,tcname);
+		driver=hardlogin.Global_HardLogin(driver, functionality,TCName);
 		driver=dc.Loggedin_Coupons_Homepage(driver, functionality, prod, count);
-		driver=po.Loggedin_Personalisedoffers(driver, functionality);
+		driver=po.Loggedin_Personalisedoffers(driver, functionality,TCName);
 		driver=wa.WeeklyAdPage(driver, functionality);
 		driver=wa.AddProduct(driver, prod, count, prodvalu);
 		driver=sib.LoginStaticinfobar_Rewards(driver, functionality);
@@ -55,16 +55,16 @@ public class HardLogin_Loggedin_Account
     {
 		//For getting current method name and passing as tcname
 
-        String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();    
+        String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();    
         Browserbanner br=new Browserbanner();
         Computed_HardLogin hardlogin = new Computed_HardLogin();
         Computed_SoftLogin softlogin =  new Computed_SoftLogin();
         Computed_MyAccount myAcct = new Computed_MyAccount();
         driver= br.BrowserBanner(driver, functionality);
         driver=br.Clearcookie(driver, functionality);
-        driver=softlogin.SoftLogin_SaveCoupon(driver, functionality,tcname);
-        driver=hardlogin.Account_HardLogin(driver, functionality,tcname);    
-        driver=myAcct.Loggedin_MyAccountpage(driver, functionality, tcname,"Save");
+        driver=softlogin.SoftLogin_SaveCoupon(driver, functionality,TCName);
+        driver=hardlogin.Account_HardLogin(driver, functionality,TCName);    
+        driver=myAcct.Loggedin_MyAccountpage(driver, functionality, TCName,"Save");
         driver.close();
     }
 	
@@ -72,13 +72,13 @@ public class HardLogin_Loggedin_Account
 	public void TC004_HardLogin_stateExpiry () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-	    String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+	    String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		Browserbanner br=new Browserbanner();
 		Computed_HardLogin hardlogin = new Computed_HardLogin();
 		driver= br.BrowserBanner(driver, functionality);
 		driver=br.Clearcookie(driver, functionality);
-		driver=hardlogin.Global_HardLogin(driver, functionality,tcname);
-	    driver=hardlogin.HardLogin_CheckExpiration(driver, functionality, tcname);
+		driver=hardlogin.Global_HardLogin(driver, functionality,TCName);
+	    driver=hardlogin.HardLogin_CheckExpiration(driver, functionality, TCName);
 		driver.close();
 	}
 	
@@ -99,12 +99,12 @@ public class HardLogin_Loggedin_Account
 	public void TC012_Validate_HardLoginModal () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-	    String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+	    String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		Browserbanner br=new Browserbanner();
 		Computed_HardLogin hardlogin = new Computed_HardLogin();
 		driver= br.BrowserBanner(driver, functionality);
 		driver=br.Clearcookie(driver, functionality);
-	    driver=hardlogin.HardLogin_ErrorValidation(driver, functionality, tcname);
+	    driver=hardlogin.HardLogin_ErrorValidation(driver, functionality, TCName);
 		driver.close();
 	}
 	
@@ -115,16 +115,16 @@ public class HardLogin_Loggedin_Account
     {
 		//For getting current method name and passing as tcname
 
-        String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();    
+        String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();    
         Browserbanner br=new Browserbanner();
         Computed_HardLogin hardlogin = new Computed_HardLogin();
         Computed_SoftLogin softlogin =  new Computed_SoftLogin();
         Computed_MyAccount myAcct = new Computed_MyAccount();
         driver= br.BrowserBanner(driver, functionality);
         driver=br.Clearcookie(driver, functionality);
-        driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
-        driver=hardlogin.Account_HardLogin(driver, functionality,tcname);    
-        driver=myAcct.MarketingSMS_NotEnrolled(driver, functionality, tcname);
+        driver=softlogin.SoftLogin_Rewards(driver, functionality,TCName);
+        driver=hardlogin.Account_HardLogin(driver, functionality,TCName);    
+        driver=myAcct.MarketingSMS_NotEnrolled(driver, functionality, TCName);
         driver.close();
     }
 	
@@ -134,16 +134,16 @@ public class HardLogin_Loggedin_Account
     {
 		//For getting current method name and passing as tcname
 
-        String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();    
+        String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();    
         Browserbanner br=new Browserbanner();
         Computed_HardLogin hardlogin = new Computed_HardLogin();
         Computed_SoftLogin softlogin =  new Computed_SoftLogin();
         Computed_MyAccount myAcct = new Computed_MyAccount();
         driver= br.BrowserBanner(driver, functionality);
         driver=br.Clearcookie(driver, functionality);
-        driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
-        driver=hardlogin.Account_HardLogin(driver, functionality,tcname);    
-        driver=myAcct.MarketingSMS_AlreadyEnrolled(driver, functionality, tcname);
+        driver=softlogin.SoftLogin_Rewards(driver, functionality,TCName);
+        driver=hardlogin.Account_HardLogin(driver, functionality,TCName);    
+        driver=myAcct.MarketingSMS_AlreadyEnrolled(driver, functionality, TCName);
         driver.close();
     }
 	

@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
@@ -85,7 +86,23 @@ public class Computed_EnrollmentVerify
 		neverdealsurl=driver.getCurrentUrl();	    
 		if(cardstatus.startsWith("722"))
 		{
-		    	
+			obj.waitForElement(driver, congratulationspage.txt_ThankYou_Message_Text);
+			
+
+			try
+			{
+				
+				if(congratulationspage.isDisplayed_txt_Pick_Up_Text())
+				{
+					Reporter.log("Pickup text message is displayed for G&G card");
+				}
+				
+				
+		    }
+			catch(Exception e)
+			{
+				Reporter.log("Pickup text message is not displayed for G&G card");
+		    }
 		}
 		else
 		{
@@ -144,11 +161,11 @@ public class Computed_EnrollmentVerify
 		    obj.waitForElementClickable(driver, congratulationspage.txt_Fuel_Rewards_Page_Button);
 		    if(driver.getCurrentUrl().equalsIgnoreCase(fuelrewardsurl))
 		    {
-		    	Reporter.log("fuel rewards url is correct");
+		    	Reporter.log("Fuel rewards URL is correct");
 		    }
 		    else
 		    {
-		    	Assert.fail("Fuel rewards url is wrong");
+		    	Assert.fail("Fuel rewards URL is wrong");
 		    }
 		 
 		    driver.get(neverdealsurl);
@@ -215,6 +232,10 @@ public class Computed_EnrollmentVerify
 		    {
 		    	//driver.close();
 		    	Assert.fail("Incorrect rewards page");
+		    }
+		    else
+		    {
+		    	Reporter.log("Navigated to correct rewards page and first name matched");
 		    }
 		    obj.waitForElementClickable(driver, loginrewardspage.click_MyRewards_Edit_Acc_Det_Link);
 	    }
@@ -321,13 +342,77 @@ public class Computed_EnrollmentVerify
 				//driver.close();
 				Assert.fail("Primary phone number is not pre populating");
 			}
-			/*if(ReadExcel.getValue("save_coupons(Y/N)").equalsIgnoreCase("N"))
+			
+			try
 			{
-				if (!Ev.isSelected_click_Enrollment_My_Account_Save_With_Mobile_Coupons_No())
+				if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("Y"))
 				{
-					result=result+"Save with coupons value is not pre populating or nothing selected"+"\n";
-				}	
-			}*/
+					if(contactinfopage.isEnabled_click_TextMeOffers_Yes_Button())
+					{
+						Assert.fail("Text Me offers section is displayed");	 
+					}	   
+					else
+					{
+						Reporter.log("Text Me offers section is not displayed" );
+					}
+				}
+				else if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("N"))
+				{
+					if(contactinfopage.isEnabled_click_TextMeOffers_No_Button())
+					{
+						Reporter.log("Text Me offers section is displayed" );
+						if(contactinfopage.isSelected_click_TextMeOffers_No_Button())
+						{
+							Reporter.log("Text Me offers section is displayed and selected No button" );
+						}
+						else
+						{
+							Assert.fail("Text Me offers section is displayed and selected Yes button" );
+						}
+					}	   
+					else
+					{
+						Assert.fail("Text Me offers section is not displayed");
+						
+					}
+				}
+			}
+			catch(Exception e)
+		    {
+		    	Reporter.log("Text Me offer section is not displayed since marketing sms is already enrolled");
+		    }
+			if (!contactinfopage.getValue_txt_City_Field().equals(Readexcel_RowName.getValue("City")))
+			{
+				//driver.close();
+				Assert.fail("City is not pre populating");
+			}
+			if (!contactinfopage.getValue_ddl_State_Field().equals(Readexcel_RowName.getValue("State_Code")))
+			{
+				//driver.close();
+				Assert.fail("State is not pre populating");
+			}
+			if (!contactinfopage.getValue_txt_Zipcode_Field().equals(Readexcel_RowName.getValue("Zip")))
+			{
+				//driver.close();
+				Assert.fail("Zip is not pre populating");
+			}
+			if(!myaccountpage.getValue_txt_Set_Password1_Field().equalsIgnoreCase(""))
+			{
+				Assert.fail("Password1 is displaying some values");
+			}
+			if(!myaccountpage.getValue_txt_Set_Password2_Field().equalsIgnoreCase(""))
+			{
+				Assert.fail("Password2 is displaying some values");
+			}
+			if(!myaccountpage.getValue_txt_Set_Pin1_Field().equalsIgnoreCase(""))
+			{
+				Assert.fail("Pin1 is displaying some values");
+			}
+			if(!myaccountpage.getValue_txt_Set_Pin2_Field().equalsIgnoreCase(""))
+			{
+				Assert.fail("Pin2 is displaying some values");
+			}
+			Reporter.log("My account details are verified");
 			obj.scrollingToElementofAPage(driver, homepage.click_Logout_button);
 			homepage.click_click_Logout_button();
 	    }

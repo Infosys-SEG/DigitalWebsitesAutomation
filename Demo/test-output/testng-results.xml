@@ -2,64 +2,22 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
     <line>
-      <![CDATA[Register button clicked successfully]]>
-    </line>
-    <line>
-      <![CDATA[PII Verification page displayed successfully]]>
-    </line>
-    <line>
-      <![CDATA[PII Verification done successfully]]>
-    </line>
-    <line>
-      <![CDATA[Contact info page completed successfully]]>
-    </line>
-    <line>
-      <![CDATA[Congratulations Message is displayed correctly]]>
-    </line>
-    <line>
-      <![CDATA[Pickup text message is displayed]]>
-    </line>
-    <line>
-      <![CDATA[fuel rewards url is correct]]>
-    </line>
-    <line>
-      <![CDATA[not pickedup text is displayed]]>
+      <![CDATA[On clicking Login button,Soft login modal is displayed]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="152202" started-at="2018-12-19T11:50:45Z" finished-at="2018-12-19T11:53:17Z">
+  <suite name="Default suite" duration-ms="113423" started-at="2018-12-20T10:46:14Z" finished-at="2018-12-20T10:48:07Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="152202" started-at="2018-12-19T11:50:45Z" finished-at="2018-12-19T11:53:17Z">
-      <class name="executableClass.Fully_Enrolled_Customers_Flow">
-        <test-method status="PASS" signature="TC003_EnrollNewProgram_Phonenumber_VerifybyPII()[pri:1, instance:executableClass.Fully_Enrolled_Customers_Flow@42dafa95]" name="TC003_EnrollNewProgram_Phonenumber_VerifybyPII" duration-ms="152132" started-at="2018-12-19T17:20:45Z" finished-at="2018-12-19T17:23:17Z">
+    <test name="Default test" duration-ms="113423" started-at="2018-12-20T10:46:14Z" finished-at="2018-12-20T10:48:07Z">
+      <class name="executableClass.SoftLogin">
+        <test-method status="PASS" signature="TC003_SoftLogin_loggedout_user()[pri:3, instance:executableClass.SoftLogin@42dafa95]" name="TC003_SoftLogin_loggedout_user" duration-ms="113350" started-at="2018-12-20T16:16:14Z" finished-at="2018-12-20T16:18:07Z">
           <reporter-output>
             <line>
-              <![CDATA[Register button clicked successfully]]>
-            </line>
-            <line>
-              <![CDATA[PII Verification page displayed successfully]]>
-            </line>
-            <line>
-              <![CDATA[PII Verification done successfully]]>
-            </line>
-            <line>
-              <![CDATA[Contact info page completed successfully]]>
-            </line>
-            <line>
-              <![CDATA[Congratulations Message is displayed correctly]]>
-            </line>
-            <line>
-              <![CDATA[Pickup text message is displayed]]>
-            </line>
-            <line>
-              <![CDATA[fuel rewards url is correct]]>
-            </line>
-            <line>
-              <![CDATA[not pickedup text is displayed]]>
+              <![CDATA[On clicking Login button,Soft login modal is displayed]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC003_EnrollNewProgram_Phonenumber_VerifybyPII -->
-      </class> <!-- executableClass.Fully_Enrolled_Customers_Flow -->
+        </test-method> <!-- TC003_SoftLogin_loggedout_user -->
+      </class> <!-- executableClass.SoftLogin -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

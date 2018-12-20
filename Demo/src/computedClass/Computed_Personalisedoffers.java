@@ -3,10 +3,11 @@ package computedClass;
 import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
 import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_HardLoginPage;
@@ -17,7 +18,7 @@ import generatedClass.POM_Generated_WeeklyAdPage;
 
 public class Computed_Personalisedoffers 
 {
-	public WebDriver Loggedin_Personalisedoffers(WebDriver driver, String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Loggedin_Personalisedoffers(WebDriver driver, String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
@@ -26,7 +27,7 @@ public class Computed_Personalisedoffers
 		Data obj=new Data();
 		WebElement logo = null;
 		String url="";
-		String storezip="";
+		
 		String value="";
 	    try
 	    {
@@ -34,21 +35,21 @@ public class Computed_Personalisedoffers
 	    	
 	    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 	    	{  	
-	    		storezip="32254";
+	    		
 		    	value="winndixie";
 		    	url="https://winndixie.pdn.retaileriq.com/weeklyad/storelocator/";
 	    		logo=homepage.click_Winndixie_logo;
 	    	}
 	    	if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 	    	{
-	    		storezip="32256";
+	    		
 		    	value="bi-lo";
 		    	url="https://bi-lo.pdn.retaileriq.com/weeklyad/storelocator/";
 	    		logo=homepage.click_Bilo_logo;
 	    	}
 	    	if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 	    	{
-	    		storezip="32256";
+	    		
 				value="harveyssupermarkets";
 				url="https://harveyssupermarkets.pdn.retaileriq.com/weeklyad/storelocator/";
 	    		logo=homepage.click_Harveys_logo;
@@ -66,20 +67,22 @@ public class Computed_Personalisedoffers
 			}
 			String Val = obj.popuppath()+" "+bro;
 			Thread.sleep(2000);
-
-			Actions actions = new Actions(driver);
-			actions.moveToElement(logo).click().perform();
-			logo.click();
 			
-			obj.waitForElementClickable(driver, logo);	    	
+			obj.movetoElementofAPage_Click(driver, logo);
+			
+			Thread.sleep(2000);
+			
+				    	
 			Runtime.getRuntime().exec(Val);
-			obj.scrollingToElementofAPage(driver, homepage.click_PersonalizedAd_Logo);
+			
 			homepage.click_click_PersonalizedAd_Logo();
 			obj.waitForElement(driver, shoppingListPage.txt_List_Count_Text);
 			if(driver.getCurrentUrl().equalsIgnoreCase(url))
 			{
+				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+				String Store_Zip = Readexcel_RowName.getValue("Store_Zip");
 				obj.waitForElementClickable(driver, weeklyadpage.txt_Select_Store_Field);
-				weeklyadpage.type_txt_Select_Store_Field(storezip);
+				weeklyadpage.type_txt_Select_Store_Field(Store_Zip);
 				weeklyadpage.click_click_Store_Search_Button();
 				obj.waitForElementClickable(driver, weeklyadpage.click_Store_View_weeklyAds_Button);
 				weeklyadpage.click_click_Store_View_weeklyAds_Button();
@@ -101,14 +104,15 @@ public class Computed_Personalisedoffers
 		}
 	    catch(Exception e)
 	    {
-	    	driver.close();
+	    	//driver.close();
+	    	System.out.println(e);
 	    	Assert.fail("Error in personalised offers page");
 		}	
 	    return driver; 	
 	}
 	
 	
-	public WebDriver Loggedout_Personalisedoffers(WebDriver driver, String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Loggedout_Personalisedoffers(WebDriver driver, String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
@@ -118,7 +122,7 @@ public class Computed_Personalisedoffers
 		Data obj=new Data();
 		WebElement logo = null;
 		String url="";
-		String storezip="";
+		
 		String value="";
 		
 	    try
@@ -127,21 +131,21 @@ public class Computed_Personalisedoffers
 	    	
 	    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 	    	{  	
-	    		storezip="32254";
+	    		
 		    	value="winndixie";
 		    	url="https://winndixie.pdn.retaileriq.com/weeklyad/storelocator/";
 	    		logo=homepage.click_Winndixie_logo;
 	    	}
 	    	if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 	    	{
-	    		storezip="32256";
+	    		
 		    	value="bi-lo";
 		    	url="https://bi-lo.pdn.retaileriq.com/weeklyad/storelocator/";
 	    		logo=homepage.click_Bilo_logo;
 	    	}
 	    	if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 	    	{
-	    		storezip="32256";
+	    		
 				value="harveyssupermarkets";
 				url="https://harveyssupermarkets.pdn.retaileriq.com/weeklyad/storelocator/";
 	    		logo=homepage.click_Harveys_logo;
@@ -158,21 +162,21 @@ public class Computed_Personalisedoffers
 				bro=ie;
 			}
 			String Val = obj.popuppath()+" "+bro;
-			Thread.sleep(1000);
-
-			Actions actions = new Actions(driver);
-			actions.moveToElement(logo).click().perform();
-			logo.click();
 			
-			obj.waitForElementClickable(driver, logo);	    	
+			Thread.sleep(2000);
+			
+			obj.movetoElementofAPage_Click(driver, logo);
+			
+			Thread.sleep(2000);
 			Runtime.getRuntime().exec(Val);
-			obj.scrollingToElementofAPage(driver, homepage.click_PersonalizedAd_Logo);
 			homepage.click_click_PersonalizedAd_Logo();
 			obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			if(driver.getCurrentUrl().equalsIgnoreCase(url))
 			{
+				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+				String Store_Zip = Readexcel_RowName.getValue("Store_Zip");
 				obj.waitForElementClickable(driver, weeklyadpage.txt_Select_Store_Field);
-				weeklyadpage.type_txt_Select_Store_Field(storezip);
+				weeklyadpage.type_txt_Select_Store_Field(Store_Zip);
 				weeklyadpage.click_click_Store_Search_Button();
 				obj.waitForElementClickable(driver, weeklyadpage.click_Store_View_weeklyAds_Button);
 				weeklyadpage.click_click_Store_View_weeklyAds_Button();
@@ -183,21 +187,21 @@ public class Computed_Personalisedoffers
 			{
 				obj.scrollingToElementofAPage(driver, personalizedOffersPage.click_Login_Button);
 				personalizedOffersPage.click_click_Login_Button();
-				obj.scrollingToElementofAPage(driver, logo);
-				homepage.click_click_HardLogin_button();
+				
 				obj.waitForElementClickable(driver, hardloginpage.txt_Email_Id_Field);
 				hardloginpage.click_click_Popup_Close_Button();
 			}
 			else
 			{
-				driver.close();
+			//	driver.close();
 				Assert.fail("Error in Your WeeklyAd text");
 			
 			}
 		}
 	    catch(Exception e)
 	    {
-	    	driver.close();
+	    	//driver.close();
+	    	System.out.println(e);
 	    	Assert.fail("Error in Weekly Ad page");
 		}	
 	    return driver; 	

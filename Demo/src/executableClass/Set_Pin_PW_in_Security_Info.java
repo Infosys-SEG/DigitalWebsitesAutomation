@@ -37,7 +37,41 @@ public class Set_Pin_PW_in_Security_Info {
 		driver.close();
 	}
 	
-	@Test(priority=2)
+	@Test (priority=2)
+	public void TC004_FullyEnrolled_NoPinNoPassword_WithCardNumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	
+	{
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();		
+		String Functionality=functionality;
+		driver=browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		driver=fullyenrollmentflow.SignUpPage(driver);
+		driver=fullyenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
+		driver=fullyenrollmentflow.Verificationpage(driver, Functionality, TCName);
+		driver=fullyenrollmentflow.VerifyByPIIPage(driver, Functionality, TCName);
+		driver=fullyenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
+		driver=fullyenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver.close();
+	}
+	
+	@Test (priority=3)
+	public void TC011_FullyEnrolled_NavigateTo_PasswordSetScreen_WithPhoneNumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	
+	{
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();		
+		String Functionality=functionality;
+		driver=browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		driver=fullyenrollmentflow.SignUpPage(driver);
+		driver=fullyenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
+		driver=fullyenrollmentflow.Verificationpage(driver, Functionality, TCName);
+		driver=fullyenrollmentflow.VerifyByPIIPage(driver, Functionality, TCName);
+		driver=fullyenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
+		driver=fullyenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver.close();
+	}
+	
+	@Test(priority=4)
 	public void TC013_PreEnrolled_NoPinNoPassword_WithCardNumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	
 	{
@@ -54,7 +88,7 @@ public class Set_Pin_PW_in_Security_Info {
 		
 	}
 	
-	@Test(priority=3)
+	@Test(priority=5)
 	public void TC014_PreEnrolled_NoPinNoPassword_WithPhoneNumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	
 	{
@@ -71,7 +105,7 @@ public class Set_Pin_PW_in_Security_Info {
 		
 	}
 	
-	@Test(priority=4)
+	@Test(priority=6)
 	public void TC015_FullyEnrolled_Check_T_And_C () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
@@ -89,7 +123,7 @@ public class Set_Pin_PW_in_Security_Info {
 		
 	}
 	
-	@Test(priority=5)
+	@Test(priority=7)
 	public void TC016_PreEnrolled_Check_T_And_C () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname

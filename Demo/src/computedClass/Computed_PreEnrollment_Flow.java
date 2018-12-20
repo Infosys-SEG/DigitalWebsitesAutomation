@@ -12,6 +12,7 @@ import org.testng.Reporter;
 
 import Utility.Data;
 import Utility.Readexcel_RowName;
+import Utility.Writeexcel_RowName;
 import generatedClass.POM_Generated_AccountLookupPage;
 import generatedClass.POM_Generated_AccountSecurityPage;
 import generatedClass.POM_Generated_CongratulationsPage;
@@ -97,7 +98,7 @@ public class Computed_PreEnrollment_Flow
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		POM_Generated_AccountSecurityPage accountsecuritypage = new POM_Generated_AccountSecurityPage(driver);
 		Data obj=new Data();
-		
+		Writeexcel_RowName write = new Writeexcel_RowName();
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		try
 		{
@@ -208,6 +209,11 @@ public class Computed_PreEnrollment_Flow
 			if (contactinfopage.getValue_ddl_State_Field().equals("Select"))
 			{
 				contactinfopage.select_ddl_State_Field(Readexcel_RowName.getValue("State"));
+				Thread.sleep(500);
+				String statecode= contactinfopage.getValue_ddl_State_Field();
+				System.out.println(statecode);
+				write.excelwrite(Functionality, TCName, "State_Code", statecode);
+				System.out.println("done");
 			}
 			else
 			{
