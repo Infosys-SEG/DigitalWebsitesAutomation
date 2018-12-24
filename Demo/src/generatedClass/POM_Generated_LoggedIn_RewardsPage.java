@@ -93,6 +93,22 @@ public class POM_Generated_LoggedIn_RewardsPage {
 	@FindBy(xpath = "//label[text()='Edit Account Details ']")
 	public WebElement click_EditAccountDetails_Page_Text;
 	
+	// Associated Label : SoftLogin_overlay
+	@FindBy(xpath = "//h2[text()='Login']")
+	public WebElement txt_SoftLogin_overlay;
+	
+	// Associated Label : MyRewards_GoldStatus
+	@FindBy(xpath = "//img[@alt='Golden Batch']")
+	public WebElement txt_MyRewards_GoldStatus;
+	
+	// Associated Label : MyRewards_UsefulLinks
+	@FindBy(xpath = "//div[text()='Useful links ']")
+	public WebElement txt_MyRewards_UsefulLinks;
+	
+	// Associated Label : Usefullink_FuelRewards_Link_bl
+	@FindBy(xpath = "//a[text()='Fuel Rewards program']")
+	public WebElement txt_Usefullink_FuelRewards_Link_bl;
+	
 
 //*******************************************************************************
 
@@ -906,6 +922,190 @@ public class POM_Generated_LoggedIn_RewardsPage {
 	// selected or Not :  EditAccountDetails_Page_Text
 	public boolean isSelected_click_EditAccountDetails_Page_Text(){
 		if(click_EditAccountDetails_Page_Text.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  SoftLogin_overlay
+	public void type_txt_SoftLogin_overlay(String value) {
+		txt_SoftLogin_overlay.clear();
+		txt_SoftLogin_overlay.sendKeys(value);
+	}
+
+	//click:  SoftLogin_overlay
+	public void click_txt_SoftLogin_overlay(){
+		txt_SoftLogin_overlay.click();
+	}
+
+	// Hover:  SoftLogin_overlay
+	public void hover_txt_SoftLogin_overlay(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_SoftLogin_overlay).build().perform();
+	}
+
+	// visible or Not :  SoftLogin_overlay
+	public boolean isDisplayed_txt_SoftLogin_overlay(){
+		if(txt_SoftLogin_overlay.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  SoftLogin_overlay
+	public boolean isEnabled_txt_SoftLogin_overlay(){
+		if(txt_SoftLogin_overlay.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  SoftLogin_overlay
+	public String getCssValue_txt_SoftLogin_overlay(String attribute) {
+		return txt_SoftLogin_overlay.getCssValue(attribute);
+	}
+
+	//Get the text :  SoftLogin_overlay
+	public String getText_txt_SoftLogin_overlay(){
+		return txt_SoftLogin_overlay.getText();
+	}
+
+	//Get the value :  SoftLogin_overlay
+	public String getValue_txt_SoftLogin_overlay(){
+		return txt_SoftLogin_overlay.getAttribute("value");
+	}
+	// selected or Not :  SoftLogin_overlay
+	public boolean isSelected_txt_SoftLogin_overlay(){
+		if(txt_SoftLogin_overlay.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  MyRewards_GoldStatus
+	public void type_txt_MyRewards_GoldStatus(String value) {
+		txt_MyRewards_GoldStatus.clear();
+		txt_MyRewards_GoldStatus.sendKeys(value);
+	}
+
+	//click:  MyRewards_GoldStatus
+	public void click_txt_MyRewards_GoldStatus(){
+		txt_MyRewards_GoldStatus.click();
+	}
+
+	// Hover:  MyRewards_GoldStatus
+	public void hover_txt_MyRewards_GoldStatus(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_MyRewards_GoldStatus).build().perform();
+	}
+
+	// visible or Not :  MyRewards_GoldStatus
+	public boolean isDisplayed_txt_MyRewards_GoldStatus(){
+		if(txt_MyRewards_GoldStatus.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  MyRewards_GoldStatus
+	public boolean isEnabled_txt_MyRewards_GoldStatus(){
+		if(txt_MyRewards_GoldStatus.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  MyRewards_GoldStatus
+	public String getCssValue_txt_MyRewards_GoldStatus(String attribute) {
+		return txt_MyRewards_GoldStatus.getCssValue(attribute);
+	}
+
+	//Get the text :  MyRewards_GoldStatus
+	public String getText_txt_MyRewards_GoldStatus(){
+		return txt_MyRewards_GoldStatus.getText();
+	}
+
+	//Get the value :  MyRewards_GoldStatus
+	public String getValue_txt_MyRewards_GoldStatus(){
+		return txt_MyRewards_GoldStatus.getAttribute("value");
+	}
+	// selected or Not :  MyRewards_GoldStatus
+	public boolean isSelected_txt_MyRewards_GoldStatus(){
+		if(txt_MyRewards_GoldStatus.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  MyRewards_UsefulLinks
+	public void type_txt_MyRewards_UsefulLinks(String value) {
+		txt_MyRewards_UsefulLinks.clear();
+		txt_MyRewards_UsefulLinks.sendKeys(value);
+	}
+
+	//click:  MyRewards_UsefulLinks
+	public void click_txt_MyRewards_UsefulLinks(){
+		txt_MyRewards_UsefulLinks.click();
+	}
+
+	// Hover:  MyRewards_UsefulLinks
+	public void hover_txt_MyRewards_UsefulLinks(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_MyRewards_UsefulLinks).build().perform();
+	}
+
+	// visible or Not :  MyRewards_UsefulLinks
+	public boolean isDisplayed_txt_MyRewards_UsefulLinks(){
+		if(txt_MyRewards_UsefulLinks.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  MyRewards_UsefulLinks
+	public boolean isEnabled_txt_MyRewards_UsefulLinks(){
+		if(txt_MyRewards_UsefulLinks.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  MyRewards_UsefulLinks
+	public String getCssValue_txt_MyRewards_UsefulLinks(String attribute) {
+		return txt_MyRewards_UsefulLinks.getCssValue(attribute);
+	}
+
+	//Get the text :  MyRewards_UsefulLinks
+	public String getText_txt_MyRewards_UsefulLinks(){
+		return txt_MyRewards_UsefulLinks.getText();
+	}
+
+	//Get the value :  MyRewards_UsefulLinks
+	public String getValue_txt_MyRewards_UsefulLinks(){
+		return txt_MyRewards_UsefulLinks.getAttribute("value");
+	}
+	// selected or Not :  MyRewards_UsefulLinks
+	public boolean isSelected_txt_MyRewards_UsefulLinks(){
+		if(txt_MyRewards_UsefulLinks.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Usefullink_FuelRewards_Link_bl
+	public void type_txt_Usefullink_FuelRewards_Link_bl(String value) {
+		txt_Usefullink_FuelRewards_Link_bl.clear();
+		txt_Usefullink_FuelRewards_Link_bl.sendKeys(value);
+	}
+
+	//click:  Usefullink_FuelRewards_Link_bl
+	public void click_txt_Usefullink_FuelRewards_Link_bl(){
+		txt_Usefullink_FuelRewards_Link_bl.click();
+	}
+
+	// Hover:  Usefullink_FuelRewards_Link_bl
+	public void hover_txt_Usefullink_FuelRewards_Link_bl(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Usefullink_FuelRewards_Link_bl).build().perform();
+	}
+
+	// visible or Not :  Usefullink_FuelRewards_Link_bl
+	public boolean isDisplayed_txt_Usefullink_FuelRewards_Link_bl(){
+		if(txt_Usefullink_FuelRewards_Link_bl.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Usefullink_FuelRewards_Link_bl
+	public boolean isEnabled_txt_Usefullink_FuelRewards_Link_bl(){
+		if(txt_Usefullink_FuelRewards_Link_bl.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Usefullink_FuelRewards_Link_bl
+	public String getCssValue_txt_Usefullink_FuelRewards_Link_bl(String attribute) {
+		return txt_Usefullink_FuelRewards_Link_bl.getCssValue(attribute);
+	}
+
+	//Get the text :  Usefullink_FuelRewards_Link_bl
+	public String getText_txt_Usefullink_FuelRewards_Link_bl(){
+		return txt_Usefullink_FuelRewards_Link_bl.getText();
+	}
+
+	//Get the value :  Usefullink_FuelRewards_Link_bl
+	public String getValue_txt_Usefullink_FuelRewards_Link_bl(){
+		return txt_Usefullink_FuelRewards_Link_bl.getAttribute("value");
+	}
+	// selected or Not :  Usefullink_FuelRewards_Link_bl
+	public boolean isSelected_txt_Usefullink_FuelRewards_Link_bl(){
+		if(txt_Usefullink_FuelRewards_Link_bl.isSelected()) { return true; } else { return false;} 
 	}
 
 }

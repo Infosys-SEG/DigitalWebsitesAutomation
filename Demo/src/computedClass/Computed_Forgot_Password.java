@@ -27,8 +27,8 @@ public class Computed_Forgot_Password
 		try
 		{
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",functionality, TCName);
-	    	String Valid_Test_Email= Readexcel_RowName.getValue("Valid_Test_Email");
-	    	String Valid_Test_Password= Readexcel_RowName.getValue("Valid_Test_Password");
+	    //	String Valid_Test_Email= Readexcel_RowName.getValue("Valid_Test_Email");
+	    //	String Valid_Test_Password= Readexcel_RowName.getValue("Valid_Test_Password");
 	    	String Invalid_Email_NotExist=Readexcel_RowName.getValue("Invalid_Email_NotExist");
 	    	
 	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
@@ -86,7 +86,7 @@ public class Computed_Forgot_Password
 			{
 				new Readexcel_RowName().excelRead("Global_TestData_Sheet",functionality, TCName);
 		    	String Valid_Test_Email= Readexcel_RowName.getValue("Valid_Test_Email");
-		    	String Valid_Test_Password= Readexcel_RowName.getValue("Valid_Test_Password");
+		    	//String Valid_Test_Password= Readexcel_RowName.getValue("Valid_Test_Password");
 		    	
 		    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
 		    	homepage.click_click_Login_Or_Signup_Button();
