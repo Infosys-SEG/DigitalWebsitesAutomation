@@ -67,7 +67,7 @@ public class Computed_DB
 				value=" where ALIAS_NUMBER='"+cn+chain+" and EMAIL_ADDRESS='"+mail+"'";
 				
 			}
-			else if(cardtype.equalsIgnoreCase("Phone"))
+			else if(cardtype.equalsIgnoreCase("Phone")||cardtype.equalsIgnoreCase("NewMember"))
 			{
 				String mob=String.valueOf(Readexcel_RowName.getValue("Primary_Phone")).replace("null", "");
 				String mail=String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "");
@@ -80,11 +80,22 @@ public class Computed_DB
 				String mail=String.valueOf(Readexcel_RowName.getValue("EmailAddress")).replace("null", "");
 				value=" where B.CRC_ID='"+cn+chain+" and EMAIL_ADDRESS='"+mail+"'";
 			}
-			String colnames = "SALUTATION, FIRST_NAME, LAST_NAME, BIRTH_DT, MOBILE_PHONE, EMAIL_ADDRESS, STREET_ADDRESS_1, STREET_ADDRESS_2, CITY_NAME, STATE_CODE, POSTAL_CODE, ALIAS_NUMBER, B.CRC_ID as B_CRC_ID, ENROLLMENT_STATUS, A.LAST_UPDATE_SOURCE as A_LAST_UPDATE_SOURCE, B.LAST_UPDATE_SOURCE as B_LAST_UPDATE_SOURCE, C.LAST_UPDATE_SOURCE as C_LAST_UPDATE_SOURCE, D.LAST_UPDATE_SOURCE as D_LAST_UPDATE_SOURCE, A.LAST_UPDATE_DT as A_LAST_UPDATE_DT, B.LAST_UPDATE_DT as B_LAST_UPDATE_DT, D.LAST_UPDATE_DT as D_LAST_UPDATE_DT";
-				
-			String SQL = "select "+colnames+" from ODSCustomer_QA.dbo.CUST_ALIAS as A join ODSCustomer_QA.dbo.CUST as B on A.MEMBER_ID = B.MEMBER_ID join ODSCustomer_QA.dbo.CUST_MEMBERSHIP as C on A.MEMBER_ID = C.MEMBER_ID join ODSCustomer_QA.dbo.CUST_ADDR as D on B.CRC_ID=D.CRC_ID" +value;	
+			String colnames="";
+			String SQL ="";
+			if(cardtype.equalsIgnoreCase("NewMember"))
+			{
+				colnames = "SALUTATION, FIRST_NAME, LAST_NAME, BIRTH_DT, MOBILE_PHONE, EMAIL_ADDRESS, STREET_ADDRESS_1, STREET_ADDRESS_2, CITY_NAME, STATE_CODE, POSTAL_CODE, B.CRC_ID as B_CRC_ID, ENROLLMENT_STATUS, B.LAST_UPDATE_SOURCE as B_LAST_UPDATE_SOURCE, C.LAST_UPDATE_SOURCE as C_LAST_UPDATE_SOURCE, D.LAST_UPDATE_SOURCE as D_LAST_UPDATE_SOURCE, B.LAST_UPDATE_DT as B_LAST_UPDATE_DT, D.LAST_UPDATE_DT as D_LAST_UPDATE_DT";
+				SQL= "select "+colnames+" from  ODSCustomer_QA.dbo.CUST as B join ODSCustomer_QA.dbo.CUST_MEMBERSHIP as C on B.MEMBER_ID = C.MEMBER_ID join ODSCustomer_QA.dbo.CUST_ADDR as D on B.CRC_ID=D.CRC_ID"+value;
+			}
+			else
+			{
+				colnames = "SALUTATION, FIRST_NAME, LAST_NAME, BIRTH_DT, MOBILE_PHONE, EMAIL_ADDRESS, STREET_ADDRESS_1, STREET_ADDRESS_2, CITY_NAME, STATE_CODE, POSTAL_CODE, ALIAS_NUMBER, B.CRC_ID as B_CRC_ID, ENROLLMENT_STATUS, A.LAST_UPDATE_SOURCE as A_LAST_UPDATE_SOURCE, B.LAST_UPDATE_SOURCE as B_LAST_UPDATE_SOURCE, C.LAST_UPDATE_SOURCE as C_LAST_UPDATE_SOURCE, D.LAST_UPDATE_SOURCE as D_LAST_UPDATE_SOURCE, A.LAST_UPDATE_DT as A_LAST_UPDATE_DT, B.LAST_UPDATE_DT as B_LAST_UPDATE_DT, D.LAST_UPDATE_DT as D_LAST_UPDATE_DT";
+				SQL= "select "+colnames+" from ODSCustomer_QA.dbo.CUST_ALIAS as A join ODSCustomer_QA.dbo.CUST as B on A.MEMBER_ID = B.MEMBER_ID join ODSCustomer_QA.dbo.CUST_MEMBERSHIP as C on A.MEMBER_ID = C.MEMBER_ID join ODSCustomer_QA.dbo.CUST_ADDR as D on B.CRC_ID=D.CRC_ID" +value;
+			}	
+							
 			
 			rs = stmt.executeQuery(SQL); 
+
 			Reporter.log("Query Executed Successfully");
 			String B_CRC_ID=null;
 			while (rs.next()) 
@@ -100,15 +111,26 @@ public class Computed_DB
 				String CITY_NAME = rs.getString("CITY_NAME");
 				String STATE_CODE = rs.getString("STATE_CODE");
 				String POSTAL_CODE = rs.getString("POSTAL_CODE");
-				String ALIAS_NUMBER = rs.getString("ALIAS_NUMBER");
+				String ALIAS_NUMBER="";
+				if(!cardtype.equalsIgnoreCase("NewMember"))
+				{
+				 ALIAS_NUMBER = rs.getString("ALIAS_NUMBER");
+				}
 			    B_CRC_ID = rs.getString("B_CRC_ID");
 				String ENROLLMENT_STATUS = rs.getString("ENROLLMENT_STATUS");
-				
-				String A_LAST_UPDATE_SOURCE = rs.getString("A_LAST_UPDATE_SOURCE");
+				String A_LAST_UPDATE_SOURCE="";
+				if(!cardtype.equalsIgnoreCase("NewMember"))
+				{
+					A_LAST_UPDATE_SOURCE = rs.getString("A_LAST_UPDATE_SOURCE");
+				}
 				String B_LAST_UPDATE_SOURCE = rs.getString("B_LAST_UPDATE_SOURCE");
 				String C_LAST_UPDATE_SOURCE = rs.getString("C_LAST_UPDATE_SOURCE");
 				String D_LAST_UPDATE_SOURCE = rs.getString("D_LAST_UPDATE_SOURCE");
-				String A_LAST_UPDATE_DT = rs.getString("A_LAST_UPDATE_DT");
+				String A_LAST_UPDATE_DT="";
+				if(!cardtype.equalsIgnoreCase("NewMember"))
+				{
+				 A_LAST_UPDATE_DT = rs.getString("A_LAST_UPDATE_DT");
+				}
 				String B_LAST_UPDATE_DT = rs.getString("B_LAST_UPDATE_DT");
 				String D_LAST_UPDATE_DT= rs.getString("D_LAST_UPDATE_DT");
 				
@@ -123,15 +145,23 @@ public class Computed_DB
 				CITY_NAME = (String.valueOf(CITY_NAME).replace("null", "")).trim();
 				STATE_CODE = (String.valueOf(STATE_CODE).replace("null", "")).trim();
 				POSTAL_CODE = (String.valueOf(POSTAL_CODE).replace("null", "")).trim();
-				ALIAS_NUMBER = (String.valueOf(ALIAS_NUMBER).replace("null", "")).trim();
+				if(!cardtype.equalsIgnoreCase("NewMember"))
+				{
+					ALIAS_NUMBER = (String.valueOf(ALIAS_NUMBER).replace("null", "")).trim();
+				}
 				B_CRC_ID = (String.valueOf(B_CRC_ID).replace("null", "")).trim();
 				ENROLLMENT_STATUS= (String.valueOf(ENROLLMENT_STATUS).replace("null", "")).trim();
-				
-				A_LAST_UPDATE_SOURCE=(String.valueOf(A_LAST_UPDATE_SOURCE).replace("null", "")).trim();
+				if(!cardtype.equalsIgnoreCase("NewMember"))
+				{
+					A_LAST_UPDATE_SOURCE=(String.valueOf(A_LAST_UPDATE_SOURCE).replace("null", "")).trim();
+				}
 				B_LAST_UPDATE_SOURCE=(String.valueOf(B_LAST_UPDATE_SOURCE).replace("null", "")).trim();
 				C_LAST_UPDATE_SOURCE=(String.valueOf(C_LAST_UPDATE_SOURCE).replace("null", "")).trim();
 				D_LAST_UPDATE_SOURCE=(String.valueOf(D_LAST_UPDATE_SOURCE).replace("null", "")).trim();
-				A_LAST_UPDATE_DT=(String.valueOf(A_LAST_UPDATE_DT).replace("null", "")).trim();
+				if(!cardtype.equalsIgnoreCase("NewMember"))
+				{
+					A_LAST_UPDATE_DT=(String.valueOf(A_LAST_UPDATE_DT).replace("null", "")).trim();
+				}
 				B_LAST_UPDATE_DT=(String.valueOf(B_LAST_UPDATE_DT).replace("null", "")).trim();
 				D_LAST_UPDATE_DT=(String.valueOf(D_LAST_UPDATE_DT).replace("null", "")).trim();
 				
@@ -273,14 +303,17 @@ public class Computed_DB
 				{
 					Reporter.log("Zip matched with DB");
 				}
-				if(!A_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
+				if(!cardtype.equalsIgnoreCase("NewMember"))
 				{
+					if(!A_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
+					{
 					
-					Assert.fail("Last updated source in cust alias table is not changed to web");
-				}
-				else
-				{
-					Reporter.log("Last updated source in cust alias table is changed to web");
+						Assert.fail("Last updated source in cust alias table is not changed to web");
+					}
+					else
+					{
+						Reporter.log("Last updated source in cust alias table is changed to web");
+					}
 				}
 				if(!B_LAST_UPDATE_SOURCE.equalsIgnoreCase("Web"))
 				{
@@ -308,17 +341,24 @@ public class Computed_DB
 				{
 					Reporter.log("Last updated source in address table is changed to web");
 				}
-				String[] A_LAST_UPDATE_DT_Split=A_LAST_UPDATE_DT.split(" ");
+				String[] A_LAST_UPDATE_DT_Split={""};
+				if(!cardtype.equalsIgnoreCase("NewMember"))
+				{
+					A_LAST_UPDATE_DT_Split=A_LAST_UPDATE_DT.split(" ");
+				}
 				String[] B_LAST_UPDATE_DT_Split=B_LAST_UPDATE_DT.split(" ");
 				String[] D_LAST_UPDATE_DT_Split=D_LAST_UPDATE_DT.split(" ");
-				if(!A_LAST_UPDATE_DT_Split[0].equalsIgnoreCase(sysdate))
+				if(!cardtype.equalsIgnoreCase("NewMember"))
 				{
+					if(!A_LAST_UPDATE_DT_Split[0].equalsIgnoreCase(sysdate))
+					{
 					
-					Assert.fail("Last updated date in cust alias table is not changed in DB");
-				}
-				else
-				{
-					Reporter.log("Last updated date in cust alias table is changed in DB");
+						Assert.fail("Last updated date in cust alias table is not changed in DB");
+					}
+					else
+					{
+						Reporter.log("Last updated date in cust alias table is changed in DB");
+					}
 				}
 				if(!B_LAST_UPDATE_DT_Split[0].equalsIgnoreCase(sysdate))
 				{
@@ -343,7 +383,8 @@ public class Computed_DB
 		} 		
 	    catch(Exception e) 
 		{
-	    	
+	    	System.out.println(e);
+	    	Assert.fail("Error in DB connection or query");
 		}
 	    finally 
 	    {  

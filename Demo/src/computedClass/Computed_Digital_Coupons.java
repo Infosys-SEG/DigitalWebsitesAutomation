@@ -23,7 +23,7 @@ public class Computed_Digital_Coupons
 	private String prod;
 	private int count;
 
-	public WebDriver Loggedout_Coupons_Link(WebDriver driver, String Functionality,String prod,int count) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Loggedout_Coupons_Link(WebDriver driver, String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage=new POM_Generated_Homepage(driver);
 		POM_Generated_DigitalCouponsPage couponspage= new POM_Generated_DigitalCouponsPage(driver);
@@ -70,8 +70,9 @@ public class Computed_Digital_Coupons
 
 			obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
 			Runtime.getRuntime().exec(Val);
-			homepage.hover_click_Savings_link_Hover();
 			
+			homepage.click_click_Savings_link_Hover();
+			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);
 			homepage.click_click_Savings_Coupon_Button();
 			
 					
@@ -244,16 +245,18 @@ public class Computed_Digital_Coupons
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
+			
 			obj.waitForElementClickable(driver, logo);	
-		
+			
 			logo.click();
-		
-			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);	
-						
+			
+			obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);	
+			
 			//To handle window pop up Authentication				
 			Runtime.getRuntime().exec(Val);
 					
-			homepage.hover_click_Savings_link_Hover();
+			homepage.click_click_Savings_link_Hover();
+			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);
 			homepage.click_click_Savings_Coupon_Button();
 		
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
@@ -276,13 +279,14 @@ public class Computed_Digital_Coupons
 						cont=shoppinglistpage.getText_txt_List_Count_Text();
 						count = Integer.parseInt(cont);
 						this.count=count;
+						
 						prod=prodsummary.get(n).getText()+" "+proddesc.get(n).getText();
 		  					
 						this.prod=prod;
 		  					
-						obj.scrollingToElementofAPage(driver, buttons.get(n));
+						
 						buttons.get(n).click();
-		  					
+							
 						try
 						{
 							if(couponspage.isDisplayed_click_Digital_Coupon_Paypal_Popup_Close_Button())
@@ -301,11 +305,25 @@ public class Computed_Digital_Coupons
 					}
 				}
 			}
+			
+			Thread.sleep(1000);
+			//obj.waitForElement(driver, couponspage.click_Digital_Coupon_Activated_Coupon_Icon);
+			
+			if(couponspage.isEnabled_click_Digital_Coupon_Activated_Coupon_Icon())
+			{
+				Reporter.log("Coupons added and changed to tick mark");
+			}
+			else
+			{
+				Assert.fail("Coupons added and not changed to tick mark");
+			}
+
 			obj.waitForElementClickable(driver, shoppinglistpage.txt_List_Count_Text);
 		}
 		catch(Exception e)
 		{
-			driver.close();
+			System.out.println(e);
+			//driver.close();
 			Assert.fail("Error in Digital coupons page");
 			
 		}	
@@ -412,6 +430,18 @@ public class Computed_Digital_Coupons
 		  			}
 		  		}
 		  	}
+			Thread.sleep(1000);
+			//obj.waitForElement(driver, couponspage.click_Digital_Coupon_Activated_Coupon_Icon);
+			
+			if(couponspage.isEnabled_click_Digital_Coupon_Activated_Coupon_Icon())
+			{
+				Reporter.log("Coupons added and changed to tick mark");
+			}
+			else
+			{
+				Assert.fail("Coupons added and not changed to tick mark");
+			}
+
 			obj.waitForElementClickable(driver, shoppinglistpage.txt_List_Count_Text);
 		}
 		catch(Exception e)

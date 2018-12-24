@@ -10,6 +10,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import Utility.Data;
 import generatedClass.POM_Generated_ShoppingListPage;
@@ -103,7 +104,8 @@ public class Computed_Shopping_List
 		    				desc=proddesc.get(k).getText();
 		    				desc = desc.replace(".", "");
 		    				desc = desc.replace("/", "");
-				    				
+		    				prod =  prod.replace(".", "");
+							prod = prod.replace("/", "");		
 		    				pric=price.get(k).getText();
 				    		pric = pric.replace(".", "");
 				    		pric = pric.replace("/", "");
@@ -197,9 +199,11 @@ public class Computed_Shopping_List
 		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			String sc=shoppinglistpage.getText_txt_List_Count_Text();
 			int scl=Integer.parseInt(sc);
+			count=count+1;
 			if(scl!=count)
 			{
 				driver.close();
+				
 				Assert.fail("count not updated");
 			}
 			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
@@ -266,10 +270,13 @@ public class Computed_Shopping_List
 							desc=proddesc.get(k).getText();
 							desc = desc.replace(".", "");
 							desc = desc.replace("/", "");
-							if(pageverify.equalsIgnoreCase("HomePageCoupon"))
+							prod =  prod.replace(".", "");
+							prod = prod.replace("/", "");
+							if(pageverify.equalsIgnoreCase("Save_Coupon"))
 							{
 								if(prod.equalsIgnoreCase("Save coupon- "+summary+" "+desc))
 								{
+									Reporter.log("Save Coupons displayed in shopping list");
 									chk=true;
 									finished=true;
 									break outerloop;
@@ -277,8 +284,10 @@ public class Computed_Shopping_List
 							} 
 							else if(pageverify.equalsIgnoreCase("Digital_Coupon"))
 							{
+								
 								if(prod.equalsIgnoreCase(summary+" "+desc))
 								{
+									Reporter.log("Digital Coupons displayed in shopping list");
 									chk=true;
 									finished=true;
 									break outerloop;

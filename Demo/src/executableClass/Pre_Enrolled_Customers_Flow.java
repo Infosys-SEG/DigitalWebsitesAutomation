@@ -22,7 +22,7 @@ public class Pre_Enrolled_Customers_Flow
 	Computed_EnrollmentVerify Enrollmentverify= new Computed_EnrollmentVerify();
 	Computed_DB db = new Computed_DB();
 	
-	@Test
+	@Test(priority=1)
 	public void TC001_EnrollNewProgram_Phonenumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
@@ -39,7 +39,7 @@ public class Pre_Enrolled_Customers_Flow
 		db.DB_CheckEnrolledDetails(Functionality, TCName);
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void TC002_EnrollinNewProgram_old_SEG_CRC_number () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
@@ -57,7 +57,7 @@ public class Pre_Enrolled_Customers_Flow
 		
 	}
 	
-	@Test
+	@Test(priority=3)
 	public void TC003_EnrollinNewProgram_PlentiCardNumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
@@ -76,8 +76,26 @@ public class Pre_Enrolled_Customers_Flow
 		
 	}
 	
-	@Test
+	@Test(priority=4)
 	public void TC004_EnrollinNewProgram_G_AND_G_card_number () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as tcname
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String Functionality=functionality;
+		driver=browserbanner.BrowserBanner(driver, Functionality);
+		driver = browserbanner.Clearcookie(driver, Functionality);
+		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
+		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
+		driver=Enrollmentverify.Enrollverify(driver, Functionality, TCName);
+		driver.close();
+		db.DB_CheckEnrolledDetails(Functionality, TCName);
+		
+	}
+	
+	@Test(priority=5)
+	public void TC005_EnrollinNewProgram_SignUp_As_A_New_Member () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();

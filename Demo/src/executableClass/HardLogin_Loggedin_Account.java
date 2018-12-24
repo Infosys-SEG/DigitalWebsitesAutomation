@@ -40,7 +40,7 @@ public class HardLogin_Loggedin_Account
 		driver=hardlogin.Global_HardLogin(driver, functionality,TCName);
 		driver=dc.Loggedin_Coupons_Homepage(driver, functionality, prod, count);
 		driver=po.Loggedin_Personalisedoffers(driver, functionality,TCName);
-		driver=wa.WeeklyAdPage(driver, functionality);
+		driver=wa.WeeklyAdPage(driver, functionality, TCName);
 		driver=wa.AddProduct(driver, prod, count, prodvalu);
 		driver=sib.LoginStaticinfobar_Rewards(driver, functionality);
 		driver=sib.LoginStaticinfobar_MyAccount(driver, functionality, functionality);

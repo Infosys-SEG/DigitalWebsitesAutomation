@@ -27,6 +27,18 @@ public class POM_Generated_WeeklyAdPage {
 	@FindBy(xpath = "//button[text()='Search']")
 	public WebElement click_Store_Search_Button;
 	
+	// Associated Label : Locate_A_store_Near_You_Button
+	@FindBy(xpath = "//span[text()='locate a store near you']")
+	public WebElement click_Locate_A_store_Near_You_Button;
+	
+	// Associated Label : Please_Select_A_Store_Text
+	@FindBy(xpath = "//h1[contains(text(),  'Please select a store to view this week' ) ]")
+	public WebElement txt_Please_Select_A_Store_Text;
+	
+	// Associated Label : Weekly_Ads_Button
+	@FindBy(xpath = "//a[@aria-current='page']//span[text()='Weekly Ads']")
+	public WebElement click_Weekly_Ads_Button;
+	
 	// Associated Label : Selected_weeklyad_Store_Details_Text
 	@FindBy(xpath = "//div[@class='row store-info-pod'][1]//div[@class='col-sm-3 address']/p")
 	public WebElement txt_Selected_weeklyad_Store_Details_Text;
@@ -182,6 +194,132 @@ public class POM_Generated_WeeklyAdPage {
 	// selected or Not :  Store_Search_Button
 	public boolean isSelected_click_Store_Search_Button(){
 		if(click_Store_Search_Button.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Locate_A_store_Near_You_Button
+	public void click_click_Locate_A_store_Near_You_Button(){
+		click_Locate_A_store_Near_You_Button.click();
+	}
+
+	// Hover:  Locate_A_store_Near_You_Button
+	public void hover_click_Locate_A_store_Near_You_Button(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Locate_A_store_Near_You_Button).build().perform();
+	}
+
+	// visible or Not :  Locate_A_store_Near_You_Button
+	public boolean isDisplayed_click_Locate_A_store_Near_You_Button(){
+		if(click_Locate_A_store_Near_You_Button.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Locate_A_store_Near_You_Button
+	public boolean isEnabled_click_Locate_A_store_Near_You_Button(){
+		if(click_Locate_A_store_Near_You_Button.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Locate_A_store_Near_You_Button
+	public String getCssValue_click_Locate_A_store_Near_You_Button(String attribute) {
+		return click_Locate_A_store_Near_You_Button.getCssValue(attribute);
+	}
+
+	//Get the text :  Locate_A_store_Near_You_Button
+	public String getText_click_Locate_A_store_Near_You_Button(){
+		return click_Locate_A_store_Near_You_Button.getText();
+	}
+
+	//Get the value :  Locate_A_store_Near_You_Button
+	public String getValue_click_Locate_A_store_Near_You_Button(){
+		return click_Locate_A_store_Near_You_Button.getAttribute("value");
+	}
+	// selected or Not :  Locate_A_store_Near_You_Button
+	public boolean isSelected_click_Locate_A_store_Near_You_Button(){
+		if(click_Locate_A_store_Near_You_Button.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Please_Select_A_Store_Text
+	public void type_txt_Please_Select_A_Store_Text(String value) {
+		txt_Please_Select_A_Store_Text.clear();
+		txt_Please_Select_A_Store_Text.sendKeys(value);
+	}
+
+	//click:  Please_Select_A_Store_Text
+	public void click_txt_Please_Select_A_Store_Text(){
+		txt_Please_Select_A_Store_Text.click();
+	}
+
+	// Hover:  Please_Select_A_Store_Text
+	public void hover_txt_Please_Select_A_Store_Text(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Please_Select_A_Store_Text).build().perform();
+	}
+
+	// visible or Not :  Please_Select_A_Store_Text
+	public boolean isDisplayed_txt_Please_Select_A_Store_Text(){
+		if(txt_Please_Select_A_Store_Text.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Please_Select_A_Store_Text
+	public boolean isEnabled_txt_Please_Select_A_Store_Text(){
+		if(txt_Please_Select_A_Store_Text.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Please_Select_A_Store_Text
+	public String getCssValue_txt_Please_Select_A_Store_Text(String attribute) {
+		return txt_Please_Select_A_Store_Text.getCssValue(attribute);
+	}
+
+	//Get the text :  Please_Select_A_Store_Text
+	public String getText_txt_Please_Select_A_Store_Text(){
+		return txt_Please_Select_A_Store_Text.getText();
+	}
+
+	//Get the value :  Please_Select_A_Store_Text
+	public String getValue_txt_Please_Select_A_Store_Text(){
+		return txt_Please_Select_A_Store_Text.getAttribute("value");
+	}
+	// selected or Not :  Please_Select_A_Store_Text
+	public boolean isSelected_txt_Please_Select_A_Store_Text(){
+		if(txt_Please_Select_A_Store_Text.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Weekly_Ads_Button
+	public void click_click_Weekly_Ads_Button(){
+		click_Weekly_Ads_Button.click();
+	}
+
+	// Hover:  Weekly_Ads_Button
+	public void hover_click_Weekly_Ads_Button(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Weekly_Ads_Button).build().perform();
+	}
+
+	// visible or Not :  Weekly_Ads_Button
+	public boolean isDisplayed_click_Weekly_Ads_Button(){
+		if(click_Weekly_Ads_Button.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Weekly_Ads_Button
+	public boolean isEnabled_click_Weekly_Ads_Button(){
+		if(click_Weekly_Ads_Button.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Weekly_Ads_Button
+	public String getCssValue_click_Weekly_Ads_Button(String attribute) {
+		return click_Weekly_Ads_Button.getCssValue(attribute);
+	}
+
+	//Get the text :  Weekly_Ads_Button
+	public String getText_click_Weekly_Ads_Button(){
+		return click_Weekly_Ads_Button.getText();
+	}
+
+	//Get the value :  Weekly_Ads_Button
+	public String getValue_click_Weekly_Ads_Button(){
+		return click_Weekly_Ads_Button.getAttribute("value");
+	}
+	// selected or Not :  Weekly_Ads_Button
+	public boolean isSelected_click_Weekly_Ads_Button(){
+		if(click_Weekly_Ads_Button.isSelected()) { return true; } else { return false;} 
 	}
 
 	// Type:  Selected_weeklyad_Store_Details_Text

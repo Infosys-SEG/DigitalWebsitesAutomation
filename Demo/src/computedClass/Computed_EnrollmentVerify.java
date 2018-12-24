@@ -68,7 +68,15 @@ public class Computed_EnrollmentVerify
 		String Val = obj.popuppath()+" "+bro;
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-		String cardstatus = Readexcel_RowName.getValue("Phone/Card_Number");
+		String cardstatus="";
+		if(Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("NewMember"))
+		{
+			cardstatus="";
+		}
+		else
+		{
+		 cardstatus = Readexcel_RowName.getValue("Phone/Card_Number");
+		}
 		try
 		{
 			if(congratulationspage.isDisplayed_click_CloseModal_Button())

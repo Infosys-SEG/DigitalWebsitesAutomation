@@ -69,7 +69,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else if(Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("NewMember"))
 			{	
-				obj.scrollingToElementofAPage(driver, accountlookuppage.click_Signup_As_New_Member_Button);
+				//obj.scrollingToElementofAPage(driver, accountlookuppage.click_Signup_As_New_Member_Button);
 				accountlookuppage.click_click_Signup_As_New_Member_Button();
 			}
 			try
@@ -266,7 +266,8 @@ public class Computed_PreEnrollment_Flow
 		}
 		catch (Exception e) 
 		{
-			driver.close();
+		//	driver.close();
+			System.out.println(e);
 			Assert.fail("Error in Contactinfo page");
 			
     	}
@@ -368,7 +369,8 @@ public class Computed_PreEnrollment_Flow
 		}
 		catch (Exception e) 
 		{	
-			driver.close();
+			//driver.close();
+			System.out.println(e);
 			Assert.fail("Error in Accountinfo page");
 			
 		}
