@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import computedClass.Computed_Digital_Coupons;
+import computedClass.Computed_Logout;
 import computedClass.Computed_Shopping_List;
 import computedClass.Computed_SoftLogin;
 
@@ -21,6 +22,7 @@ public class Digital_Coupons
 	Computed_SoftLogin softlogin = new Computed_SoftLogin();
 	Computed_Digital_Coupons coupons = new Computed_Digital_Coupons();
 	Computed_Shopping_List shoppinglist = new Computed_Shopping_List();
+	Computed_Logout logout = new Computed_Logout();
 	
 	@Test(priority=1)
 	public void TC_01_Shopping_List_Add_Coupons () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
@@ -41,6 +43,27 @@ public class Digital_Coupons
 	}
 	
 	@Test(priority=2)
+	public void TC_08_Shopping_List_Add_Coupons () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as TCName
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String Functionality=functionality;
+		String prod="";
+		int count = 0;
+		driver = browserbanner.BrowserBanner(driver, Functionality);
+		driver = browserbanner.Clearcookie(driver, Functionality);
+		driver = softlogin.SoftLogin_Rewards(driver, Functionality, TCName);
+		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, prod, count);
+		prod=coupons.getprod();
+		count=coupons.getcount();
+		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
+		driver = logout.Logout(driver);
+		driver = softlogin.SoftLogin_Rewards(driver, Functionality, TCName);
+		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
+		driver.close();	
+	}
+	
+	@Test(priority=3)
 	public void TC_01_Add_Coupons_Guest_user () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		String Functionality=functionality;

@@ -13,6 +13,8 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import Utility.Data;
+import Utility.Readexcel_RowName;
+import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_ShoppingListPage;
 
 public class Computed_Shopping_List 
@@ -22,6 +24,68 @@ public class Computed_Shopping_List
     List<WebElement> proddesc= null;
     List<WebElement> price=null;
     List<WebElement> Delete=null;
+    
+    public WebDriver ShoppingList_Navigation(WebDriver driver,String Functionality,String prod,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	{
+    	POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		
+		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
+		Data obj=new Data();
+		String value="";
+		WebElement logo = null;
+	    try
+    	{
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
+	    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+	    	{  			
+	    		value="winndixie";		
+	    		logo= homepage.click_Winndixie_logo;
+	    	}
+	    	else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+	    	{
+	    		
+	    		value="bi-lo";	    		
+	    		logo = homepage.click_Bilo_logo;
+	    	}
+	    	else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
+	    	{	
+	    		value="harveyssupermarkets";	    		
+	    		logo = homepage.click_Harveys_logo;
+	    	}
+	    	String wa_orP="https://"+value+".pdn.retaileriq.com/weeklyad/";
+	    	String ie="Windows Security";
+	    	String bro="";
+	    	if(Readexcel_RowName.getValue("Chrome(Y/N)").equalsIgnoreCase("Y"))
+	    	{
+	    		bro= wa_orP;
+	    	}	
+	    	else if(Readexcel_RowName.getValue("IE(Y/N)").equalsIgnoreCase("Y"))
+	    	{
+	    		bro=ie;
+	    	}
+	    	String Val = obj.popuppath()+" "+bro;
+    	
+	    	obj.waitForElementClickable(driver, logo);
+	    	logo.click();
+    		obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
+    		Runtime.getRuntime().exec(Val);
+    		
+    		homepage.click_click_Savings_link_Hover();	
+    		
+    		obj.waitForElementClickable(driver, homepage.click_Savings_WeeklyAd_Button);
+    		
+    		homepage.click_click_Savings_WeeklyAd_Button();
+    		
+    		obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
+    	}
+	    catch(Exception e)
+	    {
+	    	Assert.fail("Error in shopping list navigation");
+	    }
+		return driver;
+	  }
+    
+    
 	public WebDriver WeeklyAd_Deals_ShoppingList(WebDriver driver,String prod,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
@@ -110,7 +174,7 @@ public class Computed_Shopping_List
 				    		pric = pric.replace(".", "");
 				    		pric = pric.replace("/", "");
 				    		
-				    		if(actionverify.equalsIgnoreCase("Add"))
+				    		if(actionverify.equalsIgnoreCase("Added"))
 				    		{
 				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
@@ -119,7 +183,7 @@ public class Computed_Shopping_List
 				    				break outerloop;
 				    			}
 				    		}
-				    		else if(actionverify.equalsIgnoreCase("Remove"))
+				    		else if(actionverify.equalsIgnoreCase("Removed"))
 				    		{			    						
 				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
@@ -128,7 +192,7 @@ public class Computed_Shopping_List
 				    				break outerloop;
 				    			}
 				    		}
-				    		else if(actionverify.equalsIgnoreCase("RemoveFromShopping"))
+				    		else if(actionverify.equalsIgnoreCase("RemovedFromShopping"))
 				    		{
 				    					
 				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
@@ -199,7 +263,7 @@ public class Computed_Shopping_List
 		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			String sc=shoppinglistpage.getText_txt_List_Count_Text();
 			int scl=Integer.parseInt(sc);
-			count=count+1;
+			
 			if(scl!=count)
 			{
 				driver.close();

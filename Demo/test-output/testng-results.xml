@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
+    <line>
+      <![CDATA[Logged in successfully ]]>
+    </line>
+    <line>
+      <![CDATA[Locate a store near you button is displayed]]>
+    </line>
+    <line>
+      <![CDATA[Please select a store near to view weekly ads text is displayed]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="69042" started-at="2018-12-24T11:09:52Z" finished-at="2018-12-24T11:11:01Z">
+  <suite name="Default suite" duration-ms="114143" started-at="2018-12-25T07:59:48Z" finished-at="2018-12-25T08:01:43Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="69042" started-at="2018-12-24T11:09:52Z" finished-at="2018-12-24T11:11:01Z">
+    <test name="Default test" duration-ms="114143" started-at="2018-12-25T07:59:48Z" finished-at="2018-12-25T08:01:43Z">
       <class name="executableClass.Weekly_Ad">
-        <test-method status="FAIL" signature="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added()[pri:1, instance:executableClass.Weekly_Ad@589838eb]" name="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added" duration-ms="68961" started-at="2018-12-24T16:39:52Z" finished-at="2018-12-24T16:41:01Z">
+        <test-method status="FAIL" signature="TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again()[pri:3, instance:executableClass.Weekly_Ad@59ec2012]" name="TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again" duration-ms="114060" started-at="2018-12-25T13:29:49Z" finished-at="2018-12-25T13:31:43Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Error in Weekly Ad page]]>
+              <![CDATA[Error in weekly ad circular page]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Error in Weekly Ad page
+              <![CDATA[java.lang.AssertionError: Error in weekly ad circular page
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_WeeklyAd.WeeklyAdPage(Computed_WeeklyAd.java:128)
-	at executableClass.Weekly_Ad.TC01_Add_items_to_list_ADD_TO_LIST_button_item_added(Weekly_Ad.java:41)
+	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:199)
+	at executableClass.Weekly_Ad.TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again(Weekly_Ad.java:60)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -46,8 +55,17 @@
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
+            <line>
+              <![CDATA[Logged in successfully ]]>
+            </line>
+            <line>
+              <![CDATA[Locate a store near you button is displayed]]>
+            </line>
+            <line>
+              <![CDATA[Please select a store near to view weekly ads text is displayed]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- TC01_Add_items_to_list_ADD_TO_LIST_button_item_added -->
+        </test-method> <!-- TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again -->
       </class> <!-- executableClass.Weekly_Ad -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

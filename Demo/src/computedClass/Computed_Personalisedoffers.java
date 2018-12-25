@@ -67,7 +67,8 @@ public class Computed_Personalisedoffers
 			}
 			String Val = obj.popuppath()+" "+bro;
 			Thread.sleep(2000);
-			
+			obj.movetoElementofAPage(driver, logo);
+			Thread.sleep(1000);
 			obj.movetoElementofAPage_Click(driver, logo);
 			
 			Thread.sleep(2000);

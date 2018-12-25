@@ -5,7 +5,7 @@
     <classes>
       <class name="executableClass.Weekly_Ad">
         <methods>
-          <include name="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added"/>
+          <include name="TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again"/>
         </methods>
       </class> <!-- executableClass.Weekly_Ad -->
     </classes>

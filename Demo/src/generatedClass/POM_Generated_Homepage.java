@@ -96,7 +96,7 @@ public class POM_Generated_Homepage {
 	public WebElement click_WeeklyAd_Logo;
 	
 	// Associated Label : Digitial_Coupons_Logo
-	@FindBy(xpath = "//img[@src='/-/media/media/savings/digitalcoupons-2018/digitalcoupon-light3.png?la=en&mw=1382' and @alt = 'Digital coupon logo']")
+	@FindBy(xpath = "//img[@src='/-/media/media/savings/digitalcoupons-2018/digitalcoupon-light3.png?la=en&mw=1382' and @alt = 'Digital coupons']")
 	public WebElement click_Digitial_Coupons_Logo;
 	
 	// Associated Label : PersonalizedAd_Logo

@@ -79,9 +79,13 @@ public class Computed_WeeklyAd
     		Runtime.getRuntime().exec(Val);
     		
     		homepage.click_click_Savings_link_Hover();	
+    		
     		obj.waitForElementClickable(driver, homepage.click_Savings_WeeklyAd_Button);
+    		
     		homepage.click_click_Savings_WeeklyAd_Button();
+    		
     		obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
+    		
     		if(driver.getCurrentUrl().equalsIgnoreCase(url))
     		{
     			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
@@ -105,8 +109,8 @@ public class Computed_WeeklyAd
     			}	
     			weeklyadpage.type_txt_Select_Store_Field(Store_Zip);
     			weeklyadpage.click_click_Store_Search_Button();
-    			obj.waitForElementClickable(driver, weeklyadpage.click_View_weeklyAd_Link);
-    			weeklyadpage.click_click_View_weeklyAd_Link();
+    			obj.waitForElementClickable(driver, weeklyadpage.click_Store_View_weeklyAds_Button);
+    			weeklyadpage.click_click_Store_View_weeklyAds_Button();
     			obj.waitForElement(driver, weeklyadpage.txt_Your_WeeklyAd_Text);
     		}	
     		obj.waitForElement(driver, weeklyadpage.txt_Your_WeeklyAd_Text);
@@ -124,7 +128,8 @@ public class Computed_WeeklyAd
     	}
     	catch(Exception e)
 		{
-    		driver.close();
+    		//driver.close();
+    		System.out.println(e);
     		Assert.fail("Error in Weekly Ad page");
 		}		    
 	    return driver; 
@@ -175,6 +180,7 @@ public class Computed_WeeklyAd
 						obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);
 						weeklyadpage.click_click_Product_Overlay_Close_Button();					
 						count=count+1;
+						Reporter.log("Product added from circular page");
 						this.count=count;
 						this.prod=prod;
 						this.prodvalu=prodvalu;
@@ -189,8 +195,8 @@ public class Computed_WeeklyAd
 		}		
 		catch(Exception e)
 		{	
-			driver.close();
-			Assert.fail("Error in Add to list");
+			//driver.close();
+			Assert.fail("Error in weekly ad circular page");
 		}	
 		return driver;
 	}
@@ -201,49 +207,64 @@ public class Computed_WeeklyAd
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
 		Data obj=new Data();
 			
-		List<WebElement> products=null;	
 		try
 		{
 			obj.waitForElementClickable(driver, weeklyadpage.click_Product_Webelement_Text);		
-			products=  weeklyadpage.click_Product_List_Text;
-			int totprdcnt=products.size();
 			
 			String cont=shoppinglistpage.getText_txt_List_Count_Text();
 			count=Integer.parseInt(cont);
-			
-			outerloop:
-			for (int l=0;l<totprdcnt;l++)
+			WebElement wel=driver.findElement(By.xpath("//product[@key='"+prodvalu+"']"));
+			obj.scrollingToElementofAPage(driver, wel);
+			Actions action1=new Actions(driver); 
+			action1.moveToElement(wel).build().perform();
+			Thread.sleep(1000);
+			try
 			{
-				WebElement wel=driver.findElement(By.xpath("//product[@key='"+prodvalu+"']"));
-				obj.scrollingToElementofAPage(driver, wel);
-				Actions action1=new Actions(driver); 
-				action1.moveToElement(wel).build().perform();
-				Thread.sleep(1000);
-				try
+				if(weeklyadpage.isDisplayed_click_Product_view_Deals_Button())
 				{
-					if(weeklyadpage.isDisplayed_click_Product_AddToList_Button())
+					//driver.close();	
+					Reporter.log("View Deals Button is displayed");	
+					weeklyadpage.click_click_Product_view_Deals_Button();
+					try
 					{
-						driver.close();
-						Assert.fail("Items added is still displaying as Add to list instead Remove from list");
-						
+						obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);
+						if(weeklyadpage.isDisplayed_click_Product_Overlay_Close_Button())
+						{
+							Reporter.log("Items added once cannot add the same item again in overlay as expected");
+						}
+						weeklyadpage.click_click_Product_Overlay_Close_Button();
 					}
-					else
+					catch(Exception e2)
 					{
-						Reporter.log("Items added once cannot add again");
-						break outerloop;
+						weeklyadpage.click_click_Product_Overlay_Close_Button();
+						Assert.fail("Items added is still displaying as Add to list instead Remove from list in overlay");
 					}
 				}
-				catch(NoSuchElementException e)
+				else
 				{
-					break outerloop;
+					weeklyadpage.click_click_Product_Overlay_Close_Button();
+					Assert.fail("View Deals Button is displayed");	
+					
+				}	
+				if(weeklyadpage.isDisplayed_click_Product_RemoveFromList_Button())
+				{		
+					Reporter.log("Items added once cannot add the same item again as expected");	
 				}
-			
+				else
+				{
+					Assert.fail("Items added is still displaying as Add to list instead Remove from list");				
+				}
+			}
+			catch(NoSuchElementException e1)
+			{
+				Assert.fail("Items added is still displaying as Add to list instead Remove from list");	
 			}
 		}
+		
 		catch(Exception e)
 		{
 			driver.close();
-			Assert.fail("Error in Remove again product");
+			Assert.fail("Un Expected Error in Add again product");
 		}
 		return driver;
 	}
@@ -319,49 +340,62 @@ public class Computed_WeeklyAd
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
 		Data obj=new Data();
 			
-		List<WebElement> products=null;	
 		try
 		{
 			obj.waitForElementClickable(driver, weeklyadpage.click_Product_Webelement_Text);		
-			products=  weeklyadpage.click_Product_List_Text;
-			int totprdcnt=products.size();
 			
 			String cont=shoppinglistpage.getText_txt_List_Count_Text();
 			count=Integer.parseInt(cont);
-			
-			outerloop:
-			for (int l=0;l<totprdcnt;l++)
+			WebElement wel=driver.findElement(By.xpath("//product[@key='"+prodvalu+"']"));
+			obj.scrollingToElementofAPage(driver, wel);
+			Actions action1=new Actions(driver); 
+			action1.moveToElement(wel).build().perform();
+			Thread.sleep(1000);
+			try
 			{
-				WebElement wel=driver.findElement(By.xpath("//product[@key='"+prodvalu+"']"));
-				obj.scrollingToElementofAPage(driver, wel);
-				Actions action1=new Actions(driver); 
-				action1.moveToElement(wel).build().perform();
-				Thread.sleep(1000);
-				try
+				if(weeklyadpage.isDisplayed_click_Product_view_Deals_Button())
 				{
-					if(weeklyadpage.isDisplayed_click_Product_RemoveFromList_Button())
+					//driver.close();	
+					Reporter.log("View Deals Button is displayed");	
+					weeklyadpage.click_click_Product_view_Deals_Button();
+					try
 					{
-						driver.close();
-						Assert.fail("Items removed is still displaying as Remove from list instead Add to list");
-						
+						obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);
+						if(weeklyadpage.isDisplayed_click_Product_AddToList_Overlay_Button())
+						{
+							Reporter.log("Items removed once cannot remove the same item again in overlay as expected");
+						}
+						weeklyadpage.click_click_Product_Overlay_Close_Button();
 					}
-					else
+					catch(Exception e2)
 					{
-						Reporter.log("Items removed once cannot remove again");
-						break outerloop;
+						Assert.fail("Items Removed is still displaying as Remove from list instead Add to list in overlay");
 					}
 				}
-				catch(NoSuchElementException e)
+				else
 				{
-					break outerloop;
+					Assert.fail("View Deals Button is not displayed");		
+					
+				}	
+				if(weeklyadpage.isDisplayed_click_Product_AddToList_Button())
+				{		
+					Reporter.log("Items Removed once cannot remove the same item again as expected");	
 				}
-			
+				else
+				{
+					Assert.fail("Items Removed is still displaying as Remove from list instead Add to list");					
+				}
+			}
+			catch(NoSuchElementException e1)
+			{
+				Assert.fail("Items Removed is still displaying as Remove from list instead Add to list");	
 			}
 		}
+		
 		catch(Exception e)
 		{
 			driver.close();
-			Assert.fail("Error in Remove again product");
+			Assert.fail("Un Expected Error in Remove again product");
 		}
 		return driver;
 	}

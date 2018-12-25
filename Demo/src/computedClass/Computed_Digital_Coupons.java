@@ -277,14 +277,8 @@ public class Computed_Digital_Coupons
 					{	
 						
 						cont=shoppinglistpage.getText_txt_List_Count_Text();
-						count = Integer.parseInt(cont);
-						this.count=count;
-						
+						count = Integer.parseInt(cont);						
 						prod=prodsummary.get(n).getText()+" "+proddesc.get(n).getText();
-		  					
-						this.prod=prod;
-		  					
-						
 						buttons.get(n).click();
 							
 						try
@@ -295,6 +289,9 @@ public class Computed_Digital_Coupons
 							}
 							else
 							{
+								this.prod=prod;
+								count=count+1;
+								this.count=count;
 								aa=false;
 							}
 						}
@@ -385,7 +382,7 @@ public class Computed_Digital_Coupons
 			Runtime.getRuntime().exec(Val);
 			
 				
-			homepage.click_click_Digitial_Coupons_Logo();
+			obj.movetoElementofAPage_Click(driver, homepage.click_Digitial_Coupons_Logo);
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
@@ -404,12 +401,8 @@ public class Computed_Digital_Coupons
 					{	
 		  					
 						cont=shoppinglistpage.getText_txt_List_Count_Text();
-						count = Integer.parseInt(cont);
-						this.count=count;
-						prod=prodsummary.get(n).getText()+" "+proddesc.get(n).getText();
-		  					
-						this.prod=prod;
-						
+						count = Integer.parseInt(cont);					
+						prod=prodsummary.get(n).getText()+" "+proddesc.get(n).getText();					
 						obj.scrollingToElementofAPage(driver, buttons.get(n));
 						buttons.get(n).click();
 						try
@@ -420,6 +413,9 @@ public class Computed_Digital_Coupons
 							}
 							else
 							{
+								this.prod=prod;
+								count=count+1;
+								this.count=count;
 								aa=false;
 							}
 						}

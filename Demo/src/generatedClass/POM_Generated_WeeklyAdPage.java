@@ -56,7 +56,7 @@ public class POM_Generated_WeeklyAdPage {
 	public WebElement txt_Your_WeeklyAd_Text;
 	
 	// Associated Label : View_weeklyAd_Link
-	@FindBy(xpath = "//button[@aria-label='VIEW WEEKLY AD - Browse the Weekly Ad & create a shopping list' and @action='viewCatalog']")
+	@FindBy(xpath = "//button[text()='VIEW WEEKLY AD']")
 	public WebElement click_View_weeklyAd_Link;
 	
 	// Associated Label : Product_Webelement_Text
