@@ -59,6 +59,7 @@ public class Digital_Coupons
 		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
 		driver = logout.Logout(driver);
 		driver = softlogin.SoftLogin_Rewards(driver, Functionality, TCName);
+		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality);
 		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
 		driver.close();	
 	}

@@ -30,7 +30,7 @@ public class Computed_Forgot_Password
 	    //	String Valid_Test_Email= Readexcel_RowName.getValue("Valid_Test_Email");
 	    //	String Valid_Test_Password= Readexcel_RowName.getValue("Valid_Test_Password");
 	    	String Invalid_Email_NotExist=Readexcel_RowName.getValue("Invalid_Email_NotExist");
-	    	
+	    	System.out.println(Invalid_Email_NotExist);
 	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
 	    	homepage.click_click_Login_Or_Signup_Button();
 			obj.waitForElementClickable(driver, homepage.click_Close_Button);
@@ -50,12 +50,14 @@ public class Computed_Forgot_Password
 	    	forgotpassword.click_click_Send_Reset_Link_Button();
 	    	if(forgotpassword.isDisplayed_txt_Error_Invalid_Email_Msg())
 	    	{
+	    		System.out.println("Error message is displayed when invalid email is entered");
 	    	   Reporter.log("Error message is displayed when invalid email is entered");
 	    	}
 	    	else
 	    	{
 	    		Assert.fail("Error message is not displayed when invalid email is entered");
 	    	}	
+	    	forgotpassword.type_txt_Email_Address_Field("");
 	    	forgotpassword.type_txt_Email_Address_Field(Invalid_Email_NotExist);
 	    	forgotpassword.click_click_Send_Reset_Link_Button();
 	    	if(forgotpassword.isDisplayed_txt_Error_Email_NotExist())
@@ -69,8 +71,8 @@ public class Computed_Forgot_Password
 		}
 		catch(Exception e)
 	    {
-			driver.close();
-	    	Assert.fail("Error in Logout Page");
+			
+	    	Assert.fail("Error in Forgot Password Page");
 	    	
 	    }
 		return driver;	

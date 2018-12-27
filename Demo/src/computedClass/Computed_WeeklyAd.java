@@ -304,6 +304,7 @@ public class Computed_WeeklyAd
 					{
 						//obj.waitForElementClickable(driver, wa.click_WeeklyAd_Hover_Product_view_Deals_link);
 						Thread.sleep(1000);
+						String color = products.get(l).getCssValue("border-color");
 						weeklyadpage.click_click_Product_view_Deals_Button();
 						summary=weeklyadpage.getText_txt_Product_Summary_Text();
 						price=weeklyadpage.getText_txt_Product_Price_Text();

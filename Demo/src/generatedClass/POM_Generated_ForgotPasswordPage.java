@@ -30,7 +30,7 @@ public class POM_Generated_ForgotPasswordPage {
 	public WebElement click_Send_Reset_Link_Button;
 	
 	// Associated Label : Error_Invalid_Email_Msg
-	@FindBy(id = "invalid-usernotexisst")
+	@FindBy(id = "invalid-Error")
 	public WebElement txt_Error_Invalid_Email_Msg;
 	
 	// Associated Label : Text_AfterEnteringEmail

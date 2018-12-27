@@ -25,7 +25,7 @@ public class Computed_Shopping_List
     List<WebElement> price=null;
     List<WebElement> Delete=null;
     
-    public WebDriver ShoppingList_Navigation(WebDriver driver,String Functionality,String prod,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+    public WebDriver ShoppingList_Navigation(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
     	POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		

@@ -450,7 +450,7 @@ public class Computed_HardLogin
 	    	driver.manage().timeouts().implicitlyWait(16, TimeUnit.MINUTES);
 	    	if(loginrewardspage.isDisplayed_click_EditAccountDetails_Page_Text())
 	    	{
-	    	Reporter.log("After 15 minuts, Edit account page is automatically navigated to Logged in Rewards page");
+	    	Reporter.log("After 15 minutes, Edit account page is automatically navigated to Logged in Rewards page");
 	    	loginrewardspage.click_click_MyRewards_Edit_Acc_Det_Link();
 		    	if(hardloginpage.isDisplayed_txt_Email_Id_Field())
 		    	{
