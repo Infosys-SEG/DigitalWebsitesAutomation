@@ -24,7 +24,9 @@ public class Computed_Shopping_List
     List<WebElement> proddesc= null;
     List<WebElement> price=null;
     List<WebElement> Delete=null;
-    
+    List<WebElement> checkbox=null;
+    private String prod;
+	private int count;
     public WebDriver ShoppingList_Navigation(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
     	POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -126,6 +128,7 @@ public class Computed_Shopping_List
 			{
 				shoppinglistpage.click_click_My_Items_Checkbox();
 	        }
+			Thread.sleep(2000);
 			totalprod= shoppinglistpage.txt_Total_Products_Text;
 			if(totalprod.size()!=0)
 			{
@@ -133,10 +136,12 @@ public class Computed_Shopping_List
 				proddesc= shoppinglistpage.txt_Product_Description_Text;
 				price= shoppinglistpage.txt_Product_Price_Text;
 				Delete=shoppinglistpage.click_Weekly_Ad_Items_check_Delete_Icon;
+				checkbox=shoppinglistpage.click_Select_Items_CheckBox;
 			}
 			else
 			{
 				prodchk=false;
+				Assert.fail("Error in total products");
 			}
 	        
 	        
@@ -176,6 +181,8 @@ public class Computed_Shopping_List
 				    		
 				    		if(actionverify.equalsIgnoreCase("Added"))
 				    		{
+				    			System.out.println(prod);
+				    			System.out.println(summary+" "+pric+" "+desc);
 				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
 				    				chk=true;
@@ -192,7 +199,7 @@ public class Computed_Shopping_List
 				    				break outerloop;
 				    			}
 				    		}
-				    		else if(actionverify.equalsIgnoreCase("RemovedFromShopping"))
+				    		else if(actionverify.equalsIgnoreCase("DeleteIcon_Removedfromshoppinglist"))
 				    		{
 				    					
 				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
@@ -200,42 +207,76 @@ public class Computed_Shopping_List
 				    				
 				    				chk=true;
 				    				finished=true;
+				    				this.prod=prod;
 				    				Delete.get(k).click();
 				    				Thread.sleep(3000);
 				    				break outerloop;		    						
 				    			}
 				    				
 				    		}
+				    		else if(actionverify.equalsIgnoreCase("DeleteAllButton_Removedfromshoppinglist"))
+				    		{
+				    					
+				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
+				    			{
+				    				
+				    				chk=true;
+				    				finished=true;
+				    				this.prod=prod;
+				    				checkbox.get(k).click();
+				    				obj.movetoElementofAPage_Click(driver, shoppinglistpage.click_Remove_All_Checked_Items_Button);
+				    				Thread.sleep(3000);
+				    				break outerloop;		    						
+				    			}
+				    				
+				    		}
+				    		
 		    			}
 		    		}
 				}
 		  	}
-		    if(actionverify.equalsIgnoreCase("Add"))
+		    if(actionverify.equalsIgnoreCase("Added"))
 		    {
 		    	if(chk==false)
 		    	{
-		    		driver.close();
-		    		Assert.fail("Products are not added in shoppinglist");
+		    		//driver.close();
+		    		Assert.fail("Products are not displaying in shoppinglist when items added from circular page");
 		    		
+		    	}
+		    	else
+		    	{
+		    		Reporter.log("Products added in shopping list when items added from circular page");
 		    	}
 		    }
-		    else if(actionverify.equalsIgnoreCase("Remove"))
+		    else if(actionverify.equalsIgnoreCase("Removed"))
 		    {
-		    	if(chk==false)
+		    	if(chk==true)
 		    	{
 		    		driver.close();
-		    		Assert.fail("Products are not removed in shoppinglist");
+		    		Assert.fail("Products are displaying in shoppinglist when items removed from circular page");
 		    		
+		    	}
+		    	else
+		    	{
+		    		Reporter.log("Products removed in shopping list when items removed from circular page");
 		    	}
 		    }
-		    else if(actionverify.equalsIgnoreCase("RemoveFromShopping"))
+		    else if(actionverify.equalsIgnoreCase("DeleteIcon_Removedfromshoppinglist")||actionverify.equalsIgnoreCase("DeleteAllButton_Removedfromshoppinglist"))
 		    {
 		    	if(chk==false)
 		    	{
 		    		driver.close();
-		    		Assert.fail("Products are not removed from shoppinglist");
+		    		Assert.fail("Products are not removed from shoppinglist by clicking delete icon");
 		    		
 		    	}
+		    	else
+		    	{
+		    		Reporter.log("Products removed from shopping list");
+		    	}
+		    }
+		    else
+		    {
+		    	Assert.fail("error in action verify in shoppinglist");
 		    }
 		    obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
 		    shoppinglistpage.click_click_Close_Button();
@@ -380,5 +421,14 @@ public class Computed_Shopping_List
 	    	shoppinglistpage.click_click_Close_Button();
 	    }
 	    return driver;
+	}
+	
+	public String getprod() 
+	{
+		return prod;
+	}
+	public int getcount() 
+	{
+		return count;
 	}
 }

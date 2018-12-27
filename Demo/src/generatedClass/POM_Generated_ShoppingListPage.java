@@ -59,13 +59,33 @@ public class POM_Generated_ShoppingListPage {
 	@FindBy(id = "my-items")
 	public WebElement click_My_Items_Checkbox;
 	
-	// Associated Label : ADD_An_Item_Text
+	// Associated Label : ADD_An_Item_Text_Field
 	@FindBy(id = "addListItem")
-	public WebElement txt_ADD_An_Item_Text;
+	public WebElement txt_ADD_An_Item_Text_Field;
 	
 	// Associated Label : ADD_An_Item_Icon
 	@FindBy(xpath = "//button[@aria-label='Add an item to the list']")
 	public WebElement click_ADD_An_Item_Icon;
+	
+	// Associated Label : Select_Items_CheckBox
+	@FindBy(xpath = "//input[@name='itemchecked']")
+	public List<WebElement> click_Select_Items_CheckBox;
+	
+	// Associated Label : Remove_All_Checked_Items_Button
+	@FindBy(id = "removeBtnSpan")
+	public WebElement click_Remove_All_Checked_Items_Button;
+	
+	// Associated Label : Login_To_saveList_Button
+	@FindBy(id = "shoppinglist-login-event")
+	public WebElement click_Login_To_saveList_Button;
+	
+	// Associated Label : Print_List_Button
+	@FindBy(xpath = "//p[text()='print list']")
+	public WebElement click_Print_List_Button;
+	
+	// Associated Label : Email_List_Button
+	@FindBy(xpath = "//p[text()='email list']")
+	public WebElement click_Email_List_Button;
 	
 	// Associated Label : Weekly_Ad_Items_check_Delete_Icon
 	@FindBy(xpath = "//div[@class='listItem offer ui-sortable-handle']//div[@aria-label='Delete this item']")
@@ -508,50 +528,50 @@ public class POM_Generated_ShoppingListPage {
 		if(click_My_Items_Checkbox.isSelected()) { return true; } else { return false;} 
 	}
 
-	// Type:  ADD_An_Item_Text
-	public void type_txt_ADD_An_Item_Text(String value) {
-		txt_ADD_An_Item_Text.clear();
-		txt_ADD_An_Item_Text.sendKeys(value);
+	// Type:  ADD_An_Item_Text_Field
+	public void type_txt_ADD_An_Item_Text_Field(String value) {
+		txt_ADD_An_Item_Text_Field.clear();
+		txt_ADD_An_Item_Text_Field.sendKeys(value);
 	}
 
-	//click:  ADD_An_Item_Text
-	public void click_txt_ADD_An_Item_Text(){
-		txt_ADD_An_Item_Text.click();
+	//click:  ADD_An_Item_Text_Field
+	public void click_txt_ADD_An_Item_Text_Field(){
+		txt_ADD_An_Item_Text_Field.click();
 	}
 
-	// Hover:  ADD_An_Item_Text
-	public void hover_txt_ADD_An_Item_Text(){
+	// Hover:  ADD_An_Item_Text_Field
+	public void hover_txt_ADD_An_Item_Text_Field(){
 		Actions action=new Actions(driver); 
-		action.moveToElement(txt_ADD_An_Item_Text).build().perform();
+		action.moveToElement(txt_ADD_An_Item_Text_Field).build().perform();
 	}
 
-	// visible or Not :  ADD_An_Item_Text
-	public boolean isDisplayed_txt_ADD_An_Item_Text(){
-		if(txt_ADD_An_Item_Text.isDisplayed()) { return true; } else { return false;} 
+	// visible or Not :  ADD_An_Item_Text_Field
+	public boolean isDisplayed_txt_ADD_An_Item_Text_Field(){
+		if(txt_ADD_An_Item_Text_Field.isDisplayed()) { return true; } else { return false;} 
 	}
 
-	// Enabled or Not :  ADD_An_Item_Text
-	public boolean isEnabled_txt_ADD_An_Item_Text(){
-		if(txt_ADD_An_Item_Text.isEnabled()) { return true; } else { return false;} 
+	// Enabled or Not :  ADD_An_Item_Text_Field
+	public boolean isEnabled_txt_ADD_An_Item_Text_Field(){
+		if(txt_ADD_An_Item_Text_Field.isEnabled()) { return true; } else { return false;} 
 	}
 
-	// Get CSS attribute :  ADD_An_Item_Text
-	public String getCssValue_txt_ADD_An_Item_Text(String attribute) {
-		return txt_ADD_An_Item_Text.getCssValue(attribute);
+	// Get CSS attribute :  ADD_An_Item_Text_Field
+	public String getCssValue_txt_ADD_An_Item_Text_Field(String attribute) {
+		return txt_ADD_An_Item_Text_Field.getCssValue(attribute);
 	}
 
-	//Get the text :  ADD_An_Item_Text
-	public String getText_txt_ADD_An_Item_Text(){
-		return txt_ADD_An_Item_Text.getText();
+	//Get the text :  ADD_An_Item_Text_Field
+	public String getText_txt_ADD_An_Item_Text_Field(){
+		return txt_ADD_An_Item_Text_Field.getText();
 	}
 
-	//Get the value :  ADD_An_Item_Text
-	public String getValue_txt_ADD_An_Item_Text(){
-		return txt_ADD_An_Item_Text.getAttribute("value");
+	//Get the value :  ADD_An_Item_Text_Field
+	public String getValue_txt_ADD_An_Item_Text_Field(){
+		return txt_ADD_An_Item_Text_Field.getAttribute("value");
 	}
-	// selected or Not :  ADD_An_Item_Text
-	public boolean isSelected_txt_ADD_An_Item_Text(){
-		if(txt_ADD_An_Item_Text.isSelected()) { return true; } else { return false;} 
+	// selected or Not :  ADD_An_Item_Text_Field
+	public boolean isSelected_txt_ADD_An_Item_Text_Field(){
+		if(txt_ADD_An_Item_Text_Field.isSelected()) { return true; } else { return false;} 
 	}
 
 	//click:  ADD_An_Item_Icon
@@ -592,6 +612,206 @@ public class POM_Generated_ShoppingListPage {
 	// selected or Not :  ADD_An_Item_Icon
 	public boolean isSelected_click_ADD_An_Item_Icon(){
 		if(click_ADD_An_Item_Icon.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Select_Items_CheckBox
+	public void click_click_Select_Items_CheckBox(){
+		((WebElement) click_Select_Items_CheckBox).click();
+	}
+
+	// Hover:  Select_Items_CheckBox
+	public void hover_click_Select_Items_CheckBox(){
+		Actions action=new Actions(driver); 
+		action.moveToElement((WebElement) click_Select_Items_CheckBox).build().perform();
+	}
+
+	// visible or Not :  Select_Items_CheckBox
+	public boolean isDisplayed_click_Select_Items_CheckBox(){
+		if(((WebElement) click_Select_Items_CheckBox).isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Select_Items_CheckBox
+	public boolean isEnabled_click_Select_Items_CheckBox(){
+		if(((WebElement) click_Select_Items_CheckBox).isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Select_Items_CheckBox
+	public String getCssValue_click_Select_Items_CheckBox(String attribute) {
+		return ((WebElement) click_Select_Items_CheckBox).getCssValue(attribute);
+	}
+
+	//Get the text :  Select_Items_CheckBox
+	public String getText_click_Select_Items_CheckBox(){
+		return ((WebElement) click_Select_Items_CheckBox).getText();
+	}
+
+	//Get the value :  Select_Items_CheckBox
+	public String getValue_click_Select_Items_CheckBox(){
+		return ((WebElement) click_Select_Items_CheckBox).getAttribute("value");
+	}
+	// selected or Not :  Select_Items_CheckBox
+	public boolean isSelected_click_Select_Items_CheckBox(){
+		if(((WebElement) click_Select_Items_CheckBox).isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Remove_All_Checked_Items_Button
+	public void click_click_Remove_All_Checked_Items_Button(){
+		click_Remove_All_Checked_Items_Button.click();
+	}
+
+	// Hover:  Remove_All_Checked_Items_Button
+	public void hover_click_Remove_All_Checked_Items_Button(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Remove_All_Checked_Items_Button).build().perform();
+	}
+
+	// visible or Not :  Remove_All_Checked_Items_Button
+	public boolean isDisplayed_click_Remove_All_Checked_Items_Button(){
+		if(click_Remove_All_Checked_Items_Button.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Remove_All_Checked_Items_Button
+	public boolean isEnabled_click_Remove_All_Checked_Items_Button(){
+		if(click_Remove_All_Checked_Items_Button.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Remove_All_Checked_Items_Button
+	public String getCssValue_click_Remove_All_Checked_Items_Button(String attribute) {
+		return click_Remove_All_Checked_Items_Button.getCssValue(attribute);
+	}
+
+	//Get the text :  Remove_All_Checked_Items_Button
+	public String getText_click_Remove_All_Checked_Items_Button(){
+		return click_Remove_All_Checked_Items_Button.getText();
+	}
+
+	//Get the value :  Remove_All_Checked_Items_Button
+	public String getValue_click_Remove_All_Checked_Items_Button(){
+		return click_Remove_All_Checked_Items_Button.getAttribute("value");
+	}
+	// selected or Not :  Remove_All_Checked_Items_Button
+	public boolean isSelected_click_Remove_All_Checked_Items_Button(){
+		if(click_Remove_All_Checked_Items_Button.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Login_To_saveList_Button
+	public void click_click_Login_To_saveList_Button(){
+		click_Login_To_saveList_Button.click();
+	}
+
+	// Hover:  Login_To_saveList_Button
+	public void hover_click_Login_To_saveList_Button(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Login_To_saveList_Button).build().perform();
+	}
+
+	// visible or Not :  Login_To_saveList_Button
+	public boolean isDisplayed_click_Login_To_saveList_Button(){
+		if(click_Login_To_saveList_Button.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Login_To_saveList_Button
+	public boolean isEnabled_click_Login_To_saveList_Button(){
+		if(click_Login_To_saveList_Button.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Login_To_saveList_Button
+	public String getCssValue_click_Login_To_saveList_Button(String attribute) {
+		return click_Login_To_saveList_Button.getCssValue(attribute);
+	}
+
+	//Get the text :  Login_To_saveList_Button
+	public String getText_click_Login_To_saveList_Button(){
+		return click_Login_To_saveList_Button.getText();
+	}
+
+	//Get the value :  Login_To_saveList_Button
+	public String getValue_click_Login_To_saveList_Button(){
+		return click_Login_To_saveList_Button.getAttribute("value");
+	}
+	// selected or Not :  Login_To_saveList_Button
+	public boolean isSelected_click_Login_To_saveList_Button(){
+		if(click_Login_To_saveList_Button.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Print_List_Button
+	public void click_click_Print_List_Button(){
+		click_Print_List_Button.click();
+	}
+
+	// Hover:  Print_List_Button
+	public void hover_click_Print_List_Button(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Print_List_Button).build().perform();
+	}
+
+	// visible or Not :  Print_List_Button
+	public boolean isDisplayed_click_Print_List_Button(){
+		if(click_Print_List_Button.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Print_List_Button
+	public boolean isEnabled_click_Print_List_Button(){
+		if(click_Print_List_Button.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Print_List_Button
+	public String getCssValue_click_Print_List_Button(String attribute) {
+		return click_Print_List_Button.getCssValue(attribute);
+	}
+
+	//Get the text :  Print_List_Button
+	public String getText_click_Print_List_Button(){
+		return click_Print_List_Button.getText();
+	}
+
+	//Get the value :  Print_List_Button
+	public String getValue_click_Print_List_Button(){
+		return click_Print_List_Button.getAttribute("value");
+	}
+	// selected or Not :  Print_List_Button
+	public boolean isSelected_click_Print_List_Button(){
+		if(click_Print_List_Button.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Email_List_Button
+	public void click_click_Email_List_Button(){
+		click_Email_List_Button.click();
+	}
+
+	// Hover:  Email_List_Button
+	public void hover_click_Email_List_Button(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Email_List_Button).build().perform();
+	}
+
+	// visible or Not :  Email_List_Button
+	public boolean isDisplayed_click_Email_List_Button(){
+		if(click_Email_List_Button.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Email_List_Button
+	public boolean isEnabled_click_Email_List_Button(){
+		if(click_Email_List_Button.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Email_List_Button
+	public String getCssValue_click_Email_List_Button(String attribute) {
+		return click_Email_List_Button.getCssValue(attribute);
+	}
+
+	//Get the text :  Email_List_Button
+	public String getText_click_Email_List_Button(){
+		return click_Email_List_Button.getText();
+	}
+
+	//Get the value :  Email_List_Button
+	public String getValue_click_Email_List_Button(){
+		return click_Email_List_Button.getAttribute("value");
+	}
+	// selected or Not :  Email_List_Button
+	public boolean isSelected_click_Email_List_Button(){
+		if(click_Email_List_Button.isSelected()) { return true; } else { return false;} 
 	}
 
 	//click:  Weekly_Ad_Items_check_Delete_Icon

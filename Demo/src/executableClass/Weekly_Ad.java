@@ -40,11 +40,11 @@ public class Weekly_Ad
 		prod=weeklyad.getprod();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, prodvalu, count, "Added");	
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, prod, count, "Added");	
 		//driver.close();
 	}
 	
-	@Test (priority=3)
+	@Test (priority=2)
 	public void TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
@@ -62,6 +62,28 @@ public class Weekly_Ad
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
 		driver = weeklyad.AddAgain(driver, prod, count, prodvalu);	
+		//driver.close();
+	}
+	
+	@Test (priority=3)
+	public void TC01_Remove_items_from_the_list_Weekly_Circular () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as tcname
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String prod="";
+		String prodvalu="";
+		int count=0;
+		String Functionality = functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
+		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
+		driver=weeklyad.AddProduct(driver, prod, count, prodvalu);
+		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count);
+		prod=weeklyad.getprod();
+		count=weeklyad.getcount();
+		prodvalu=weeklyad.getprodvalu();
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, prodvalu, count, "Removed");
 		//driver.close();
 	}
 }

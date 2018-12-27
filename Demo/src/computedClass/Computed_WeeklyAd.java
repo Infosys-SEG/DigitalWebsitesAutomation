@@ -10,6 +10,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -178,7 +179,18 @@ public class Computed_WeeklyAd
 						weeklyadpage.click_click_Product_AddToList_Overlay_Button();
 						prodvalu=weeklyadpage.click_Product_AddToList_Overlay_Button.getAttribute("productkey");
 						obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);
-						weeklyadpage.click_click_Product_Overlay_Close_Button();					
+						weeklyadpage.click_click_Product_Overlay_Close_Button();	
+						Thread.sleep(1000);
+						String color = products.get(l).getCssValue("border-color");
+						String hex = Color.fromString(color).asHex();
+						if(hex.equalsIgnoreCase("#ff0000"))
+						{
+							Reporter.log("Added products are highlighted in Red color");
+						}
+						else
+						{
+							Assert.fail("Added products are not highlighted in Red color");
+						}
 						count=count+1;
 						Reporter.log("Product added from circular page");
 						this.count=count;
@@ -227,11 +239,13 @@ public class Computed_WeeklyAd
 					weeklyadpage.click_click_Product_view_Deals_Button();
 					try
 					{
-						obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);
-						if(weeklyadpage.isDisplayed_click_Product_Overlay_Close_Button())
+						obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);
+						if(weeklyadpage.isDisplayed_click_Product_RemoveFromList_Overlay_Button())
 						{
+							
 							Reporter.log("Items added once cannot add the same item again in overlay as expected");
 						}
+						
 						weeklyadpage.click_click_Product_Overlay_Close_Button();
 					}
 					catch(Exception e2)
@@ -246,6 +260,8 @@ public class Computed_WeeklyAd
 					Assert.fail("View Deals Button is displayed");	
 					
 				}	
+				action1.moveToElement(wel).build().perform();
+				Thread.sleep(1000);
 				if(weeklyadpage.isDisplayed_click_Product_RemoveFromList_Button())
 				{		
 					Reporter.log("Items added once cannot add the same item again as expected");	
@@ -305,6 +321,15 @@ public class Computed_WeeklyAd
 						//obj.waitForElementClickable(driver, wa.click_WeeklyAd_Hover_Product_view_Deals_link);
 						Thread.sleep(1000);
 						String color = products.get(l).getCssValue("border-color");
+						String hex = Color.fromString(color).asHex();
+						if(hex.equalsIgnoreCase("#ff0000"))
+						{
+							Reporter.log("Added products are highlighted in Red color");
+						}
+						else
+						{
+							Assert.fail("Added products are not highlighted in Red color");
+						}
 						weeklyadpage.click_click_Product_view_Deals_Button();
 						summary=weeklyadpage.getText_txt_Product_Summary_Text();
 						price=weeklyadpage.getText_txt_Product_Price_Text();
@@ -378,6 +403,8 @@ public class Computed_WeeklyAd
 					Assert.fail("View Deals Button is not displayed");		
 					
 				}	
+				action1.moveToElement(wel).build().perform();
+				Thread.sleep(1000);
 				if(weeklyadpage.isDisplayed_click_Product_AddToList_Button())
 				{		
 					Reporter.log("Items Removed once cannot remove the same item again as expected");	

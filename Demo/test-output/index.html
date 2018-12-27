@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\ragunk\AppData\Local\Temp\testng-eclipse--569813907\testng-customsuite.xml</span>
+                    <span>C:\Users\ragunk\AppData\Local\Temp\testng-eclipse-1897564966\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="executableClass.Weekly_Ad" hash-for-method="TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again">TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="executableClass.Weekly_Ad" hash-for-method="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added">TC01_Add_items_to_list_ADD_TO_LIST_button_item_added</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -125,13 +125,13 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again">
-                  </a> <!-- TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again -->
-                  <span class="method-name">TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again</span>
-                  <div class="stack-trace">java.lang.AssertionError: Error in weekly ad circular page
+                  <a name="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added">
+                  </a> <!-- TC01_Add_items_to_list_ADD_TO_LIST_button_item_added -->
+                  <span class="method-name">TC01_Add_items_to_list_ADD_TO_LIST_button_item_added</span>
+                  <div class="stack-trace">java.lang.AssertionError: Products are not displaying in shoppinglist when items added from circular page
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:199)
-	at executableClass.Weekly_Ad.TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again(Weekly_Ad.java:60)
+	at computedClass.Computed_Shopping_List.WeeklyAd_Deals_ShoppingList(Computed_Shopping_List.java:243)
+	at executableClass.Weekly_Ad.TC01_Add_items_to_list_ADD_TO_LIST_button_item_added(Weekly_Ad.java:43)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -166,7 +166,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\ragunk\AppData\Local\Temp\testng-eclipse--569813907\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\ragunk\AppData\Local\Temp\testng-eclipse-1897564966\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -177,7 +177,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;executableClass.Weekly_Ad&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again&quot;/&gt;
+          &lt;include name=&quot;TC01_Add_items_to_list_ADD_TO_LIST_button_item_added&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- executableClass.Weekly_Ad --&gt;
     &lt;/classes&gt;
@@ -221,9 +221,9 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again')
+data.setCell(0, 1, 'TC01_Add_items_to_list_ADD_TO_LIST_button_item_added')
 data.setCell(0, 2, 'executableClass.Weekly_Ad')
-data.setCell(0, 3, 114060);
+data.setCell(0, 3, 91665);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -240,24 +240,28 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again</span>
+              <span class="reporter-method-name">TC01_Add_items_to_list_ADD_TO_LIST_button_item_added</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output">Logged in successfully </span>
                 <span class="reporter-method-output">Locate a store near you button is displayed</span>
                 <span class="reporter-method-output">Please select a store near to view weekly ads text is displayed</span>
+                <span class="reporter-method-output">Added products are highlighted in Red color</span>
+                <span class="reporter-method-output">Product added from circular page</span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
               <span class="ignored-class-name">executableClass.Weekly_Ad</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">TC01_Add_items_to_list_ADD_TO_LIST_button_item_added</span>
+                <span class="ignored-method-name">TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again</span>
+                <br/>
+                <span class="ignored-method-name">TC01_Remove_items_from_the_list_Weekly_Circular</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -273,7 +277,7 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again</span>
+                <span class="method-name">TC01_Add_items_to_list_ADD_TO_LIST_button_item_added</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->

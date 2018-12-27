@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Dec 25 13:29:48 IST 2018</td>
+<td>Started on:</td><td>Thu Dec 27 12:42:16 IST 2018</td>
 </tr>
-<tr><td>Total time:</td><td>114 seconds (114143 ms)</td>
+<tr><td>Total time:</td><td>91 seconds (91761 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,7 +75,7 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='executableClass.Weekly_Ad.TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again()'><b>TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again</b><br>Test class: executableClass.Weekly_Ad<br/>
+<td title='executableClass.Weekly_Ad.TC01_Add_items_to_list_ADD_TO_LIST_button_item_added()'><b>TC01_Add_items_to_list_ADD_TO_LIST_button_item_added</b><br>Test class: executableClass.Weekly_Ad<br/>
 <a href="#Output-1574615832" onClick='toggleBox("Output-1574615832", this, "Show output", "Hide output");'>Show output</a>
 
 <a href="#Output-1574615832" onClick="toggleAllBoxes();">Show all outputs</a>
@@ -83,12 +83,14 @@ function toggleAllBoxes() {
 Logged in successfully <br/>
 Locate a store near you button is displayed<br/>
 Please select a store near to view weekly ads text is displayed<br/>
+Added products are highlighted in Red color<br/>
+Product added from circular page<br/>
 </div>
 </td>
-<td><div><pre>java.lang.AssertionError: Error in weekly ad circular page
+<td><div><pre>java.lang.AssertionError: Products are not displaying in shoppinglist when items added from circular page
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:199)
-	at executableClass.Weekly_Ad.TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again(Weekly_Ad.java:60)
+	at computedClass.Computed_Shopping_List.WeeklyAd_Deals_ShoppingList(Computed_Shopping_List.java:243)
+	at executableClass.Weekly_Ad.TC01_Add_items_to_list_ADD_TO_LIST_button_item_added(Weekly_Ad.java:43)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -115,10 +117,10 @@ Please select a store near to view weekly ads text is displayed<br/>
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
 </pre></div><a href='#' onClick='toggleBox("stack-trace1574615832", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1574615832'><pre>java.lang.AssertionError: Error in weekly ad circular page
+<div class='stack-trace' id='stack-trace1574615832'><pre>java.lang.AssertionError: Products are not displaying in shoppinglist when items added from circular page
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:199)
-	at executableClass.Weekly_Ad.TC03_Add_items_to_list_VIEW_DETAILS_button_add_item_again(Weekly_Ad.java:60)
+	at computedClass.Computed_Shopping_List.WeeklyAd_Deals_ShoppingList(Computed_Shopping_List.java:243)
+	at executableClass.Weekly_Ad.TC01_Add_items_to_list_ADD_TO_LIST_button_item_added(Weekly_Ad.java:43)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -145,7 +147,7 @@ Please select a store near to view weekly ads text is displayed<br/>
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
 </pre></div></td>
-<td>114</td>
+<td>91</td>
 <td>executableClass.Weekly_Ad@59ec2012</td></tr>
 </table><p>
 </body>
