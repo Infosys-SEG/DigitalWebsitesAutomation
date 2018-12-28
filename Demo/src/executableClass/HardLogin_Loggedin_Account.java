@@ -41,7 +41,7 @@ public class HardLogin_Loggedin_Account
 		driver=dc.Loggedin_Coupons_Homepage(driver, functionality, prod, count);
 		driver=po.Loggedin_Personalisedoffers(driver, functionality,TCName);
 		driver=wa.WeeklyAdPage(driver, functionality, TCName);
-		driver=wa.AddProduct(driver, prod, count, prodvalu);
+		driver=wa.AddProduct(driver, prod, count, prodvalu, "circularpage");
 		driver=sib.LoginStaticinfobar_Rewards(driver, functionality);
 		driver=sib.LoginStaticinfobar_MyAccount(driver, functionality, functionality);
 		driver.close();

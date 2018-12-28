@@ -23,7 +23,6 @@ public class Set_Pin_PW_in_Security_Info {
 	
 	@Test (priority=1)
 	public void TC001_FullyEnrolled_NavigateTo_PasswordSetScreen_WithCardNumber () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
-	
 	{
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();		
 		String Functionality=functionality;

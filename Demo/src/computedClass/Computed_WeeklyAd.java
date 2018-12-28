@@ -22,7 +22,7 @@ import generatedClass.POM_Generated_WeeklyAdPage;
 
 public class Computed_WeeklyAd 
 {
-	private String prod;
+	private String proddetails;
 	private String prodvalu;
 	private int count;
 	String value="";
@@ -83,7 +83,8 @@ public class Computed_WeeklyAd
     		
     		obj.waitForElementClickable(driver, homepage.click_Savings_WeeklyAd_Button);
     		
-    		homepage.click_click_Savings_WeeklyAd_Button();
+    		obj.movetoElementofAPage_Click(driver, homepage.click_Savings_WeeklyAd_Button);
+//    	/	homepage.click_click_Savings_WeeklyAd_Button();
     		
     		obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
     		
@@ -117,9 +118,9 @@ public class Computed_WeeklyAd
     		obj.waitForElement(driver, weeklyadpage.txt_Your_WeeklyAd_Text);
     		if(weeklyadpage.isDisplayed_txt_Your_WeeklyAd_Text())
 			{
-				obj.scrollingToElementofAPage(driver, weeklyadpage.click_View_weeklyAd_Link);
-				
-				weeklyadpage.click_click_View_weeklyAd_Link();
+			//	obj.scrollingToElementofAPage(driver, weeklyadpage.click_View_weeklyAd_Link);
+				obj.movetoElementofAPage_Click(driver, weeklyadpage.click_View_weeklyAd_Link);
+				//weeklyadpage.click_click_View_weeklyAd_Link();
 			}
     		else
     		{
@@ -137,14 +138,12 @@ public class Computed_WeeklyAd
 	}
 	
 	
-	public WebDriver AddProduct(WebDriver driver, String prod,int count,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver AddProduct(WebDriver driver, String proddetails,int count,String prodvalu,String addpage) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
 		Data obj=new Data();
-		String summary="";
-		String price="";
-		String desc="";	
+		String description="";
 		List<WebElement> products=null;	
 		try
 		{
@@ -166,20 +165,53 @@ public class Computed_WeeklyAd
 					boolean b=weeklyadpage.isDisplayed_click_Product_AddToList_Button();
 					if(b==true)
 					{	
+						proddetails=products.get(l).getText().replace(".", "");
+						proddetails=proddetails.replace("/", "");
+						proddetails=proddetails.replace(" - opens dialog", "");
+						
 						//obj.waitForElementClickable(driver, wa.click_WeeklyAd_Hover_Product_view_Deals_link);		
 						Thread.sleep(1000);
-						weeklyadpage.click_click_Product_view_Deals_Button();
-						obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);
-						summary=weeklyadpage.getText_txt_Product_Summary_Text();
-						price=weeklyadpage.getText_txt_Product_Price_Text();
-						desc=weeklyadpage.getText_txt_Product_Description_Text();
-						prod=summary+" "+price+" "+desc;
-						prod=prod.replace(".", "");
-						prod=prod.replace("/", "");
-						weeklyadpage.click_click_Product_AddToList_Overlay_Button();
-						prodvalu=weeklyadpage.click_Product_AddToList_Overlay_Button.getAttribute("productkey");
-						obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);
-						weeklyadpage.click_click_Product_Overlay_Close_Button();	
+						if(addpage.equalsIgnoreCase("circularpage"))
+						{
+							weeklyadpage.click_click_Product_AddToList_Button();
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Button);
+							weeklyadpage.click_click_Product_view_Deals_Button();
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);		
+							
+							try
+							{
+							description=weeklyadpage.getText_txt_Product_Description_Text();
+							description=description.replace(".", "");
+							description=description.replace("/", "");
+							}
+							catch(Exception e)
+							{
+								description="";
+							}
+						
+							prodvalu=weeklyadpage.click_Product_AddToList_Overlay_Button.getAttribute("productkey");
+						}
+						else if(addpage.equalsIgnoreCase("overlay"))
+						{
+							
+							weeklyadpage.click_click_Product_view_Deals_Button();
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);		
+							weeklyadpage.click_click_Product_AddToList_Overlay_Button();
+							try
+							{
+							description=weeklyadpage.getText_txt_Product_Description_Text();
+							description=description.replace(".", "");
+							description=description.replace("/", "");
+							}
+							catch(Exception e)
+							{
+								description="";
+							}
+						
+							prodvalu=weeklyadpage.click_Product_AddToList_Overlay_Button.getAttribute("productkey");
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);
+							weeklyadpage.click_click_Product_Overlay_Close_Button();
+						}
 						Thread.sleep(1000);
 						String color = products.get(l).getCssValue("border-color");
 						String hex = Color.fromString(color).asHex();
@@ -194,7 +226,7 @@ public class Computed_WeeklyAd
 						count=count+1;
 						Reporter.log("Product added from circular page");
 						this.count=count;
-						this.prod=prod;
+						this.proddetails=proddetails+" "+description;
 						this.prodvalu=prodvalu;
 						break outerloop;
 					}	
@@ -213,7 +245,7 @@ public class Computed_WeeklyAd
 		return driver;
 	}
 	
-	public WebDriver AddAgain(WebDriver driver, String prod,int count,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver AddAgain(WebDriver driver,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
@@ -286,14 +318,12 @@ public class Computed_WeeklyAd
 	}
 			
 			
-	public WebDriver Removeproduct(WebDriver driver,String Functionality,String prod,int count) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Removeproduct(WebDriver driver,String Functionality,String proddetails,int count,String removepage) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_ShoppingListPage shoppinglist = new POM_Generated_ShoppingListPage(driver);
 		Data obj=new Data();
-		String summary="";
-		String price="";
-		String desc="";
+		String description="";
 		List<WebElement> products=null;
 		try
 		{
@@ -318,6 +348,9 @@ public class Computed_WeeklyAd
 					//System.out.println(b);
 					if(b==true)
 					{
+						proddetails=products.get(l).getText().replace(".", "");
+						proddetails=proddetails.replace("/", "");
+						proddetails=proddetails.replace(" - opens dialog", "");
 						//obj.waitForElementClickable(driver, wa.click_WeeklyAd_Hover_Product_view_Deals_link);
 						Thread.sleep(1000);
 						String color = products.get(l).getCssValue("border-color");
@@ -330,20 +363,47 @@ public class Computed_WeeklyAd
 						{
 							Assert.fail("Added products are not highlighted in Red color");
 						}
-						weeklyadpage.click_click_Product_view_Deals_Button();
-						summary=weeklyadpage.getText_txt_Product_Summary_Text();
-						price=weeklyadpage.getText_txt_Product_Price_Text();
-						desc=weeklyadpage.getText_txt_Product_Description_Text();
-						prod=summary+" "+price+" "+desc;
-						prod=prod.replace(".", "");
-						prod=prod.replace("/", "");
-						weeklyadpage.click_click_Product_RemoveFromList_Overlay_Button();
-						obj.waitForElementClickable(driver, weeklyadpage.click_Product_AddToList_Overlay_Button);
-						weeklyadpage.click_click_Product_Overlay_Close_Button();
-						count=count-1;
-						this.count=count;
-						this.prod=prod;
-						break outerloop;
+					
+						if(removepage.equalsIgnoreCase("circularpage"))
+						{
+							weeklyadpage.click_click_Product_RemoveFromList_Button();
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_AddToList_Button);
+							weeklyadpage.click_click_Product_view_Deals_Button();
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);
+							try
+							{
+								description=weeklyadpage.getText_txt_Product_Description_Text();
+								description=description.replace(".", "");
+								description=description.replace("/", "");
+							}
+		    				catch(Exception e)
+		    				{
+		    					description="";
+		    				}
+						}
+						else if(removepage.equalsIgnoreCase("overlay"))
+						{
+							
+							weeklyadpage.click_click_Product_view_Deals_Button();
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);
+							try
+							{
+								description=weeklyadpage.getText_txt_Product_Description_Text();
+								description=description.replace(".", "");
+								description=description.replace("/", "");
+							}
+		    				catch(Exception e)
+		    				{
+		    					description="";
+		    				}
+							weeklyadpage.click_click_Product_RemoveFromList_Overlay_Button();
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_AddToList_Overlay_Button);
+							weeklyadpage.click_click_Product_Overlay_Close_Button();
+							count=count-1;
+							this.count=count;
+							this.proddetails=proddetails+" "+description;
+							break outerloop;
+						}
 					}
 				}
 				catch(NoSuchElementException e)
@@ -360,7 +420,7 @@ public class Computed_WeeklyAd
 		return driver;		
 	}
 	
-	public WebDriver RemoveAgain(WebDriver driver, String prod,int count,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver RemoveAgain(WebDriver driver,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
@@ -428,9 +488,9 @@ public class Computed_WeeklyAd
 		return driver;
 	}
 	
-	public String getprod() 
+	public String getproddetails() 
 	{
-		return prod;
+		return proddetails;
 	}
 	public int getcount() 
 	{

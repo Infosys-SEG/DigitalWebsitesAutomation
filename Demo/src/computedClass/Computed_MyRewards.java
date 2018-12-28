@@ -13,6 +13,7 @@ import org.testng.Reporter;
 
 import Utility.Data;
 import Utility.Readexcel_RowName;
+import generatedClass.POM_Generated_HardLoginPage;
 import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_LoggedIn_RewardsPage;
 import generatedClass.POM_Generated_LoggedOut_RewardsPage;
@@ -232,14 +233,16 @@ public class Computed_MyRewards
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		POM_Generated_LoggedIn_RewardsPage loginrewards = new POM_Generated_LoggedIn_RewardsPage(driver);
 		POM_Generated_StaticInfoBar staticInfoBar = new POM_Generated_StaticInfoBar(driver);
+		POM_Generated_HardLoginPage hardlogin = new POM_Generated_HardLoginPage(driver);
 		try
 		{
-			staticInfoBar.click_click_Static_info_My_Rewards_Link();
-			obj1.waitForElement(driver, loginrewards.txt_Title_Text);
-			String curl=driver.getCurrentUrl();
-		    obj1.scrollingToElementofAPage(driver, loginrewards.txt_Usefullink_FindFuel_Link);
+			
 			if(TCName.equalsIgnoreCase("TC005_Validate_the_functionality_of_Useful_Links_section_for_Hard_Login_user"))
-			{
+			{    
+				staticInfoBar.click_click_Static_info_My_Rewards_Link();
+				obj1.waitForElement(driver, loginrewards.txt_Title_Text);
+				String curl=driver.getCurrentUrl();
+			    obj1.scrollingToElementofAPage(driver, loginrewards.txt_Usefullink_FindFuel_Link);
 				//*Useful links section:
 				if(loginrewards.isDisplayed_txt_Usefullink_EditAccount_Link())
 				{
@@ -267,23 +270,27 @@ public class Computed_MyRewards
 			}
 			else
 			{
+				//String curl=driver.getCurrentUrl();
+			    obj1.scrollingToElementofAPage(driver, loginrewards.txt_Usefullink_FindFuel_Link);
 				if(loginrewards.isDisplayed_txt_Usefullink_EditAccount_Link())
 				{
 					Reporter.log("Edit Account Details link is present in the Useful links section");
 					loginrewards.click_txt_Usefullink_EditAccount_Link();
 				    if(loginrewards.isDisplayed_txt_SoftLogin_overlay())
 					{
-				    	Reporter.log("User is prompted to enter Login credentials"); 
+				    	Reporter.log("User is prompted to enter Hard Login credentials"); 
 					}
 					else
 					{
-						Reporter.log("User is not prompted to enter Login credentials");
+						Reporter.log("User is not prompted to enter Hard Login credentials");
 					}
+				    hardlogin.click_click_Popup_Close_Button();
 				}
 			}
 			
 			if(loginrewards.isDisplayed_txt_Usefullink_ViewPersonalizedAd_Link())
-			{
+			{  
+				String curl=driver.getCurrentUrl();
 				Reporter.log("View Personalized Ads link is present in the Useful links section");
 				loginrewards.click_txt_Usefullink_ViewPersonalizedAd_Link();
 			
@@ -307,6 +314,7 @@ public class Computed_MyRewards
 			Thread.sleep(250);
 			if(loginrewards.isDisplayed_txt_Usefullink_FAQ_Link())
 			{
+				String curl=driver.getCurrentUrl();
 				Reporter.log("Frequently Asked questions link is present in the Useful links section");
 				loginrewards.click_txt_Usefullink_FAQ_Link();
 			
@@ -328,8 +336,10 @@ public class Computed_MyRewards
 			{
 				Assert.fail("Frequently Asked questions link is not present in the Useful links section");
 	        }
+			String curl=driver.getCurrentUrl();
 			if(!(value.equals("winndixie")))
 			{
+				
 				if(loginrewards.isDisplayed_txt_Usefullink_FuelRewards_Link_bl())
 				{
 					Reporter.log("Fuel Rewards link is present in the Useful links section");
@@ -345,7 +355,8 @@ public class Computed_MyRewards
 			  {  
 				
 			    if(loginrewards.isDisplayed_txt_Usefullink_FuelRewards_Link())
-				{
+				{   
+			    	
 					Reporter.log("Fuel Rewards link is present in the Useful links section");
 					loginrewards.click_txt_Usefullink_FuelRewards_Link();
 				}

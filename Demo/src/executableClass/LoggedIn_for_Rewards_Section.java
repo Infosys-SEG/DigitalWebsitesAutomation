@@ -98,4 +98,19 @@ public class LoggedIn_for_Rewards_Section
 		driver=loggedin.Loggedin_Myrewardpage_usefulinks(driver, functionality,tcname);
 		driver.close();
 	 }
+	
+	@Test (priority=6)
+	public void TC006_Validate_the_functionality_of_Useful_Links_section_for_Soft_Login_user () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		Browserbanner browserbanner=new Browserbanner();
+		Computed_SoftLogin softlogin = new Computed_SoftLogin();
+		Computed_MyRewards loggedin = new Computed_MyRewards();
+		driver= browserbanner.BrowserBanner(driver, functionality);
+		driver=browserbanner.Clearcookie(driver, functionality);
+		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
+		driver=loggedin.Myrewards_general(driver, functionality);
+		driver=loggedin.Loggedin_Myrewardpage_usefulinks(driver, functionality,tcname);
+		driver.close();
+	}
 }

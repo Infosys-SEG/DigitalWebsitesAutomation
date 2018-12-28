@@ -25,7 +25,7 @@ public class Computed_Shopping_List
     List<WebElement> price=null;
     List<WebElement> Delete=null;
     List<WebElement> checkbox=null;
-    private String prod;
+    private String proddetails;
 	private int count;
     public WebDriver ShoppingList_Navigation(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
@@ -88,14 +88,13 @@ public class Computed_Shopping_List
 	  }
     
     
-	public WebDriver WeeklyAd_Deals_ShoppingList(WebDriver driver,String prod,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver WeeklyAd_Deals_ShoppingList(WebDriver driver,String proddetails,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
 		Data obj=new Data();
 		Robot rb = new Robot();
 	    try
-	    { 
-		   
+	    { 	   
 		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			String sc=shoppinglistpage.getText_txt_List_Count_Text();
 			int scl=Integer.parseInt(sc);
@@ -133,6 +132,7 @@ public class Computed_Shopping_List
 			if(totalprod.size()!=0)
 			{
 				prodsummary=shoppinglistpage.txt_Product_Summary_Text;
+				
 				proddesc= shoppinglistpage.txt_Product_Description_Text;
 				price= shoppinglistpage.txt_Product_Price_Text;
 				Delete=shoppinglistpage.click_Weekly_Ad_Items_check_Delete_Icon;
@@ -170,20 +170,27 @@ public class Computed_Shopping_List
 		    				summary= prodsummary.get(k).getText();
 		    				summary = summary.replace(".","");		    			
 		    				summary = summary.replace("/", "");
-		    				desc=proddesc.get(k).getText();
-		    				desc = desc.replace(".", "");
-		    				desc = desc.replace("/", "");
-		    				prod =  prod.replace(".", "");
-							prod = prod.replace("/", "");		
+		    				try
+		    				{
+		    					desc=proddesc.get(k).getText();
+		    					desc = desc.replace(".", "");
+		    					desc = desc.replace("/", "");
+		    				}
+		    				catch(Exception e)
+		    				{
+		    					desc="";
+		    				}
+		    				proddetails =  proddetails.replace(".", "");
+		    				proddetails = proddetails.replace("/", "");		
 		    				pric=price.get(k).getText();
 				    		pric = pric.replace(".", "");
 				    		pric = pric.replace("/", "");
 				    		
 				    		if(actionverify.equalsIgnoreCase("Added"))
 				    		{
-				    			System.out.println(prod);
+				    			System.out.println(proddetails);
 				    			System.out.println(summary+" "+pric+" "+desc);
-				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
+				    			if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
 				    				chk=true;
 				    				finished=true;
@@ -192,7 +199,7 @@ public class Computed_Shopping_List
 				    		}
 				    		else if(actionverify.equalsIgnoreCase("Removed"))
 				    		{			    						
-				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
+				    			if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
 				    				chk=true;
 				    				finished=true;
@@ -202,12 +209,12 @@ public class Computed_Shopping_List
 				    		else if(actionverify.equalsIgnoreCase("DeleteIcon_Removedfromshoppinglist"))
 				    		{
 				    					
-				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
+				    			if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
 				    				
 				    				chk=true;
 				    				finished=true;
-				    				this.prod=prod;
+				    				this.proddetails=proddetails;
 				    				Delete.get(k).click();
 				    				Thread.sleep(3000);
 				    				break outerloop;		    						
@@ -217,12 +224,12 @@ public class Computed_Shopping_List
 				    		else if(actionverify.equalsIgnoreCase("DeleteAllButton_Removedfromshoppinglist"))
 				    		{
 				    					
-				    			if(prod.equalsIgnoreCase(summary+" "+pric+" "+desc))
+				    			if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
 				    				
 				    				chk=true;
 				    				finished=true;
-				    				this.prod=prod;
+				    				this.proddetails=proddetails;
 				    				checkbox.get(k).click();
 				    				obj.movetoElementofAPage_Click(driver, shoppinglistpage.click_Remove_All_Checked_Items_Button);
 				    				Thread.sleep(3000);
@@ -423,9 +430,9 @@ public class Computed_Shopping_List
 	    return driver;
 	}
 	
-	public String getprod() 
+	public String getproddetails() 
 	{
-		return prod;
+		return proddetails;
 	}
 	public int getcount() 
 	{

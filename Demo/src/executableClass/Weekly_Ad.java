@@ -16,8 +16,7 @@ import computedClass.Computed_WeeklyAd;
 public class Weekly_Ad 
 {
 	WebDriver driver;
-	String functionality="Weekly_Ad";
-	
+	String functionality="Weekly_Ad";	
 	Browserbanner browserbanner=new Browserbanner();
 	Computed_HardLogin hardlogin = new Computed_HardLogin();
 	Computed_WeeklyAd weeklyad=new Computed_WeeklyAd();
@@ -28,7 +27,7 @@ public class Weekly_Ad
 	{
 		//For getting current method name and passing as tcname
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		String prod="";
+		String proddetails="";
 		String prodvalu="";
 		int count=0;
 		String Functionality = functionality;
@@ -36,12 +35,11 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, prod, count, prodvalu);
-		prod=weeklyad.getprod();
+		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
+		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
-		prodvalu=weeklyad.getprodvalu();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, prod, count, "Added");	
-		//driver.close();
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, proddetails, count, "Added");	
+		driver.close();
 	}
 	
 	@Test (priority=2)
@@ -49,7 +47,7 @@ public class Weekly_Ad
 	{
 		//For getting current method name and passing as tcname
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		String prod="";
+		String proddetails="";
 		String prodvalu="";
 		int count=0;
 		String Functionality = functionality;
@@ -57,11 +55,10 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, prod, count, prodvalu);
-		prod=weeklyad.getprod();
-		count=weeklyad.getcount();
+		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"overlay");
+		proddetails=weeklyad.getproddetails();
 		prodvalu=weeklyad.getprodvalu();
-		driver = weeklyad.AddAgain(driver, prod, count, prodvalu);	
+		driver = weeklyad.AddAgain(driver,prodvalu);	
 		//driver.close();
 	}
 	
@@ -78,9 +75,9 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, prod, count, prodvalu);
-		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count);
-		prod=weeklyad.getprod();
+		driver=weeklyad.AddProduct(driver, prod, count, prodvalu,"circularpage");
+		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count,"circularpage");
+		prod=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, prodvalu, count, "Removed");

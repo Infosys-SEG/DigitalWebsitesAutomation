@@ -2,10 +2,11 @@
 package  generatedClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 public class POM_Generated_ContactInfoPage { 
 	WebDriver driver;
@@ -125,6 +126,18 @@ public class POM_Generated_ContactInfoPage {
 	// Associated Label : Error_ZipCode_Blank
 	@FindBy(xpath = "//span[@id='errorzip'][@style='display: block;']")
 	public WebElement txt_Error_ZipCode_Blank;
+	
+	// Associated Label : ContactUs_Stepcounter
+	@FindBy(xpath = "//img[@class='img-responsive c-statuschecker--steps__img c-statuschecker--steps__img--active']")
+	public WebElement txt_ContactUs_Stepcounter;
+	
+	// Associated Label : Error_Nooffer_selection
+	@FindBy(xpath = "//span[@class='radioEmptyErr'][@style='display: block;']")
+	public WebElement txt_Error_Nooffer_selection;
+	
+	// Associated Label : Text_me_offers
+	@FindBy(xpath = "//label[@class='innerHead'][contains(text(),'Text me offers!')]")
+	public WebElement txt_Text_me_offers;
 	
 
 //*******************************************************************************
@@ -1367,6 +1380,144 @@ public class POM_Generated_ContactInfoPage {
 	// selected or Not :  Error_ZipCode_Blank
 	public boolean isSelected_txt_Error_ZipCode_Blank(){
 		if(txt_Error_ZipCode_Blank.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  ContactUs_Stepcounter
+	public void type_txt_ContactUs_Stepcounter(String value) {
+		txt_ContactUs_Stepcounter.clear();
+		txt_ContactUs_Stepcounter.sendKeys(value);
+	}
+
+	//click:  ContactUs_Stepcounter
+	public void click_txt_ContactUs_Stepcounter(){
+		txt_ContactUs_Stepcounter.click();
+	}
+
+	// Hover:  ContactUs_Stepcounter
+	public void hover_txt_ContactUs_Stepcounter(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_ContactUs_Stepcounter).build().perform();
+	}
+
+	// visible or Not :  ContactUs_Stepcounter
+	public boolean isDisplayed_txt_ContactUs_Stepcounter(){
+		if(txt_ContactUs_Stepcounter.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  ContactUs_Stepcounter
+	public boolean isEnabled_txt_ContactUs_Stepcounter(){
+		if(txt_ContactUs_Stepcounter.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  ContactUs_Stepcounter
+	public String getCssValue_txt_ContactUs_Stepcounter(String attribute) {
+		return txt_ContactUs_Stepcounter.getCssValue(attribute);
+	}
+
+	//Get the text :  ContactUs_Stepcounter
+	public String getText_txt_ContactUs_Stepcounter(){
+		return txt_ContactUs_Stepcounter.getText();
+	}
+
+	//Get the value :  ContactUs_Stepcounter
+	public String getValue_txt_ContactUs_Stepcounter(){
+		return txt_ContactUs_Stepcounter.getAttribute("value");
+	}
+	// selected or Not :  ContactUs_Stepcounter
+	public boolean isSelected_txt_ContactUs_Stepcounter(){
+		if(txt_ContactUs_Stepcounter.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Error_Nooffer_selection
+	public void type_txt_Error_Nooffer_selection(String value) {
+		txt_Error_Nooffer_selection.clear();
+		txt_Error_Nooffer_selection.sendKeys(value);
+	}
+
+	//click:  Error_Nooffer_selection
+	public void click_txt_Error_Nooffer_selection(){
+		txt_Error_Nooffer_selection.click();
+	}
+
+	// Hover:  Error_Nooffer_selection
+	public void hover_txt_Error_Nooffer_selection(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Error_Nooffer_selection).build().perform();
+	}
+
+	// visible or Not :  Error_Nooffer_selection
+	public boolean isDisplayed_txt_Error_Nooffer_selection(){
+		if(txt_Error_Nooffer_selection.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Error_Nooffer_selection
+	public boolean isEnabled_txt_Error_Nooffer_selection(){
+		if(txt_Error_Nooffer_selection.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Error_Nooffer_selection
+	public String getCssValue_txt_Error_Nooffer_selection(String attribute) {
+		return txt_Error_Nooffer_selection.getCssValue(attribute);
+	}
+
+	//Get the text :  Error_Nooffer_selection
+	public String getText_txt_Error_Nooffer_selection(){
+		return txt_Error_Nooffer_selection.getText();
+	}
+
+	//Get the value :  Error_Nooffer_selection
+	public String getValue_txt_Error_Nooffer_selection(){
+		return txt_Error_Nooffer_selection.getAttribute("value");
+	}
+	// selected or Not :  Error_Nooffer_selection
+	public boolean isSelected_txt_Error_Nooffer_selection(){
+		if(txt_Error_Nooffer_selection.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Text_me_offers
+	public void type_txt_Text_me_offers(String value) {
+		txt_Text_me_offers.clear();
+		txt_Text_me_offers.sendKeys(value);
+	}
+
+	//click:  Text_me_offers
+	public void click_txt_Text_me_offers(){
+		txt_Text_me_offers.click();
+	}
+
+	// Hover:  Text_me_offers
+	public void hover_txt_Text_me_offers(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Text_me_offers).build().perform();
+	}
+
+	// visible or Not :  Text_me_offers
+	public boolean isDisplayed_txt_Text_me_offers(){
+		if(txt_Text_me_offers.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Text_me_offers
+	public boolean isEnabled_txt_Text_me_offers(){
+		if(txt_Text_me_offers.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Text_me_offers
+	public String getCssValue_txt_Text_me_offers(String attribute) {
+		return txt_Text_me_offers.getCssValue(attribute);
+	}
+
+	//Get the text :  Text_me_offers
+	public String getText_txt_Text_me_offers(){
+		return txt_Text_me_offers.getText();
+	}
+
+	//Get the value :  Text_me_offers
+	public String getValue_txt_Text_me_offers(){
+		return txt_Text_me_offers.getAttribute("value");
+	}
+	// selected or Not :  Text_me_offers
+	public boolean isSelected_txt_Text_me_offers(){
+		if(txt_Text_me_offers.isSelected()) { return true; } else { return false;} 
 	}
 
 }

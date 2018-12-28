@@ -45,7 +45,7 @@ public class SoftLogin
 		driver=coupons.Loggedin_Coupons_Homepage(driver, Functionality, prod, count);
 		driver=deals.Loggedin_Personalisedoffers(driver, Functionality,TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, prod, count, prodvalu);
+		driver=weeklyad.AddProduct(driver, prod, count, prodvalu,"circularpage");
 		driver=staticinfobar.LoginStaticinfobar_Rewards(driver, Functionality);
 		driver=staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality);
 		driver.close();
@@ -80,7 +80,7 @@ public class SoftLogin
 		driver=coupons.Loggedout_Coupons_Homepage(driver, Functionality);
 		driver=deals.Loggedout_Personalisedoffers(driver, Functionality,TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, prod, count, prodvalu);
+		driver=weeklyad.AddProduct(driver, prod, count, prodvalu,"circularpage");
 		driver=rewards.loggedout_Myreward(driver, Functionality);
 		driver.close();
 	}
