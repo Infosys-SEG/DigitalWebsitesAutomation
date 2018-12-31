@@ -129,13 +129,15 @@ public class Computed_Shopping_List
 	        }
 			Thread.sleep(2000);
 			totalprod= shoppinglistpage.txt_Total_Products_Text;
+			System.out.println(totalprod.size());
 			if(totalprod.size()!=0)
 			{
 				prodsummary=shoppinglistpage.txt_Product_Summary_Text;
 				
-				proddesc= shoppinglistpage.txt_Product_Description_Text;
+				//proddesc= shoppinglistpage.txt_Product_Description_Text;
 				price= shoppinglistpage.txt_Product_Price_Text;
 				Delete=shoppinglistpage.click_Weekly_Ad_Items_check_Delete_Icon;
+				System.out.println(Delete.size());
 				checkbox=shoppinglistpage.click_Select_Items_CheckBox;
 			}
 			else
@@ -172,6 +174,7 @@ public class Computed_Shopping_List
 		    				summary = summary.replace("/", "");
 		    				try
 		    				{
+		    					proddesc= shoppinglistpage.txt_Product_Description_Text;
 		    					desc=proddesc.get(k).getText();
 		    					desc = desc.replace(".", "");
 		    					desc = desc.replace("/", "");
@@ -188,8 +191,7 @@ public class Computed_Shopping_List
 				    		
 				    		if(actionverify.equalsIgnoreCase("Added"))
 				    		{
-				    			System.out.println(proddetails);
-				    			System.out.println(summary+" "+pric+" "+desc);
+				    			
 				    			if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
 				    				chk=true;
@@ -291,10 +293,10 @@ public class Computed_Shopping_List
 	    }
 	    catch(Exception e)
 	    {
-	    	driver.close();
+	    	//driver.close();
+	    	System.out.println(e);
 	    	Assert.fail("Error in shopping list");
-	    	obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
-	    	shoppinglistpage.click_click_Close_Button();
+	    	
 	    }
 	
 	    return driver;  	  

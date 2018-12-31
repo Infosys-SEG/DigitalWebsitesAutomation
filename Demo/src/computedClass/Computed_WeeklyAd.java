@@ -77,11 +77,12 @@ public class Computed_WeeklyAd
 	    	obj.waitForElementClickable(driver, logo);
 	    	logo.click();
     		obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
-    		Runtime.getRuntime().exec(Val);
-    		
     		homepage.click_click_Savings_link_Hover();	
+    	//	Runtime.getRuntime().exec(Val);
     		
-    		obj.waitForElementClickable(driver, homepage.click_Savings_WeeklyAd_Button);
+    		
+    		
+    		//obj.waitForElementClickable(driver, homepage.click_Savings_WeeklyAd_Button);
     		
     		obj.movetoElementofAPage_Click(driver, homepage.click_Savings_WeeklyAd_Button);
 //    	/	homepage.click_click_Savings_WeeklyAd_Button();
@@ -159,8 +160,9 @@ public class Computed_WeeklyAd
 			{			
 				try
 				{	
-					Actions action1=new Actions(driver); 
-					action1.moveToElement(products.get(l)).build().perform();
+					/*Actions action1=new Actions(driver); 
+					action1.moveToElement(products.get(l)).build().perform();*/
+					obj.movetoElementofAPage(driver, products.get(l));
 					Thread.sleep(1000);
 					boolean b=weeklyadpage.isDisplayed_click_Product_AddToList_Button();
 					if(b==true)
@@ -174,44 +176,38 @@ public class Computed_WeeklyAd
 						if(addpage.equalsIgnoreCase("circularpage"))
 						{
 							weeklyadpage.click_click_Product_AddToList_Button();
-							obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Button);
-							weeklyadpage.click_click_Product_view_Deals_Button();
-							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);		
 							
-							try
-							{
-							description=weeklyadpage.getText_txt_Product_Description_Text();
-							description=description.replace(".", "");
-							description=description.replace("/", "");
-							}
-							catch(Exception e)
-							{
-								description="";
-							}
-						
-							prodvalu=weeklyadpage.click_Product_AddToList_Overlay_Button.getAttribute("productkey");
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Button);
+							
+							weeklyadpage.click_click_Product_view_Deals_Button();
+							
+							
 						}
 						else if(addpage.equalsIgnoreCase("overlay"))
 						{
 							
 							weeklyadpage.click_click_Product_view_Deals_Button();
-							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);		
+							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);	
+							
 							weeklyadpage.click_click_Product_AddToList_Overlay_Button();
-							try
-							{
+							
+						}
+						obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);		
+						
+						try
+						{
 							description=weeklyadpage.getText_txt_Product_Description_Text();
 							description=description.replace(".", "");
-							description=description.replace("/", "");
-							}
-							catch(Exception e)
-							{
-								description="";
-							}
-						
-							prodvalu=weeklyadpage.click_Product_AddToList_Overlay_Button.getAttribute("productkey");
-							obj.waitForElementClickable(driver, weeklyadpage.click_Product_RemoveFromList_Overlay_Button);
-							weeklyadpage.click_click_Product_Overlay_Close_Button();
+							description=description.replace("/", "");	
 						}
+						catch(Exception e)
+						{
+							description="";
+						}
+						
+						prodvalu=weeklyadpage.click_Product_RemoveFromList_Overlay_Button.getAttribute("productkey");
+						
+						weeklyadpage.click_click_Product_Overlay_Close_Button();
 						Thread.sleep(1000);
 						String color = products.get(l).getCssValue("border-color");
 						String hex = Color.fromString(color).asHex();
@@ -224,7 +220,7 @@ public class Computed_WeeklyAd
 							Assert.fail("Added products are not highlighted in Red color");
 						}
 						count=count+1;
-						Reporter.log("Product added from circular page");
+						Reporter.log("Product added from overlay page");
 						this.count=count;
 						this.proddetails=proddetails+" "+description;
 						this.prodvalu=prodvalu;
@@ -239,6 +235,7 @@ public class Computed_WeeklyAd
 		}		
 		catch(Exception e)
 		{	
+			System.out.println(e);
 			//driver.close();
 			Assert.fail("Error in weekly ad circular page");
 		}	
@@ -248,17 +245,16 @@ public class Computed_WeeklyAd
 	public WebDriver AddAgain(WebDriver driver,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
-		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
+		
 		Data obj=new Data();
 			
 		try
 		{
 			obj.waitForElementClickable(driver, weeklyadpage.click_Product_Webelement_Text);		
 			
-			String cont=shoppinglistpage.getText_txt_List_Count_Text();
-			count=Integer.parseInt(cont);
+		
 			WebElement wel=driver.findElement(By.xpath("//product[@key='"+prodvalu+"']"));
-			obj.scrollingToElementofAPage(driver, wel);
+			
 			Actions action1=new Actions(driver); 
 			action1.moveToElement(wel).build().perform();
 			Thread.sleep(1000);
@@ -311,7 +307,8 @@ public class Computed_WeeklyAd
 		
 		catch(Exception e)
 		{
-			driver.close();
+			System.out.println(e);
+			//driver.close();
 			Assert.fail("Un Expected Error in Add again product");
 		}
 		return driver;
@@ -370,40 +367,33 @@ public class Computed_WeeklyAd
 							obj.waitForElementClickable(driver, weeklyadpage.click_Product_AddToList_Button);
 							weeklyadpage.click_click_Product_view_Deals_Button();
 							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);
-							try
-							{
-								description=weeklyadpage.getText_txt_Product_Description_Text();
-								description=description.replace(".", "");
-								description=description.replace("/", "");
-							}
-		    				catch(Exception e)
-		    				{
-		    					description="";
-		    				}
+							
 						}
 						else if(removepage.equalsIgnoreCase("overlay"))
 						{
 							
 							weeklyadpage.click_click_Product_view_Deals_Button();
 							obj.waitForElementClickable(driver, weeklyadpage.click_Product_Overlay_Close_Button);
-							try
-							{
-								description=weeklyadpage.getText_txt_Product_Description_Text();
-								description=description.replace(".", "");
-								description=description.replace("/", "");
-							}
-		    				catch(Exception e)
-		    				{
-		    					description="";
-		    				}
 							weeklyadpage.click_click_Product_RemoveFromList_Overlay_Button();
-							obj.waitForElementClickable(driver, weeklyadpage.click_Product_AddToList_Overlay_Button);
-							weeklyadpage.click_click_Product_Overlay_Close_Button();
-							count=count-1;
-							this.count=count;
-							this.proddetails=proddetails+" "+description;
-							break outerloop;
+							
 						}
+						obj.waitForElementClickable(driver, weeklyadpage.click_Product_AddToList_Overlay_Button);
+						try
+						{
+							description=weeklyadpage.getText_txt_Product_Description_Text();
+							description=description.replace(".", "");
+							description=description.replace("/", "");
+						}
+	    				catch(Exception e)
+	    				{
+	    					description="";
+	    				}
+					
+						weeklyadpage.click_click_Product_Overlay_Close_Button();
+						count=count-1;
+						this.count=count;
+						this.proddetails=proddetails+" "+description;
+						break outerloop;
 					}
 				}
 				catch(NoSuchElementException e)
@@ -414,7 +404,8 @@ public class Computed_WeeklyAd
 		}
 		catch(Exception e)
 	    {
-			driver.close();
+			System.out.println(e);
+			//driver.close();
 			Assert.fail("Error in Weekly Ad page or remove from list");
 	    }		
 		return driver;		
@@ -428,14 +419,17 @@ public class Computed_WeeklyAd
 			
 		try
 		{
+			
 			obj.waitForElementClickable(driver, weeklyadpage.click_Product_Webelement_Text);		
 			
 			String cont=shoppinglistpage.getText_txt_List_Count_Text();
 			count=Integer.parseInt(cont);
 			WebElement wel=driver.findElement(By.xpath("//product[@key='"+prodvalu+"']"));
-			obj.scrollingToElementofAPage(driver, wel);
-			Actions action1=new Actions(driver); 
-			action1.moveToElement(wel).build().perform();
+			System.out.println(wel);
+			//obj.scrollingToElementofAPage(driver, wel);
+			/*Actions action1=new Actions(driver); 
+			action1.moveToElement(wel).build().perform();*/
+			obj.movetoElementofAPage(driver, wel);
 			Thread.sleep(1000);
 			try
 			{
@@ -463,7 +457,7 @@ public class Computed_WeeklyAd
 					Assert.fail("View Deals Button is not displayed");		
 					
 				}	
-				action1.moveToElement(wel).build().perform();
+				obj.movetoElementofAPage(driver, wel);
 				Thread.sleep(1000);
 				if(weeklyadpage.isDisplayed_click_Product_AddToList_Button())
 				{		

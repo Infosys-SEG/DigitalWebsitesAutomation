@@ -88,7 +88,7 @@ public class POM_Generated_ShoppingListPage {
 	public WebElement click_Email_List_Button;
 	
 	// Associated Label : Weekly_Ad_Items_check_Delete_Icon
-	@FindBy(xpath = "//div[@class='listItem offer ui-sortable-handle']//div[@aria-label='Delete this item']")
+	@FindBy(xpath = "//div[@aria-label='  Delete this item']")
 	public List<WebElement> click_Weekly_Ad_Items_check_Delete_Icon;
 	
 

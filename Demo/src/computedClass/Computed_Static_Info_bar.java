@@ -150,7 +150,7 @@ public class Computed_Static_Info_bar
 					driver.close();
 					Assert.fail("Different points");
 				}
-				logo.click();			
+				//logo.click();			
 			}
 			else
 			{

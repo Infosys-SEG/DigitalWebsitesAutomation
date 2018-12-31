@@ -22,7 +22,7 @@ public class Account_Setup_page
 	public void TC005_Error_message_validation_FirstName() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as TCName
-		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		
 		String Functionality=functionality;
 		driver= browserbanner.BrowserBanner(driver, Functionality);
 		driver= browserbanner.Clearcookie(driver, Functionality);

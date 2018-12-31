@@ -75,5 +75,22 @@ public class Reset_Password {
 	    driver=myAcct.ResetPassword_ErrorMsgValidation(driver, functionality, tcname);
 		driver.close();
 	}
+	
+	@Test(priority=4)
+	public void TC004_Validate_the_functionality_of_EYE_icon_in_password_section () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as tcname
+	    String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		Browserbanner br=new Browserbanner();
+		Computed_MyAccount myAcct = new Computed_MyAccount();
+		Computed_HardLogin hardlogin = new Computed_HardLogin();
+		Computed_SoftLogin softlogin =  new Computed_SoftLogin();
+		driver= br.BrowserBanner(driver, functionality);
+		driver=br.Clearcookie(driver, functionality);
+		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
+		driver=hardlogin.Account_HardLogin(driver, functionality,tcname);
+	    driver=myAcct.Validate_EYEIcon_PAssword(driver,functionality,tcname);
+		
+	}
 }
 	

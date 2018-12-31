@@ -532,7 +532,7 @@ public class Computed_MyAccount
 				     Reporter.log("Error message is displayed when repeated digits PIN is entered : "+myaccountpage.getText_txt_Error_SetPin_Msg());
 				    /* Actions builder = new Actions(driver);
 				     builder.moveToElement(myaccountpage.click_Info_Icon).perform();*/
-				      if(myaccountpage.click_Info_Icon.isDisplayed())
+				      if(myaccountpage.isDisplayed_txt_Error_Pin_Modal_Msg())
 				      	{
 				    	 System.out.println("Pop up");
 				    	 Reporter.log("PIN requirement pop up is opened when error message is displayed :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
@@ -1108,5 +1108,34 @@ public class Computed_MyAccount
 		return driver;
 
 		}
-
+	
+	public WebDriver Validate_EYEIcon_PAssword(WebDriver driver,String Functionality,String TCName) throws IOException, InterruptedException, AWTException 
+	{
+		
+		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
+		
+	  //EYE ICON
+		myaccountpage.type_txt_Set_Password1_Field("7898");
+		myaccountpage.click_txt_Set_Password2_Field();
+    String Type= myaccountpage.txt_Set_Password1_Field.getAttribute("type");
+    if(Type.equals("password"))
+    {
+    	Reporter.log("Password is displayed in encrypted form");
+    }
+    else
+    {
+    	Assert.fail("Password is not displayed in encrypted form");
+    }
+    myaccountpage.click_click_Eye_Icon_SetPassword();
+    String Type1= myaccountpage.txt_Set_Password1_Field.getAttribute("type");
+    if(Type1.equals("text"))
+    {
+    	Reporter.log("User is able to see the numbers after clicking Eye icon");
+    }
+    else
+    {
+    	Assert.fail("User is NOT able to see the numbers after clicking Eye icon");
+    }
+    return driver;
+	}
 }

@@ -2,9 +2,11 @@
 package  generatedClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 public class POM_Generated_MyAccountPage { 
 	WebDriver driver;
@@ -26,7 +28,7 @@ public class POM_Generated_MyAccountPage {
 	public WebElement txt_Rewards_Card_Number_Text;
 	
 	// Associated Label : Email_Address_Field
-	@FindBy(xpath = "//input[@id='email']")
+	@FindBy(id = "email")
 	public WebElement txt_Email_Address_Field;
 	
 	// Associated Label : Set_Password1_Field
@@ -77,19 +79,37 @@ public class POM_Generated_MyAccountPage {
 	@FindBy(id = "errorconfirmPin")
 	public WebElement txt_Error_NotMatchingPIns_Msg;
 	
-	//Associated Label : click_Info_Icon
-	@FindBy(id="setInfo")
-	public WebElement click_Info_Icon;
-	
 	// Associated Label : Error_Pin_Modal_Msg
-	//@FindBy(xpath = "//div[@class='modalshow']//*[contains(text(),'Must not be four repeating')]")
-	@FindBy(xpath = "//strong[contains(text(),'Must not be four repeating')][1]")
-	//@FindBy(css=".pin-tooltip")
+	@FindBy(xpath = "//div[@id='message1']")
 	public WebElement txt_Error_Pin_Modal_Msg;
 	
 	// Associated Label : Error_InvalidPins_3Times_Msg
 	@FindBy(xpath = "//span[@id='error-invalidconfirmPin'][contains(text(),'Please call Customer')]")
 	public WebElement txt_Error_InvalidPins_3Times_Msg;
+	
+	// Associated Label : Info_Icon_SetPIN
+	@FindBy(id = "infopin")
+	public WebElement click_Info_Icon_SetPIN;
+	
+	// Associated Label : Info_Icon_ConfirmPIN
+	@FindBy(id = "infoconpin")
+	public WebElement click_Info_Icon_ConfirmPIN;
+	
+	// Associated Label : Eye_Icon_SetPIN
+	@FindBy(id = "setpinimg")
+	public WebElement click_Eye_Icon_SetPIN;
+	
+	// Associated Label : Eye_Icon_ConfirmPIN
+	@FindBy(id = "confirmimg")
+	public WebElement click_Eye_Icon_ConfirmPIN;
+	
+	// Associated Label : Eye_Icon_SetPassword
+	@FindBy(id = "pwdimg")
+	public WebElement click_Eye_Icon_SetPassword;
+	
+	// Associated Label : Eye_Icon_ConfirmPassword
+	@FindBy(id = "confirmpwdimg")
+	public WebElement click_Eye_Icon_ConfirmPassword;
 	
 
 //*******************************************************************************
@@ -866,6 +886,246 @@ public class POM_Generated_MyAccountPage {
 	// selected or Not :  Error_InvalidPins_3Times_Msg
 	public boolean isSelected_txt_Error_InvalidPins_3Times_Msg(){
 		if(txt_Error_InvalidPins_3Times_Msg.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Info_Icon_SetPIN
+	public void click_click_Info_Icon_SetPIN(){
+		click_Info_Icon_SetPIN.click();
+	}
+
+	// Hover:  Info_Icon_SetPIN
+	public void hover_click_Info_Icon_SetPIN(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Info_Icon_SetPIN).build().perform();
+	}
+
+	// visible or Not :  Info_Icon_SetPIN
+	public boolean isDisplayed_click_Info_Icon_SetPIN(){
+		if(click_Info_Icon_SetPIN.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Info_Icon_SetPIN
+	public boolean isEnabled_click_Info_Icon_SetPIN(){
+		if(click_Info_Icon_SetPIN.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Info_Icon_SetPIN
+	public String getCssValue_click_Info_Icon_SetPIN(String attribute) {
+		return click_Info_Icon_SetPIN.getCssValue(attribute);
+	}
+
+	//Get the text :  Info_Icon_SetPIN
+	public String getText_click_Info_Icon_SetPIN(){
+		return click_Info_Icon_SetPIN.getText();
+	}
+
+	//Get the value :  Info_Icon_SetPIN
+	public String getValue_click_Info_Icon_SetPIN(){
+		return click_Info_Icon_SetPIN.getAttribute("value");
+	}
+	// selected or Not :  Info_Icon_SetPIN
+	public boolean isSelected_click_Info_Icon_SetPIN(){
+		if(click_Info_Icon_SetPIN.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Info_Icon_ConfirmPIN
+	public void click_click_Info_Icon_ConfirmPIN(){
+		click_Info_Icon_ConfirmPIN.click();
+	}
+
+	// Hover:  Info_Icon_ConfirmPIN
+	public void hover_click_Info_Icon_ConfirmPIN(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Info_Icon_ConfirmPIN).build().perform();
+	}
+
+	// visible or Not :  Info_Icon_ConfirmPIN
+	public boolean isDisplayed_click_Info_Icon_ConfirmPIN(){
+		if(click_Info_Icon_ConfirmPIN.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Info_Icon_ConfirmPIN
+	public boolean isEnabled_click_Info_Icon_ConfirmPIN(){
+		if(click_Info_Icon_ConfirmPIN.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Info_Icon_ConfirmPIN
+	public String getCssValue_click_Info_Icon_ConfirmPIN(String attribute) {
+		return click_Info_Icon_ConfirmPIN.getCssValue(attribute);
+	}
+
+	//Get the text :  Info_Icon_ConfirmPIN
+	public String getText_click_Info_Icon_ConfirmPIN(){
+		return click_Info_Icon_ConfirmPIN.getText();
+	}
+
+	//Get the value :  Info_Icon_ConfirmPIN
+	public String getValue_click_Info_Icon_ConfirmPIN(){
+		return click_Info_Icon_ConfirmPIN.getAttribute("value");
+	}
+	// selected or Not :  Info_Icon_ConfirmPIN
+	public boolean isSelected_click_Info_Icon_ConfirmPIN(){
+		if(click_Info_Icon_ConfirmPIN.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Eye_Icon_SetPIN
+	public void click_click_Eye_Icon_SetPIN(){
+		click_Eye_Icon_SetPIN.click();
+	}
+
+	// Hover:  Eye_Icon_SetPIN
+	public void hover_click_Eye_Icon_SetPIN(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Eye_Icon_SetPIN).build().perform();
+	}
+
+	// visible or Not :  Eye_Icon_SetPIN
+	public boolean isDisplayed_click_Eye_Icon_SetPIN(){
+		if(click_Eye_Icon_SetPIN.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Eye_Icon_SetPIN
+	public boolean isEnabled_click_Eye_Icon_SetPIN(){
+		if(click_Eye_Icon_SetPIN.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Eye_Icon_SetPIN
+	public String getCssValue_click_Eye_Icon_SetPIN(String attribute) {
+		return click_Eye_Icon_SetPIN.getCssValue(attribute);
+	}
+
+	//Get the text :  Eye_Icon_SetPIN
+	public String getText_click_Eye_Icon_SetPIN(){
+		return click_Eye_Icon_SetPIN.getText();
+	}
+
+	//Get the value :  Eye_Icon_SetPIN
+	public String getValue_click_Eye_Icon_SetPIN(){
+		return click_Eye_Icon_SetPIN.getAttribute("value");
+	}
+	// selected or Not :  Eye_Icon_SetPIN
+	public boolean isSelected_click_Eye_Icon_SetPIN(){
+		if(click_Eye_Icon_SetPIN.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Eye_Icon_ConfirmPIN
+	public void click_click_Eye_Icon_ConfirmPIN(){
+		click_Eye_Icon_ConfirmPIN.click();
+	}
+
+	// Hover:  Eye_Icon_ConfirmPIN
+	public void hover_click_Eye_Icon_ConfirmPIN(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Eye_Icon_ConfirmPIN).build().perform();
+	}
+
+	// visible or Not :  Eye_Icon_ConfirmPIN
+	public boolean isDisplayed_click_Eye_Icon_ConfirmPIN(){
+		if(click_Eye_Icon_ConfirmPIN.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Eye_Icon_ConfirmPIN
+	public boolean isEnabled_click_Eye_Icon_ConfirmPIN(){
+		if(click_Eye_Icon_ConfirmPIN.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Eye_Icon_ConfirmPIN
+	public String getCssValue_click_Eye_Icon_ConfirmPIN(String attribute) {
+		return click_Eye_Icon_ConfirmPIN.getCssValue(attribute);
+	}
+
+	//Get the text :  Eye_Icon_ConfirmPIN
+	public String getText_click_Eye_Icon_ConfirmPIN(){
+		return click_Eye_Icon_ConfirmPIN.getText();
+	}
+
+	//Get the value :  Eye_Icon_ConfirmPIN
+	public String getValue_click_Eye_Icon_ConfirmPIN(){
+		return click_Eye_Icon_ConfirmPIN.getAttribute("value");
+	}
+	// selected or Not :  Eye_Icon_ConfirmPIN
+	public boolean isSelected_click_Eye_Icon_ConfirmPIN(){
+		if(click_Eye_Icon_ConfirmPIN.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Eye_Icon_SetPassword
+	public void click_click_Eye_Icon_SetPassword(){
+		click_Eye_Icon_SetPassword.click();
+	}
+
+	// Hover:  Eye_Icon_SetPassword
+	public void hover_click_Eye_Icon_SetPassword(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Eye_Icon_SetPassword).build().perform();
+	}
+
+	// visible or Not :  Eye_Icon_SetPassword
+	public boolean isDisplayed_click_Eye_Icon_SetPassword(){
+		if(click_Eye_Icon_SetPassword.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Eye_Icon_SetPassword
+	public boolean isEnabled_click_Eye_Icon_SetPassword(){
+		if(click_Eye_Icon_SetPassword.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Eye_Icon_SetPassword
+	public String getCssValue_click_Eye_Icon_SetPassword(String attribute) {
+		return click_Eye_Icon_SetPassword.getCssValue(attribute);
+	}
+
+	//Get the text :  Eye_Icon_SetPassword
+	public String getText_click_Eye_Icon_SetPassword(){
+		return click_Eye_Icon_SetPassword.getText();
+	}
+
+	//Get the value :  Eye_Icon_SetPassword
+	public String getValue_click_Eye_Icon_SetPassword(){
+		return click_Eye_Icon_SetPassword.getAttribute("value");
+	}
+	// selected or Not :  Eye_Icon_SetPassword
+	public boolean isSelected_click_Eye_Icon_SetPassword(){
+		if(click_Eye_Icon_SetPassword.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Eye_Icon_ConfirmPassword
+	public void click_click_Eye_Icon_ConfirmPassword(){
+		click_Eye_Icon_ConfirmPassword.click();
+	}
+
+	// Hover:  Eye_Icon_ConfirmPassword
+	public void hover_click_Eye_Icon_ConfirmPassword(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Eye_Icon_ConfirmPassword).build().perform();
+	}
+
+	// visible or Not :  Eye_Icon_ConfirmPassword
+	public boolean isDisplayed_click_Eye_Icon_ConfirmPassword(){
+		if(click_Eye_Icon_ConfirmPassword.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Eye_Icon_ConfirmPassword
+	public boolean isEnabled_click_Eye_Icon_ConfirmPassword(){
+		if(click_Eye_Icon_ConfirmPassword.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Eye_Icon_ConfirmPassword
+	public String getCssValue_click_Eye_Icon_ConfirmPassword(String attribute) {
+		return click_Eye_Icon_ConfirmPassword.getCssValue(attribute);
+	}
+
+	//Get the text :  Eye_Icon_ConfirmPassword
+	public String getText_click_Eye_Icon_ConfirmPassword(){
+		return click_Eye_Icon_ConfirmPassword.getText();
+	}
+
+	//Get the value :  Eye_Icon_ConfirmPassword
+	public String getValue_click_Eye_Icon_ConfirmPassword(){
+		return click_Eye_Icon_ConfirmPassword.getAttribute("value");
+	}
+	// selected or Not :  Eye_Icon_ConfirmPassword
+	public boolean isSelected_click_Eye_Icon_ConfirmPassword(){
+		if(click_Eye_Icon_ConfirmPassword.isSelected()) { return true; } else { return false;} 
 	}
 
 }
