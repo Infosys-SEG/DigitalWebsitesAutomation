@@ -102,11 +102,6 @@ import generatedClass.POM_Generated_Homepage;
 						  }
 					if(homepage.isDisplayed_click_WeeklyAd_Logo())
 					{
-						
-						String 	logo2=homepage.getText_click_WeeklyAd_Logo();	
-						Reporter.log(logo2 +" logo is displayed in home page");	
-					    homepage.click_click_WeeklyAd_Logo();
-					    
 					    String wa_orP="https://"+value+".pdn.retaileriq.com/weeklyad/ - Google Chrome";
 				    	String ie="Windows Security";
 				    	String bro="";
@@ -120,7 +115,11 @@ import generatedClass.POM_Generated_Homepage;
 				    	}
 				    	String Val = obj.popuppath()+" "+bro;
 			    	    Runtime.getRuntime().exec(Val);
-			    	
+			    	    
+			    	    String 	logo2=homepage.getText_click_WeeklyAd_Logo();	
+						Reporter.log(logo2 +" logo is displayed in home page");	
+						
+					    homepage.click_click_WeeklyAd_Logo();
 					    String adurl=driver.getCurrentUrl();
 					    //* System.out.println(adurl);
 						String adurl1="https://"+value+".pdn.retaileriq.com/weeklyad/storelocator/";
@@ -249,9 +248,7 @@ import generatedClass.POM_Generated_Homepage;
 					if(homepage.isDisplayed_click_WeeklyAd_Logo())
 					{
 						
-						String 	logo2=homepage.getText_click_WeeklyAd_Logo();	
-						Reporter.log(logo2 +" logo is displayed in home page");	
-					    homepage.click_click_WeeklyAd_Logo();
+						
 					    
 					    String wa_orP="https://"+value+".pdn.retaileriq.com/weeklyad/ - Google Chrome";
 				    	String ie="Windows Security";
@@ -267,6 +264,11 @@ import generatedClass.POM_Generated_Homepage;
 				    	String Val = obj.popuppath()+" "+bro;
 			    	    Runtime.getRuntime().exec(Val);
 			    	
+			    	    
+			    	    String 	logo2=homepage.getText_click_WeeklyAd_Logo();	
+						Reporter.log(logo2 +" logo is displayed in home page");	
+					    homepage.click_click_WeeklyAd_Logo();
+					    
 					    String adurl=driver.getCurrentUrl();
 					    //* System.out.println(adurl);
 						String adurl1="https://"+value+".pdn.retaileriq.com/weeklyad/storelocator/";

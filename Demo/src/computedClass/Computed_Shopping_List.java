@@ -66,15 +66,16 @@ public class Computed_Shopping_List
 	    		bro=ie;
 	    	}
 	    	String Val = obj.popuppath()+" "+bro;
-    	
+	    	Runtime.getRuntime().exec(Val);
+	    	
 	    	obj.waitForElementClickable(driver, logo);
 	    	logo.click();
     		obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
-    		Runtime.getRuntime().exec(Val);
+    		
     		
     		homepage.click_click_Savings_link_Hover();	
     		
-    		obj.waitForElementClickable(driver, homepage.click_Savings_WeeklyAd_Button);
+    		//obj.waitForElementClickable(driver, homepage.click_Savings_WeeklyAd_Button);
     		
     		homepage.click_click_Savings_WeeklyAd_Button();
     		
@@ -98,10 +99,13 @@ public class Computed_Shopping_List
 		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			String sc=shoppinglistpage.getText_txt_List_Count_Text();
 			int scl=Integer.parseInt(sc);
-			if(scl!=count)
+			if(!actionverify.equalsIgnoreCase(""))
 			{
-				driver.close();
-				Assert.fail("count not updated");
+				if(scl!=count)
+				{
+					driver.close();
+					Assert.fail("count not updated");
+				}
 			}
 			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
 			shoppinglistpage.click_click_List_icon_Button();
@@ -129,7 +133,31 @@ public class Computed_Shopping_List
 	        }
 			Thread.sleep(2000);
 			totalprod= shoppinglistpage.txt_Total_Products_Text;
-			System.out.println(totalprod.size());
+			
+			try
+			{
+				if(shoppinglistpage.isDisplayed_click_Print_List_Button())
+				{
+					Reporter.log("Print list button is displayed in shopping list page");
+				}
+				else
+				{
+					Assert.fail("Print list button is not displayed in shopping list page");
+				}
+				if(shoppinglistpage.isDisplayed_click_Email_List_Button())
+				{
+					Reporter.log("Email list button is displayed in shopping list page");
+				}
+				else
+				{
+					Assert.fail("Email list button is not displayed in shopping list page");
+				}
+			}
+			catch(Exception e)
+			{
+				Assert.fail("Error in Email list  or print list button in shopping list page");
+			}
+			obj.movetoElementofAPage(driver, shoppinglistpage.click_Weekly_Ad_Items_Checkbox);
 			if(totalprod.size()!=0)
 			{
 				prodsummary=shoppinglistpage.txt_Product_Summary_Text;
@@ -194,6 +222,7 @@ public class Computed_Shopping_List
 				    			
 				    			if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
+				    				
 				    				chk=true;
 				    				finished=true;
 				    				break outerloop;
@@ -239,7 +268,14 @@ public class Computed_Shopping_List
 				    			}
 				    				
 				    		}
-				    		
+				    		else if(actionverify.equalsIgnoreCase(""))
+				    		{
+				    			
+				    		}
+				    		else
+				    		{
+				    			Assert.fail("Check action verify parameter forn shopping list");
+				    		}
 		    			}
 		    		}
 				}
@@ -283,10 +319,14 @@ public class Computed_Shopping_List
 		    		Reporter.log("Products removed from shopping list");
 		    	}
 		    }
-		    else
+		    else if(actionverify.equalsIgnoreCase(""))
 		    {
-		    	Assert.fail("error in action verify in shoppinglist");
+		    	Reporter.log("verified shopping list only as expected");
 		    }
+		    else
+    		{
+    			Assert.fail("Check action verify parameter from shopping list");
+    		}
 		    obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
 		    shoppinglistpage.click_click_Close_Button();
 		    	
@@ -313,7 +353,7 @@ public class Computed_Shopping_List
 		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			String sc=shoppinglistpage.getText_txt_List_Count_Text();
 			int scl=Integer.parseInt(sc);
-			
+			System.out.println(scl);
 			if(scl!=count)
 			{
 				driver.close();
@@ -432,6 +472,291 @@ public class Computed_Shopping_List
 	    return driver;
 	}
 	
+	
+	public WebDriver Add_Remove_MyItems_ShoppingList(WebDriver driver,String Functionality,String TCName, int count,String action) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
+		Data obj=new Data();
+		Robot rb = new Robot();
+		String prodname="";
+	    try
+	    { 	   
+	    	
+		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
+			String sc=shoppinglistpage.getText_txt_List_Count_Text();
+			count=Integer.parseInt(sc);
+			
+			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
+			shoppinglistpage.click_click_List_icon_Button();
+	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);
+	        
+	        rb.keyPress(KeyEvent.VK_TAB);
+			rb.keyRelease(KeyEvent.VK_TAB);
+			rb.keyPress(KeyEvent.VK_TAB);
+			rb.keyRelease(KeyEvent.VK_TAB);
+			obj.scrollingToTop(driver);
+	        
+			if(shoppinglistpage.isSelected_click_Weekly_Ad_Items_Checkbox())
+			{
+				shoppinglistpage.click_click_Weekly_Ad_Items_Checkbox();
+				obj.waitForElementselected(driver, shoppinglistpage.click_Weekly_Ad_Items_Checkbox);
+			}
+			if(shoppinglistpage.isSelected_click_Coupons_Checkbox())
+			{
+				shoppinglistpage.click_click_Coupons_Checkbox();
+	        }
+			if(!shoppinglistpage.isSelected_click_My_Items_Checkbox())
+			{
+				shoppinglistpage.click_click_My_Items_Checkbox();
+				obj.waitForElementselected(driver, shoppinglistpage.click_My_Items_Checkbox);
+	        }
+			Thread.sleep(2000);		
+			try 
+			{
+				obj.movetoElementofAPage(driver, shoppinglistpage.click_Remove_All_Checked_Items_Button);
+				if(!shoppinglistpage.isEnabled_click_Remove_All_Checked_Items_Button())
+				{
+					Reporter.log("Remove all checked items button is disabled pre selection");
+				}
+				else
+				{
+					//Assert.fail("Remove all checked items button is enabled pre selection");
+				}
+			}
+			catch(Exception e)
+			{
+				Assert.fail("Error in Remove all checked items button");
+			}
+			
+			try
+			{
+				if(shoppinglistpage.isDisplayed_click_Print_List_Button())
+				{
+					Reporter.log("Print list button is displayed in shopping list page");
+				}
+				else
+				{
+					Assert.fail("Print list button is not displayed in shopping list page");
+				}
+				if(shoppinglistpage.isDisplayed_click_Email_List_Button())
+				{
+					Reporter.log("Email list button is displayed in shopping list page");
+				}
+				else
+				{
+					Assert.fail("Email list button is not displayed in shopping list page");
+				}
+			}
+			catch(Exception e)
+			{
+				Assert.fail("Error in Email list or print list button in shopping list page");
+			}
+			
+			obj.movetoElementofAPage(driver, shoppinglistpage.click_Weekly_Ad_Items_Checkbox);
+			
+			obj.waitForElementClickable(driver, shoppinglistpage.txt_ADD_An_Item_Text_Field);
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+			prodname=Readexcel_RowName.getValue("Add_An_Item");
+			if(action.equalsIgnoreCase("Add"))
+			{				
+				
+				shoppinglistpage.type_txt_ADD_An_Item_Text_Field(prodname);
+				shoppinglistpage.click_click_ADD_An_Item_Icon();
+				Thread.sleep(1000);
+				Reporter.log("Clicked add an item button in shopping list");
+				this.count=count+1;
+			}
+			else if(action.equalsIgnoreCase("Remove"))
+			{
+				boolean prodchk=true;
+				String item="";
+				totalprod= shoppinglistpage.txt_MyItem_Product_Name;
+				Delete=shoppinglistpage.click_My_Items_check_Delete_Icon;
+				if(totalprod.size()==0)
+				{
+					prodchk=false;
+				}
+				int size=totalprod.size();	
+				
+				boolean finished = false;
+				if(prodchk==true) 
+				{
+					outerloop:
+					for(int k=0;k<size;k++)
+					{		
+						for(int j=0;j<size && finished==false;j++)
+						{    	
+							item= totalprod.get(k).getText();
+							System.out.println("item"+item);
+							if(item.isEmpty())
+							{
+								rb.keyPress(KeyEvent.VK_DOWN);
+								rb.keyRelease(KeyEvent.VK_DOWN);
+						   	}
+							else if(prodname.equalsIgnoreCase(item))
+							{	
+				    				finished=true;
+				    				Delete.get(k).click();
+				    				Thread.sleep(3000);
+				    				this.count=count-1;
+				    				Reporter.log("Clicked delete icon in shopping list for myitems");
+				    				break outerloop;		    						
+				    		}				    		
+						}
+				  	}
+				}   
+				
+			}
+			obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
+			shoppinglistpage.click_click_Close_Button();	  
+	    }
+	    catch(Exception e)
+	    {
+	    	//driver.close();
+	    	System.out.println(e);
+	    	Assert.fail("Error in shopping list");
+	    	
+	    }
+	
+	    return driver;  	  
+	}
+	
+	
+	public WebDriver Check_MyItems_ShoppingList(WebDriver driver,String Functionality,String TCName,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
+		Data obj=new Data();
+		Robot rb = new Robot();
+		String prodname="";
+	    try
+	    { 	   
+		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
+			String sc=shoppinglistpage.getText_txt_List_Count_Text();
+			int scl=Integer.parseInt(sc);
+			
+			if(scl!=count)
+			{
+				driver.close();
+				Assert.fail("count not updated");
+			}
+			
+			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
+			shoppinglistpage.click_click_List_icon_Button();
+	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);
+	        
+	        boolean prodchk=true;
+	        boolean chk=false;
+	        rb.keyPress(KeyEvent.VK_TAB);
+			rb.keyRelease(KeyEvent.VK_TAB);
+			rb.keyPress(KeyEvent.VK_TAB);
+			rb.keyRelease(KeyEvent.VK_TAB);
+			obj.scrollingToTop(driver);
+	        
+			if(shoppinglistpage.isSelected_click_Weekly_Ad_Items_Checkbox())
+			{
+				shoppinglistpage.click_click_Weekly_Ad_Items_Checkbox();
+				
+			}
+			if(shoppinglistpage.isSelected_click_Coupons_Checkbox())
+			{
+				shoppinglistpage.click_click_Coupons_Checkbox();
+	        }
+			if(!shoppinglistpage.isSelected_click_My_Items_Checkbox())
+			{
+				shoppinglistpage.click_click_My_Items_Checkbox();
+				obj.waitForElementselected(driver, shoppinglistpage.click_My_Items_Checkbox);
+	        }
+			String item="";
+			totalprod= shoppinglistpage.txt_MyItem_Product_Name;
+			if(totalprod.size()==0)
+			{
+				prodchk=false;
+			}
+			int size=totalprod.size();	
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+			prodname=Readexcel_RowName.getValue("Add_An_Item");
+			boolean finished = false;
+			if(prodchk==true) 
+			{
+				outerloop:
+				for(int k=0;k<size;k++)
+				{		
+					for(int j=0;j<size && finished==false;j++)
+					{    	
+						item= totalprod.get(k).getText();
+						if(item.isEmpty())
+						{
+							rb.keyPress(KeyEvent.VK_DOWN);
+							rb.keyRelease(KeyEvent.VK_DOWN);
+					   	}
+						else
+						{
+							if(actionverify.equalsIgnoreCase("Added"))
+							{
+								if(prodname.equalsIgnoreCase(item))
+								{	
+									finished=true;
+									chk=true;
+									Thread.sleep(3000);
+								
+									break outerloop;		
+								}
+							}
+							else if(actionverify.equalsIgnoreCase("Removed"))
+							{
+								if(prodname.equalsIgnoreCase(item))
+								{	
+									finished=true;
+									chk=true;
+									Thread.sleep(3000);
+								
+									break outerloop;		
+								}
+							}
+						}
+					}
+			  	}
+			}   
+			if(actionverify.equalsIgnoreCase("Added"))
+		    {
+		    	if(chk==false)
+		    	{
+		    		//driver.close();
+		    		Assert.fail("Products are not displaying in shoppinglist when items added from myitems");
+		    		
+		    	}
+		    	else
+		    	{
+		    		Reporter.log("Products added in shopping list when items added from myitems");
+		    	}
+		    }
+		    else if(actionverify.equalsIgnoreCase("Removed"))
+		    {
+		    	if(chk==true)
+		    	{
+		    		driver.close();
+		    		Assert.fail("Products are displaying in shoppinglist when items removed from myitems");
+		    		
+		    	}
+		    	else
+		    	{
+		    		Reporter.log("Products removed in shopping list when items removed from myitems");
+		    	}
+		    }
+			obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
+			shoppinglistpage.click_click_Close_Button();
+		}
+	    catch(Exception e)
+	    {
+	    	//driver.close();
+	    	System.out.println(e);
+	    	Assert.fail("Error in myitems shopping list");
+	    	
+	    }
+	
+	    return driver;  	  
+	}
+
 	public String getproddetails() 
 	{
 		return proddetails;

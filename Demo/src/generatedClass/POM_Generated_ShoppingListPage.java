@@ -87,8 +87,16 @@ public class POM_Generated_ShoppingListPage {
 	@FindBy(xpath = "//p[text()='email list']")
 	public WebElement click_Email_List_Button;
 	
+	// Associated Label : MyItem_Product_Name
+	@FindBy(xpath = "//a[@name='itemName']")
+	public List<WebElement> txt_MyItem_Product_Name;
+	
+	// Associated Label : My_Items_check_Delete_Icon
+	@FindBy(xpath = "//div[@class='delete']")
+	public List<WebElement> click_My_Items_check_Delete_Icon;
+	
 	// Associated Label : Weekly_Ad_Items_check_Delete_Icon
-	@FindBy(xpath = "//div[@aria-label='  Delete this item']")
+	@FindBy(xpath = "//div[@class='listItem offer ui-sortable-handle']//div[@aria-label='  Delete this item']")
 	public List<WebElement> click_Weekly_Ad_Items_check_Delete_Icon;
 	
 
@@ -812,6 +820,92 @@ public class POM_Generated_ShoppingListPage {
 	// selected or Not :  Email_List_Button
 	public boolean isSelected_click_Email_List_Button(){
 		if(click_Email_List_Button.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  MyItem_Product_Name
+	public void type_txt_MyItem_Product_Name(String value) {
+		txt_MyItem_Product_Name.clear();
+		((WebElement) txt_MyItem_Product_Name).sendKeys(value);
+	}
+
+	//click:  MyItem_Product_Name
+	public void click_txt_MyItem_Product_Name(){
+		((WebElement) txt_MyItem_Product_Name).click();
+	}
+
+	// Hover:  MyItem_Product_Name
+	public void hover_txt_MyItem_Product_Name(){
+		Actions action=new Actions(driver); 
+		action.moveToElement((WebElement) txt_MyItem_Product_Name).build().perform();
+	}
+
+	// visible or Not :  MyItem_Product_Name
+	public boolean isDisplayed_txt_MyItem_Product_Name(){
+		if(((WebElement) txt_MyItem_Product_Name).isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  MyItem_Product_Name
+	public boolean isEnabled_txt_MyItem_Product_Name(){
+		if(((WebElement) txt_MyItem_Product_Name).isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  MyItem_Product_Name
+	public String getCssValue_txt_MyItem_Product_Name(String attribute) {
+		return ((WebElement) txt_MyItem_Product_Name).getCssValue(attribute);
+	}
+
+	//Get the text :  MyItem_Product_Name
+	public String getText_txt_MyItem_Product_Name(){
+		return ((WebElement) txt_MyItem_Product_Name).getText();
+	}
+
+	//Get the value :  MyItem_Product_Name
+	public String getValue_txt_MyItem_Product_Name(){
+		return ((WebElement) txt_MyItem_Product_Name).getAttribute("value");
+	}
+	// selected or Not :  MyItem_Product_Name
+	public boolean isSelected_txt_MyItem_Product_Name(){
+		if(((WebElement) txt_MyItem_Product_Name).isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  My_Items_check_Delete_Icon
+	public void click_click_My_Items_check_Delete_Icon(){
+		((WebElement) click_My_Items_check_Delete_Icon).click();
+	}
+
+	// Hover:  My_Items_check_Delete_Icon
+	public void hover_click_My_Items_check_Delete_Icon(){
+		Actions action=new Actions(driver); 
+		action.moveToElement((WebElement) click_My_Items_check_Delete_Icon).build().perform();
+	}
+
+	// visible or Not :  My_Items_check_Delete_Icon
+	public boolean isDisplayed_click_My_Items_check_Delete_Icon(){
+		if(((WebElement) click_My_Items_check_Delete_Icon).isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  My_Items_check_Delete_Icon
+	public boolean isEnabled_click_My_Items_check_Delete_Icon(){
+		if(((WebElement) click_My_Items_check_Delete_Icon).isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  My_Items_check_Delete_Icon
+	public String getCssValue_click_My_Items_check_Delete_Icon(String attribute) {
+		return ((WebElement) click_My_Items_check_Delete_Icon).getCssValue(attribute);
+	}
+
+	//Get the text :  My_Items_check_Delete_Icon
+	public String getText_click_My_Items_check_Delete_Icon(){
+		return ((WebElement) click_My_Items_check_Delete_Icon).getText();
+	}
+
+	//Get the value :  My_Items_check_Delete_Icon
+	public String getValue_click_My_Items_check_Delete_Icon(){
+		return ((WebElement) click_My_Items_check_Delete_Icon).getAttribute("value");
+	}
+	// selected or Not :  My_Items_check_Delete_Icon
+	public boolean isSelected_click_My_Items_check_Delete_Icon(){
+		if(((WebElement) click_My_Items_check_Delete_Icon).isSelected()) { return true; } else { return false;} 
 	}
 
 	//click:  Weekly_Ad_Items_check_Delete_Icon

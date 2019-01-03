@@ -59,12 +59,18 @@ public class Computed_FullyEnrollment_Flow
 			{
 				accountlookuppage.type_txt_Phone_Number_Field(Readexcel_RowName.getValue("Phone/Card_Number"));
 			}
-			obj.scrollingToElementofAPage(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
-			accountlookuppage.click_click_Get_Started_With_SEG_Button();	
+			Thread.sleep(1500);
+			obj.movetoElementofAPage_Click(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
+			
+			//accountlookuppage.click_click_Get_Started_With_SEG_Button();
+			
 			try
 			{
+				
 				obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
+				
 				onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
+				
 			}
 			catch(Exception e1)
 			{
@@ -232,7 +238,8 @@ public class Computed_FullyEnrollment_Flow
 		    	/*driver.close();*/
 		    	Assert.fail("State is not pre populating");
 			}
-		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_Primary_Phone_Number_Field);		    
+		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_Primary_Phone_Number_Field);	
+		    contactinfopage.click_txt_Primary_Phone_Number_Field();
 		    String phonenumsheet=Readexcel_RowName.getValue("Primary_Phone");		    
 		    phonenumsheet=phonenumsheet.replaceAll("-", "");
 		   

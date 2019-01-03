@@ -29,7 +29,7 @@ public class Computed_HardLogin
 	// Global hardlogin
 	
 
-	public WebDriver Global_HardLogin(WebDriver driver,String functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Global_HardLogin(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);
@@ -38,10 +38,10 @@ public class Computed_HardLogin
 	     
 	    try
 		{	
-	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",functionality, TCName);
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality, TCName);
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
-	    	
+	    	System.out.println(Hardlogin_Email_Address);
 	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
@@ -66,6 +66,7 @@ public class Computed_HardLogin
 		}
 	    catch(Exception e)
 	    {
+	    	System.out.println(e);
 	    	Assert.fail("Error in hardlogin page");
 	    }
 	   

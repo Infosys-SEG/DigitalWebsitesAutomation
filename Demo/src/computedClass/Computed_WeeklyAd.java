@@ -41,8 +41,7 @@ public class Computed_WeeklyAd
     	{
 	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
 	    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
-	    	{  	
-	    		
+	    	{  		
 	    		value="winndixie";
 	    		url="https://winndixie.pdn.retaileriq.com/weeklyad/storelocator/";
 	    		logo= homepage.click_Winndixie_logo;
@@ -73,7 +72,7 @@ public class Computed_WeeklyAd
 	    		bro=ie;
 	    	}
 	    	String Val = obj.popuppath()+" "+bro;
-    	
+	    	Runtime.getRuntime().exec(Val);
 	    	obj.waitForElementClickable(driver, logo);
 	    	logo.click();
     		obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);

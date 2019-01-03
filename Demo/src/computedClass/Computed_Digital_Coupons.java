@@ -64,12 +64,12 @@ public class Computed_Digital_Coupons
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
-			
+			Runtime.getRuntime().exec(Val);
 	        obj.waitForElementClickable(driver, logo);
 			logo.click();
 
 			obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
-			Runtime.getRuntime().exec(Val);
+			
 			
 			homepage.click_click_Savings_link_Hover();
 			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);
@@ -155,11 +155,12 @@ public class Computed_Digital_Coupons
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
+			Runtime.getRuntime().exec(Val);
 			obj.waitForElementClickable(driver, logo);
 			
 			logo.click();
 			Thread.sleep(2000);
-			Runtime.getRuntime().exec(Val);
+			
 			homepage.click_click_Digitial_Coupons_Logo();
 			
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
@@ -245,15 +246,17 @@ public class Computed_Digital_Coupons
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
+			//To handle window pop up Authentication				
+			Runtime.getRuntime().exec(Val);
+			Thread.sleep(2000);
+			obj.movetoElementofAPage_Click(driver, logo);
+			/*obj.waitForElementClickable(driver, logo);	
 			
-			obj.waitForElementClickable(driver, logo);	
-			
-			logo.click();
+			logo.click();*/
 			
 			obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);	
 			
-			//To handle window pop up Authentication				
-			Runtime.getRuntime().exec(Val);
+			
 					
 			homepage.click_click_Savings_link_Hover();
 			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);
@@ -291,12 +294,17 @@ public class Computed_Digital_Coupons
 							{
 								this.prod=prod;
 								count=count+1;
+								System.out.println("count--"+count);
 								this.count=count;
 								aa=false;
 							}
 						}
 						catch(NoSuchElementException e1)
 						{
+							this.prod=prod;
+							count=count+1;
+							System.out.println("count--"+count);
+							this.count=count;
 							aa=false;
 						}
 					}
@@ -370,18 +378,14 @@ public class Computed_Digital_Coupons
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
+			//To handle window pop up Authentication				
+			Runtime.getRuntime().exec(Val);
 			obj.waitForElementClickable(driver, logo);	
 			
 			logo.click();
 			
 			Reporter.log("waiting for element");
 			Thread.sleep(2000);
-			
-			
-			//To handle window pop up Authentication				
-			Runtime.getRuntime().exec(Val);
-			
-				
 			obj.movetoElementofAPage_Click(driver, homepage.click_Digitial_Coupons_Logo);
 			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();

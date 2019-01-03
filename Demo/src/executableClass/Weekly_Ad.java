@@ -75,8 +75,8 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"overlay");
-		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count,"overlay");
+		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
+		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
@@ -97,8 +97,8 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
-		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count,"circularpage");
+		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"overlay");
+		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count,"overlay");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();

@@ -4,22 +4,43 @@
     <line>
       <![CDATA[Logged in successfully ]]>
     </line>
+    <line>
+      <![CDATA[Print list button is displayed in shopping list page]]>
+    </line>
+    <line>
+      <![CDATA[Email list button is displayed in shopping list page]]>
+    </line>
+    <line>
+      <![CDATA[Clicked add an item button in shopping list]]>
+    </line>
+    <line>
+      <![CDATA[Products added in shopping list when items added from myitems]]>
+    </line>
+    <line>
+      <![CDATA[Print list button is displayed in shopping list page]]>
+    </line>
+    <line>
+      <![CDATA[Email list button is displayed in shopping list page]]>
+    </line>
+    <line>
+      <![CDATA[Clicked delete icon in shopping list for myitems]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="87234" started-at="2018-12-31T10:57:56Z" finished-at="2018-12-31T10:59:23Z">
+  <suite name="Default suite" duration-ms="111311" started-at="2019-01-03T10:41:44Z" finished-at="2019-01-03T10:43:36Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="87234" started-at="2018-12-31T10:57:56Z" finished-at="2018-12-31T10:59:23Z">
-      <class name="executableClass.Weekly_Ad">
-        <test-method status="FAIL" signature="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added()[pri:1, instance:executableClass.Weekly_Ad@59ec2012]" name="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added" duration-ms="87120" started-at="2018-12-31T16:27:56Z" finished-at="2018-12-31T16:29:23Z">
+    <test name="Default test" duration-ms="111311" started-at="2019-01-03T10:41:44Z" finished-at="2019-01-03T10:43:36Z">
+      <class name="executableClass.Shopping_List">
+        <test-method status="FAIL" signature="TC_06_Shopping_List_Remove_item_MyItems()[pri:4, instance:executableClass.Shopping_List@59ec2012]" name="TC_06_Shopping_List_Remove_item_MyItems" duration-ms="111222" started-at="2019-01-03T16:11:44Z" finished-at="2019-01-03T16:13:36Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Error in Weekly Ad page]]>
+              <![CDATA[Products are displaying in shoppinglist when items removed from myitems]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Error in Weekly Ad page
+              <![CDATA[java.lang.AssertionError: Products are displaying in shoppinglist when items removed from myitems
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_WeeklyAd.WeeklyAdPage(Computed_WeeklyAd.java:136)
-	at executableClass.Weekly_Ad.TC01_Add_items_to_list_ADD_TO_LIST_button_item_added(Weekly_Ad.java:37)
+	at computedClass.Computed_Shopping_List.Check_MyItems_ShoppingList(Computed_Shopping_List.java:738)
+	at executableClass.Shopping_List.TC_06_Shopping_List_Remove_item_MyItems(Shopping_List.java:97)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -52,9 +73,30 @@
             <line>
               <![CDATA[Logged in successfully ]]>
             </line>
+            <line>
+              <![CDATA[Print list button is displayed in shopping list page]]>
+            </line>
+            <line>
+              <![CDATA[Email list button is displayed in shopping list page]]>
+            </line>
+            <line>
+              <![CDATA[Clicked add an item button in shopping list]]>
+            </line>
+            <line>
+              <![CDATA[Products added in shopping list when items added from myitems]]>
+            </line>
+            <line>
+              <![CDATA[Print list button is displayed in shopping list page]]>
+            </line>
+            <line>
+              <![CDATA[Email list button is displayed in shopping list page]]>
+            </line>
+            <line>
+              <![CDATA[Clicked delete icon in shopping list for myitems]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- TC01_Add_items_to_list_ADD_TO_LIST_button_item_added -->
-      </class> <!-- executableClass.Weekly_Ad -->
+        </test-method> <!-- TC_06_Shopping_List_Remove_item_MyItems -->
+      </class> <!-- executableClass.Shopping_List -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -66,15 +66,15 @@ public class Computed_Personalisedoffers
 				bro=ie;
 			}
 			String Val = obj.popuppath()+" "+bro;
+			Runtime.getRuntime().exec(Val);
 			Thread.sleep(2000);
-			obj.movetoElementofAPage(driver, logo);
-			Thread.sleep(1000);
+			
 			obj.movetoElementofAPage_Click(driver, logo);
 			
 			Thread.sleep(2000);
 			
 				    	
-			Runtime.getRuntime().exec(Val);
+			
 			
 			homepage.click_click_PersonalizedAd_Logo();
 			obj.waitForElement(driver, shoppingListPage.txt_List_Count_Text);
@@ -163,13 +163,13 @@ public class Computed_Personalisedoffers
 				bro=ie;
 			}
 			String Val = obj.popuppath()+" "+bro;
-			
+			Runtime.getRuntime().exec(Val);
 			Thread.sleep(2000);
 			
 			obj.movetoElementofAPage_Click(driver, logo);
 			
 			Thread.sleep(2000);
-			Runtime.getRuntime().exec(Val);
+			
 			homepage.click_click_PersonalizedAd_Logo();
 			obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			if(driver.getCurrentUrl().equalsIgnoreCase(url))

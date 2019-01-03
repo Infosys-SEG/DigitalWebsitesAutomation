@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="executableClass.Weekly_Ad">
+      <class name="executableClass.Shopping_List">
         <methods>
-          <include name="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added"/>
+          <include name="TC_06_Shopping_List_Remove_item_MyItems"/>
         </methods>
-      </class> <!-- executableClass.Weekly_Ad -->
+      </class> <!-- executableClass.Shopping_List -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

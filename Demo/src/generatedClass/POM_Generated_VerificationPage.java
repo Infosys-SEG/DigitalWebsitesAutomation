@@ -18,7 +18,7 @@ public class POM_Generated_VerificationPage {
 
 
 	// Associated Label : VerificationPage_HeaderName_Text
-	@FindBy(xpath = "//h1[contains(text(),'Thanks for helping us find your account')]")
+	@FindBy(xpath = "//h1[contains (text(),'Hi ')]")
 	public WebElement txt_VerificationPage_HeaderName_Text;
 	
 	// Associated Label : SMS_Verification_Button
@@ -32,10 +32,6 @@ public class POM_Generated_VerificationPage {
 	// Associated Label : PII_Verification_Button
 	@FindBy(name = "PII")
 	public WebElement click_PII_Verification_Button;
-	
-	// Associated Label : PII_Page_HeaderName_Text
-	@FindBy(xpath = "//h1[text()='Answer Questions']")
-	public WebElement txt_PII_Page_HeaderName_Text;
 	
 	// Associated Label : PII_Verification_Month_Field
 	@FindBy(id = "PIItxtMonth")
@@ -112,6 +108,18 @@ public class POM_Generated_VerificationPage {
 	// Associated Label : Error_PII_PhoneNumber
 	@FindBy(xpath = "//span[@class='PIIPhoneError'][@style='display: block;']")
 	public WebElement txt_Error_PII_PhoneNumber;
+	
+	// Associated Label : Email_verification_Next
+	@FindBy(id = "verifyUser")
+	public WebElement txt_Email_verification_Next;
+	
+	// Associated Label : Email_verification_header
+	@FindBy(xpath = "//h1[text()='Email Verification']")
+	public WebElement txt_Email_verification_header;
+	
+	// Associated Label : Email_error_noVal
+	@FindBy(id = "errorNoValue")
+	public WebElement txt_Email_error_noVal;
 	
 
 //*******************************************************************************
@@ -284,52 +292,6 @@ public class POM_Generated_VerificationPage {
 	// selected or Not :  PII_Verification_Button
 	public boolean isSelected_click_PII_Verification_Button(){
 		if(click_PII_Verification_Button.isSelected()) { return true; } else { return false;} 
-	}
-
-	// Type:  PII_Page_HeaderName_Text
-	public void type_txt_PII_Page_HeaderName_Text(String value) {
-		txt_PII_Page_HeaderName_Text.clear();
-		txt_PII_Page_HeaderName_Text.sendKeys(value);
-	}
-
-	//click:  PII_Page_HeaderName_Text
-	public void click_txt_PII_Page_HeaderName_Text(){
-		txt_PII_Page_HeaderName_Text.click();
-	}
-
-	// Hover:  PII_Page_HeaderName_Text
-	public void hover_txt_PII_Page_HeaderName_Text(){
-		Actions action=new Actions(driver); 
-		action.moveToElement(txt_PII_Page_HeaderName_Text).build().perform();
-	}
-
-	// visible or Not :  PII_Page_HeaderName_Text
-	public boolean isDisplayed_txt_PII_Page_HeaderName_Text(){
-		if(txt_PII_Page_HeaderName_Text.isDisplayed()) { return true; } else { return false;} 
-	}
-
-	// Enabled or Not :  PII_Page_HeaderName_Text
-	public boolean isEnabled_txt_PII_Page_HeaderName_Text(){
-		if(txt_PII_Page_HeaderName_Text.isEnabled()) { return true; } else { return false;} 
-	}
-
-	// Get CSS attribute :  PII_Page_HeaderName_Text
-	public String getCssValue_txt_PII_Page_HeaderName_Text(String attribute) {
-		return txt_PII_Page_HeaderName_Text.getCssValue(attribute);
-	}
-
-	//Get the text :  PII_Page_HeaderName_Text
-	public String getText_txt_PII_Page_HeaderName_Text(){
-		return txt_PII_Page_HeaderName_Text.getText();
-	}
-
-	//Get the value :  PII_Page_HeaderName_Text
-	public String getValue_txt_PII_Page_HeaderName_Text(){
-		return txt_PII_Page_HeaderName_Text.getAttribute("value");
-	}
-	// selected or Not :  PII_Page_HeaderName_Text
-	public boolean isSelected_txt_PII_Page_HeaderName_Text(){
-		if(txt_PII_Page_HeaderName_Text.isSelected()) { return true; } else { return false;} 
 	}
 
 	// Type:  PII_Verification_Month_Field
@@ -1187,5 +1149,145 @@ public class POM_Generated_VerificationPage {
 	public boolean isSelected_txt_Error_PII_PhoneNumber(){
 		if(txt_Error_PII_PhoneNumber.isSelected()) { return true; } else { return false;} 
 	}
+
+	// Type:  Email_verification_Next
+	public void type_txt_Email_verification_Next(String value) {
+		txt_Email_verification_Next.clear();
+		txt_Email_verification_Next.sendKeys(value);
+	}
+
+	//click:  Email_verification_Next
+	public void click_txt_Email_verification_Next(){
+		txt_Email_verification_Next.click();
+	}
+
+	// Hover:  Email_verification_Next
+	public void hover_txt_Email_verification_Next(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Email_verification_Next).build().perform();
+	}
+
+	// visible or Not :  Email_verification_Next
+	public boolean isDisplayed_txt_Email_verification_Next(){
+		if(txt_Email_verification_Next.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Email_verification_Next
+	public boolean isEnabled_txt_Email_verification_Next(){
+		if(txt_Email_verification_Next.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Email_verification_Next
+	public String getCssValue_txt_Email_verification_Next(String attribute) {
+		return txt_Email_verification_Next.getCssValue(attribute);
+	}
+
+	//Get the text :  Email_verification_Next
+	public String getText_txt_Email_verification_Next(){
+		return txt_Email_verification_Next.getText();
+	}
+
+	//Get the value :  Email_verification_Next
+	public String getValue_txt_Email_verification_Next(){
+		return txt_Email_verification_Next.getAttribute("value");
+	}
+	// selected or Not :  Email_verification_Next
+	public boolean isSelected_txt_Email_verification_Next(){
+		if(txt_Email_verification_Next.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Email_verification_header
+	public void type_txt_Email_verification_header(String value) {
+		txt_Email_verification_header.clear();
+		txt_Email_verification_header.sendKeys(value);
+	}
+
+	//click:  Email_verification_header
+	public void click_txt_Email_verification_header(){
+		txt_Email_verification_header.click();
+	}
+
+	// Hover:  Email_verification_header
+	public void hover_txt_Email_verification_header(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Email_verification_header).build().perform();
+	}
+
+	// visible or Not :  Email_verification_header
+	public boolean isDisplayed_txt_Email_verification_header(){
+		if(txt_Email_verification_header.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Email_verification_header
+	public boolean isEnabled_txt_Email_verification_header(){
+		if(txt_Email_verification_header.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Email_verification_header
+	public String getCssValue_txt_Email_verification_header(String attribute) {
+		return txt_Email_verification_header.getCssValue(attribute);
+	}
+
+	//Get the text :  Email_verification_header
+	public String getText_txt_Email_verification_header(){
+		return txt_Email_verification_header.getText();
+	}
+
+	//Get the value :  Email_verification_header
+	public String getValue_txt_Email_verification_header(){
+		return txt_Email_verification_header.getAttribute("value");
+	}
+	// selected or Not :  Email_verification_header
+	public boolean isSelected_txt_Email_verification_header(){
+		if(txt_Email_verification_header.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Email_error_noVal
+	public void type_txt_Email_error_noVal(String value) {
+		txt_Email_error_noVal.clear();
+		txt_Email_error_noVal.sendKeys(value);
+	}
+
+	//click:  Email_error_noVal
+	public void click_txt_Email_error_noVal(){
+		txt_Email_error_noVal.click();
+	}
+
+	// Hover:  Email_error_noVal
+	public void hover_txt_Email_error_noVal(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Email_error_noVal).build().perform();
+	}
+
+	// visible or Not :  Email_error_noVal
+	public boolean isDisplayed_txt_Email_error_noVal(){
+		if(txt_Email_error_noVal.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Email_error_noVal
+	public boolean isEnabled_txt_Email_error_noVal(){
+		if(txt_Email_error_noVal.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Email_error_noVal
+	public String getCssValue_txt_Email_error_noVal(String attribute) {
+		return txt_Email_error_noVal.getCssValue(attribute);
+	}
+
+	//Get the text :  Email_error_noVal
+	public String getText_txt_Email_error_noVal(){
+		return txt_Email_error_noVal.getText();
+	}
+
+	//Get the value :  Email_error_noVal
+	public String getValue_txt_Email_error_noVal(){
+		return txt_Email_error_noVal.getAttribute("value");
+	}
+	// selected or Not :  Email_error_noVal
+	public boolean isSelected_txt_Email_error_noVal(){
+		if(txt_Email_error_noVal.isSelected()) { return true; } else { return false;} 
+	}
+
+	
 
 }

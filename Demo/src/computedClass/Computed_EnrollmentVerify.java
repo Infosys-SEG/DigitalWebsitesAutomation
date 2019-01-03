@@ -189,6 +189,7 @@ public class Computed_EnrollmentVerify
 	    {
 	    	try
 			{
+			Runtime.getRuntime().exec(Val);
 				if(congratulationspage.isDisplayed_click_CloseModal_Button())
 			    {
 			    	congratulationspage.click_click_CloseModal_Button();
@@ -201,7 +202,7 @@ public class Computed_EnrollmentVerify
 			}
 	    	obj.scrollingToElementofAPage(driver, congratulationspage.click_Digital_coupons_button);
 	    	
-	    	Runtime.getRuntime().exec(Val);
+	    	
 			
 	    	congratulationspage.click_click_Digital_coupons_button();
 	    	obj.waitForElement(driver, digitalcouponspage.click_Digital_Coupon_page_Link);

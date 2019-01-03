@@ -61,13 +61,14 @@ public class Computed_Static_Info_bar
 		try
 		{
 			obj.waitForElementClickable(driver, logo);
+			Runtime.getRuntime().exec(Val);
 			logo.click();
 			obj.waitForElementClickable(driver,staticinfobar.click_Static_info_WeeklyAds_link);
 			if(staticinfobar.isDisplayed_click_Static_info_WeeklyAds_link())
 			{
 				if(staticinfobar.isDisplayed_click_Static_info_WeeklyAds_Text())
 				{  	
-					Runtime.getRuntime().exec(Val);
+					
 					
 					staticinfobar.click_click_Static_info_WeeklyAds_link();					
 				}

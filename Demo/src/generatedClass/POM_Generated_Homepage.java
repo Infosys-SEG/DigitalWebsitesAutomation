@@ -24,7 +24,7 @@ public class POM_Generated_Homepage {
 	public WebElement click_Harveys_logo;
 	
 	// Associated Label : Winndixie_logo
-	@FindBy(xpath = "//img[@alt='Winn-Dixie logo'][1]")
+	@FindBy(xpath = "//div[@id='wd-site-logo']")
 	public WebElement click_Winndixie_logo;
 	
 	// Associated Label : Bilo_logo
