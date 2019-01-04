@@ -123,4 +123,25 @@ public class Shopping_List
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, proddetails, count, "Removed");
 		
 	}
+	
+	@Test (priority=6)
+	public void TC_14_EditMyItemName () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as tcname
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		int count=0;
+		String Functionality = functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		//driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
+		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality);
+		driver = shoppinglist.Add_Remove_MyItems_ShoppingList(driver, Functionality, TCName, count, "Add");
+		count=shoppinglist.getcount();
+		driver=shoppinglist.Check_MyItems_ShoppingList(driver, Functionality, TCName, count, "Added");	
+		driver = shoppinglist.Edit_ShoppingList(driver, Functionality, TCName, "myitems", "edititem");
+		driver=shoppinglist.Check_MyItems_ShoppingList(driver, Functionality, TCName, count, "myitemname_Edited");
+		driver = shoppinglist.Edit_ShoppingList(driver, Functionality, TCName, "myitems", "editqty");
+		driver=shoppinglist.Check_MyItems_ShoppingList(driver, Functionality, TCName, count, "myitemqty_Edited");	
+		driver.close();
+	}
 }

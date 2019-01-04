@@ -121,6 +121,10 @@ public class POM_Generated_VerificationPage {
 	@FindBy(id = "errorNoValue")
 	public WebElement txt_Email_error_noVal;
 	
+	// Associated Label : img_stepCounter_verificationPage_Active
+	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/verification-active.png?la=en&mw=1382']")
+	public WebElement txt_img_stepCounter_verificationPage_Active;
+	
 
 //*******************************************************************************
 
@@ -1288,6 +1292,50 @@ public class POM_Generated_VerificationPage {
 		if(txt_Email_error_noVal.isSelected()) { return true; } else { return false;} 
 	}
 
-	
+	// Type:  img_stepCounter_verificationPage_Active
+	public void type_txt_img_stepCounter_verificationPage_Active(String value) {
+		txt_img_stepCounter_verificationPage_Active.clear();
+		txt_img_stepCounter_verificationPage_Active.sendKeys(value);
+	}
+
+	//click:  img_stepCounter_verificationPage_Active
+	public void click_txt_img_stepCounter_verificationPage_Active(){
+		txt_img_stepCounter_verificationPage_Active.click();
+	}
+
+	// Hover:  img_stepCounter_verificationPage_Active
+	public void hover_txt_img_stepCounter_verificationPage_Active(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_img_stepCounter_verificationPage_Active).build().perform();
+	}
+
+	// visible or Not :  img_stepCounter_verificationPage_Active
+	public boolean isDisplayed_txt_img_stepCounter_verificationPage_Active(){
+		if(txt_img_stepCounter_verificationPage_Active.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  img_stepCounter_verificationPage_Active
+	public boolean isEnabled_txt_img_stepCounter_verificationPage_Active(){
+		if(txt_img_stepCounter_verificationPage_Active.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  img_stepCounter_verificationPage_Active
+	public String getCssValue_txt_img_stepCounter_verificationPage_Active(String attribute) {
+		return txt_img_stepCounter_verificationPage_Active.getCssValue(attribute);
+	}
+
+	//Get the text :  img_stepCounter_verificationPage_Active
+	public String getText_txt_img_stepCounter_verificationPage_Active(){
+		return txt_img_stepCounter_verificationPage_Active.getText();
+	}
+
+	//Get the value :  img_stepCounter_verificationPage_Active
+	public String getValue_txt_img_stepCounter_verificationPage_Active(){
+		return txt_img_stepCounter_verificationPage_Active.getAttribute("value");
+	}
+	// selected or Not :  img_stepCounter_verificationPage_Active
+	public boolean isSelected_txt_img_stepCounter_verificationPage_Active(){
+		if(txt_img_stepCounter_verificationPage_Active.isSelected()) { return true; } else { return false;} 
+	}
 
 }

@@ -47,17 +47,17 @@ public class POM_Generated_ShoppingListPage {
 	@FindBy(xpath = "//span[@class='close-icon']")
 	public WebElement click_Close_Button;
 	
-	// Associated Label : Weekly_Ad_Items_Checkbox
+	// Associated Label : Weekly_Ad_Filter_Checkbox
 	@FindBy(id = "store-specials")
-	public WebElement click_Weekly_Ad_Items_Checkbox;
+	public WebElement click_Weekly_Ad_Filter_Checkbox;
 	
-	// Associated Label : Coupons_Checkbox
+	// Associated Label : Coupons_Filter_Checkbox
 	@FindBy(id = "coupons")
-	public WebElement click_Coupons_Checkbox;
+	public WebElement click_Coupons_Filter_Checkbox;
 	
-	// Associated Label : My_Items_Checkbox
+	// Associated Label : MyItem_Filter_Checkbox
 	@FindBy(id = "my-items")
-	public WebElement click_My_Items_Checkbox;
+	public WebElement click_MyItem_Filter_Checkbox;
 	
 	// Associated Label : ADD_An_Item_Text_Field
 	@FindBy(id = "addListItem")
@@ -70,6 +70,10 @@ public class POM_Generated_ShoppingListPage {
 	// Associated Label : Select_Items_CheckBox
 	@FindBy(xpath = "//input[@name='itemchecked']")
 	public List<WebElement> click_Select_Items_CheckBox;
+	
+	// Associated Label : Quantity_CheckBox
+	@FindBy(xpath = "//a[@name='itemQuantity']")
+	public List<WebElement> txt_Quantity_CheckBox;
 	
 	// Associated Label : Remove_All_Checked_Items_Button
 	@FindBy(id = "removeBtnSpan")
@@ -91,13 +95,13 @@ public class POM_Generated_ShoppingListPage {
 	@FindBy(xpath = "//a[@name='itemName']")
 	public List<WebElement> txt_MyItem_Product_Name;
 	
-	// Associated Label : My_Items_check_Delete_Icon
+	// Associated Label : MyItem_Delete_Icon
 	@FindBy(xpath = "//div[@class='delete']")
-	public List<WebElement> click_My_Items_check_Delete_Icon;
+	public List<WebElement> click_MyItem_Delete_Icon;
 	
-	// Associated Label : Weekly_Ad_Items_check_Delete_Icon
+	// Associated Label : Weekly_Ad_Items_Delete_Icon
 	@FindBy(xpath = "//div[@class='listItem offer ui-sortable-handle']//div[@aria-label='  Delete this item']")
-	public List<WebElement> click_Weekly_Ad_Items_check_Delete_Icon;
+	public List<WebElement> click_Weekly_Ad_Items_Delete_Icon;
 	
 
 //*******************************************************************************
@@ -416,124 +420,124 @@ public class POM_Generated_ShoppingListPage {
 		if(click_Close_Button.isSelected()) { return true; } else { return false;} 
 	}
 
-	//click:  Weekly_Ad_Items_Checkbox
-	public void click_click_Weekly_Ad_Items_Checkbox(){
-		click_Weekly_Ad_Items_Checkbox.click();
+	//click:  Weekly_Ad_Filter_Checkbox
+	public void click_click_Weekly_Ad_Filter_Checkbox(){
+		click_Weekly_Ad_Filter_Checkbox.click();
 	}
 
-	// Hover:  Weekly_Ad_Items_Checkbox
-	public void hover_click_Weekly_Ad_Items_Checkbox(){
+	// Hover:  Weekly_Ad_Filter_Checkbox
+	public void hover_click_Weekly_Ad_Filter_Checkbox(){
 		Actions action=new Actions(driver); 
-		action.moveToElement(click_Weekly_Ad_Items_Checkbox).build().perform();
+		action.moveToElement(click_Weekly_Ad_Filter_Checkbox).build().perform();
 	}
 
-	// visible or Not :  Weekly_Ad_Items_Checkbox
-	public boolean isDisplayed_click_Weekly_Ad_Items_Checkbox(){
-		if(click_Weekly_Ad_Items_Checkbox.isDisplayed()) { return true; } else { return false;} 
+	// visible or Not :  Weekly_Ad_Filter_Checkbox
+	public boolean isDisplayed_click_Weekly_Ad_Filter_Checkbox(){
+		if(click_Weekly_Ad_Filter_Checkbox.isDisplayed()) { return true; } else { return false;} 
 	}
 
-	// Enabled or Not :  Weekly_Ad_Items_Checkbox
-	public boolean isEnabled_click_Weekly_Ad_Items_Checkbox(){
-		if(click_Weekly_Ad_Items_Checkbox.isEnabled()) { return true; } else { return false;} 
+	// Enabled or Not :  Weekly_Ad_Filter_Checkbox
+	public boolean isEnabled_click_Weekly_Ad_Filter_Checkbox(){
+		if(click_Weekly_Ad_Filter_Checkbox.isEnabled()) { return true; } else { return false;} 
 	}
 
-	// Get CSS attribute :  Weekly_Ad_Items_Checkbox
-	public String getCssValue_click_Weekly_Ad_Items_Checkbox(String attribute) {
-		return click_Weekly_Ad_Items_Checkbox.getCssValue(attribute);
+	// Get CSS attribute :  Weekly_Ad_Filter_Checkbox
+	public String getCssValue_click_Weekly_Ad_Filter_Checkbox(String attribute) {
+		return click_Weekly_Ad_Filter_Checkbox.getCssValue(attribute);
 	}
 
-	//Get the text :  Weekly_Ad_Items_Checkbox
-	public String getText_click_Weekly_Ad_Items_Checkbox(){
-		return click_Weekly_Ad_Items_Checkbox.getText();
+	//Get the text :  Weekly_Ad_Filter_Checkbox
+	public String getText_click_Weekly_Ad_Filter_Checkbox(){
+		return click_Weekly_Ad_Filter_Checkbox.getText();
 	}
 
-	//Get the value :  Weekly_Ad_Items_Checkbox
-	public String getValue_click_Weekly_Ad_Items_Checkbox(){
-		return click_Weekly_Ad_Items_Checkbox.getAttribute("value");
+	//Get the value :  Weekly_Ad_Filter_Checkbox
+	public String getValue_click_Weekly_Ad_Filter_Checkbox(){
+		return click_Weekly_Ad_Filter_Checkbox.getAttribute("value");
 	}
-	// selected or Not :  Weekly_Ad_Items_Checkbox
-	public boolean isSelected_click_Weekly_Ad_Items_Checkbox(){
-		if(click_Weekly_Ad_Items_Checkbox.isSelected()) { return true; } else { return false;} 
-	}
-
-	//click:  Coupons_Checkbox
-	public void click_click_Coupons_Checkbox(){
-		click_Coupons_Checkbox.click();
+	// selected or Not :  Weekly_Ad_Filter_Checkbox
+	public boolean isSelected_click_Weekly_Ad_Filter_Checkbox(){
+		if(click_Weekly_Ad_Filter_Checkbox.isSelected()) { return true; } else { return false;} 
 	}
 
-	// Hover:  Coupons_Checkbox
-	public void hover_click_Coupons_Checkbox(){
+	//click:  Coupons_Filter_Checkbox
+	public void click_click_Coupons_Filter_Checkbox(){
+		click_Coupons_Filter_Checkbox.click();
+	}
+
+	// Hover:  Coupons_Filter_Checkbox
+	public void hover_click_Coupons_Filter_Checkbox(){
 		Actions action=new Actions(driver); 
-		action.moveToElement(click_Coupons_Checkbox).build().perform();
+		action.moveToElement(click_Coupons_Filter_Checkbox).build().perform();
 	}
 
-	// visible or Not :  Coupons_Checkbox
-	public boolean isDisplayed_click_Coupons_Checkbox(){
-		if(click_Coupons_Checkbox.isDisplayed()) { return true; } else { return false;} 
+	// visible or Not :  Coupons_Filter_Checkbox
+	public boolean isDisplayed_click_Coupons_Filter_Checkbox(){
+		if(click_Coupons_Filter_Checkbox.isDisplayed()) { return true; } else { return false;} 
 	}
 
-	// Enabled or Not :  Coupons_Checkbox
-	public boolean isEnabled_click_Coupons_Checkbox(){
-		if(click_Coupons_Checkbox.isEnabled()) { return true; } else { return false;} 
+	// Enabled or Not :  Coupons_Filter_Checkbox
+	public boolean isEnabled_click_Coupons_Filter_Checkbox(){
+		if(click_Coupons_Filter_Checkbox.isEnabled()) { return true; } else { return false;} 
 	}
 
-	// Get CSS attribute :  Coupons_Checkbox
-	public String getCssValue_click_Coupons_Checkbox(String attribute) {
-		return click_Coupons_Checkbox.getCssValue(attribute);
+	// Get CSS attribute :  Coupons_Filter_Checkbox
+	public String getCssValue_click_Coupons_Filter_Checkbox(String attribute) {
+		return click_Coupons_Filter_Checkbox.getCssValue(attribute);
 	}
 
-	//Get the text :  Coupons_Checkbox
-	public String getText_click_Coupons_Checkbox(){
-		return click_Coupons_Checkbox.getText();
+	//Get the text :  Coupons_Filter_Checkbox
+	public String getText_click_Coupons_Filter_Checkbox(){
+		return click_Coupons_Filter_Checkbox.getText();
 	}
 
-	//Get the value :  Coupons_Checkbox
-	public String getValue_click_Coupons_Checkbox(){
-		return click_Coupons_Checkbox.getAttribute("value");
+	//Get the value :  Coupons_Filter_Checkbox
+	public String getValue_click_Coupons_Filter_Checkbox(){
+		return click_Coupons_Filter_Checkbox.getAttribute("value");
 	}
-	// selected or Not :  Coupons_Checkbox
-	public boolean isSelected_click_Coupons_Checkbox(){
-		if(click_Coupons_Checkbox.isSelected()) { return true; } else { return false;} 
-	}
-
-	//click:  My_Items_Checkbox
-	public void click_click_My_Items_Checkbox(){
-		click_My_Items_Checkbox.click();
+	// selected or Not :  Coupons_Filter_Checkbox
+	public boolean isSelected_click_Coupons_Filter_Checkbox(){
+		if(click_Coupons_Filter_Checkbox.isSelected()) { return true; } else { return false;} 
 	}
 
-	// Hover:  My_Items_Checkbox
-	public void hover_click_My_Items_Checkbox(){
+	//click:  MyItem_Filter_Checkbox
+	public void click_click_MyItem_Filter_Checkbox(){
+		click_MyItem_Filter_Checkbox.click();
+	}
+
+	// Hover:  MyItem_Filter_Checkbox
+	public void hover_click_MyItem_Filter_Checkbox(){
 		Actions action=new Actions(driver); 
-		action.moveToElement(click_My_Items_Checkbox).build().perform();
+		action.moveToElement(click_MyItem_Filter_Checkbox).build().perform();
 	}
 
-	// visible or Not :  My_Items_Checkbox
-	public boolean isDisplayed_click_My_Items_Checkbox(){
-		if(click_My_Items_Checkbox.isDisplayed()) { return true; } else { return false;} 
+	// visible or Not :  MyItem_Filter_Checkbox
+	public boolean isDisplayed_click_MyItem_Filter_Checkbox(){
+		if(click_MyItem_Filter_Checkbox.isDisplayed()) { return true; } else { return false;} 
 	}
 
-	// Enabled or Not :  My_Items_Checkbox
-	public boolean isEnabled_click_My_Items_Checkbox(){
-		if(click_My_Items_Checkbox.isEnabled()) { return true; } else { return false;} 
+	// Enabled or Not :  MyItem_Filter_Checkbox
+	public boolean isEnabled_click_MyItem_Filter_Checkbox(){
+		if(click_MyItem_Filter_Checkbox.isEnabled()) { return true; } else { return false;} 
 	}
 
-	// Get CSS attribute :  My_Items_Checkbox
-	public String getCssValue_click_My_Items_Checkbox(String attribute) {
-		return click_My_Items_Checkbox.getCssValue(attribute);
+	// Get CSS attribute :  MyItem_Filter_Checkbox
+	public String getCssValue_click_MyItem_Filter_Checkbox(String attribute) {
+		return click_MyItem_Filter_Checkbox.getCssValue(attribute);
 	}
 
-	//Get the text :  My_Items_Checkbox
-	public String getText_click_My_Items_Checkbox(){
-		return click_My_Items_Checkbox.getText();
+	//Get the text :  MyItem_Filter_Checkbox
+	public String getText_click_MyItem_Filter_Checkbox(){
+		return click_MyItem_Filter_Checkbox.getText();
 	}
 
-	//Get the value :  My_Items_Checkbox
-	public String getValue_click_My_Items_Checkbox(){
-		return click_My_Items_Checkbox.getAttribute("value");
+	//Get the value :  MyItem_Filter_Checkbox
+	public String getValue_click_MyItem_Filter_Checkbox(){
+		return click_MyItem_Filter_Checkbox.getAttribute("value");
 	}
-	// selected or Not :  My_Items_Checkbox
-	public boolean isSelected_click_My_Items_Checkbox(){
-		if(click_My_Items_Checkbox.isSelected()) { return true; } else { return false;} 
+	// selected or Not :  MyItem_Filter_Checkbox
+	public boolean isSelected_click_MyItem_Filter_Checkbox(){
+		if(click_MyItem_Filter_Checkbox.isSelected()) { return true; } else { return false;} 
 	}
 
 	// Type:  ADD_An_Item_Text_Field
@@ -660,6 +664,52 @@ public class POM_Generated_ShoppingListPage {
 	// selected or Not :  Select_Items_CheckBox
 	public boolean isSelected_click_Select_Items_CheckBox(){
 		if(((WebElement) click_Select_Items_CheckBox).isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Quantity_CheckBox
+	public void type_txt_Quantity_CheckBox(String value) {
+		txt_Quantity_CheckBox.clear();
+		((WebElement) txt_Quantity_CheckBox).sendKeys(value);
+	}
+
+	//click:  Quantity_CheckBox
+	public void click_txt_Quantity_CheckBox(){
+		((WebElement) txt_Quantity_CheckBox).click();
+	}
+
+	// Hover:  Quantity_CheckBox
+	public void hover_txt_Quantity_CheckBox(){
+		Actions action=new Actions(driver); 
+		action.moveToElement((WebElement) txt_Quantity_CheckBox).build().perform();
+	}
+
+	// visible or Not :  Quantity_CheckBox
+	public boolean isDisplayed_txt_Quantity_CheckBox(){
+		if(((WebElement) txt_Quantity_CheckBox).isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Quantity_CheckBox
+	public boolean isEnabled_txt_Quantity_CheckBox(){
+		if(((WebElement) txt_Quantity_CheckBox).isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Quantity_CheckBox
+	public String getCssValue_txt_Quantity_CheckBox(String attribute) {
+		return ((WebElement) txt_Quantity_CheckBox).getCssValue(attribute);
+	}
+
+	//Get the text :  Quantity_CheckBox
+	public String getText_txt_Quantity_CheckBox(){
+		return ((WebElement) txt_Quantity_CheckBox).getText();
+	}
+
+	//Get the value :  Quantity_CheckBox
+	public String getValue_txt_Quantity_CheckBox(){
+		return ((WebElement) txt_Quantity_CheckBox).getAttribute("value");
+	}
+	// selected or Not :  Quantity_CheckBox
+	public boolean isSelected_txt_Quantity_CheckBox(){
+		if(((WebElement) txt_Quantity_CheckBox).isSelected()) { return true; } else { return false;} 
 	}
 
 	//click:  Remove_All_Checked_Items_Button
@@ -868,84 +918,84 @@ public class POM_Generated_ShoppingListPage {
 		if(((WebElement) txt_MyItem_Product_Name).isSelected()) { return true; } else { return false;} 
 	}
 
-	//click:  My_Items_check_Delete_Icon
-	public void click_click_My_Items_check_Delete_Icon(){
-		((WebElement) click_My_Items_check_Delete_Icon).click();
+	//click:  MyItem_Delete_Icon
+	public void click_click_MyItem_Delete_Icon(){
+		((WebElement) click_MyItem_Delete_Icon).click();
 	}
 
-	// Hover:  My_Items_check_Delete_Icon
-	public void hover_click_My_Items_check_Delete_Icon(){
+	// Hover:  MyItem_Delete_Icon
+	public void hover_click_MyItem_Delete_Icon(){
 		Actions action=new Actions(driver); 
-		action.moveToElement((WebElement) click_My_Items_check_Delete_Icon).build().perform();
+		action.moveToElement((WebElement) click_MyItem_Delete_Icon).build().perform();
 	}
 
-	// visible or Not :  My_Items_check_Delete_Icon
-	public boolean isDisplayed_click_My_Items_check_Delete_Icon(){
-		if(((WebElement) click_My_Items_check_Delete_Icon).isDisplayed()) { return true; } else { return false;} 
+	// visible or Not :  MyItem_Delete_Icon
+	public boolean isDisplayed_click_MyItem_Delete_Icon(){
+		if(((WebElement) click_MyItem_Delete_Icon).isDisplayed()) { return true; } else { return false;} 
 	}
 
-	// Enabled or Not :  My_Items_check_Delete_Icon
-	public boolean isEnabled_click_My_Items_check_Delete_Icon(){
-		if(((WebElement) click_My_Items_check_Delete_Icon).isEnabled()) { return true; } else { return false;} 
+	// Enabled or Not :  MyItem_Delete_Icon
+	public boolean isEnabled_click_MyItem_Delete_Icon(){
+		if(((WebElement) click_MyItem_Delete_Icon).isEnabled()) { return true; } else { return false;} 
 	}
 
-	// Get CSS attribute :  My_Items_check_Delete_Icon
-	public String getCssValue_click_My_Items_check_Delete_Icon(String attribute) {
-		return ((WebElement) click_My_Items_check_Delete_Icon).getCssValue(attribute);
+	// Get CSS attribute :  MyItem_Delete_Icon
+	public String getCssValue_click_MyItem_Delete_Icon(String attribute) {
+		return ((WebElement) click_MyItem_Delete_Icon).getCssValue(attribute);
 	}
 
-	//Get the text :  My_Items_check_Delete_Icon
-	public String getText_click_My_Items_check_Delete_Icon(){
-		return ((WebElement) click_My_Items_check_Delete_Icon).getText();
+	//Get the text :  MyItem_Delete_Icon
+	public String getText_click_MyItem_Delete_Icon(){
+		return ((WebElement) click_MyItem_Delete_Icon).getText();
 	}
 
-	//Get the value :  My_Items_check_Delete_Icon
-	public String getValue_click_My_Items_check_Delete_Icon(){
-		return ((WebElement) click_My_Items_check_Delete_Icon).getAttribute("value");
+	//Get the value :  MyItem_Delete_Icon
+	public String getValue_click_MyItem_Delete_Icon(){
+		return ((WebElement) click_MyItem_Delete_Icon).getAttribute("value");
 	}
-	// selected or Not :  My_Items_check_Delete_Icon
-	public boolean isSelected_click_My_Items_check_Delete_Icon(){
-		if(((WebElement) click_My_Items_check_Delete_Icon).isSelected()) { return true; } else { return false;} 
-	}
-
-	//click:  Weekly_Ad_Items_check_Delete_Icon
-	public void click_click_Weekly_Ad_Items_check_Delete_Icon(){
-		((WebElement) click_Weekly_Ad_Items_check_Delete_Icon).click();
+	// selected or Not :  MyItem_Delete_Icon
+	public boolean isSelected_click_MyItem_Delete_Icon(){
+		if(((WebElement) click_MyItem_Delete_Icon).isSelected()) { return true; } else { return false;} 
 	}
 
-	// Hover:  Weekly_Ad_Items_check_Delete_Icon
-	public void hover_click_Weekly_Ad_Items_check_Delete_Icon(){
+	//click:  Weekly_Ad_Items_Delete_Icon
+	public void click_click_Weekly_Ad_Items_Delete_Icon(){
+		((WebElement) click_Weekly_Ad_Items_Delete_Icon).click();
+	}
+
+	// Hover:  Weekly_Ad_Items_Delete_Icon
+	public void hover_click_Weekly_Ad_Items_Delete_Icon(){
 		Actions action=new Actions(driver); 
-		action.moveToElement((WebElement) click_Weekly_Ad_Items_check_Delete_Icon).build().perform();
+		action.moveToElement((WebElement) click_Weekly_Ad_Items_Delete_Icon).build().perform();
 	}
 
-	// visible or Not :  Weekly_Ad_Items_check_Delete_Icon
-	public boolean isDisplayed_click_Weekly_Ad_Items_check_Delete_Icon(){
-		if(((WebElement) click_Weekly_Ad_Items_check_Delete_Icon).isDisplayed()) { return true; } else { return false;} 
+	// visible or Not :  Weekly_Ad_Items_Delete_Icon
+	public boolean isDisplayed_click_Weekly_Ad_Items_Delete_Icon(){
+		if(((WebElement) click_Weekly_Ad_Items_Delete_Icon).isDisplayed()) { return true; } else { return false;} 
 	}
 
-	// Enabled or Not :  Weekly_Ad_Items_check_Delete_Icon
-	public boolean isEnabled_click_Weekly_Ad_Items_check_Delete_Icon(){
-		if(((WebElement) click_Weekly_Ad_Items_check_Delete_Icon).isEnabled()) { return true; } else { return false;} 
+	// Enabled or Not :  Weekly_Ad_Items_Delete_Icon
+	public boolean isEnabled_click_Weekly_Ad_Items_Delete_Icon(){
+		if(((WebElement) click_Weekly_Ad_Items_Delete_Icon).isEnabled()) { return true; } else { return false;} 
 	}
 
-	// Get CSS attribute :  Weekly_Ad_Items_check_Delete_Icon
-	public String getCssValue_click_Weekly_Ad_Items_check_Delete_Icon(String attribute) {
-		return ((WebElement) click_Weekly_Ad_Items_check_Delete_Icon).getCssValue(attribute);
+	// Get CSS attribute :  Weekly_Ad_Items_Delete_Icon
+	public String getCssValue_click_Weekly_Ad_Items_Delete_Icon(String attribute) {
+		return ((WebElement) click_Weekly_Ad_Items_Delete_Icon).getCssValue(attribute);
 	}
 
-	//Get the text :  Weekly_Ad_Items_check_Delete_Icon
-	public String getText_click_Weekly_Ad_Items_check_Delete_Icon(){
-		return ((WebElement) click_Weekly_Ad_Items_check_Delete_Icon).getText();
+	//Get the text :  Weekly_Ad_Items_Delete_Icon
+	public String getText_click_Weekly_Ad_Items_Delete_Icon(){
+		return ((WebElement) click_Weekly_Ad_Items_Delete_Icon).getText();
 	}
 
-	//Get the value :  Weekly_Ad_Items_check_Delete_Icon
-	public String getValue_click_Weekly_Ad_Items_check_Delete_Icon(){
-		return ((WebElement) click_Weekly_Ad_Items_check_Delete_Icon).getAttribute("value");
+	//Get the value :  Weekly_Ad_Items_Delete_Icon
+	public String getValue_click_Weekly_Ad_Items_Delete_Icon(){
+		return ((WebElement) click_Weekly_Ad_Items_Delete_Icon).getAttribute("value");
 	}
-	// selected or Not :  Weekly_Ad_Items_check_Delete_Icon
-	public boolean isSelected_click_Weekly_Ad_Items_check_Delete_Icon(){
-		if(((WebElement) click_Weekly_Ad_Items_check_Delete_Icon).isSelected()) { return true; } else { return false;} 
+	// selected or Not :  Weekly_Ad_Items_Delete_Icon
+	public boolean isSelected_click_Weekly_Ad_Items_Delete_Icon(){
+		if(((WebElement) click_Weekly_Ad_Items_Delete_Icon).isSelected()) { return true; } else { return false;} 
 	}
 
 }

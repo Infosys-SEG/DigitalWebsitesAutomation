@@ -2,12 +2,17 @@ package computedClass;
 import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import com.BrowserHelper.BrowserFactory;
+
 import Utility.Data;
 import Utility.Readexcel_RowName;
 import Utility.Writeexcel_RowName;
@@ -607,6 +612,161 @@ public class Computed_FullyEnrollment_Flow
 			System.out.println(e);
 			Assert.fail("Error in Accountinfo Page");
 	    }
+		return driver;
+	}
+	
+	//Data Persistence
+	public WebDriver Validate_DataPersistency_VerificationPage(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	{
+		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
+		POM_Generated_VerificationPage verificationpage= new POM_Generated_VerificationPage(driver);
+		Data obj=new Data();
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality , TCName);
+		
+		try
+		{
+			if(contactinfopage.isDisplayed_txt_Fname_Field())
+			driver.navigate().back();
+			obj.waitForElement(driver,verificationpage.txt_PII_Verification_Date_Field);
+			if(verificationpage.getValue_txt_PII_Verification_Date_Field().equals(Readexcel_RowName.getValue("Date")))
+			{
+				Reporter.log("Data persists in PII page when the user navigates back from contact info page");
+			}
+			else
+			{
+				Assert.fail("Data is not displayed in PII page when the user navigates back from contact info page");
+			}
+			if(verificationpage.isDisplayed_txt_img_stepCounter_verificationPage_Active())
+			{
+				Reporter.log("Verification tab is highlighted in Step counter");
+			}
+			else
+			{
+				Assert.fail("verification tab is NOT highlighted in step counter");
+			}
+		    verificationpage.click_txt_PII_Verification_Date_Field();
+		    verificationpage.click_click_PII_Verification_Next_Button();
+		    if(contactinfopage.isDisplayed_txt_Fname_Field())
+		    	Reporter.log("Contact info page is displayed");
+		    else
+		    	Assert.fail("contact info page is not displayed");
+		    if(contactinfopage.isDisplayed_txt_img_stepcounter_verification_done())
+		    {
+		    	Reporter.log("Verification tab in Step counter is displayed as completed");
+		    }
+		    else
+		    {
+		    	Assert.fail("Verification tab in Step counter is NOT displayed as completed");
+		    }
+		}
+		catch (Exception e) 
+		{	
+			System.out.println(e);
+			Assert.fail("Error when user navigates back to PII verification page from contact info page");
+			
+		}
+	return driver;
+	}
+	public WebDriver Validate_DataPersistency_ContactInfoPage(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	{
+		POM_Generated_AccountSecurityPage accountsecuritypage = new  POM_Generated_AccountSecurityPage(driver);
+		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
+		
+		Data obj=new Data();
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality , TCName);
+		
+		try
+		{
+			if(accountsecuritypage.isDisplayed_txt_Email_Address_Field())
+			driver.navigate().back();
+			obj.waitForElement(driver,contactinfopage.txt_Lname_Field);
+			if(contactinfopage.getValue_txt_Fname_Field().equals(Readexcel_RowName.getValue("FirstName")))
+			{
+				Reporter.log("Data persists in contact info page when the user navigates back from Security info page");
+			}
+			else
+			{
+				Assert.fail("Data is not displayed in contact info page when the user navigates back from Security info page");
+			}
+			if(contactinfopage.isDisplayed_txt_img_stepcounter_contactinfo_active())
+			{
+				Reporter.log("Contact info tab is highlighted in Step counter");
+			}
+			else
+			{
+				Assert.fail("contact info tab is NOT highlighted in step counter");
+			}
+			contactinfopage.click_txt_Primary_Phone_Number_Field();
+		    contactinfopage.click_click_Submit_Form_Button();
+		    obj.waitForElement(driver, accountsecuritypage.txt_Email_Address_Field);
+		    if(accountsecuritypage.isDisplayed_txt_img_stepcounter_contactinfo_done())
+		    {
+		    	Reporter.log("Contact info page is displayed as completed in stepcounter");
+		    }
+		    else
+		    {
+		    	Assert.fail("contact info page is NOT displayed as completed in stepcounter");
+		    }
+		    
+		}
+		catch (Exception e) 
+		{	
+			System.out.println(e);
+			Assert.fail("Error when user navigates back to contact info page from security info page");
+			
+		}
+	return driver;
+	}
+
+	public WebDriver DataPersistency_Closebrowser(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	{
+		POM_Generated_AccountSecurityPage accountsecuritypage = new  POM_Generated_AccountSecurityPage(driver);
+		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
+		BrowserFactory browserFactory = new BrowserFactory();
+		
+		String url1 = null;
+		String browser = null;
+		Data obj=new Data();
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global" ,TCName);
+		if(Readexcel_RowName.getValue("Chrome(Y/N)").equalsIgnoreCase("Y"))
+		{
+			browser="Chrome";
+			System.out.println(browser);
+		}	
+		else if(Readexcel_RowName.getValue("IE(Y/N)").equalsIgnoreCase("Y"))
+		{
+			browser="IE";
+		}
+		try
+		{
+			if(accountsecuritypage.isDisplayed_txt_Email_Address_Field())
+			{
+			driver.navigate().back();
+			}
+			obj.waitForElement(driver,contactinfopage.txt_Lname_Field);
+			url1= driver.getCurrentUrl();
+			System.out.println(url1);
+			driver.close();							
+			driver=browserFactory.startbrowser(browser, url1);	
+			
+			driver.findElement(By.xpath("//a[@id='CookieClsBtn']")).click();
+			//if(contactinfopage.getValue_txt_Fname_Field().equals(""))
+				if(driver.findElement(By.id("fName")).getAttribute("value").equals(""))
+			{
+				Reporter.log("Data is not displayed in contact info page when the user opens the session after closing it");
+				
+			}
+			else
+			{
+				Assert.fail("Data is displayed in contact info page when the user opens the session after closing it");
+			}
+		}
+		catch (Exception e) 
+		{	
+			System.out.println(e);
+			Assert.fail("Error while validating after closing the browser");
+			
+		}
 		return driver;
 	}
 }
