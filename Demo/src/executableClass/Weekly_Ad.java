@@ -38,7 +38,7 @@ public class Weekly_Ad
 		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, proddetails, count, "Added");	
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "Added");	
 		driver.close();
 	}
 	
@@ -80,7 +80,7 @@ public class Weekly_Ad
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, prodvalu, count, "Removed");
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "Removed");
 		//driver.close();
 	}
 	
@@ -102,7 +102,7 @@ public class Weekly_Ad
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, prodvalu, count, "Removed");
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "Removed");
 		//driver.close();
 	}
 	
@@ -123,13 +123,13 @@ public class Weekly_Ad
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, proddetails, count, "DeleteIcon_Removedfromshoppinglist");
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "DeleteIcon_Removedfromshoppinglist");
 		driver = weeklyad.RemoveAgain(driver, prodvalu);
 		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, proddetails, count, "DeleteAllButton_Removedfromshoppinglist");
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "DeleteAllButton_Removedfromshoppinglist");
 		driver = weeklyad.RemoveAgain(driver, prodvalu);
 		//driver.close();
 	}

@@ -20,7 +20,7 @@ public class POM_Generated_Homepage {
 
 
 	// Associated Label : Harveys_logo
-	@FindBy(xpath = "//img[@alt='Harveys Logo']")
+	@FindBy(xpath = "//div[@id='wd-site-logo']")
 	public WebElement click_Harveys_logo;
 	
 	// Associated Label : Winndixie_logo
@@ -28,7 +28,7 @@ public class POM_Generated_Homepage {
 	public WebElement click_Winndixie_logo;
 	
 	// Associated Label : Bilo_logo
-	@FindBy(xpath = "//img[@alt='BI-LO Logo']")
+	@FindBy(xpath = "//div[@id='wd-site-logo']")
 	public WebElement click_Bilo_logo;
 	
 	// Associated Label : Login_Or_Signup_Button
@@ -72,7 +72,7 @@ public class POM_Generated_Homepage {
 	public WebElement click_Savings_link_Hover;
 	
 	// Associated Label : Savings_WeeklyAd_Button
-	@FindBy(xpath = "//li[@id='savings']//a[text()='Weekly Ad ' and @class='WeekURL']")
+	@FindBy(xpath = "//li[@id='savings']//a[text()='Weekly Ad ']")
 	public WebElement click_Savings_WeeklyAd_Button;
 	
 	// Associated Label : Savings_Coupon_Button
@@ -118,6 +118,18 @@ public class POM_Generated_Homepage {
 	// Associated Label : Home_bottomblock_title
 	@FindBy(xpath = "//h2[@class='subTitleHead text-center']")
 	public WebElement txt_Home_bottomblock_title;
+	
+	// Associated Label : Home_screen_footer_Rewards_TC
+	@FindBy(xpath = " //a[text()='REWARDS TERMS AND CONDITIONS ']")
+	public WebElement click_Home_screen_footer_Rewards_TC;
+	
+	// Associated Label : Shopping_link
+	@FindBy(id = "shopping")
+	public WebElement Click_Shopping_link;
+	
+	// Associated Label : Shopping_whatsnew_link
+	@FindBy(xpath = "//li[@id='shopping']//ul[@role='menu']//a[@href='/whatsnew']")
+	public WebElement Click_Shopping_whatsnew_link;
 	
 
 //*******************************************************************************
@@ -1142,6 +1154,126 @@ public class POM_Generated_Homepage {
 	// selected or Not :  Home_bottomblock_title
 	public boolean isSelected_txt_Home_bottomblock_title(){
 		if(txt_Home_bottomblock_title.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Home_screen_footer_Rewards_TC
+	public void click_click_Home_screen_footer_Rewards_TC(){
+		click_Home_screen_footer_Rewards_TC.click();
+	}
+
+	// Hover:  Home_screen_footer_Rewards_TC
+	public void hover_click_Home_screen_footer_Rewards_TC(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Home_screen_footer_Rewards_TC).build().perform();
+	}
+
+	// visible or Not :  Home_screen_footer_Rewards_TC
+	public boolean isDisplayed_click_Home_screen_footer_Rewards_TC(){
+		if(click_Home_screen_footer_Rewards_TC.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Home_screen_footer_Rewards_TC
+	public boolean isEnabled_click_Home_screen_footer_Rewards_TC(){
+		if(click_Home_screen_footer_Rewards_TC.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Home_screen_footer_Rewards_TC
+	public String getCssValue_click_Home_screen_footer_Rewards_TC(String attribute) {
+		return click_Home_screen_footer_Rewards_TC.getCssValue(attribute);
+	}
+
+	//Get the text :  Home_screen_footer_Rewards_TC
+	public String getText_click_Home_screen_footer_Rewards_TC(){
+		return click_Home_screen_footer_Rewards_TC.getText();
+	}
+
+	//Get the value :  Home_screen_footer_Rewards_TC
+	public String getValue_click_Home_screen_footer_Rewards_TC(){
+		return click_Home_screen_footer_Rewards_TC.getAttribute("value");
+	}
+	// selected or Not :  Home_screen_footer_Rewards_TC
+	public boolean isSelected_click_Home_screen_footer_Rewards_TC(){
+		if(click_Home_screen_footer_Rewards_TC.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Shopping_link
+	public void click_Click_Shopping_link(){
+		Click_Shopping_link.click();
+	}
+
+	// Hover:  Shopping_link
+	public void hover_Click_Shopping_link(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(Click_Shopping_link).build().perform();
+	}
+
+	// visible or Not :  Shopping_link
+	public boolean isDisplayed_Click_Shopping_link(){
+		if(Click_Shopping_link.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Shopping_link
+	public boolean isEnabled_Click_Shopping_link(){
+		if(Click_Shopping_link.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Shopping_link
+	public String getCssValue_Click_Shopping_link(String attribute) {
+		return Click_Shopping_link.getCssValue(attribute);
+	}
+
+	//Get the text :  Shopping_link
+	public String getText_Click_Shopping_link(){
+		return Click_Shopping_link.getText();
+	}
+
+	//Get the value :  Shopping_link
+	public String getValue_Click_Shopping_link(){
+		return Click_Shopping_link.getAttribute("value");
+	}
+	// selected or Not :  Shopping_link
+	public boolean isSelected_Click_Shopping_link(){
+		if(Click_Shopping_link.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Shopping_whatsnew_link
+	public void click_Click_Shopping_whatsnew_link(){
+		Click_Shopping_whatsnew_link.click();
+	}
+
+	// Hover:  Shopping_whatsnew_link
+	public void hover_Click_Shopping_whatsnew_link(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(Click_Shopping_whatsnew_link).build().perform();
+	}
+
+	// visible or Not :  Shopping_whatsnew_link
+	public boolean isDisplayed_Click_Shopping_whatsnew_link(){
+		if(Click_Shopping_whatsnew_link.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Shopping_whatsnew_link
+	public boolean isEnabled_Click_Shopping_whatsnew_link(){
+		if(Click_Shopping_whatsnew_link.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Shopping_whatsnew_link
+	public String getCssValue_Click_Shopping_whatsnew_link(String attribute) {
+		return Click_Shopping_whatsnew_link.getCssValue(attribute);
+	}
+
+	//Get the text :  Shopping_whatsnew_link
+	public String getText_Click_Shopping_whatsnew_link(){
+		return Click_Shopping_whatsnew_link.getText();
+	}
+
+	//Get the value :  Shopping_whatsnew_link
+	public String getValue_Click_Shopping_whatsnew_link(){
+		return Click_Shopping_whatsnew_link.getAttribute("value");
+	}
+	// selected or Not :  Shopping_whatsnew_link
+	public boolean isSelected_Click_Shopping_whatsnew_link(){
+		if(Click_Shopping_whatsnew_link.isSelected()) { return true; } else { return false;} 
 	}
 
 }

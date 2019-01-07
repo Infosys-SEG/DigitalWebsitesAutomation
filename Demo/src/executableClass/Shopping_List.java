@@ -61,7 +61,7 @@ public class Shopping_List
 		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, proddetails, count, "Added");	
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "Added");	
 		
 		//coupons filter
 		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, prod, count);
@@ -116,32 +116,78 @@ public class Shopping_List
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, proddetails, count, "DeleteIcon_Removedfromshoppinglist");
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "DeleteIcon_Removedfromshoppinglist");
 		driver = logout.Logout(driver);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality);
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, proddetails, count, "Removed");
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "Removed");
 		
 	}
 	
 	@Test (priority=6)
+	public void TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String proddetails="";
+		String prodvalu="";
+		int count=0;
+		String Functionality = functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
+		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
+		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
+		proddetails=weeklyad.getproddetails();
+		count=weeklyad.getcount();
+		prodvalu=weeklyad.getprodvalu();
+		driver=shoppinglist.Edit_ShoppingList(driver, Functionality, TCName, proddetails,"weeklyad", "editqty");
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "editqty");
+	
+		
+		
+	}
+	@Test (priority=7)
 	public void TC_14_EditMyItemName () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		int count=0;
+		String proddetails="";
 		String Functionality = functionality;
 		driver= browserbanner.BrowserBanner(driver, Functionality);
 		driver=browserbanner.Clearcookie(driver, Functionality);
-		//driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
+		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality);
 		driver = shoppinglist.Add_Remove_MyItems_ShoppingList(driver, Functionality, TCName, count, "Add");
+		proddetails=weeklyad.getproddetails();
 		count=shoppinglist.getcount();
 		driver=shoppinglist.Check_MyItems_ShoppingList(driver, Functionality, TCName, count, "Added");	
-		driver = shoppinglist.Edit_ShoppingList(driver, Functionality, TCName, "myitems", "edititem");
+		driver = shoppinglist.Edit_ShoppingList(driver, Functionality, TCName, proddetails,"myitems", "edititem");
 		driver=shoppinglist.Check_MyItems_ShoppingList(driver, Functionality, TCName, count, "myitemname_Edited");
-		driver = shoppinglist.Edit_ShoppingList(driver, Functionality, TCName, "myitems", "editqty");
+			
+		driver.close();
+	}
+	
+	@Test (priority=8)
+	public void TC_16_Edit_Item_Quantity () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as tcname
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		int count=0;
+		String proddetails="";
+		String Functionality = functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
+		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality);
+		driver = shoppinglist.Add_Remove_MyItems_ShoppingList(driver, Functionality, TCName, count, "Add");
+		proddetails=weeklyad.getproddetails();
+		count=shoppinglist.getcount();
+		driver=shoppinglist.Check_MyItems_ShoppingList(driver, Functionality, TCName, count, "Added");	
+		driver = shoppinglist.Edit_ShoppingList(driver, Functionality, TCName,proddetails, "myitems", "editqty");
 		driver=shoppinglist.Check_MyItems_ShoppingList(driver, Functionality, TCName, count, "myitemqty_Edited");	
 		driver.close();
 	}
+	
+	
 }

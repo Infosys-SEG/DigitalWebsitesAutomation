@@ -6,14 +6,12 @@ import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.Reporter;
-
 import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_Homepage;
@@ -92,7 +90,7 @@ public class Computed_Shopping_List
 	  }
     
     
-	public WebDriver WeeklyAd_Deals_ShoppingList(WebDriver driver,String proddetails,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver WeeklyAd_Deals_ShoppingList(WebDriver driver,String Functionality,String TCName,String proddetails,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
 		Data obj=new Data();
@@ -102,7 +100,7 @@ public class Computed_Shopping_List
 		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			String sc=shoppinglistpage.getText_txt_List_Count_Text();
 			int scl=Integer.parseInt(sc);
-			if(!actionverify.equalsIgnoreCase(""))
+			if(!actionverify.equalsIgnoreCase("")||count!=0)
 			{
 				if(scl!=count)
 				{
@@ -164,8 +162,6 @@ public class Computed_Shopping_List
 			if(totalprod.size()!=0)
 			{
 				prodsummary=shoppinglistpage.txt_Product_Summary_Text;
-				
-				//proddesc= shoppinglistpage.txt_Product_Description_Text;
 				price= shoppinglistpage.txt_Product_Price_Text;
 				Delete=shoppinglistpage.click_Weekly_Ad_Items_Delete_Icon;
 				qty = shoppinglistpage.txt_Quantity_CheckBox;
@@ -185,6 +181,13 @@ public class Computed_Shopping_List
 		    String pric="";
 		    boolean chk=false;
 		    boolean finished = false;
+		    new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+			
+			if(actionverify.equalsIgnoreCase("editqty"))
+			{	
+				editqty=Readexcel_RowName.getValue("Edit_QTY");
+				
+			}
 		    if(prodchk==true) 
 		    {
 		    	outerloop:
@@ -278,7 +281,7 @@ public class Computed_Shopping_List
 				    			}
 				    				
 				    		}
-				    		else if(actionverify.equalsIgnoreCase("Weeklyad_QTY_Edited"))
+				    		else if(actionverify.equalsIgnoreCase("editqty"))
 							{
 								if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
 								{	
@@ -719,7 +722,7 @@ public class Computed_Shopping_List
 			int size=totalprod.size();	
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 			prodname=Readexcel_RowName.getValue("Add_An_Item");
-			if(actionverify.equalsIgnoreCase("Edited"))
+			if(actionverify.equalsIgnoreCase("myitemname_Edited")||actionverify.equalsIgnoreCase("myitemqty_Edited"))
 			{
 				editname=Readexcel_RowName.getValue("Edit_Item_Name");
 				editqty=Readexcel_RowName.getValue("Edit_QTY");
@@ -767,6 +770,7 @@ public class Computed_Shopping_List
 							
 							else if(actionverify.equalsIgnoreCase("myitemname_Edited"))
 							{
+							
 								if(editname.equalsIgnoreCase(item))
 								{	
 									finished=true;
@@ -778,7 +782,7 @@ public class Computed_Shopping_List
 							}
 							else if(actionverify.equalsIgnoreCase("myitemqty_Edited"))
 							{
-								if(prodname.equalsIgnoreCase(item))
+								if(prodname.equalsIgnoreCase(item)||editname.equalsIgnoreCase(item))
 								{	
 									if(editqty.equalsIgnoreCase(checkbox.get(k).getText()))
 									{
@@ -853,28 +857,29 @@ public class Computed_Shopping_List
 	}
 
 	
-	public WebDriver Edit_ShoppingList(WebDriver driver,String Functionality,String TCName,String filter, String Editaction) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Edit_ShoppingList(WebDriver driver,String Functionality,String TCName,String proddetails,String filter, String Editaction) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
+		
 		Data obj=new Data();
 		Robot rb = new Robot();
 		String prodname="";
 		String editname="";
 		String editqty="";
+	
 	    try
 	    { 	   
 		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			
 			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
 			shoppinglistpage.click_click_List_icon_Button();
-	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);
-	        
-	        boolean prodchk=true;
-	       
+	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);      
+	        boolean prodchk=true;      
 	        rb.keyPress(KeyEvent.VK_TAB);
 			rb.keyRelease(KeyEvent.VK_TAB);
 			rb.keyPress(KeyEvent.VK_TAB);
 			rb.keyRelease(KeyEvent.VK_TAB);
+			
 			obj.scrollingToTop(driver);
 	        if (filter.equalsIgnoreCase("Weeklyad"))
 	        {
@@ -890,9 +895,92 @@ public class Computed_Shopping_List
 		        }
 				if(shoppinglistpage.isSelected_click_MyItem_Filter_Checkbox())
 				{
-					shoppinglistpage.click_click_MyItem_Filter_Checkbox();
-					
+					shoppinglistpage.click_click_MyItem_Filter_Checkbox();					
 		        }
+				
+				Thread.sleep(2000);
+				totalprod= shoppinglistpage.txt_Total_Products_Text;
+				if(totalprod.size()!=0)
+				{
+					
+					prodsummary=shoppinglistpage.txt_Product_Summary_Text;
+					price= shoppinglistpage.txt_Product_Price_Text;
+					Delete=shoppinglistpage.click_Weekly_Ad_Items_Delete_Icon;
+					
+					qty = shoppinglistpage.txt_Quantity_CheckBox;
+					
+					checkbox=shoppinglistpage.click_Select_Items_CheckBox;			
+				}
+				else
+				{
+					prodchk=false;
+					Assert.fail("Error in total products");
+				}
+				
+		        int size=totalprod.size();
+		       
+		        new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+				editqty=Readexcel_RowName.getValue("Edit_QTY");
+			
+				String item="";
+				String summary="";
+			    String desc="";
+			    String pric="";
+			    boolean finished = false;
+			    
+			    System.out.println(proddetails);
+			    if(prodchk==true) 
+			    {
+			    	outerloop:
+			    	for(int k=0;k<size;k++)
+			    	{		
+			    		for(int j=0;j<size && finished==false;j++)
+			    		{    	
+			    			item= totalprod.get(k).getText();
+			    			if(item.isEmpty())
+			    			{
+			    				rb.keyPress(KeyEvent.VK_DOWN);
+			    				rb.keyRelease(KeyEvent.VK_DOWN);
+					    	}
+			    			else
+			    			{   			
+			    				summary= prodsummary.get(k).getText();
+			    				summary = summary.replace(".","");		    			
+			    				summary = summary.replace("/", "");
+			    				try
+			    				{
+			    					proddesc= shoppinglistpage.txt_Product_Description_Text;
+			    					desc=proddesc.get(k).getText();
+			    					desc = desc.replace(".", "");
+			    					desc = desc.replace("/", "");
+			    				}
+			    				catch(Exception e)
+			    				{
+			    					desc="";
+			    				}
+			    				proddetails =  proddetails.replace(".", "");
+			    				proddetails = proddetails.replace("/", "");		
+			    				pric=price.get(k).getText();
+					    		pric = pric.replace(".", "");
+					    		pric = pric.replace("/", "");
+					    				
+					    		if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
+					    		{
+					    			
+					    			if(Editaction.equalsIgnoreCase("editqty"))
+									{
+										qty.get(k).sendKeys(Keys.ENTER+""+Keys.CONTROL + "a"+Keys.DELETE);
+										driver.findElement(By.xpath("//input[@class='form-control item-quantity']")).sendKeys(editqty);
+										Thread.sleep(1000); 	
+					    				finished=true;
+					    				break outerloop;
+					    			}
+					    			
+					    		}
+			    			}
+			    		}
+			    	}
+			    }
 	        }
 	       
 	        else if(filter.equalsIgnoreCase("myitems"))
@@ -911,75 +999,64 @@ public class Computed_Shopping_List
 					shoppinglistpage.click_click_MyItem_Filter_Checkbox();
 					obj.waitForElementselected(driver, shoppinglistpage.click_MyItem_Filter_Checkbox);
 		        }
-	        }
-			String item="";
-			totalprod= shoppinglistpage.txt_MyItem_Product_Name;
-			qty=shoppinglistpage.txt_Quantity_CheckBox;
-			if(totalprod.size()==0)
-			{
-				prodchk=false;
-			}
-			int size=totalprod.size();	
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-			prodname=Readexcel_RowName.getValue("Add_An_Item");
-			editname=Readexcel_RowName.getValue("Edit_Item_Name");
-			editqty=Readexcel_RowName.getValue("Edit_QTY");
-			boolean finished = false;
-			if(prodchk==true) 
-			{
-				outerloop:
-				for(int k=0;k<size;k++)
-				{		
-					for(int j=0;j<size && finished==false;j++)
-					{    	
-						item= totalprod.get(k).getText();
-						if(item.isEmpty())
-						{
-							rb.keyPress(KeyEvent.VK_DOWN);
-							rb.keyRelease(KeyEvent.VK_DOWN);
-					   	}
-						else
-						{
-							if(prodname.equalsIgnoreCase(item))
-							{	
-								finished=true;
-								
-								Thread.sleep(3000);
-								if(Editaction.equalsIgnoreCase("edititem"))
-								{
-									//totalprod.get(k).click();
-									
-									Actions action = new Actions(driver);
-									
-									
-									action.moveToElement(totalprod.get(k)).doubleClick().build().perform();
-									//Thread.sleep(1000);
-									//System.out.println("asdf");
-									/*totalprod.get(k).sendKeys(Keys.CONTROL + "a");
-									totalprod.get(k).sendKeys(Keys.DELETE);
-									System.out.println("asdfffffffffff");
-									totalprod.get(k).clear();
-									System.out.println("asdfaaaaaaaaaaaa");*/
-									totalprod.get(k).sendKeys(Keys.CLEAR+editname);
-									
-									Thread.sleep(1000);
-									 
-								}
-								else if(Editaction.equalsIgnoreCase("editqty"))
-								{
-									qty.get(k).click();
-									Thread.sleep(1000);
-									qty.get(k).clear();
-									qty.get(k).sendKeys(editqty);
-									Thread.sleep(1000); 
-								}
-								break outerloop;		
-							}		
-						}
+	        
+				 boolean finished = false;
+			        String item="";
+					totalprod= shoppinglistpage.txt_MyItem_Product_Name;
+					qty=shoppinglistpage.txt_Quantity_CheckBox;
+					if(totalprod.size()==0)
+					{
+						prodchk=false;
 					}
-			  	}
-			}   
-			
+					int size=totalprod.size();
+					new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+					prodname=Readexcel_RowName.getValue("Add_An_Item");
+					editname=Readexcel_RowName.getValue("Edit_Item_Name");
+					editqty=Readexcel_RowName.getValue("Edit_QTY");
+					
+					if(prodchk==true) 
+					{
+						outerloop:
+						for(int k=0;k<size;k++)
+						{		
+							for(int j=0;j<size && finished==false;j++)
+							{    	
+								item= totalprod.get(k).getText();
+								if(item.isEmpty())
+								{
+									rb.keyPress(KeyEvent.VK_DOWN);
+									rb.keyRelease(KeyEvent.VK_DOWN);
+							   	}
+								else
+								{
+									if(prodname.equalsIgnoreCase(item)||editname.equalsIgnoreCase(item))
+									{	
+										finished=true;
+										
+										Thread.sleep(3000);
+										if(Editaction.equalsIgnoreCase("edititem"))
+										{
+											
+											totalprod.get(k).sendKeys(Keys.ENTER+""+Keys.CONTROL + "a"+Keys.DELETE);
+											driver.findElement(By.xpath("//input[@class='form-control item-name']")).sendKeys(editname);
+											Thread.sleep(1000);
+											 
+										}
+										else if(Editaction.equalsIgnoreCase("editqty"))
+										{
+											System.out.println("editqty");
+											qty.get(k).sendKeys(Keys.ENTER+""+Keys.CONTROL + "a"+Keys.DELETE);
+											driver.findElement(By.xpath("//input[@class='form-control item-quantity']")).sendKeys(editqty);
+											Thread.sleep(1000); 
+											System.out.println("done");
+										}
+										break outerloop;		
+									}		
+								}
+							}
+					  	}
+					}   
+	        }
 			obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
 			shoppinglistpage.click_click_Close_Button();
 		}
@@ -987,7 +1064,7 @@ public class Computed_Shopping_List
 	    {
 	    	//driver.close();
 	    	System.out.println(e);
-	    	Assert.fail("Error in myitems shopping list");
+	    	Assert.fail("Error in shopping list");
 	    	
 	    }
 	

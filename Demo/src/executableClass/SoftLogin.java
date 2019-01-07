@@ -81,6 +81,7 @@ public class SoftLogin
 		driver=deals.Loggedout_Personalisedoffers(driver, Functionality,TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
 		driver=weeklyad.AddProduct(driver, prod, count, prodvalu,"circularpage");
+		driver=rewards.Myrewards_general(driver, Functionality);
 		driver=rewards.loggedout_Myreward(driver, Functionality);
 		driver.close();
 	}

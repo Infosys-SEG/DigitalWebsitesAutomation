@@ -2,10 +2,11 @@
 package  generatedClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 public class POM_Generated_StoreLocatorPage { 
 	WebDriver driver;
@@ -35,15 +36,15 @@ public class POM_Generated_StoreLocatorPage {
 	public WebElement click_Search_Button;
 	
 	// Associated Label : Radius_Dropdown
-	@FindBy(id = "ddlRadious")
+	@FindBy(xpath = "//*[@id='ddlRadious']")
 	public WebElement ddl_Radius_Dropdown;
 	
 	// Associated Label : View_Store_Details_Button
-	@FindBy(xpath = "//a[text()='View store details'][1]")
+	@FindBy(xpath = "//*[@id='strGrdView']/div[1]/div/div[2]/div[4]/a")
 	public WebElement click_View_Store_Details_Button;
 	
 	// Associated Label : Make_My_store_Button
-	@FindBy(xpath = "//button[@id='btnMyStore'][1]")
+	@FindBy(xpath = "//*[@id='btnMakeMyStore']")
 	public WebElement click_Make_My_store_Button;
 	
 	// Associated Label : StreetAddr_Text
@@ -57,6 +58,22 @@ public class POM_Generated_StoreLocatorPage {
 	// Associated Label : Invalid_Store_Error_Text
 	@FindBy(xpath = "//div[@class='errorParagraph']")
 	public WebElement click_Invalid_Store_Error_Text;
+	
+	// Associated Label : Weekly_Ad_Link
+	@FindBy(xpath = "//*[@id='strGrdView']/div[1]/div/div[6]/a/img")
+	public WebElement click_Weekly_Ad_Link;
+	
+	// Associated Label : Invalid_store_text
+	@FindBy(xpath = "//*[@id='errorNostore']")
+	public WebElement txt_Invalid_store_text;
+	
+	// Associated Label : Invalid_zipcode_txt
+	@FindBy(xpath = "//*[@id='errorPara']")
+	public WebElement txt_Invalid_zipcode_txt;
+	
+	// Associated Label : Foooter_Logo_Button
+	@FindBy(xpath = "//*[@id='divFooter']/div[1]/div[1]/div/a/img")
+	public WebElement click_Foooter_Logo_Button;
 	
 
 //*******************************************************************************
@@ -487,6 +504,178 @@ public class POM_Generated_StoreLocatorPage {
 	// selected or Not :  Invalid_Store_Error_Text
 	public boolean isSelected_click_Invalid_Store_Error_Text(){
 		if(click_Invalid_Store_Error_Text.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Weekly_Ad_Link
+	public void click_click_Weekly_Ad_Link(){
+		click_Weekly_Ad_Link.click();
+	}
+
+	// Hover:  Weekly_Ad_Link
+	public void hover_click_Weekly_Ad_Link(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Weekly_Ad_Link).build().perform();
+	}
+
+	// visible or Not :  Weekly_Ad_Link
+	public boolean isDisplayed_click_Weekly_Ad_Link(){
+		if(click_Weekly_Ad_Link.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Weekly_Ad_Link
+	public boolean isEnabled_click_Weekly_Ad_Link(){
+		if(click_Weekly_Ad_Link.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Weekly_Ad_Link
+	public String getCssValue_click_Weekly_Ad_Link(String attribute) {
+		return click_Weekly_Ad_Link.getCssValue(attribute);
+	}
+
+	//Get the text :  Weekly_Ad_Link
+	public String getText_click_Weekly_Ad_Link(){
+		return click_Weekly_Ad_Link.getText();
+	}
+
+	//Get the value :  Weekly_Ad_Link
+	public String getValue_click_Weekly_Ad_Link(){
+		return click_Weekly_Ad_Link.getAttribute("value");
+	}
+	// selected or Not :  Weekly_Ad_Link
+	public boolean isSelected_click_Weekly_Ad_Link(){
+		if(click_Weekly_Ad_Link.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Invalid_store_text
+	public void type_txt_Invalid_store_text(String value) {
+		txt_Invalid_store_text.clear();
+		txt_Invalid_store_text.sendKeys(value);
+	}
+
+	//click:  Invalid_store_text
+	public void click_txt_Invalid_store_text(){
+		txt_Invalid_store_text.click();
+	}
+
+	// Hover:  Invalid_store_text
+	public void hover_txt_Invalid_store_text(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Invalid_store_text).build().perform();
+	}
+
+	// visible or Not :  Invalid_store_text
+	public boolean isDisplayed_txt_Invalid_store_text(){
+		if(txt_Invalid_store_text.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Invalid_store_text
+	public boolean isEnabled_txt_Invalid_store_text(){
+		if(txt_Invalid_store_text.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Invalid_store_text
+	public String getCssValue_txt_Invalid_store_text(String attribute) {
+		return txt_Invalid_store_text.getCssValue(attribute);
+	}
+
+	//Get the text :  Invalid_store_text
+	public String getText_txt_Invalid_store_text(){
+		return txt_Invalid_store_text.getText();
+	}
+
+	//Get the value :  Invalid_store_text
+	public String getValue_txt_Invalid_store_text(){
+		return txt_Invalid_store_text.getAttribute("value");
+	}
+	// selected or Not :  Invalid_store_text
+	public boolean isSelected_txt_Invalid_store_text(){
+		if(txt_Invalid_store_text.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Invalid_zipcode_txt
+	public void type_txt_Invalid_zipcode_txt(String value) {
+		txt_Invalid_zipcode_txt.clear();
+		txt_Invalid_zipcode_txt.sendKeys(value);
+	}
+
+	//click:  Invalid_zipcode_txt
+	public void click_txt_Invalid_zipcode_txt(){
+		txt_Invalid_zipcode_txt.click();
+	}
+
+	// Hover:  Invalid_zipcode_txt
+	public void hover_txt_Invalid_zipcode_txt(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Invalid_zipcode_txt).build().perform();
+	}
+
+	// visible or Not :  Invalid_zipcode_txt
+	public boolean isDisplayed_txt_Invalid_zipcode_txt(){
+		if(txt_Invalid_zipcode_txt.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Invalid_zipcode_txt
+	public boolean isEnabled_txt_Invalid_zipcode_txt(){
+		if(txt_Invalid_zipcode_txt.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Invalid_zipcode_txt
+	public String getCssValue_txt_Invalid_zipcode_txt(String attribute) {
+		return txt_Invalid_zipcode_txt.getCssValue(attribute);
+	}
+
+	//Get the text :  Invalid_zipcode_txt
+	public String getText_txt_Invalid_zipcode_txt(){
+		return txt_Invalid_zipcode_txt.getText();
+	}
+
+	//Get the value :  Invalid_zipcode_txt
+	public String getValue_txt_Invalid_zipcode_txt(){
+		return txt_Invalid_zipcode_txt.getAttribute("value");
+	}
+	// selected or Not :  Invalid_zipcode_txt
+	public boolean isSelected_txt_Invalid_zipcode_txt(){
+		if(txt_Invalid_zipcode_txt.isSelected()) { return true; } else { return false;} 
+	}
+
+	//click:  Foooter_Logo_Button
+	public void click_click_Foooter_Logo_Button(){
+		click_Foooter_Logo_Button.click();
+	}
+
+	// Hover:  Foooter_Logo_Button
+	public void hover_click_Foooter_Logo_Button(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(click_Foooter_Logo_Button).build().perform();
+	}
+
+	// visible or Not :  Foooter_Logo_Button
+	public boolean isDisplayed_click_Foooter_Logo_Button(){
+		if(click_Foooter_Logo_Button.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Foooter_Logo_Button
+	public boolean isEnabled_click_Foooter_Logo_Button(){
+		if(click_Foooter_Logo_Button.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Foooter_Logo_Button
+	public String getCssValue_click_Foooter_Logo_Button(String attribute) {
+		return click_Foooter_Logo_Button.getCssValue(attribute);
+	}
+
+	//Get the text :  Foooter_Logo_Button
+	public String getText_click_Foooter_Logo_Button(){
+		return click_Foooter_Logo_Button.getText();
+	}
+
+	//Get the value :  Foooter_Logo_Button
+	public String getValue_click_Foooter_Logo_Button(){
+		return click_Foooter_Logo_Button.getAttribute("value");
+	}
+	// selected or Not :  Foooter_Logo_Button
+	public boolean isSelected_click_Foooter_Logo_Button(){
+		if(click_Foooter_Logo_Button.isSelected()) { return true; } else { return false;} 
 	}
 
 }

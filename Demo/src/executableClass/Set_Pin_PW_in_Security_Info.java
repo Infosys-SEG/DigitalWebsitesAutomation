@@ -187,4 +187,32 @@ public class Set_Pin_PW_in_Security_Info {
 		
 	}
 	
+	@Test(priority=11)
+	public void TC013_Validate_the_blocked_list_of_email_domains_should_not_be_allowed () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		//For getting current method name and passing as tcname
+				String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+				String Functionality=functionality;
+				driver=browserbanner.BrowserBanner(driver, Functionality);
+				driver = browserbanner.Clearcookie(driver, Functionality);
+				driver=preenrollmentflow.SignUpPage(driver);
+				driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
+				driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain1");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain2");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain3");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain4");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain5");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain6");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain7");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain8");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain9");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain10");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain11");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain12");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain13");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain14");
+				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain15");
+	}
+	
 }

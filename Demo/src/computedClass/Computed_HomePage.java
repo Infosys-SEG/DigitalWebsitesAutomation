@@ -384,7 +384,7 @@ import generatedClass.POM_Generated_Homepage;
 		    	    
 		    	    //*obj.waitForElementClickable(driver, (WebElement) homepage.click_Save_Coupon_Button);
 		    	   
-		    	    List<WebElement> buttons = homepage.click_Save_Coupon_Button; 
+		    	    List<WebElement> buttons = (List<WebElement>) homepage.click_Save_Coupon_Button; 
 		    	   
 		  		    int sizee=buttons.size();
                     int count = 0;
@@ -432,4 +432,95 @@ import generatedClass.POM_Generated_Homepage;
 			}
 			return driver;
 		}
+	
+	public WebDriver Myrewardfooterlink(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		Data obj1 =new Data();
+		try 
+		{
+			String trm1="http://www.segrewards.com/terms";
+			String hom= driver.getCurrentUrl();
+	    	//obj1.waitForElement(driver, homepage.txt_Home_bottomblock_title);
+	    	obj1.scrollingToElementofAPage(driver,homepage.click_Home_screen_footer_Rewards_TC);
+	    	homepage.click_click_Home_screen_footer_Rewards_TC();
+	    	String trm=driver.getCurrentUrl();
+	    	//System.out.println(trm);
+	    	
+	    	if(trm.equalsIgnoreCase(trm1))
+	    	{
+	    		Reporter.log("user is navigated to terms and conditions page");
+	    	}
+	    	else
+	    	{
+	    		Assert.fail("user is not navigated to terms and conditions page");
+	    	}
+	    	driver.navigate().to(hom);
+			
+		   }
+		catch(Exception e)
+		{
+			Assert.fail("Issue in home page");
+		}
+		return driver;
+	}
+	
+	public WebDriver Globalnavupdate(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	
+	{
+		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		Data obj1 =new Data();
+		try
+		{
+			if(homepage.isDisplayed_click_Rewards_link_Hover())
+			{
+				homepage.click_click_Rewards_link_Hover();
+				if(homepage.isDisplayed_click_Rewards_RegisterNow_Button()&& homepage.isDisplayed_click_Rewards_Rewards_Button())
+				{
+					String link1  = homepage.getText_click_Rewards_RegisterNow_Button();
+					String link2 = homepage.getText_click_Rewards_Rewards_Button();
+					
+					Reporter.log(link1+ " and "+link2+ " links are present under 'Rewards' menu in Global Nav");
+				}
+			}
+			
+			String hom= driver.getCurrentUrl();
+		    homepage.click_click_Rewards_link_Hover();
+			homepage.click_click_Rewards_RegisterNow_Button();
+			String reg = driver.getCurrentUrl();
+			String regactual = "https://scqa." +value+ ".com/register-now";
+			if(reg.equalsIgnoreCase(regactual))
+			{
+				Reporter.log("On clicking Register link,navigated to enrollment page");
+			}
+			driver.navigate().to(hom);
+			
+			homepage.click_click_Rewards_link_Hover();
+			homepage.click_click_Rewards_Rewards_Button();
+			String rew = driver.getCurrentUrl();
+			String rewactual = "https://scqa." +value+ ".com/register-now";
+			if(rew.equalsIgnoreCase(rewactual))
+			{
+				Reporter.log("On clicking Rewards link,navigated to the rewards page");
+			}
+			driver.navigate().to(hom);
+			
+			if(homepage.isDisplayed_Click_Shopping_link())
+			{
+				homepage.click_Click_Shopping_link();
+				if(homepage.isDisplayed_Click_Shopping_whatsnew_link())
+				{
+					String str =homepage.getText_Click_Shopping_whatsnew_link();
+					Reporter.log(str+ " link is displayed under Shopping menu in Global Navigation");
+				}
+			}
+		}
+		catch(Exception e)
+		{
+		Assert.fail("Issue in home page");
+		}
+		
+		return driver;
+	}
+	
 	}

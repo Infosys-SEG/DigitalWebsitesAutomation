@@ -2,33 +2,36 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
     <line>
-      <![CDATA[Print list button is displayed in shopping list page]]>
+      <![CDATA[Logged in successfully ]]>
     </line>
     <line>
-      <![CDATA[Email list button is displayed in shopping list page]]>
+      <![CDATA[Locate a store near you button is displayed]]>
     </line>
     <line>
-      <![CDATA[Clicked add an item button in shopping list]]>
+      <![CDATA[Please select a store near to view weekly ads text is displayed]]>
     </line>
     <line>
-      <![CDATA[Products added in shopping list when items added from myitems]]>
+      <![CDATA[Added products are highlighted in Red color]]>
+    </line>
+    <line>
+      <![CDATA[Product added from overlay page]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="74114" started-at="2019-01-04T11:17:05Z" finished-at="2019-01-04T11:18:19Z">
+  <suite name="Default suite" duration-ms="99481" started-at="2019-01-07T13:09:35Z" finished-at="2019-01-07T13:11:14Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="74114" started-at="2019-01-04T11:17:05Z" finished-at="2019-01-04T11:18:19Z">
+    <test name="Default test" duration-ms="99481" started-at="2019-01-07T13:09:35Z" finished-at="2019-01-07T13:11:14Z">
       <class name="executableClass.Shopping_List">
-        <test-method status="FAIL" signature="TC_14_EditMyItemName()[pri:6, instance:executableClass.Shopping_List@59ec2012]" name="TC_14_EditMyItemName" duration-ms="74011" started-at="2019-01-04T16:47:05Z" finished-at="2019-01-04T16:48:19Z">
+        <test-method status="FAIL" signature="TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value()[pri:6, instance:executableClass.Shopping_List@59ec2012]" name="TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value" duration-ms="99270" started-at="2019-01-07T18:39:35Z" finished-at="2019-01-07T18:41:14Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Error in myitems shopping list]]>
+              <![CDATA[Error in shopping list]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Error in myitems shopping list
+              <![CDATA[java.lang.AssertionError: Error in shopping list
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_Shopping_List.Edit_ShoppingList(Computed_Shopping_List.java:990)
-	at executableClass.Shopping_List.TC_14_EditMyItemName(Shopping_List.java:141)
+	at computedClass.Computed_Shopping_List.Edit_ShoppingList(Computed_Shopping_List.java:1066)
+	at executableClass.Shopping_List.TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value(Shopping_List.java:143)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -59,19 +62,22 @@
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
             <line>
-              <![CDATA[Print list button is displayed in shopping list page]]>
+              <![CDATA[Logged in successfully ]]>
             </line>
             <line>
-              <![CDATA[Email list button is displayed in shopping list page]]>
+              <![CDATA[Locate a store near you button is displayed]]>
             </line>
             <line>
-              <![CDATA[Clicked add an item button in shopping list]]>
+              <![CDATA[Please select a store near to view weekly ads text is displayed]]>
             </line>
             <line>
-              <![CDATA[Products added in shopping list when items added from myitems]]>
+              <![CDATA[Added products are highlighted in Red color]]>
+            </line>
+            <line>
+              <![CDATA[Product added from overlay page]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC_14_EditMyItemName -->
+        </test-method> <!-- TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value -->
       </class> <!-- executableClass.Shopping_List -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

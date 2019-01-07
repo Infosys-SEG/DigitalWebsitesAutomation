@@ -430,6 +430,44 @@ public class Computed_SecurityInfo_ErrorValidation
 			    }
 			return driver;
 	}
-				
+	public WebDriver Invalid_Domain_ErrorValidation(WebDriver driver,String Functionality,String TCName,String TestDataColumn) throws IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_AccountSecurityPage acctSecurity= new POM_Generated_AccountSecurityPage(driver);
+		Data obj=new Data();
+		 try
+		    {
+			 new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+			 String Invalid_Domain=Readexcel_RowName.getValue(TestDataColumn);
+			
+			 new Readexcel_RowName().excelRead("ErrorMessageSheet",Functionality,"Error_Invalid_Domain_Email");
+			 String Error_Msg= Readexcel_RowName.getValue("Error_Message");
+			 acctSecurity.type_txt_Email_Address_Field(Invalid_Domain);
+			 acctSecurity.click_txt_Email_Address_Field();
+			 acctSecurity.click_txt_Set_Password1_Field();
+			 if(acctSecurity.isDisplayed_txt_Error_InvalidEmail())
+               {
+            	   Reporter.log("Error message is displayed when user enteres invalid domain:"+Invalid_Domain);
+            	   if(acctSecurity.getText_txt_Error_InvalidEmail().equals(Error_Msg))
+            	   	{
+	                  Reporter.log("Appropriate Error message is displayed as:"+acctSecurity.getText_txt_Error_InvalidEmail());      
+                    }
+            	   else
+            	   {
+            		   Assert.fail("Appropriate Error message is NOT displayed as:"+acctSecurity.getText_txt_Error_InvalidEmail());
+            	   }   
+               }
+               else
+               {
+            	   Assert.fail("Error message is NOT displayed when user enteres invalid domain");
+               }
+			 }
+		    
+		    catch(Exception e)
+		    {
+		    	System.out.println(e);
+		    	Assert.fail("Error in Account Securoty page ");
+		    }
+		return driver;
 	}
+}
 	

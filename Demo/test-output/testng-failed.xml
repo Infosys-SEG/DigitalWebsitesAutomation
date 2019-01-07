@@ -5,7 +5,7 @@
     <classes>
       <class name="executableClass.Shopping_List">
         <methods>
-          <include name="TC_14_EditMyItemName"/>
+          <include name="TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value"/>
         </methods>
       </class> <!-- executableClass.Shopping_List -->
     </classes>
