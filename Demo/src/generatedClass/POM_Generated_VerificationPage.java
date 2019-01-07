@@ -2,9 +2,11 @@
 package  generatedClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 public class POM_Generated_VerificationPage { 
 	WebDriver driver;
@@ -124,6 +126,22 @@ public class POM_Generated_VerificationPage {
 	// Associated Label : img_stepCounter_verificationPage_Active
 	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/verification-active.png?la=en&mw=1382']")
 	public WebElement txt_img_stepCounter_verificationPage_Active;
+	
+	// Associated Label : Error_PII_InvalidMonthDate_Msg
+	@FindBy(xpath = "//span[@id='MonthDateError']")
+	public WebElement txt_Error_PII_InvalidMonthDate_Msg;
+	
+	// Associated Label : Error_PII_InvalidDateYear_Msg
+	@FindBy(xpath = "//span[@id='DateYearError']")
+	public WebElement txt_Error_PII_InvalidDateYear_Msg;
+	
+	// Associated Label : Error_PII_InvalidMonthYear_Msg
+	@FindBy(xpath = "//span[@id='MonthYearError']")
+	public WebElement txt_Error_PII_InvalidMonthYear_Msg;
+	
+	// Associated Label : Error_PII_InvalidMonthDateYear_Msg
+	@FindBy(xpath = "//span[@id='MonthDateYearError']")
+	public WebElement txt_Error_PII_InvalidMonthDateYear_Msg;
 	
 
 //*******************************************************************************
@@ -1336,6 +1354,190 @@ public class POM_Generated_VerificationPage {
 	// selected or Not :  img_stepCounter_verificationPage_Active
 	public boolean isSelected_txt_img_stepCounter_verificationPage_Active(){
 		if(txt_img_stepCounter_verificationPage_Active.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Error_PII_InvalidMonthDate_Msg
+	public void type_txt_Error_PII_InvalidMonthDate_Msg(String value) {
+		txt_Error_PII_InvalidMonthDate_Msg.clear();
+		txt_Error_PII_InvalidMonthDate_Msg.sendKeys(value);
+	}
+
+	//click:  Error_PII_InvalidMonthDate_Msg
+	public void click_txt_Error_PII_InvalidMonthDate_Msg(){
+		txt_Error_PII_InvalidMonthDate_Msg.click();
+	}
+
+	// Hover:  Error_PII_InvalidMonthDate_Msg
+	public void hover_txt_Error_PII_InvalidMonthDate_Msg(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Error_PII_InvalidMonthDate_Msg).build().perform();
+	}
+
+	// visible or Not :  Error_PII_InvalidMonthDate_Msg
+	public boolean isDisplayed_txt_Error_PII_InvalidMonthDate_Msg(){
+		if(txt_Error_PII_InvalidMonthDate_Msg.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Error_PII_InvalidMonthDate_Msg
+	public boolean isEnabled_txt_Error_PII_InvalidMonthDate_Msg(){
+		if(txt_Error_PII_InvalidMonthDate_Msg.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Error_PII_InvalidMonthDate_Msg
+	public String getCssValue_txt_Error_PII_InvalidMonthDate_Msg(String attribute) {
+		return txt_Error_PII_InvalidMonthDate_Msg.getCssValue(attribute);
+	}
+
+	//Get the text :  Error_PII_InvalidMonthDate_Msg
+	public String getText_txt_Error_PII_InvalidMonthDate_Msg(){
+		return txt_Error_PII_InvalidMonthDate_Msg.getText();
+	}
+
+	//Get the value :  Error_PII_InvalidMonthDate_Msg
+	public String getValue_txt_Error_PII_InvalidMonthDate_Msg(){
+		return txt_Error_PII_InvalidMonthDate_Msg.getAttribute("value");
+	}
+	// selected or Not :  Error_PII_InvalidMonthDate_Msg
+	public boolean isSelected_txt_Error_PII_InvalidMonthDate_Msg(){
+		if(txt_Error_PII_InvalidMonthDate_Msg.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Error_PII_InvalidDateYear_Msg
+	public void type_txt_Error_PII_InvalidDateYear_Msg(String value) {
+		txt_Error_PII_InvalidDateYear_Msg.clear();
+		txt_Error_PII_InvalidDateYear_Msg.sendKeys(value);
+	}
+
+	//click:  Error_PII_InvalidDateYear_Msg
+	public void click_txt_Error_PII_InvalidDateYear_Msg(){
+		txt_Error_PII_InvalidDateYear_Msg.click();
+	}
+
+	// Hover:  Error_PII_InvalidDateYear_Msg
+	public void hover_txt_Error_PII_InvalidDateYear_Msg(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Error_PII_InvalidDateYear_Msg).build().perform();
+	}
+
+	// visible or Not :  Error_PII_InvalidDateYear_Msg
+	public boolean isDisplayed_txt_Error_PII_InvalidDateYear_Msg(){
+		if(txt_Error_PII_InvalidDateYear_Msg.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Error_PII_InvalidDateYear_Msg
+	public boolean isEnabled_txt_Error_PII_InvalidDateYear_Msg(){
+		if(txt_Error_PII_InvalidDateYear_Msg.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Error_PII_InvalidDateYear_Msg
+	public String getCssValue_txt_Error_PII_InvalidDateYear_Msg(String attribute) {
+		return txt_Error_PII_InvalidDateYear_Msg.getCssValue(attribute);
+	}
+
+	//Get the text :  Error_PII_InvalidDateYear_Msg
+	public String getText_txt_Error_PII_InvalidDateYear_Msg(){
+		return txt_Error_PII_InvalidDateYear_Msg.getText();
+	}
+
+	//Get the value :  Error_PII_InvalidDateYear_Msg
+	public String getValue_txt_Error_PII_InvalidDateYear_Msg(){
+		return txt_Error_PII_InvalidDateYear_Msg.getAttribute("value");
+	}
+	// selected or Not :  Error_PII_InvalidDateYear_Msg
+	public boolean isSelected_txt_Error_PII_InvalidDateYear_Msg(){
+		if(txt_Error_PII_InvalidDateYear_Msg.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Error_PII_InvalidMonthYear_Msg
+	public void type_txt_Error_PII_InvalidMonthYear_Msg(String value) {
+		txt_Error_PII_InvalidMonthYear_Msg.clear();
+		txt_Error_PII_InvalidMonthYear_Msg.sendKeys(value);
+	}
+
+	//click:  Error_PII_InvalidMonthYear_Msg
+	public void click_txt_Error_PII_InvalidMonthYear_Msg(){
+		txt_Error_PII_InvalidMonthYear_Msg.click();
+	}
+
+	// Hover:  Error_PII_InvalidMonthYear_Msg
+	public void hover_txt_Error_PII_InvalidMonthYear_Msg(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Error_PII_InvalidMonthYear_Msg).build().perform();
+	}
+
+	// visible or Not :  Error_PII_InvalidMonthYear_Msg
+	public boolean isDisplayed_txt_Error_PII_InvalidMonthYear_Msg(){
+		if(txt_Error_PII_InvalidMonthYear_Msg.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Error_PII_InvalidMonthYear_Msg
+	public boolean isEnabled_txt_Error_PII_InvalidMonthYear_Msg(){
+		if(txt_Error_PII_InvalidMonthYear_Msg.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Error_PII_InvalidMonthYear_Msg
+	public String getCssValue_txt_Error_PII_InvalidMonthYear_Msg(String attribute) {
+		return txt_Error_PII_InvalidMonthYear_Msg.getCssValue(attribute);
+	}
+
+	//Get the text :  Error_PII_InvalidMonthYear_Msg
+	public String getText_txt_Error_PII_InvalidMonthYear_Msg(){
+		return txt_Error_PII_InvalidMonthYear_Msg.getText();
+	}
+
+	//Get the value :  Error_PII_InvalidMonthYear_Msg
+	public String getValue_txt_Error_PII_InvalidMonthYear_Msg(){
+		return txt_Error_PII_InvalidMonthYear_Msg.getAttribute("value");
+	}
+	// selected or Not :  Error_PII_InvalidMonthYear_Msg
+	public boolean isSelected_txt_Error_PII_InvalidMonthYear_Msg(){
+		if(txt_Error_PII_InvalidMonthYear_Msg.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Error_PII_InvalidMonthDateYear_Msg
+	public void type_txt_Error_PII_InvalidMonthDateYear_Msg(String value) {
+		txt_Error_PII_InvalidMonthDateYear_Msg.clear();
+		txt_Error_PII_InvalidMonthDateYear_Msg.sendKeys(value);
+	}
+
+	//click:  Error_PII_InvalidMonthDateYear_Msg
+	public void click_txt_Error_PII_InvalidMonthDateYear_Msg(){
+		txt_Error_PII_InvalidMonthDateYear_Msg.click();
+	}
+
+	// Hover:  Error_PII_InvalidMonthDateYear_Msg
+	public void hover_txt_Error_PII_InvalidMonthDateYear_Msg(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Error_PII_InvalidMonthDateYear_Msg).build().perform();
+	}
+
+	// visible or Not :  Error_PII_InvalidMonthDateYear_Msg
+	public boolean isDisplayed_txt_Error_PII_InvalidMonthDateYear_Msg(){
+		if(txt_Error_PII_InvalidMonthDateYear_Msg.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Error_PII_InvalidMonthDateYear_Msg
+	public boolean isEnabled_txt_Error_PII_InvalidMonthDateYear_Msg(){
+		if(txt_Error_PII_InvalidMonthDateYear_Msg.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Error_PII_InvalidMonthDateYear_Msg
+	public String getCssValue_txt_Error_PII_InvalidMonthDateYear_Msg(String attribute) {
+		return txt_Error_PII_InvalidMonthDateYear_Msg.getCssValue(attribute);
+	}
+
+	//Get the text :  Error_PII_InvalidMonthDateYear_Msg
+	public String getText_txt_Error_PII_InvalidMonthDateYear_Msg(){
+		return txt_Error_PII_InvalidMonthDateYear_Msg.getText();
+	}
+
+	//Get the value :  Error_PII_InvalidMonthDateYear_Msg
+	public String getValue_txt_Error_PII_InvalidMonthDateYear_Msg(){
+		return txt_Error_PII_InvalidMonthDateYear_Msg.getAttribute("value");
+	}
+	// selected or Not :  Error_PII_InvalidMonthDateYear_Msg
+	public boolean isSelected_txt_Error_PII_InvalidMonthDateYear_Msg(){
+		if(txt_Error_PII_InvalidMonthDateYear_Msg.isSelected()) { return true; } else { return false;} 
 	}
 
 }

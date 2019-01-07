@@ -961,7 +961,7 @@ public class Computed_Shopping_List
 									totalprod.get(k).clear();
 									System.out.println("asdfaaaaaaaaaaaa");*/
 									totalprod.get(k).sendKeys(Keys.CLEAR+editname);
-									System.out.println("asdfbbbbbbbbbbbbbb");
+									
 									Thread.sleep(1000);
 									 
 								}
