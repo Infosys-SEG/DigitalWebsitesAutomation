@@ -413,6 +413,7 @@ public class Computed_Shopping_List
 		    }
 		    else
     		{
+		    	System.out.println("");
     			Assert.fail("Check action verify parameter from shopping list");
     		}
 		    obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
