@@ -644,6 +644,22 @@ public class Computed_FullyEnrollment_Flow
 			{
 				Assert.fail("verification tab is NOT highlighted in step counter");
 			}
+			if(verificationpage.isDisplayed_txt_img_stepCounter_contactinfo_InActive())
+			{
+				Reporter.log("Contact info tab is NOT highlighted in Step counter");
+			}
+			else
+			{
+				Assert.fail("Contact info tab is highlighted in step counter");
+			}
+			if(verificationpage.isDisplayed_txt_img_stepCounter_SecurityInfo_InActive())
+			{
+				Reporter.log("Security info tab is NOT highlighted in Step counter");
+			}
+			else
+			{
+				Assert.fail("Security info tab is highlighted in step counter");
+			}	
 		    verificationpage.click_txt_PII_Verification_Date_Field();
 		    verificationpage.click_click_PII_Verification_Next_Button();
 		    if(contactinfopage.isDisplayed_txt_Fname_Field())
@@ -695,6 +711,22 @@ public class Computed_FullyEnrollment_Flow
 			else
 			{
 				Assert.fail("contact info tab is NOT highlighted in step counter");
+			}
+			if(contactinfopage.isDisplayed_txt_img_stepcounter_verification_done())
+			{
+				Reporter.log("Verification tab is showing as completed in Step counter");
+			}
+			else
+			{
+				Assert.fail("Verification tab is NOT showing as completed in step counter");
+			}
+			if(contactinfopage.isDisplayed_txt_img_stepCounter_SecurityInfo_InActive())
+			{
+				Reporter.log("Security info tab is NOT highlighted in Step counter");
+			}
+			else
+			{
+				Assert.fail("security info tab is highlighted in step counter");
 			}
 			contactinfopage.click_txt_Primary_Phone_Number_Field();
 		    contactinfopage.click_click_Submit_Form_Button();

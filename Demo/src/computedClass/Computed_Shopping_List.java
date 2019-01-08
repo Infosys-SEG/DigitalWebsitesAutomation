@@ -179,6 +179,9 @@ public class Computed_Shopping_List
 			String summary="";
 		    String desc="";
 		    String pric="";
+		    String product1="";
+		    String product2="";
+		    int itemnumber=0;
 		    boolean chk=false;
 		    boolean finished = false;
 		    new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
@@ -187,6 +190,11 @@ public class Computed_Shopping_List
 			{	
 				editqty=Readexcel_RowName.getValue("Edit_QTY");
 				
+			}
+			else if(actionverify.equalsIgnoreCase("Delete_Multipleitems"))
+			{
+				product1=Readexcel_RowName.getValue("product1");
+				product2=Readexcel_RowName.getValue("product2");
 			}
 		    if(prodchk==true) 
 		    {
@@ -281,6 +289,28 @@ public class Computed_Shopping_List
 				    			}
 				    				
 				    		}
+				    		else if(actionverify.equalsIgnoreCase("Delete_Multipleitems"))
+				    		{		
+				    			if(product1.equalsIgnoreCase(summary+" "+pric+" "+desc))
+				    			{				    			
+				    				checkbox.get(k).click();				    		
+				    				itemnumber+=1;
+				    			}
+				    			else if(product2.equalsIgnoreCase(summary+" "+pric+" "+desc))
+				    			{
+				    				checkbox.get(k).click();				    		
+				    				itemnumber+=1;		    										    			
+				    			}
+				    			int val=Integer.parseInt(proddetails);
+				    			if(itemnumber==val)
+				    			{
+				    				chk=true;
+				    				finished=true;				    				
+				    				obj.movetoElementofAPage_Click(driver, shoppinglistpage.click_Remove_All_Checked_Items_Button);
+				    				Thread.sleep(3000);
+				    				break outerloop;
+				    			}
+				    		}
 				    		else if(actionverify.equalsIgnoreCase("editqty"))
 							{
 								if(proddetails.equalsIgnoreCase(summary+" "+pric+" "+desc))
@@ -350,21 +380,35 @@ public class Computed_Shopping_List
 		    		Reporter.log("Products removed from shopping list");
 		    	}
 		    }
-		    else if(actionverify.equalsIgnoreCase(""))
-		    {
-		    	Reporter.log("verified shopping list only as expected");
-		    }
-		    if(actionverify.equalsIgnoreCase("Weeklyad_QTY_Edited"))
+		    
+		    else if(actionverify.equalsIgnoreCase("Delete_Multipleitems"))
 		    {
 		    	if(chk==false)
 		    	{
-		    		//driver.close();
-		    		Assert.fail("Products are not displaying in shoppinglist when items added from circular page");
+		    		driver.close();
+		    		Assert.fail("Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button");
 		    		
 		    	}
 		    	else
 		    	{
-		    		Reporter.log("Products added in shopping list when items added from circular page");
+		    		Reporter.log("Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button");
+		    	}
+		    }
+		    else if(actionverify.equalsIgnoreCase(""))
+		    {
+		    	Reporter.log("verified shopping list only as expected");
+		    }
+		    if(actionverify.equalsIgnoreCase("editqty"))
+		    {
+		    	if(chk==false)
+		    	{
+		    		//driver.close();
+		    		Assert.fail("Edited Quantity is not updated in shopping list");
+		    		
+		    	}
+		    	else
+		    	{
+		    		Reporter.log("Edited Quantity is updated in shopping list");
 		    	}
 		    }
 		    else

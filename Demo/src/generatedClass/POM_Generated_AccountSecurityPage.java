@@ -2,9 +2,11 @@
 package  generatedClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 public class POM_Generated_AccountSecurityPage { 
 	WebDriver driver;
@@ -132,6 +134,10 @@ public class POM_Generated_AccountSecurityPage {
 	// Associated Label : img_stepcounter_acctsecurity_active
 	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/security-active.png?la=en&mw=1382']")
 	public WebElement txt_img_stepcounter_acctsecurity_active;
+	
+	// Associated Label : img_stepcounter_verification_done
+	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/verification-visited.png?la=en&mw=1382']")
+	public WebElement txt_img_stepcounter_verification_done;
 	
 
 //*******************************************************************************
@@ -1430,6 +1436,52 @@ public class POM_Generated_AccountSecurityPage {
 	// selected or Not :  img_stepcounter_acctsecurity_active
 	public boolean isSelected_txt_img_stepcounter_acctsecurity_active(){
 		if(txt_img_stepcounter_acctsecurity_active.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  img_stepcounter_verification_done
+	public void type_txt_img_stepcounter_verification_done(String value) {
+		txt_img_stepcounter_verification_done.clear();
+		txt_img_stepcounter_verification_done.sendKeys(value);
+	}
+
+	//click:  img_stepcounter_verification_done
+	public void click_txt_img_stepcounter_verification_done(){
+		txt_img_stepcounter_verification_done.click();
+	}
+
+	// Hover:  img_stepcounter_verification_done
+	public void hover_txt_img_stepcounter_verification_done(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_img_stepcounter_verification_done).build().perform();
+	}
+
+	// visible or Not :  img_stepcounter_verification_done
+	public boolean isDisplayed_txt_img_stepcounter_verification_done(){
+		if(txt_img_stepcounter_verification_done.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  img_stepcounter_verification_done
+	public boolean isEnabled_txt_img_stepcounter_verification_done(){
+		if(txt_img_stepcounter_verification_done.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  img_stepcounter_verification_done
+	public String getCssValue_txt_img_stepcounter_verification_done(String attribute) {
+		return txt_img_stepcounter_verification_done.getCssValue(attribute);
+	}
+
+	//Get the text :  img_stepcounter_verification_done
+	public String getText_txt_img_stepcounter_verification_done(){
+		return txt_img_stepcounter_verification_done.getText();
+	}
+
+	//Get the value :  img_stepcounter_verification_done
+	public String getValue_txt_img_stepcounter_verification_done(){
+		return txt_img_stepcounter_verification_done.getAttribute("value");
+	}
+	// selected or Not :  img_stepcounter_verification_done
+	public boolean isSelected_txt_img_stepcounter_verification_done(){
+		if(txt_img_stepcounter_verification_done.isSelected()) { return true; } else { return false;} 
 	}
 
 }

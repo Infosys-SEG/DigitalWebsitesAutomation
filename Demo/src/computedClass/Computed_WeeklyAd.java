@@ -5,12 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -73,8 +76,20 @@ public class Computed_WeeklyAd
 	    	}
 	    	String Val = obj.popuppath()+" "+bro;
 	    	Runtime.getRuntime().exec(Val);
+	    	
 	    	obj.waitForElementClickable(driver, logo);
 	    	logo.click();
+	    	try
+	    	{
+	    	        WebDriverWait wait = new WebDriverWait(driver, 2);
+	    	        wait.until(ExpectedConditions.alertIsPresent());
+	    	        Alert alert = driver.switchTo().alert();
+	    	        alert.accept();
+	    	} 
+	    	catch (Exception e) 
+	    	{
+	    	        //exception handling
+	    	}
     		obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
     		homepage.click_click_Savings_link_Hover();	
     	//	Runtime.getRuntime().exec(Val);

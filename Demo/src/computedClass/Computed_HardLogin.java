@@ -256,9 +256,24 @@ public class Computed_HardLogin
 	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
-	    	
+	    	if(homepage.isDisplayed_click_Close_Button())
+	    	{
+	    	  Reporter.log("Close button is displayed after clicking Login/Register button");
+	    	}
+	    	else
+	    	{
+	    		Assert.fail("Close button is NOT displayed after clicking Login/Register button");
+	    	}
 			obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
-			
+			if(homepage.isDisplayed_click_Register_Button()) 
+			    {
+		        Reporter.log("Login and Register buttons are displayed after clicking Login/Register button");
+		    	}
+		    	else
+		    	{
+		    		Assert.fail("Login and Register buttons are NOT displayed after clicking Login/Register button");
+		    	}	
+				
 			homepage.click_click_HardLogin_button();
 			
 	    	obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);

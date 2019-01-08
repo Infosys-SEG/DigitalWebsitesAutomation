@@ -2,10 +2,11 @@
 package  generatedClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.interactions.Actions;
 
 public class POM_Generated_ContactInfoPage { 
 	WebDriver driver;
@@ -103,7 +104,7 @@ public class POM_Generated_ContactInfoPage {
 	public WebElement txt_Error_AlreadyRegistered_PhoneNo;
 	
 	// Associated Label : Error_Invalid_PhoneNumber
-	@FindBy(xpath = "//span[@id='error-invalidphone'][@style='display: block;']")
+	@FindBy(xpath = "//span[@id='error-invalidphone'][@style='display: block;'] ")
 	public WebElement txt_Error_Invalid_PhoneNumber;
 	
 	// Associated Label : Error_Invalid_PhoneType
@@ -145,6 +146,10 @@ public class POM_Generated_ContactInfoPage {
 	// Associated Label : img_stepcounter_contactinfo_active
 	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/contactinfo-active.png?la=en&mw=1382']")
 	public WebElement txt_img_stepcounter_contactinfo_active;
+	
+	// Associated Label : img_stepCounter_SecurityInfo_InActive
+	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/security.png?la=en&mw=1382']")
+	public WebElement txt_img_stepCounter_SecurityInfo_InActive;
 	
 
 //*******************************************************************************
@@ -1617,6 +1622,52 @@ public class POM_Generated_ContactInfoPage {
 	// selected or Not :  img_stepcounter_contactinfo_active
 	public boolean isSelected_txt_img_stepcounter_contactinfo_active(){
 		if(txt_img_stepcounter_contactinfo_active.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  img_stepCounter_SecurityInfo_InActive
+	public void type_txt_img_stepCounter_SecurityInfo_InActive(String value) {
+		txt_img_stepCounter_SecurityInfo_InActive.clear();
+		txt_img_stepCounter_SecurityInfo_InActive.sendKeys(value);
+	}
+
+	//click:  img_stepCounter_SecurityInfo_InActive
+	public void click_txt_img_stepCounter_SecurityInfo_InActive(){
+		txt_img_stepCounter_SecurityInfo_InActive.click();
+	}
+
+	// Hover:  img_stepCounter_SecurityInfo_InActive
+	public void hover_txt_img_stepCounter_SecurityInfo_InActive(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_img_stepCounter_SecurityInfo_InActive).build().perform();
+	}
+
+	// visible or Not :  img_stepCounter_SecurityInfo_InActive
+	public boolean isDisplayed_txt_img_stepCounter_SecurityInfo_InActive(){
+		if(txt_img_stepCounter_SecurityInfo_InActive.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  img_stepCounter_SecurityInfo_InActive
+	public boolean isEnabled_txt_img_stepCounter_SecurityInfo_InActive(){
+		if(txt_img_stepCounter_SecurityInfo_InActive.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  img_stepCounter_SecurityInfo_InActive
+	public String getCssValue_txt_img_stepCounter_SecurityInfo_InActive(String attribute) {
+		return txt_img_stepCounter_SecurityInfo_InActive.getCssValue(attribute);
+	}
+
+	//Get the text :  img_stepCounter_SecurityInfo_InActive
+	public String getText_txt_img_stepCounter_SecurityInfo_InActive(){
+		return txt_img_stepCounter_SecurityInfo_InActive.getText();
+	}
+
+	//Get the value :  img_stepCounter_SecurityInfo_InActive
+	public String getValue_txt_img_stepCounter_SecurityInfo_InActive(){
+		return txt_img_stepCounter_SecurityInfo_InActive.getAttribute("value");
+	}
+	// selected or Not :  img_stepCounter_SecurityInfo_InActive
+	public boolean isSelected_txt_img_stepCounter_SecurityInfo_InActive(){
+		if(txt_img_stepCounter_SecurityInfo_InActive.isSelected()) { return true; } else { return false;} 
 	}
 
 }

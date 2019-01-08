@@ -16,22 +16,37 @@
     <line>
       <![CDATA[Product added from overlay page]]>
     </line>
+    <line>
+      <![CDATA[Added products are highlighted in Red color]]>
+    </line>
+    <line>
+      <![CDATA[Product added from overlay page]]>
+    </line>
+    <line>
+      <![CDATA[Print list button is displayed in shopping list page]]>
+    </line>
+    <line>
+      <![CDATA[Email list button is displayed in shopping list page]]>
+    </line>
+    <line>
+      <![CDATA[Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="99481" started-at="2019-01-07T13:09:35Z" finished-at="2019-01-07T13:11:14Z">
+  <suite name="Default suite" duration-ms="180114" started-at="2019-01-08T08:53:00Z" finished-at="2019-01-08T08:56:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="99481" started-at="2019-01-07T13:09:35Z" finished-at="2019-01-07T13:11:14Z">
+    <test name="Default test" duration-ms="180114" started-at="2019-01-08T08:53:00Z" finished-at="2019-01-08T08:56:00Z">
       <class name="executableClass.Shopping_List">
-        <test-method status="FAIL" signature="TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value()[pri:6, instance:executableClass.Shopping_List@59ec2012]" name="TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value" duration-ms="99270" started-at="2019-01-07T18:39:35Z" finished-at="2019-01-07T18:41:14Z">
+        <test-method status="FAIL" signature="TC_21_RemoveMultipleItems_CircularItems()[pri:9, instance:executableClass.Shopping_List@6fd02e5]" name="TC_21_RemoveMultipleItems_CircularItems" duration-ms="180003" started-at="2019-01-08T14:23:00Z" finished-at="2019-01-08T14:26:00Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Error in shopping list]]>
+              <![CDATA[Check action verify parameter from shopping list]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Error in shopping list
+              <![CDATA[java.lang.AssertionError: Check action verify parameter from shopping list
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_Shopping_List.Edit_ShoppingList(Computed_Shopping_List.java:1066)
-	at executableClass.Shopping_List.TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value(Shopping_List.java:143)
+	at computedClass.Computed_Shopping_List.WeeklyAd_Deals_ShoppingList(Computed_Shopping_List.java:416)
+	at executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems(Shopping_List.java:217)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -76,8 +91,23 @@
             <line>
               <![CDATA[Product added from overlay page]]>
             </line>
+            <line>
+              <![CDATA[Added products are highlighted in Red color]]>
+            </line>
+            <line>
+              <![CDATA[Product added from overlay page]]>
+            </line>
+            <line>
+              <![CDATA[Print list button is displayed in shopping list page]]>
+            </line>
+            <line>
+              <![CDATA[Email list button is displayed in shopping list page]]>
+            </line>
+            <line>
+              <![CDATA[Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value -->
+        </test-method> <!-- TC_21_RemoveMultipleItems_CircularItems -->
       </class> <!-- executableClass.Shopping_List -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

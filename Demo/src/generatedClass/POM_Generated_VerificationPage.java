@@ -127,6 +127,14 @@ public class POM_Generated_VerificationPage {
 	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/verification-active.png?la=en&mw=1382']")
 	public WebElement txt_img_stepCounter_verificationPage_Active;
 	
+	// Associated Label : img_stepCounter_contactinfo_InActive
+	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/contactinfo.png?la=en&mw=1382']")
+	public WebElement txt_img_stepCounter_contactinfo_InActive;
+	
+	// Associated Label : img_stepCounter_SecurityInfo_InActive
+	@FindBy(xpath = "//img[@src='/-/media/statuscheckerstep/security.png?la=en&mw=1382']")
+	public WebElement txt_img_stepCounter_SecurityInfo_InActive;
+	
 	// Associated Label : Error_PII_InvalidMonthDate_Msg
 	@FindBy(xpath = "//span[@id='MonthDateError']")
 	public WebElement txt_Error_PII_InvalidMonthDate_Msg;
@@ -1354,6 +1362,98 @@ public class POM_Generated_VerificationPage {
 	// selected or Not :  img_stepCounter_verificationPage_Active
 	public boolean isSelected_txt_img_stepCounter_verificationPage_Active(){
 		if(txt_img_stepCounter_verificationPage_Active.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  img_stepCounter_contactinfo_InActive
+	public void type_txt_img_stepCounter_contactinfo_InActive(String value) {
+		txt_img_stepCounter_contactinfo_InActive.clear();
+		txt_img_stepCounter_contactinfo_InActive.sendKeys(value);
+	}
+
+	//click:  img_stepCounter_contactinfo_InActive
+	public void click_txt_img_stepCounter_contactinfo_InActive(){
+		txt_img_stepCounter_contactinfo_InActive.click();
+	}
+
+	// Hover:  img_stepCounter_contactinfo_InActive
+	public void hover_txt_img_stepCounter_contactinfo_InActive(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_img_stepCounter_contactinfo_InActive).build().perform();
+	}
+
+	// visible or Not :  img_stepCounter_contactinfo_InActive
+	public boolean isDisplayed_txt_img_stepCounter_contactinfo_InActive(){
+		if(txt_img_stepCounter_contactinfo_InActive.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  img_stepCounter_contactinfo_InActive
+	public boolean isEnabled_txt_img_stepCounter_contactinfo_InActive(){
+		if(txt_img_stepCounter_contactinfo_InActive.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  img_stepCounter_contactinfo_InActive
+	public String getCssValue_txt_img_stepCounter_contactinfo_InActive(String attribute) {
+		return txt_img_stepCounter_contactinfo_InActive.getCssValue(attribute);
+	}
+
+	//Get the text :  img_stepCounter_contactinfo_InActive
+	public String getText_txt_img_stepCounter_contactinfo_InActive(){
+		return txt_img_stepCounter_contactinfo_InActive.getText();
+	}
+
+	//Get the value :  img_stepCounter_contactinfo_InActive
+	public String getValue_txt_img_stepCounter_contactinfo_InActive(){
+		return txt_img_stepCounter_contactinfo_InActive.getAttribute("value");
+	}
+	// selected or Not :  img_stepCounter_contactinfo_InActive
+	public boolean isSelected_txt_img_stepCounter_contactinfo_InActive(){
+		if(txt_img_stepCounter_contactinfo_InActive.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  img_stepCounter_SecurityInfo_InActive
+	public void type_txt_img_stepCounter_SecurityInfo_InActive(String value) {
+		txt_img_stepCounter_SecurityInfo_InActive.clear();
+		txt_img_stepCounter_SecurityInfo_InActive.sendKeys(value);
+	}
+
+	//click:  img_stepCounter_SecurityInfo_InActive
+	public void click_txt_img_stepCounter_SecurityInfo_InActive(){
+		txt_img_stepCounter_SecurityInfo_InActive.click();
+	}
+
+	// Hover:  img_stepCounter_SecurityInfo_InActive
+	public void hover_txt_img_stepCounter_SecurityInfo_InActive(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_img_stepCounter_SecurityInfo_InActive).build().perform();
+	}
+
+	// visible or Not :  img_stepCounter_SecurityInfo_InActive
+	public boolean isDisplayed_txt_img_stepCounter_SecurityInfo_InActive(){
+		if(txt_img_stepCounter_SecurityInfo_InActive.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  img_stepCounter_SecurityInfo_InActive
+	public boolean isEnabled_txt_img_stepCounter_SecurityInfo_InActive(){
+		if(txt_img_stepCounter_SecurityInfo_InActive.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  img_stepCounter_SecurityInfo_InActive
+	public String getCssValue_txt_img_stepCounter_SecurityInfo_InActive(String attribute) {
+		return txt_img_stepCounter_SecurityInfo_InActive.getCssValue(attribute);
+	}
+
+	//Get the text :  img_stepCounter_SecurityInfo_InActive
+	public String getText_txt_img_stepCounter_SecurityInfo_InActive(){
+		return txt_img_stepCounter_SecurityInfo_InActive.getText();
+	}
+
+	//Get the value :  img_stepCounter_SecurityInfo_InActive
+	public String getValue_txt_img_stepCounter_SecurityInfo_InActive(){
+		return txt_img_stepCounter_SecurityInfo_InActive.getAttribute("value");
+	}
+	// selected or Not :  img_stepCounter_SecurityInfo_InActive
+	public boolean isSelected_txt_img_stepCounter_SecurityInfo_InActive(){
+		if(txt_img_stepCounter_SecurityInfo_InActive.isSelected()) { return true; } else { return false;} 
 	}
 
 	// Type:  Error_PII_InvalidMonthDate_Msg

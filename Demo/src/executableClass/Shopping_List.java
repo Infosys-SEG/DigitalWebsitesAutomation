@@ -9,6 +9,8 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import Utility.Data;
+import Utility.Writeexcel_RowName;
 import computedClass.Computed_Digital_Coupons;
 import computedClass.Computed_HardLogin;
 import computedClass.Computed_Logout;
@@ -142,7 +144,7 @@ public class Shopping_List
 		prodvalu=weeklyad.getprodvalu();
 		driver=shoppinglist.Edit_ShoppingList(driver, Functionality, TCName, proddetails,"weeklyad", "editqty");
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "editqty");
-	
+		driver.close();
 		
 		
 	}
@@ -189,5 +191,31 @@ public class Shopping_List
 		driver.close();
 	}
 	
+	@Test (priority=9)
+	public void TC_21_RemoveMultipleItems_CircularItems () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		Writeexcel_RowName write = new Writeexcel_RowName();
+		
+		//For getting current method name and passing as tcname
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String proddetails="";
+		String prodvalu="";
+		int count=0;
+		String Functionality = functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver=browserbanner.Clearcookie(driver, Functionality);
+		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
+		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
+		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
+		proddetails=weeklyad.getproddetails();
+		count=weeklyad.getcount();
+		write.excelwrite(Functionality, TCName, "product1", proddetails);
+		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
+		proddetails=weeklyad.getproddetails();
+		count=weeklyad.getcount();
+		write.excelwrite(Functionality, TCName, "product2", proddetails);
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, "2", count, "Delete_Multipleitems");	
+		driver.close();
+	}
 	
 }

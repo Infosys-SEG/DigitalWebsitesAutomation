@@ -38,7 +38,7 @@ public class POM_Generated_HardLoginPage {
 	public WebElement click_Forget_Password_Link;
 	
 	// Associated Label : NotAMember_SignUpNow_Link
-	@FindBy(xpath = "//a[@href='/segrewards/account-lookup']")
+	@FindBy(xpath = "//a[@href='/segrewards/account-lookup'][@class='registerLoginLink']")
 	public WebElement click_NotAMember_SignUpNow_Link;
 	
 	// Associated Label : Error_Email_NotExist_Msg
