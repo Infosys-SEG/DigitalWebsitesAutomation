@@ -147,6 +147,17 @@ public class HardLogin_Loggedin_Account
         driver.close();
     }
 	
+	@Test(priority=8)
+    public void TC003_HardLogin_First_time_login_No_recaptcha () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 
+    {
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();    
+        Browserbanner br=new Browserbanner();
+        Computed_HardLogin hardlogin = new Computed_HardLogin();
+        driver= br.BrowserBanner(driver, functionality);
+        driver=br.Clearcookie(driver, functionality);
+        driver=hardlogin.HardLoginFirstym_norecaptcha(driver, functionality, TCName);
+        driver.close();
+    }
 	
 }

@@ -10,6 +10,8 @@ import org.testng.Reporter;
 
 import Utility.Data;
 import Utility.Readexcel_RowName;
+import generatedClass.POM_Generated_AccountLookupPage;
+import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_VerificationPage;
 
 public class Computed_PII_ErrorValidation 
@@ -328,4 +330,75 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 		}
 		return driver;
 	}
+	
+	public WebDriver pii_EnterPhoneNumber(WebDriver driver,String Functionality,String TCName , String TestDataColumn) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
+		Data obj = new Data();
+		
+		obj.waitForElementClickable(driver, verificationpage.txt_PII_Verification_Month_Field);
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet","PII_Validation",TCName);	
+		try
+		
+		{
+			obj.movetoElementofAPage(driver,verificationpage.txt_PII_Verification_Phone_Number_Field);
+			
+				if(verificationpage.isDisplayed_txt_PII_Verification_Phone_Number_Field())
+				{
+					
+					verificationpage.type_txt_PII_Verification_Phone_Number_Field(String.valueOf(Readexcel_RowName.getValue(TestDataColumn)));
+				    String a = Readexcel_RowName.getValue(TestDataColumn);
+				    Reporter.log("Entered "+a+ " in the phone number field");
+				}
+		
+		}
+		catch(Exception e)
+		{
+			driver.close();
+			Assert.fail("Error in PII page");
+		}
+		return driver;
+	}
+	
+	// validate invalid NPA phone number message
+		public WebDriver Invalid_PhoneNumber_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+		{
+			POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
+			Data obj = new Data();
+			try
+			{
+				verificationpage.click_txt_PII_Verification_Zipcode_Field();
+				new Readexcel_RowName().excelRead("ErrorMessageSheet","VerificationPage",labelname);
+				String Error_Msg= Readexcel_RowName.getValue("ErrorMessage");
+				System.out.println(Error_Msg);
+				if(verificationpage.isDisplayed_txt_Error_PII_PhoneNumber()) 
+				{
+					String err = verificationpage.getText_txt_Error_PII_PhoneNumber();
+					System.out.println(err);
+					if(verificationpage.getText_txt_Error_PII_PhoneNumber().equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("ErrorMessage"))))
+					{
+						Reporter.log("Errormessage is displayed if phone number format is invalid :" +Error_Msg);
+					}
+					else
+					{	
+						
+						Assert.fail("Errormessage mismatched ");	 
+					}
+				}		
+				else
+				{	
+					
+					Assert.fail("Error message not displayed");	 
+				}
+				
+			}
+			catch(Exception e)
+			{	
+				//driver.close();
+				Assert.fail("Wrong phone number");
+			}    		
+			return driver;		
+		}
+		
+	
 }

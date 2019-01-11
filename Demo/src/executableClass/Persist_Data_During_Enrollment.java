@@ -9,7 +9,10 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+import computedClass.Computed_DB;
+import computedClass.Computed_EnrollmentVerify;
 import computedClass.Computed_FullyEnrollment_Flow;
+import computedClass.Computed_PreEnrollment_Flow;
 
 public class Persist_Data_During_Enrollment {
 	

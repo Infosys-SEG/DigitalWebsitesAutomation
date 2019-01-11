@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -256,24 +257,9 @@ public class Computed_HardLogin
 	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
-	    	if(homepage.isDisplayed_click_Close_Button())
-	    	{
-	    	  Reporter.log("Close button is displayed after clicking Login/Register button");
-	    	}
-	    	else
-	    	{
-	    		Assert.fail("Close button is NOT displayed after clicking Login/Register button");
-	    	}
+	    	
 			obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
-			if(homepage.isDisplayed_click_Register_Button()) 
-			    {
-		        Reporter.log("Login and Register buttons are displayed after clicking Login/Register button");
-		    	}
-		    	else
-		    	{
-		    		Assert.fail("Login and Register buttons are NOT displayed after clicking Login/Register button");
-		    	}	
-				
+			
 			homepage.click_click_HardLogin_button();
 			
 	    	obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
@@ -492,4 +478,47 @@ public class Computed_HardLogin
 	    }
 	    return driver;
 	    }
+	
+	public WebDriver HardLoginFirstym_norecaptcha(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	{
+		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);
+		
+		Data obj=new Data();
+	     
+	    try
+		{	
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality, TCName);
+	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
+	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
+	    	//System.out.println(Hardlogin_Email_Address);
+	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+	    	
+	    	homepage.click_click_Login_Or_Signup_Button();
+	    	
+			obj.waitForElementClickable(driver, homepage.click_Close_Button);
+			
+			homepage.click_click_HardLogin_button();
+			
+	    	obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
+	    	hardloginpage.type_txt_Email_Id_Field(Hardlogin_Email_Address);
+	    	hardloginpage.type_txt_Password_Field(Hardlogin_Password);
+	    	hardloginpage.click_click_Login_Button();
+	    	obj.waitForElementClickable(driver, homepage.click_Logout_button);
+	    	if(homepage.isDisplayed_click_Logout_button())
+	    	{	
+				Reporter.log("Recaptcha is not displayed when user login for the first time");
+			}
+			else
+			{
+				Assert.fail("Hardlogin failed");
+			}
+        }
+	    catch(Exception e)
+	    {
+	    	Assert.fail("issue in hardlogin");
+	    	
+	    }
+	    return driver;
+	}
 }

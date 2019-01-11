@@ -191,4 +191,40 @@ public class PII_Validation
 	    driver=piierror.Invalid_Month_Day_Year_ErrMsg(driver,"Invalid_Month_Day_Year_ErrMsg");
 	    driver.close();
 }
+	
+	@Test(priority=11)
+	public void TC016_Verify_the_error_message_if_NPA_number_range_format_is_invalid() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String Functionality=functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver= browserbanner.Clearcookie(driver, Functionality);
+		driver=FullyEnrollment_Flow.SignUpPage(driver);
+		driver=FullyEnrollment_Flow.AccountLookupPage(driver, Functionality, TCName);
+		driver=FullyEnrollment_Flow.Verificationpage(driver, Functionality, TCName);
+		driver=piierror.pii_EnterPhoneNumber(driver, Functionality, TCName,"Primary_Phone");
+		driver=piierror.Invalid_PhoneNumber_ErrMsg(driver, "Invalid_PhoneNumber_ErrMsg");
+		driver=piierror.pii_EnterPhoneNumber(driver, Functionality, TCName,"Primary_Phone_invalid");
+		driver=piierror.Invalid_PhoneNumber_ErrMsg(driver, "Invalid_PhoneNumber_ErrMsg");
+		driver.close();
+	}
+	
+	@Test(priority=12)
+	public void TC017_Verify_the_error_message_if_Central_Office_Code_number_range_format_is_invalid () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String Functionality=functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver= browserbanner.Clearcookie(driver, Functionality);
+		driver=FullyEnrollment_Flow.SignUpPage(driver);
+		driver=FullyEnrollment_Flow.AccountLookupPage(driver, Functionality, TCName);
+		driver=FullyEnrollment_Flow.Verificationpage(driver, Functionality, TCName);
+		driver=piierror.pii_EnterPhoneNumber(driver, Functionality, TCName,"Primary_Phone");
+		
+		driver=piierror.Invalid_PhoneNumber_ErrMsg(driver, "Invalid_PhoneNumber_ErrMsg");
+		driver=piierror.pii_EnterPhoneNumber(driver, Functionality, TCName,"Primary_Phone_invalid");
+		driver=piierror.Invalid_PhoneNumber_ErrMsg(driver, "Invalid_PhoneNumber_ErrMsg");
+		driver.close();
+	}
+	
 }
