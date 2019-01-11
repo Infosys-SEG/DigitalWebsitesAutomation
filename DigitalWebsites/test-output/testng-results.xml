@@ -1,52 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
-    <line>
-      <![CDATA[Logged in successfully ]]>
-    </line>
-    <line>
-      <![CDATA[Locate a store near you button is displayed]]>
-    </line>
-    <line>
-      <![CDATA[Please select a store near to view weekly ads text is displayed]]>
-    </line>
-    <line>
-      <![CDATA[Added products are highlighted in Red color]]>
-    </line>
-    <line>
-      <![CDATA[Product added from overlay page]]>
-    </line>
-    <line>
-      <![CDATA[Added products are highlighted in Red color]]>
-    </line>
-    <line>
-      <![CDATA[Product added from overlay page]]>
-    </line>
-    <line>
-      <![CDATA[Print list button is displayed in shopping list page]]>
-    </line>
-    <line>
-      <![CDATA[Email list button is displayed in shopping list page]]>
-    </line>
-    <line>
-      <![CDATA[Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button]]>
-    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="180114" started-at="2019-01-08T08:53:00Z" finished-at="2019-01-08T08:56:00Z">
+  <suite name="Default suite" duration-ms="145393" started-at="2019-01-11T09:39:22Z" finished-at="2019-01-11T09:41:47Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="180114" started-at="2019-01-08T08:53:00Z" finished-at="2019-01-08T08:56:00Z">
-      <class name="executableClass.Shopping_List">
-        <test-method status="FAIL" signature="TC_21_RemoveMultipleItems_CircularItems()[pri:9, instance:executableClass.Shopping_List@6fd02e5]" name="TC_21_RemoveMultipleItems_CircularItems" duration-ms="180003" started-at="2019-01-08T14:23:00Z" finished-at="2019-01-08T14:26:00Z">
+    <test name="Default test" duration-ms="145393" started-at="2019-01-11T09:39:22Z" finished-at="2019-01-11T09:41:47Z">
+      <class name="executableClass.Static_Infobar_loggedin_Users">
+        <test-method status="FAIL" signature="TC001_Staticbar_links_Hardlogin()[pri:1, instance:executableClass.Static_Infobar_loggedin_Users@14bf9759]" name="TC001_Staticbar_links_Hardlogin" duration-ms="145207" started-at="2019-01-11T15:09:22Z" finished-at="2019-01-11T15:11:47Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Check action verify parameter from shopping list]]>
+              <![CDATA[Error in hardlogin page]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Check action verify parameter from shopping list
+              <![CDATA[java.lang.AssertionError: Error in hardlogin page
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_Shopping_List.WeeklyAd_Deals_ShoppingList(Computed_Shopping_List.java:416)
-	at executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems(Shopping_List.java:217)
+	at computedClass.Computed_HardLogin.Global_HardLogin(Computed_HardLogin.java:71)
+	at executableClass.Static_Infobar_loggedin_Users.TC001_Staticbar_links_Hardlogin(Static_Infobar_loggedin_Users.java:33)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -76,39 +46,9 @@
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
-            <line>
-              <![CDATA[Logged in successfully ]]>
-            </line>
-            <line>
-              <![CDATA[Locate a store near you button is displayed]]>
-            </line>
-            <line>
-              <![CDATA[Please select a store near to view weekly ads text is displayed]]>
-            </line>
-            <line>
-              <![CDATA[Added products are highlighted in Red color]]>
-            </line>
-            <line>
-              <![CDATA[Product added from overlay page]]>
-            </line>
-            <line>
-              <![CDATA[Added products are highlighted in Red color]]>
-            </line>
-            <line>
-              <![CDATA[Product added from overlay page]]>
-            </line>
-            <line>
-              <![CDATA[Print list button is displayed in shopping list page]]>
-            </line>
-            <line>
-              <![CDATA[Email list button is displayed in shopping list page]]>
-            </line>
-            <line>
-              <![CDATA[Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- TC_21_RemoveMultipleItems_CircularItems -->
-      </class> <!-- executableClass.Shopping_List -->
+        </test-method> <!-- TC001_Staticbar_links_Hardlogin -->
+      </class> <!-- executableClass.Static_Infobar_loggedin_Users -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

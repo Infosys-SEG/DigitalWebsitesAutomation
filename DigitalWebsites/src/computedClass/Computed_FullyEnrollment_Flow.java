@@ -162,7 +162,7 @@ public class Computed_FullyEnrollment_Flow
 				verificationpage.type_txt_PII_Verification_Last_Name_Field(Readexcel_RowName.getValue("LastName"));
 			}
 			verificationpage.click_click_PII_Verification_Next_Button();
-			obj.waitForElement(driver, contactinfopage.txt_HeaderName_Text);
+			obj.waitForElement(driver, contactinfopage.txt_Fname_Field);
 			
 			Reporter.log("PII Verification done successfully");
 			
@@ -185,11 +185,11 @@ public class Computed_FullyEnrollment_Flow
 	    try
 	    {
 	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-		    if(!contactinfopage.getText_txt_HeaderName_Text().equals("Hello "+Readexcel_RowName.getValue("FirstName")))
+		   /* if(!contactinfopage.getText_txt_HeaderName_Text().equals("Hello "+Readexcel_RowName.getValue("FirstName")))
 		    {		
 		    	driver.close();
 		    	Assert.fail("Verification page header is displaying wrongly");
-		    }
+		    }*/
 		    if (!contactinfopage.getValue_ddl_Salutation_Field().equals(Readexcel_RowName.getValue("Salutation")))
 		    {
 		    	//driver.close();

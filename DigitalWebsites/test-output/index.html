@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\ragunk\AppData\Local\Temp\testng-eclipse-1418242018\testng-customsuite.xml</span>
+                    <span>C:\Users\ragunk\AppData\Local\Temp\testng-eclipse--1855882727\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="executableClass.Shopping_List" hash-for-method="TC_21_RemoveMultipleItems_CircularItems">TC_21_RemoveMultipleItems_CircularItems</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="executableClass.Static_Infobar_loggedin_Users" hash-for-method="TC001_Staticbar_links_Hardlogin">TC001_Staticbar_links_Hardlogin</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -120,18 +120,18 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">executableClass.Shopping_List</span>
+              <span class="class-name">executableClass.Static_Infobar_loggedin_Users</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="TC_21_RemoveMultipleItems_CircularItems">
-                  </a> <!-- TC_21_RemoveMultipleItems_CircularItems -->
-                  <span class="method-name">TC_21_RemoveMultipleItems_CircularItems</span>
-                  <div class="stack-trace">java.lang.AssertionError: Check action verify parameter from shopping list
+                  <a name="TC001_Staticbar_links_Hardlogin">
+                  </a> <!-- TC001_Staticbar_links_Hardlogin -->
+                  <span class="method-name">TC001_Staticbar_links_Hardlogin</span>
+                  <div class="stack-trace">java.lang.AssertionError: Error in hardlogin page
 	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_Shopping_List.WeeklyAd_Deals_ShoppingList(Computed_Shopping_List.java:416)
-	at executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems(Shopping_List.java:217)
+	at computedClass.Computed_HardLogin.Global_HardLogin(Computed_HardLogin.java:71)
+	at executableClass.Static_Infobar_loggedin_Users.TC001_Staticbar_links_Hardlogin(Static_Infobar_loggedin_Users.java:33)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -166,7 +166,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\ragunk\AppData\Local\Temp\testng-eclipse-1418242018\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\ragunk\AppData\Local\Temp\testng-eclipse--1855882727\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -175,11 +175,11 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;executableClass.Shopping_List&quot;&gt;
+      &lt;class name=&quot;executableClass.Static_Infobar_loggedin_Users&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;TC_21_RemoveMultipleItems_CircularItems&quot;/&gt;
+          &lt;include name=&quot;TC001_Staticbar_links_Hardlogin&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- executableClass.Shopping_List --&gt;
+      &lt;/class&gt; &lt;!-- executableClass.Static_Infobar_loggedin_Users --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -221,14 +221,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC_21_RemoveMultipleItems_CircularItems')
-data.setCell(0, 2, 'executableClass.Shopping_List')
-data.setCell(0, 3, 180003);
+data.setCell(0, 1, 'TC001_Staticbar_links_Hardlogin')
+data.setCell(0, 2, 'executableClass.Static_Infobar_loggedin_Users')
+data.setCell(0, 3, 145207);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -239,44 +239,23 @@ return data;
             <span class="header-content">Reporter output for Default suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">TC_21_RemoveMultipleItems_CircularItems</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output">Logged in successfully </span>
-                <span class="reporter-method-output">Locate a store near you button is displayed</span>
-                <span class="reporter-method-output">Please select a store near to view weekly ads text is displayed</span>
-                <span class="reporter-method-output">Added products are highlighted in Red color</span>
-                <span class="reporter-method-output">Product added from overlay page</span>
-                <span class="reporter-method-output">Added products are highlighted in Red color</span>
-                <span class="reporter-method-output">Product added from overlay page</span>
-                <span class="reporter-method-output">Print list button is displayed in shopping list page</span>
-                <span class="reporter-method-output">Email list button is displayed in shopping list page</span>
-                <span class="reporter-method-output">Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button</span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">7 ignored methods</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">executableClass.Shopping_List</span>
+              <span class="ignored-class-name">executableClass.Static_Infobar_loggedin_Users</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">TC_16_Edit_Item_Quantity</span>
+                <span class="ignored-method-name">TC004_Staticbar_links_Softlogin</span>
                 <br/>
-                <span class="ignored-method-name">TC_02_Shopping_List_Add_My_Items</span>
+                <span class="ignored-method-name">TC005_Staticbar_Softlogin_links_navigation_Homepage</span>
                 <br/>
-                <span class="ignored-method-name">TC_09_ShoppingList_Delete_Circular_Items</span>
+                <span class="ignored-method-name">TC003_Staticbar_Hard_login_links_navigation_Account_setting_page</span>
                 <br/>
-                <span class="ignored-method-name">TC_11_Shopping_List_Edit_weekly_circular_quantity_number_Valid_Value</span>
-                <br/>
-                <span class="ignored-method-name">TC_14_EditMyItemName</span>
-                <br/>
-                <span class="ignored-method-name">TC_05_Shopping_List_Filter_By</span>
-                <br/>
-                <span class="ignored-method-name">TC_06_Shopping_List_Remove_item_MyItems</span>
+                <span class="ignored-method-name">TC002_Staticbar_Hardlogin_links_navigation_Homepage</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -288,11 +267,11 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">executableClass.Shopping_List</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">executableClass.Static_Infobar_loggedin_Users</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">TC_21_RemoveMultipleItems_CircularItems</span>
+                <span class="method-name">TC001_Staticbar_links_Hardlogin</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->

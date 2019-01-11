@@ -71,5 +71,6 @@
 	<classpathentry kind="lib" path="Jarfiles/sqljdbc42.jar"/>
 	<classpathentry kind="lib" path="Jarfiles/selenium-support-2.29.1.jar"/>
 	<classpathentry kind="lib" path="Jarfiles/javafx-ui-common.jar"/>
+	<classpathentry kind="lib" path="/MyWorks/Jarfiles/selenium-bug-ie-click.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

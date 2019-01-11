@@ -3,11 +3,13 @@ package com.BrowserHelper;
 
 import java.awt.Robot;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.safari.SafariDriver;
 public class BrowserFactory 
 {
@@ -34,24 +36,37 @@ public class BrowserFactory
         }
         else if(browserName.equalsIgnoreCase("IE"))
         {
-        	System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe"); 
-        	/*DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-        	capabilities.setCapability("requireWindowFocus", true);  
-        	capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, false);
-        	capabilities.setCapability("ie.ensureCleanSession", true);
-        	capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-        	capabilities.setCapability(InternetExplorerDriver.FORCE_CREATE_PROCESS, true);*/     	
-        	driver = new InternetExplorerDriver();
-        	driver.manage().window().maximize();
-        	//driver.navigate().to(URL);
+        	try
+        	{
+        		System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe"); 
+            	
+    			InternetExplorerOptions options = new InternetExplorerOptions(); 
+    			options.destructivelyEnsureCleanSession(); 
+            	options.enablePersistentHovering(); 
+            	options.ignoreZoomSettings(); 
+            	//options.setCapability("logLevel", "TRACE"); 
+            	driver = new InternetExplorerDriver(options); 
+            	//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS); 
+            	//driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS); 
+
+            	driver.manage().window().maximize();
+            	Thread.sleep(1000);
+            	  driver.get(URL); 
+            	  
+            	//driver.navigate().to(URL);
+        	}
+        	catch(Exception e)
+        	{
+        		
+        	}
         }
         
        
-       
-        driver.get(URL);  
+       System.out.println(URL);
+      
         
       //wait
-        Thread.sleep(1000);
+        Thread.sleep(5000);
        
         return driver;
       
