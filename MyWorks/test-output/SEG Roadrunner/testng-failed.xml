@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [SEG Roadrunner]">
+  <parameter name="BrowserType" value="Chrome"/>
+  <parameter name="Banner" value="Winndixie"/>
+  <test name="SoftLogin__Chrome(failed)">
+    <parameter name="BrowserType" value="Chrome"/>
+    <parameter name="Banner" value="Winndixie"/>
+    <classes>
+      <class name="executableClass.SoftLogin">
+        <methods>
+          <include name="TC001_SoftLogin_Phone_And_Zip_login"/>
+          <include name="TC003_SoftLogin_loggedout_user"/>
+        </methods>
+      </class> <!-- executableClass.SoftLogin -->
+    </classes>
+  </test> <!-- SoftLogin__Chrome(failed) -->
+</suite> <!-- Failed suite [SEG Roadrunner] -->
