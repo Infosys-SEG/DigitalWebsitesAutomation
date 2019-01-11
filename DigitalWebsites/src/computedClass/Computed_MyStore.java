@@ -15,6 +15,7 @@ import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_StaticInfoBar;
 import generatedClass.POM_Generated_StoreLocatorPage;
+import generatedClass.POM_Generated_WeeklyAdPage;
 
 public class Computed_MyStore 
 {
@@ -52,7 +53,6 @@ public class Computed_MyStore
 				if(staticInfoBar.isDisplayed_click_Static_info_MyStore_Address_Text())
 				{	
 					Reporter.log("Mystore address text is displaying");
-					
 				}
 				else
 				{
@@ -64,6 +64,7 @@ public class Computed_MyStore
 			{	
 				if(staticInfoBar.isDisplayed_click_Static_info_Set_Store_Text())
 				{	
+					Reporter.log("Please Set store text is displaying");
 				}
 				else
 				{
@@ -141,9 +142,7 @@ public class Computed_MyStore
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		Data obj=new Data();
 		String value="";
-		String wd_zip="";
-		String bl_zip="";
-		String hv_zip="";
+		String zip="";
 	
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
 	    if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
@@ -174,115 +173,58 @@ public class Computed_MyStore
 		}
 		String Val = obj.popuppath()+" "+bro;
 		
+		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+	    {
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	zip=Readexcel_RowName.getValue("WD_ZIP");
+	    	System.out.println(zip);
+	    	 		
+	    }
+	    else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+	    {
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	zip=Readexcel_RowName.getValue("BL_ZIP");
+	    	
+	    }
+	    else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
+	    {
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	zip=Readexcel_RowName.getValue("HY_ZIP");
+	    	
+	    } 
+		
 		try
-		{
-			
+		{	
 			obj.waitForElementClickable(driver, homepage.click_Global_StoreLocator_Button);
 			homepage.click_click_Global_StoreLocator_Button();
 			obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
 			obj.waitForElementClickable(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			
-			
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet", "Global", Functionality);
-			if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+			obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
+			storelocatorpage.click_click_Storelocation_Button();
+				
+			storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
+			storelocatorpage.type_txt_Enter_Zip_Or_City_Field(zip);
+			storelocatorpage.click_click_Search_Button();
+			try
 			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
-				storelocatorpage.click_click_Storelocation_Button();
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-				wd_zip=Readexcel_RowName.getValue("WD_ZIP");
-				
-				storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-				storelocatorpage.type_txt_Enter_Zip_Or_City_Field(wd_zip);
-				storelocatorpage.click_click_Search_Button();
-				try
-				{
-					obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
-					storelocatorpage.click_click_Weekly_Ad_Link();
-					Runtime.getRuntime().exec(Val);	
-				}
-				catch(Exception e)
-				{
-					if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
-					{
-						driver.close();
-						Assert.fail("No stores found");
-						storelocatorpage.click_click_Home_Button();	
-					}
-					else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
-					{
-						driver.close();
-						Assert.fail("Invalid zip code");
-						storelocatorpage.click_click_Home_Button();
-					}
-				}
-					
-				
+				obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
+				storelocatorpage.click_click_Weekly_Ad_Link();
+				Runtime.getRuntime().exec(Val);	
 			}
-			else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+			catch(Exception e)
 			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
-				storelocatorpage.click_click_Storelocation_Button();
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-				bl_zip=Readexcel_RowName.getValue("BL_ZIP");
-				storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-				storelocatorpage.type_txt_Enter_Zip_Or_City_Field(bl_zip);
-				storelocatorpage.click_click_Search_Button();
-				try
+				if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
 				{
-					obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
-					storelocatorpage.click_click_Weekly_Ad_Link();
-					Runtime.getRuntime().exec(Val);	
+					driver.close();
+					Assert.fail("Invalid zipcode");
+					storelocatorpage.click_click_Home_Button();	
 				}
-				catch(Exception e)
+				else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
 				{
-					if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
-					{
-						driver.close();
-						Assert.fail("No stores found");
-						storelocatorpage.click_click_Home_Button();	
-					}
-					else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
-					{
-						driver.close();
-						Assert.fail("Invalid zip code");
-						storelocatorpage.click_click_Home_Button();
-					}
+					driver.close();
+					Assert.fail("No stores found for the given zip code");
+					storelocatorpage.click_click_Home_Button();
 				}
-				
-				
-			}
-			else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
-				storelocatorpage.click_click_Storelocation_Button();
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-				hv_zip=Readexcel_RowName.getValue("HV_ZIP");
-				
-				storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-				storelocatorpage.type_txt_Enter_Zip_Or_City_Field(hv_zip);
-				storelocatorpage.click_click_Search_Button();
-				try
-				{
-					obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
-					storelocatorpage.click_click_Weekly_Ad_Link();
-					Runtime.getRuntime().exec(Val);	
-				}
-				catch(Exception e)
-				{
-					if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
-					{
-						driver.close();
-						Assert.fail("No stores found");
-						storelocatorpage.click_click_Home_Button();	
-					}
-					else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
-					{
-						driver.close();
-						Assert.fail("Invalid zip code");
-						storelocatorpage.click_click_Home_Button();
-					}
-				}
-				
 			}
 		}
 		catch(Exception e)
@@ -300,9 +242,7 @@ public class Computed_MyStore
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		Data obj=new Data();
 		String value="";
-		String wd_city="";
-		String bl_city="";
-		String hv_city="";
+		String city="";
 	
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
 	    if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
@@ -333,96 +273,59 @@ public class Computed_MyStore
 		}
 		String Val = obj.popuppath()+" "+bro;
 		
+		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+	    {
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	city=Readexcel_RowName.getValue("WD_CITY");
+	    	System.out.println(city);
+	    	 		
+	    }
+	    else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+	    {
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	city=Readexcel_RowName.getValue("BL_CITY");
+	    	
+	    }
+	    else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
+	    {
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	city=Readexcel_RowName.getValue("HY_CITY");
+	    	
+	    } 
 		try
 		{
-			
 			obj.waitForElementClickable(driver, homepage.click_Global_StoreLocator_Button);
 			homepage.click_click_Global_StoreLocator_Button();
 			obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			obj.waitForElementClickable(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			
-			
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet", "Global", Functionality);
-			if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+			obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
+			storelocatorpage.click_click_Storelocation_Button();
+			storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
+			storelocatorpage.type_txt_Enter_Zip_Or_City_Field(city);
+			storelocatorpage.click_click_Search_Button();
+			try
 			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
-				storelocatorpage.click_click_Storelocation_Button();
-				
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-				wd_city=Readexcel_RowName.getValue("WD_CITY");
-				System.out.println(wd_city);
-				storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-				storelocatorpage.type_txt_Enter_Zip_Or_City_Field(wd_city);
-				storelocatorpage.click_click_Search_Button();
-				try
-				{
-					obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
-					storelocatorpage.click_click_Weekly_Ad_Link();
+				obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
+				storelocatorpage.click_click_Weekly_Ad_Link();
 					
-					//Thread.sleep(2000);
-					Runtime.getRuntime().exec(Val);	
-				}
-				catch(Exception e)
+					
+				Runtime.getRuntime().exec(Val);	
+			}
+			catch(Exception e)
+			{
+				if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
 				{
 					driver.close();
-					Assert.fail("No stores found");
+					Assert.fail("Invalid City");
 					storelocatorpage.click_click_Home_Button();	
-					
+				}
+				else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
+				{
+						driver.close();
+						Assert.fail("No stores found for entered city ");
+						storelocatorpage.click_click_Home_Button();
 				}
 			}
-			else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
-			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
-				storelocatorpage.click_click_Storelocation_Button();
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-				bl_city=Readexcel_RowName.getValue("BL_CITY");
-				storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-				storelocatorpage.type_txt_Enter_Zip_Or_City_Field(bl_city);
-				storelocatorpage.click_click_Search_Button();
-				try
-				{
-					obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
-					storelocatorpage.click_click_Weekly_Ad_Link();
-					
-					
-					Runtime.getRuntime().exec(Val);	
-				}
-				catch(Exception e)
-				{
-					driver.close();
-					Assert.fail("No stores found");
-					storelocatorpage.click_click_Home_Button();	
-					
-				}
-				
-				
-			}
-			else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
-				storelocatorpage.click_click_Storelocation_Button();
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-				hv_city=Readexcel_RowName.getValue("HV_CITY");
-				
-				storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-				storelocatorpage.type_txt_Enter_Zip_Or_City_Field(hv_city);
-				storelocatorpage.click_click_Search_Button();
-				try
-				{
-					obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
-					storelocatorpage.click_click_Weekly_Ad_Link();
-					
-					Runtime.getRuntime().exec(Val);	
-				}
-				catch(Exception e)
-				{
-					driver.close();
-					Assert.fail("No stores found");
-					storelocatorpage.click_click_Home_Button();	
-				
-				}
-				
-			}
+
 		}
 		catch(Exception e)
 		{
@@ -437,13 +340,50 @@ public class Computed_MyStore
 	{
 		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_StaticInfoBar staticInfoBar = new POM_Generated_StaticInfoBar(driver);
 		Data obj=new Data();
-		String zip_wd="";
-		String zip_bl="";
-		String zip_hv="";
+		WebElement logo = null;
+		String change_zip="";
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
+    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+    	{
+    		logo=homepage.click_Winndixie_logo;   		
+    	}
+    	else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+    	{
+    		logo=homepage.click_Bilo_logo;
+    	}
+    	else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
+    	{
+    		logo=homepage.click_Harveys_logo;
+    	}
+    	
+    	
+    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+	    {
+    		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+    		change_zip=Readexcel_RowName.getValue("Change_Zipcode_WD");
+	    	System.out.println(change_zip);
+	    	 		
+	    }
+	    else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+	    {
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	change_zip=Readexcel_RowName.getValue("Change_Zipcode_BL");
+	    	
+	    }
+	    else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
+	    {
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	change_zip=Readexcel_RowName.getValue("Change_Zipcode_HV");
+	    	
+	    } 
+
 		try
 		{
+			obj.waitForElementClickable(driver, logo);
+			logo.click();
 			obj.waitForElementClickable(driver, staticInfoBar.click_Static_info_My_Account_Link);
 			staticInfoBar.click_click_Static_info_MyStore_Link();
 			String sdetails=storelocatorpage.getText_txt_StreetAddr_Text();
@@ -452,197 +392,135 @@ public class Computed_MyStore
 			homepage.click_click_Global_StoreLocator_Button();
 			obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
 			obj.waitForElementClickable(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet", "Global", Functionality);
-			if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+			storelocatorpage.click_click_Storelocation_Button();
+			obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);	
+			storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
+			storelocatorpage.type_txt_Enter_Zip_Or_City_Field(change_zip);
+			storelocatorpage.click_click_Search_Button();
+			try
 			{
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);	
-				if(Readexcel_RowName.getValue("Change_Zipcode_WD")!=null)
+				obj.waitForElementClickable(driver, storelocatorpage.click_View_Store_Details_Button);
+				storelocatorpage.click_click_View_Store_Details_Button();
+						
+				if(storelocatorpage.isDisplayed_click_Make_My_store_Button())
 				{
-					storelocatorpage.click_click_Storelocation_Button();
-					obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
+					obj.waitForElementClickable(driver, storelocatorpage.click_Make_My_store_Button);
+					storelocatorpage.click_click_Make_My_store_Button();
+					storelocatorpage.click_click_Home_Button();
 					
-					zip_wd=Readexcel_RowName.getValue("Change_Zipcode_WD");
-					storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-					storelocatorpage.type_txt_Enter_Zip_Or_City_Field(zip_wd);
-					storelocatorpage.click_click_Search_Button();
-					try
-					{
-						obj.waitForElementClickable(driver, storelocatorpage.click_View_Store_Details_Button);
-						storelocatorpage.click_click_View_Store_Details_Button();
-						
-						if(storelocatorpage.isDisplayed_click_Make_My_store_Button())
-						{
-						obj.waitForElementClickable(driver, storelocatorpage.click_Make_My_store_Button);
-						storelocatorpage.click_click_Make_My_store_Button();
-						storelocatorpage.click_click_Home_Button();
-						}
-						else
-						{
-							Assert.fail("Same store is selected");
-						}
-					}
-					catch(NoSuchElementException e) 
-					{
-						try
-						{
-							if(	storelocatorpage.isDisplayed_click_Invalid_Store_Error_Text())
-							{
-								driver.close();
-								Assert.fail("No stores found");
-								storelocatorpage.click_click_Home_Button();
-							}
-							else	
-							{
-								driver.close();
-								Assert.fail("No stores found error message is not displaying");
-								storelocatorpage.click_click_Home_Button();
-							}
-						}
-						catch (NoSuchElementException e1)
-						{
-							driver.close();
-							Assert.fail("No stores found error message is not displaying");
-							storelocatorpage.click_click_Home_Button();
-						}
-					}		
+					Reporter.log("Store changed successfully");
 				}
 				else
 				{
-					storelocatorpage.click_click_Home_Button();
+					Assert.fail("Same store is selected to change");
 				}
+				
 			}
-			
-			else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+			catch(NoSuchElementException e) 
 			{
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);	
-				if(Readexcel_RowName.getValue("Change_Zipcode_BL")!=null)
+				if(	storelocatorpage.isDisplayed_click_Invalid_Store_Error_Text())
 				{
-					storelocatorpage.click_click_Storelocation_Button();
-					obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
-					zip_bl=Readexcel_RowName.getValue("Change_Zipcode_BL");
-					storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-					storelocatorpage.type_txt_Enter_Zip_Or_City_Field(zip_bl);
-					storelocatorpage.click_click_Search_Button();
-					try
-					{
-						obj.waitForElementClickable(driver, storelocatorpage.click_View_Store_Details_Button);
-						storelocatorpage.click_click_View_Store_Details_Button();
-						
-						if(storelocatorpage.isDisplayed_click_Make_My_store_Button())
-						{
-						obj.waitForElementClickable(driver, storelocatorpage.click_Make_My_store_Button);
-						storelocatorpage.click_click_Make_My_store_Button();
-						storelocatorpage.click_click_Home_Button();
-						}
-						else
-						{
-							Assert.fail("Same store is selected");
-						}
-						
-					}	
-					
-					catch(NoSuchElementException e) 
-					{
-						try
-						{
-							if(	storelocatorpage.isDisplayed_click_Invalid_Store_Error_Text())
-							{
-								driver.close();
-								Assert.fail("No stores found");
-								storelocatorpage.click_click_Home_Button();
-							}
-							else	
-							{
-								driver.close();
-								Assert.fail("No stores found error message is not displaying");
-								storelocatorpage.click_click_Home_Button();
-							}
-						}
-						catch (NoSuchElementException e1)
-						{
-							driver.close();
-							Assert.fail("No stores found error message is not displaying");
-							storelocatorpage.click_click_Home_Button();
-						}
-					}	
-				}
-				else
-				{
+					driver.close();
+					Assert.fail("Invalid zipcode or city entered");
 					storelocatorpage.click_click_Home_Button();
 				}
-			
-			}
-			else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-			{
-				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);	
-				if(Readexcel_RowName.getValue("Change_Zipcode_HV")!=null)
+				else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
 				{
-					storelocatorpage.click_click_Storelocation_Button();
-					obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
-					zip_hv=Readexcel_RowName.getValue("Change_Zipcode_HV");
-					storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-					storelocatorpage.type_txt_Enter_Zip_Or_City_Field(zip_hv);
-					storelocatorpage.click_click_Search_Button();
-					try
-					{
-						obj.waitForElementClickable(driver, storelocatorpage.click_View_Store_Details_Button);
-						storelocatorpage.click_click_View_Store_Details_Button();
-						
-						if(storelocatorpage.isDisplayed_click_Make_My_store_Button())
-						{
-						obj.waitForElementClickable(driver, storelocatorpage.click_Make_My_store_Button);
-						storelocatorpage.click_click_Make_My_store_Button();
-						storelocatorpage.click_click_Home_Button();
-						}
-						else
-						{
-							Assert.fail("Same store is selected");
-						}
-					}
-					catch(NoSuchElementException e) 
-					{
-						try
-						{
-							if(	storelocatorpage.isDisplayed_click_Invalid_Store_Error_Text())
-							{
-								driver.close();
-								Assert.fail("No stores found");
-								storelocatorpage.click_click_Home_Button();
-							}
-							else	
-							{
-								driver.close();
-								Assert.fail("No stores found error message is not displaying");
-								storelocatorpage.click_click_Home_Button();
-							}
-						}
-						catch (NoSuchElementException e1)
-						{
-							driver.close();
-							Assert.fail("No stores found error message is not displaying");
-							storelocatorpage.click_click_Home_Button();
-						}
-					}		
-				}
-				else
-				{
+					driver.close();
+					Assert.fail("No stores found for entered city or zipcode ");
 					storelocatorpage.click_click_Home_Button();
 				}
-			
 			}
 		}
-		
-		
-		
 			catch(Exception e)
 			{
 				driver.close();
 				Assert.fail("Error in my store page");
 			}
-			
-			
-			return driver;
+		return driver;
 		}
+	public WebDriver SetStore_InvalidZip(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException
+	{
+		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
+		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
+		String invalid_zip="";
+		WebElement logo = null;
+		Data obj=new Data();
+		
+		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
+    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+    	{
+    		logo=homepage.click_Winndixie_logo;   		
+    	}
+    	else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+    	{
+    		logo=homepage.click_Bilo_logo;
+    	}
+    	else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
+    	{
+    		logo=homepage.click_Harveys_logo;
+    	}
+    	
+    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
+	    {
+    		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+    		invalid_zip=Readexcel_RowName.getValue("WD_INVALID_ZIP");
+	    	System.out.println(invalid_zip);
+	    	 		
+	    }
+	    else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
+	    {
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	invalid_zip=Readexcel_RowName.getValue("BL_INVALID_ZIP");
+	    	
+	    }
+	    else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
+	    {
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	invalid_zip=Readexcel_RowName.getValue("HV_INVALID_ZIP");
+	    	
+	    } 
+
+		obj.waitForElementClickable(driver, homepage.click_Global_StoreLocator_Button);
+		homepage.click_click_Global_StoreLocator_Button();
+		obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
+		obj.waitForElementClickable(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
+		try
+		{
+			String Error_Msg;
+			
+			new Readexcel_RowName().excelRead("ErrorMessageSheet",Functionality,"Invalid_Zip_error_msg");
+			Error_Msg= Readexcel_RowName.getValue("Error_Message");
+
+			obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
+			storelocatorpage.click_click_Storelocation_Button();
+			storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
+			storelocatorpage.type_txt_Enter_Zip_Or_City_Field(invalid_zip);
+			storelocatorpage.click_click_Search_Button();
+			if(storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
+			{
+				if(Error_Msg.equals(storelocatorpage.getText_txt_Invalid_zipcode_txt()))
+				{
+					Reporter.log("Error message is displayed:" +storelocatorpage.getText_txt_Invalid_zipcode_txt());
+				}
+				else
+				{
+					Assert.fail("Displayed error message is not as expected:" +storelocatorpage.getText_txt_Invalid_zipcode_txt());
+				}
+				}
+			else
+			{
+				Assert.fail("Error message is not displayed");
+			}
+				
+		}
+		catch(Exception e)
+		{
+			Assert.fail("Error in store locating page");
+		}
+		
+		return driver;
+	
+	}
 				
 }

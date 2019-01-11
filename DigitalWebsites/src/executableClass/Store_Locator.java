@@ -13,7 +13,7 @@ import computedClass.Computed_HardLogin;
 import computedClass.Computed_MyStore;
 import computedClass.Computed_WeeklyAd;
 
-public class Store_Locator 
+public class Store_Locator
 {
 	WebDriver driver;
 	String Functionality="Store_Locator";
@@ -117,6 +117,21 @@ public class Store_Locator
 		
 		driver.close();
 	}
+	
+	@Test
+	public void TC_06_Search__invalid_Zip_code_More_than_5_digits() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
+	{
+		
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		Browserbanner br=new Browserbanner();
+		Computed_HardLogin hardlogin =new Computed_HardLogin();
+		
+		Computed_MyStore mystore= new Computed_MyStore();
+		driver= br.BrowserBanner(driver, Functionality);
+		driver=br.Clearcookie(driver, Functionality);
+		driver= mystore.SetStore_InvalidZip(driver, Functionality, TCName);
+		driver.close();
+	}	
 
 
 }

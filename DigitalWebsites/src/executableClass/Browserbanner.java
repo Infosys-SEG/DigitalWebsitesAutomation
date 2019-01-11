@@ -91,9 +91,16 @@ public class Browserbanner
 			logo = homepage.click_Harveys_logo;
 		}
 			
+		try
+		{
 		
 		obj.waitForElementClickable(driver, logo);
 		homepage.click_click_Close_cookies_Button();
+		}
+		catch(Exception e)
+		{
+			
+		}
 		obj.waitForElementClickable(driver, logo);
 		logo.click();
 		

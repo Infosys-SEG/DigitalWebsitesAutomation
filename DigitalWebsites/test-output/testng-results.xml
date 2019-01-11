@@ -2,21 +2,49 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="145393" started-at="2019-01-11T09:39:22Z" finished-at="2019-01-11T09:41:47Z">
+  <suite name="Default suite" duration-ms="37789" started-at="2019-01-11T12:09:14Z" finished-at="2019-01-11T12:09:52Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="145393" started-at="2019-01-11T09:39:22Z" finished-at="2019-01-11T09:41:47Z">
+    <test name="Default test" duration-ms="37789" started-at="2019-01-11T12:09:14Z" finished-at="2019-01-11T12:09:52Z">
       <class name="executableClass.Static_Infobar_loggedin_Users">
-        <test-method status="FAIL" signature="TC001_Staticbar_links_Hardlogin()[pri:1, instance:executableClass.Static_Infobar_loggedin_Users@14bf9759]" name="TC001_Staticbar_links_Hardlogin" duration-ms="145207" started-at="2019-01-11T15:09:22Z" finished-at="2019-01-11T15:11:47Z">
-          <exception class="java.lang.AssertionError">
+        <test-method status="FAIL" signature="TC001_Staticbar_links_Hardlogin()[pri:1, instance:executableClass.Static_Infobar_loggedin_Users@14bf9759]" name="TC001_Staticbar_links_Hardlogin" duration-ms="37569" started-at="2019-01-11T17:39:14Z" finished-at="2019-01-11T17:39:52Z">
+          <exception class="org.openqa.selenium.ElementNotInteractableException">
             <message>
-              <![CDATA[Error in hardlogin page]]>
+              <![CDATA[Element is not displayed
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:44542/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 20a20d63-5aaf-484f-ad90-96396574b786]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Error in hardlogin page
-	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_HardLogin.Global_HardLogin(Computed_HardLogin.java:71)
-	at executableClass.Static_Infobar_loggedin_Users.TC001_Staticbar_links_Hardlogin(Static_Infobar_loggedin_Users.java:33)
+              <![CDATA[org.openqa.selenium.ElementNotInteractableException: Element is not displayed
+Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
+System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
+Driver info: org.openqa.selenium.ie.InternetExplorerDriver
+Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:44542/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 20a20d63-5aaf-484f-ad90-96396574b786
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy5.click(Unknown Source)
+	at generatedClass.POM_Generated_Homepage.click_click_Close_cookies_Button(POM_Generated_Homepage.java:463)
+	at executableClass.Browserbanner.Clearcookie(Browserbanner.java:96)
+	at executableClass.Static_Infobar_loggedin_Users.TC001_Staticbar_links_Hardlogin(Static_Infobar_loggedin_Users.java:32)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -44,7 +72,7 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.ElementNotInteractableException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC001_Staticbar_links_Hardlogin -->

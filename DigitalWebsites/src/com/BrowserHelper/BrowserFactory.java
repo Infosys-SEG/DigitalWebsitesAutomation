@@ -38,26 +38,18 @@ public class BrowserFactory
         {
         	try
         	{
-        		System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe"); 
-            	
+        		System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IE32bit\\IEDriverServer.exe");     	
     			InternetExplorerOptions options = new InternetExplorerOptions(); 
-    			options.destructivelyEnsureCleanSession(); 
-            	options.enablePersistentHovering(); 
-            	options.ignoreZoomSettings(); 
-            	//options.setCapability("logLevel", "TRACE"); 
+    			options.destructivelyEnsureCleanSession();
             	driver = new InternetExplorerDriver(options); 
-            	//driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS); 
-            	//driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS); 
-
             	driver.manage().window().maximize();
             	Thread.sleep(1000);
-            	  driver.get(URL); 
-            	  
-            	//driver.navigate().to(URL);
+            	driver.get(URL); 
+            	System.out.println("done");
         	}
         	catch(Exception e)
         	{
-        		
+        		System.out.println(e);
         	}
         }
         
@@ -66,7 +58,7 @@ public class BrowserFactory
       
         
       //wait
-        Thread.sleep(5000);
+        Thread.sleep(2000);
        
         return driver;
       
