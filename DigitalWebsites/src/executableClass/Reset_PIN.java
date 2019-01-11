@@ -32,6 +32,7 @@ public class Reset_PIN {
 		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 		driver=hardlogin.Account_HardLogin(driver, functionality,tcname);
 	    driver=myAcct.MyAccount_ResetPIN(driver, functionality, tcname,"save");
+	    System.out.println("");
 		driver.close();
 	}
 	
