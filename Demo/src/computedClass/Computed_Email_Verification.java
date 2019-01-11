@@ -10,8 +10,6 @@ import org.testng.Reporter;
 
 import Utility.Data;
 import Utility.Readexcel_RowName;
-
-import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_VerificationPage;
 
 
@@ -21,7 +19,7 @@ public class Computed_Email_Verification
 	public WebDriver email_validatingNext (WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException
 	{
 		
-		Data obj = new Data();
+		
 		POM_Generated_VerificationPage email = new POM_Generated_VerificationPage(driver);
 		try 
 		{
