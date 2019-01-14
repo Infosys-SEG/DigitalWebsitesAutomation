@@ -65,20 +65,20 @@ public class Computed_Digital_Coupons
 		try
 		{
 			Runtime.getRuntime().exec(Val);
-	        obj.waitForElementClickable(driver, logo);
+	        obj.waitForElement(driver, logo);
 			logo.click();
 
-			obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
+			obj.waitForElement(driver, homepage.click_Savings_link_Hover);
 			
 			
 			homepage.click_click_Savings_link_Hover();
-			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);
+			obj.waitForElement(driver, homepage.click_Savings_Coupon_Button);
 			homepage.click_click_Savings_Coupon_Button();
 			
 					
-			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
+			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
-			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
+			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			Thread.sleep(1000);
 		
 			List<WebElement> buttons= couponspage.click_Digital_Coupon_Add_Button;
@@ -97,9 +97,9 @@ public class Computed_Digital_Coupons
 			}
 			
 			obj.movetoElementofAPage(driver, homepage.click_HardLogin_button);
-			obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
+			obj.waitForElement(driver, homepage.click_HardLogin_button);
 			homepage.click_click_HardLogin_button();
-			obj.waitForElementClickable(driver, hardloginpage.click_Popup_Close_Button);
+			obj.waitForElement(driver, hardloginpage.click_Popup_Close_Button);
 			hardloginpage.click_click_Popup_Close_Button();	
 			
 			
@@ -156,16 +156,16 @@ public class Computed_Digital_Coupons
 		try
 		{
 			Runtime.getRuntime().exec(Val);
-			obj.waitForElementClickable(driver, logo);
+			obj.waitForElement(driver, logo);
 			
 			logo.click();
 			Thread.sleep(2000);
 			
 			homepage.click_click_Digitial_Coupons_Logo();
 			
-			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
+			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
-			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
+			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			Thread.sleep(1000);
 		
 			List<WebElement> buttons= couponspage.click_Digital_Coupon_Add_Button;
@@ -190,7 +190,7 @@ public class Computed_Digital_Coupons
 			
 			
 			
-			obj.waitForElementClickable(driver, hardloginpage.click_Popup_Close_Button);
+			obj.waitForElement(driver, hardloginpage.click_Popup_Close_Button);
 			hardloginpage.click_click_Popup_Close_Button();	
 		}
 		catch(Exception e)
@@ -250,21 +250,21 @@ public class Computed_Digital_Coupons
 			Runtime.getRuntime().exec(Val);
 			Thread.sleep(2000);
 			obj.movetoElementofAPage_Click(driver, logo);
-			/*obj.waitForElementClickable(driver, logo);	
+			/*obj.waitForElement(driver, logo);	
 			
 			logo.click();*/
 			
-			obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);	
+			obj.waitForElement(driver, homepage.click_Savings_link_Hover);	
 			
 			
 					
 			homepage.click_click_Savings_link_Hover();
-			obj.waitForElementClickable(driver, homepage.click_Savings_Coupon_Button);
+			obj.waitForElement(driver, homepage.click_Savings_Coupon_Button);
 			homepage.click_click_Savings_Coupon_Button();
 		
-			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
+			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
-			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
+			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			
 			
 			List<WebElement> buttons= couponspage.click_Digital_Coupon_Add_Button;
@@ -323,7 +323,7 @@ public class Computed_Digital_Coupons
 				Assert.fail("Coupons added and not changed to tick mark");
 			}
 
-			obj.waitForElementClickable(driver, shoppinglistpage.txt_List_Count_Text);
+			obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 		}
 		catch(Exception e)
 		{
@@ -380,16 +380,16 @@ public class Computed_Digital_Coupons
 		{
 			//To handle window pop up Authentication				
 			Runtime.getRuntime().exec(Val);
-			obj.waitForElementClickable(driver, logo);	
+			obj.waitForElement(driver, logo);	
 			
 			logo.click();
 			
 			Reporter.log("waiting for element");
 			Thread.sleep(2000);
 			obj.movetoElementofAPage_Click(driver, homepage.click_Digitial_Coupons_Logo);
-			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
+			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
-			obj.waitForElementClickable(driver, couponspage.click_Digital_Coupon_page_Link);
+			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			Thread.sleep(1000);
 		
 			List<WebElement> buttons= couponspage.click_Digital_Coupon_Add_Button;
@@ -442,7 +442,7 @@ public class Computed_Digital_Coupons
 				Assert.fail("Coupons added and not changed to tick mark");
 			}
 
-			obj.waitForElementClickable(driver, shoppinglistpage.txt_List_Count_Text);
+			obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 		}
 		catch(Exception e)
 		{

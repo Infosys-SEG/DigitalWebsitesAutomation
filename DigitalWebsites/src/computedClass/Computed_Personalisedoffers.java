@@ -82,10 +82,10 @@ public class Computed_Personalisedoffers
 			{
 				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 				String Store_Zip = Readexcel_RowName.getValue("Store_Zip");
-				obj.waitForElementClickable(driver, weeklyadpage.txt_Select_Store_Field);
+				obj.waitForElement(driver, weeklyadpage.txt_Select_Store_Field);
 				weeklyadpage.type_txt_Select_Store_Field(Store_Zip);
 				weeklyadpage.click_click_Store_Search_Button();
-				obj.waitForElementClickable(driver, weeklyadpage.click_Store_View_weeklyAds_Button);
+				obj.waitForElement(driver, weeklyadpage.click_Store_View_weeklyAds_Button);
 				weeklyadpage.click_click_Store_View_weeklyAds_Button();
 				obj.waitForElement(driver, weeklyadpage.txt_Your_WeeklyAd_Text);
 			}	
@@ -176,10 +176,10 @@ public class Computed_Personalisedoffers
 			{
 				new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 				String Store_Zip = Readexcel_RowName.getValue("Store_Zip");
-				obj.waitForElementClickable(driver, weeklyadpage.txt_Select_Store_Field);
+				obj.waitForElement(driver, weeklyadpage.txt_Select_Store_Field);
 				weeklyadpage.type_txt_Select_Store_Field(Store_Zip);
 				weeklyadpage.click_click_Store_Search_Button();
-				obj.waitForElementClickable(driver, weeklyadpage.click_Store_View_weeklyAds_Button);
+				obj.waitForElement(driver, weeklyadpage.click_Store_View_weeklyAds_Button);
 				weeklyadpage.click_click_Store_View_weeklyAds_Button();
 				obj.waitForElement(driver, weeklyadpage.txt_Your_WeeklyAd_Text);
 			}	
@@ -189,7 +189,7 @@ public class Computed_Personalisedoffers
 				obj.scrollingToElementofAPage(driver, personalizedOffersPage.click_Login_Button);
 				personalizedOffersPage.click_click_Login_Button();
 				
-				obj.waitForElementClickable(driver, hardloginpage.txt_Email_Id_Field);
+				obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
 				hardloginpage.click_click_Popup_Close_Button();
 			}
 			else

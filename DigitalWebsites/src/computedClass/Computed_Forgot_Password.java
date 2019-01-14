@@ -31,9 +31,9 @@ public class Computed_Forgot_Password
 	    //	String Valid_Test_Password= Readexcel_RowName.getValue("Valid_Test_Password");
 	    	String Invalid_Email_NotExist=Readexcel_RowName.getValue("Invalid_Email_NotExist");
 	    	System.out.println(Invalid_Email_NotExist);
-	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+	    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	homepage.click_click_Login_Or_Signup_Button();
-			obj.waitForElementClickable(driver, homepage.click_Close_Button);
+			obj.waitForElement(driver, homepage.click_Close_Button);
 			homepage.click_click_HardLogin_button();
 	    	obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
 	    	hardloginpage.click_click_Forget_Password_Link();
@@ -90,9 +90,9 @@ public class Computed_Forgot_Password
 		    	String Valid_Test_Email= Readexcel_RowName.getValue("Valid_Test_Email");
 		    	//String Valid_Test_Password= Readexcel_RowName.getValue("Valid_Test_Password");
 		    	
-		    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+		    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 		    	homepage.click_click_Login_Or_Signup_Button();
-				obj.waitForElementClickable(driver, homepage.click_Close_Button);
+				obj.waitForElement(driver, homepage.click_Close_Button);
 				homepage.click_click_HardLogin_button();
 		    	obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
 		    	hardloginpage.click_click_Forget_Password_Link();

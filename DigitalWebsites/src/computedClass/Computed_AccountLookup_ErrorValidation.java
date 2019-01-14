@@ -29,20 +29,20 @@ public class Computed_AccountLookup_ErrorValidation
 		{
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality ,TCName);
 			obj.scrollingToTop(driver);
-			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
 	    	homepage.click_click_Register_Button();
 	    	
 	    	
-			obj.waitForElementClickable(driver, accountlookuppage.txt_Phone_Number_Field);
+			obj.waitForElement(driver, accountlookuppage.txt_Phone_Number_Field);
 			
 			accountlookuppage.type_txt_Phone_Number_Field(String.valueOf(Readexcel_RowName.getValue(TestDataColumn)));
 			
 			obj.scrollingToElementofAPage(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
 			accountlookuppage.click_click_Get_Started_With_SEG_Button();
 			
-			//obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);
+			//obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);
 		}
 		catch(Exception e)
 		{
@@ -64,18 +64,18 @@ public class Computed_AccountLookup_ErrorValidation
 			String enteredNumber="";
 			String inputPhoneNumber="";
 			obj.scrollingToTop(driver);
-			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
 	    	homepage.click_click_Register_Button();
 	    	
 	    	
-			obj.waitForElementClickable(driver, accountlookuppage.txt_Phone_Number_Field);
+			obj.waitForElement(driver, accountlookuppage.txt_Phone_Number_Field);
 			inputPhoneNumber=String.valueOf(Readexcel_RowName.getValue(TestDataColumn));
 			
 			obj.scrollingToElementofAPage(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
-			
-			enteredNumber=String.valueOf(obj.waitForElementClickable(driver, accountlookuppage.txt_Phone_Number_Field).getText());
+			obj.waitForElement(driver, accountlookuppage.txt_Phone_Number_Field);
+			enteredNumber=String.valueOf(accountlookuppage.getText_txt_Phone_Number_Field());
 			if (!enteredNumber.equals(inputPhoneNumber))
 			{
 				
@@ -110,18 +110,18 @@ public class Computed_AccountLookup_ErrorValidation
 			String inputPhoneNumber="";
 			int lenEnteredNumber;
 			obj.scrollingToTop(driver);
-			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
 	    	homepage.click_click_Register_Button();
 	    	
 	    	
-			obj.waitForElementClickable(driver, accountlookuppage.txt_Phone_Number_Field);
+			obj.waitForElement(driver, accountlookuppage.txt_Phone_Number_Field);
 			inputPhoneNumber=String.valueOf(Readexcel_RowName.getValue(TestDataColumn));
 			
 			obj.scrollingToElementofAPage(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
-			
-			enteredNumber=String.valueOf(obj.waitForElementClickable(driver, accountlookuppage.txt_Phone_Number_Field).getText());
+			obj.waitForElement(driver, accountlookuppage.txt_Phone_Number_Field);
+			enteredNumber=String.valueOf(accountlookuppage.getText_txt_Phone_Number_Field());
 			lenEnteredNumber=String.valueOf(enteredNumber).length();
 			if (!(lenEnteredNumber>16))
 			{
@@ -485,12 +485,12 @@ public class Computed_AccountLookup_ErrorValidation
 		{
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality ,TCName);
 			obj.scrollingToTop(driver);
-			obj.waitForElementClickable(driver, accountlookuppage.txt_Card_Number_Field);
+			obj.waitForElement(driver, accountlookuppage.txt_Card_Number_Field);
 			accountlookuppage.type_txt_Card_Number_Field(String.valueOf(Readexcel_RowName.getValue(TestDataColumn)));
 			obj.scrollingToElementofAPage(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
 			accountlookuppage.click_click_Get_Started_With_SEG_Button();
 			
-			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);
+			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);
 		}
 		catch(Exception e)
 		{

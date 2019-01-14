@@ -58,7 +58,7 @@ public class Computed_MyRewards
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",global,Functionality);
 		try
 		{
-			  obj1.waitForElementClickable(driver, logo);
+			  obj1.waitForElement(driver, logo);
 			  logo.click();
 		      obj1.waitForElement(driver, staticInfoBar.click_Static_info_My_Rewards_Text);
 			
@@ -427,7 +427,7 @@ public class Computed_MyRewards
     	obj1.waitForElement(driver, homepage.click_Rewards_link_Hover);
     	homepage.hover_click_Rewards_link_Hover();
     	homepage.click_click_Rewards_Rewards_Button();
-        obj1.waitForElementClickable(driver, logoutrewardspage.click_Rewards_Login_Button);
+        obj1.waitForElement(driver, logoutrewardspage.click_Rewards_Login_Button);
         String lorurl = driver.getCurrentUrl();
         String title= logoutrewardspage.getText_txt_Rewards_Title_Text();
 		Reporter.log("Logged out rewards page header: "+title);

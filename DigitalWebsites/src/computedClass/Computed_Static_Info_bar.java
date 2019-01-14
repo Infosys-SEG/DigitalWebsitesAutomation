@@ -60,10 +60,10 @@ public class Computed_Static_Info_bar
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
-			obj.waitForElementClickable(driver, logo);
+			obj.waitForElement(driver, logo);
 			Runtime.getRuntime().exec(Val);
 			logo.click();
-			obj.waitForElementClickable(driver,staticinfobar.click_Static_info_WeeklyAds_link);
+			obj.waitForElement(driver,staticinfobar.click_Static_info_WeeklyAds_link);
 			if(staticinfobar.isDisplayed_click_Static_info_WeeklyAds_link())
 			{
 				if(staticinfobar.isDisplayed_click_Static_info_WeeklyAds_Text())
@@ -123,9 +123,9 @@ public class Computed_Static_Info_bar
 	 
 		try 
 		{
-			obj.waitForElementClickable(driver, logo);
+			obj.waitForElement(driver, logo);
 			logo.click();
-			obj.waitForElementClickable(driver, staticinfobar.click_Static_info_My_Rewards_Link);
+			obj.waitForElement(driver, staticinfobar.click_Static_info_My_Rewards_Link);
 			if(staticinfobar.isDisplayed_click_Static_info_My_Rewards_Link())
 			{
 				if(staticinfobar.isDisplayed_click_Static_info_My_Rewards_Text())
@@ -196,9 +196,9 @@ public class Computed_Static_Info_bar
 		}
 		try
 		{
-			obj.waitForElementClickable(driver, logo);
+			obj.waitForElement(driver, logo);
 			logo.click();
-			obj.waitForElementClickable(driver, staticinfobar.click_Static_info_My_Account_Link);
+			obj.waitForElement(driver, staticinfobar.click_Static_info_My_Account_Link);
 			if(staticinfobar.isDisplayed_click_Static_info_My_Account_Link())
 			{
 				if(!staticinfobar.isDisplayed_click_Static_info_My_Account_Text())
@@ -224,7 +224,7 @@ public class Computed_Static_Info_bar
 				}
 				else if(MyAccfunc.equalsIgnoreCase("HardLogin"))
 				{
-					obj.waitForElementClickable(driver, contactinfopage.txt_Fname_Field);
+					obj.waitForElement(driver, contactinfopage.txt_Fname_Field);
 					if(contactinfopage.isDisplayed_txt_Fname_Field())
 					{
 						

@@ -60,9 +60,9 @@ public class Computed_ContactUs
 				}
 					
 				
-			obj.waitForElementClickable(driver, logo);
+			obj.waitForElement(driver, logo);
 			obj.scrollingToElementofAPage(driver, contactus.Click_Contact_Link);
-			obj.waitForElementClickable(driver, contactus.Click_Contact_Link);
+			obj.waitForElement(driver, contactus.Click_Contact_Link);
 			if(contactus.isDisplayed_Click_Contact_Link())
 			{
 				Reporter.log("Contact Link is Present");

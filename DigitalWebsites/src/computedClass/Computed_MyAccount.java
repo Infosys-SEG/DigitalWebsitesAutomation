@@ -169,9 +169,9 @@ public class Computed_MyAccount
 					{
 						homepage.click_click_Harveys_logo();
 					}
-					obj.waitForElementClickable(driver, staticinfobar.click_Static_info_My_Account_Link);
+					obj.waitForElement(driver, staticinfobar.click_Static_info_My_Account_Link);
 					staticinfobar.click_click_Static_info_My_Account_Link();
-					obj.waitForElementClickable(driver, contactinfopage.txt_Fname_Field);
+					obj.waitForElement(driver, contactinfopage.txt_Fname_Field);
 					new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 					if(Readexcel_RowName.getValue("Salutation")!=null)
 					{

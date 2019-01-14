@@ -43,11 +43,11 @@ public class Computed_HardLogin
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
 	    	System.out.println(Hardlogin_Email_Address);
-	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+	    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
 	    	
-			obj.waitForElementClickable(driver, homepage.click_Close_Button);
+			obj.waitForElement(driver, homepage.click_Close_Button);
 			
 			homepage.click_click_HardLogin_button();
 			
@@ -55,7 +55,7 @@ public class Computed_HardLogin
 	    	hardloginpage.type_txt_Email_Id_Field(Hardlogin_Email_Address);
 	    	hardloginpage.type_txt_Password_Field(Hardlogin_Password);
 	    	hardloginpage.click_click_Login_Button();
-	    	obj.waitForElementClickable(driver, homepage.click_Logout_button);
+	    	obj.waitForElement(driver, homepage.click_Logout_button);
 	    	if(homepage.isDisplayed_click_Logout_button())
 	    	{	
 				Reporter.log("Logged in successfully ");
@@ -110,9 +110,9 @@ public class Computed_HardLogin
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
 	    	
-	    	obj.waitForElementClickable(driver, logo);
+	    	obj.waitForElement(driver, logo);
 	    	logo.click();
-	    	obj.waitForElementClickable(driver, staticinfobar.click_Static_info_My_Account_Link);
+	    	obj.waitForElement(driver, staticinfobar.click_Static_info_My_Account_Link);
 	    	staticinfobar.click_click_Static_info_My_Account_Link();
 	    	obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
 	    	hardloginpage.type_txt_Email_Id_Field(Hardlogin_Email_Address);
@@ -155,11 +155,11 @@ public class Computed_HardLogin
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
 	    	
-	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+	    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
 	    	
-			obj.waitForElementClickable(driver, homepage.click_Close_Button);
+			obj.waitForElement(driver, homepage.click_Close_Button);
 			
 			homepage.click_click_HardLogin_button();
 			
@@ -170,7 +170,7 @@ public class Computed_HardLogin
 			obj.waitForElement(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);	
 			
 			onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
-			obj.waitForElementClickable(driver, contactinfopage.txt_HeaderName_Text);
+			obj.waitForElement(driver, contactinfopage.txt_HeaderName_Text);
 			if(contactinfopage.isDisplayed_txt_HeaderName_Text())
 			{	
 				Reporter.log("Contactinfo page is displayed for preenrolled user through hardlogin by clicking one quick thing button");
@@ -206,11 +206,11 @@ public class Computed_HardLogin
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
 	    	
-	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+	    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
 	    	
-			obj.waitForElementClickable(driver, homepage.click_Close_Button);
+			obj.waitForElement(driver, homepage.click_Close_Button);
 			
 			homepage.click_click_HardLogin_button();
 			
@@ -221,7 +221,7 @@ public class Computed_HardLogin
 			obj.waitForElement(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);	
 			
 			onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
-			obj.waitForElementClickable(driver, verificationpage.txt_VerificationPage_HeaderName_Text);
+			obj.waitForElement(driver, verificationpage.txt_VerificationPage_HeaderName_Text);
 			if(verificationpage.isDisplayed_txt_VerificationPage_HeaderName_Text())
 			{	
 				Reporter.log("Verification method page is displayed for fullyenrolled user through hardlogin by clicking one quick thing button");
@@ -254,11 +254,11 @@ public class Computed_HardLogin
 	    try
 		{	
 	    	
-	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+	    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
 	    	
-			obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
+			obj.waitForElement(driver, homepage.click_HardLogin_button);
 			
 			homepage.click_click_HardLogin_button();
 			
@@ -297,9 +297,9 @@ public class Computed_HardLogin
 			}
 	    	
             homepage.click_click_Login_Or_Signup_Button();
-	    	obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
+	    	obj.waitForElement(driver, homepage.click_HardLogin_button);
 			homepage.click_click_HardLogin_button();
-			obj.waitForElementClickable(driver, hardloginpage.txt_Email_Id_Field);
+			obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
 			hardloginpage.click_click_FAQ_link();
 			//get window handlers as list
 			List<String> browserTabs = new ArrayList<String> (driver.getWindowHandles());
@@ -352,9 +352,9 @@ public class Computed_HardLogin
 	    	String Incorrect_Password=Readexcel_RowName.getValue("Incorrect_Password");
 	    	Hardlogin_Email_Address=Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	Hardlogin_Password=Readexcel_RowName.getValue("Hardlogin_Password");
-	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+	    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	homepage.click_click_Login_Or_Signup_Button();
-	    	obj.waitForElementClickable(driver, homepage.click_HardLogin_button);
+	    	obj.waitForElement(driver, homepage.click_HardLogin_button);
 	    	homepage.click_click_HardLogin_button();
 	    	obj.waitForElement(driver, hardloginpage.txt_Email_Id_Field);
 	    	hardloginpage.type_txt_Email_Id_Field(Invalid_Email);
@@ -376,7 +376,7 @@ public class Computed_HardLogin
 			hardloginpage.type_txt_Email_Id_Field(Email_NotExist);
 	    	hardloginpage.type_txt_Password_Field(Hardlogin_Password);
 	    	hardloginpage.click_click_Login_Button();
-	    	obj.waitForElementClickable(driver, hardloginpage.txt_Error_Email_NotExist_Msg);
+	    	obj.waitForElement(driver, hardloginpage.txt_Error_Email_NotExist_Msg);
 			Error1=hardloginpage.getText_txt_Error_Email_NotExist_Msg();
 			new Readexcel_RowName().excelRead("ErrorMessageSheet",functionality, "Error_Email_NotExist");
 			System.out.println(Readexcel_RowName.getValue("Error_Message"));
@@ -492,11 +492,11 @@ public class Computed_HardLogin
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
 	    	//System.out.println(Hardlogin_Email_Address);
-	    	obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+	    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();
 	    	
-			obj.waitForElementClickable(driver, homepage.click_Close_Button);
+			obj.waitForElement(driver, homepage.click_Close_Button);
 			
 			homepage.click_click_HardLogin_button();
 			
@@ -504,7 +504,7 @@ public class Computed_HardLogin
 	    	hardloginpage.type_txt_Email_Id_Field(Hardlogin_Email_Address);
 	    	hardloginpage.type_txt_Password_Field(Hardlogin_Password);
 	    	hardloginpage.click_click_Login_Button();
-	    	obj.waitForElementClickable(driver, homepage.click_Logout_button);
+	    	obj.waitForElement(driver, homepage.click_Logout_button);
 	    	if(homepage.isDisplayed_click_Logout_button())
 	    	{	
 				Reporter.log("Recaptcha is not displayed when user login for the first time");

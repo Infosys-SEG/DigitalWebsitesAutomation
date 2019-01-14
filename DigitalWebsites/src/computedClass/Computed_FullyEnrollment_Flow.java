@@ -31,9 +31,9 @@ public class Computed_FullyEnrollment_Flow
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_AccountLookupPage accountlookuppage = new POM_Generated_AccountLookupPage(driver);
 		Data obj=new Data();
-		obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);
+		obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);
 		homepage.click_click_Login_Or_Signup_Button();
-		obj.waitForElementClickable(driver, homepage.click_Register_Button);
+		obj.waitForElement(driver, homepage.click_Register_Button);
 		homepage.click_click_Register_Button();	
 		obj.waitForElement(driver, accountlookuppage.txt_Title_Text);
 		
@@ -54,7 +54,7 @@ public class Computed_FullyEnrollment_Flow
 		try
 		{
 			
-			obj.waitForElementClickable(driver, accountlookuppage.txt_Card_Number_Field);
+			obj.waitForElement(driver, accountlookuppage.txt_Card_Number_Field);
 			
 			if(Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("Card")||Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("CRC"))
 			{
@@ -72,7 +72,7 @@ public class Computed_FullyEnrollment_Flow
 			try
 			{
 				
-				obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
+				obj.waitForElement(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
 				
 				onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
 				
@@ -113,7 +113,7 @@ public class Computed_FullyEnrollment_Flow
 			if(Readexcel_RowName.getValue("Verify_By(SMS/Email/PII)").equalsIgnoreCase("PII")) 
 			{
 				verificationpage.click_click_PII_Verification_Button();
-				obj.waitForElementClickable(driver, verificationpage.txt_PII_Verification_Month_Field);
+				obj.waitForElement(driver, verificationpage.txt_PII_Verification_Month_Field);
 				
 				Reporter.log("PII Verification page displayed successfully");
 				
@@ -360,10 +360,10 @@ public class Computed_FullyEnrollment_Flow
 			}
 			Thread.sleep(1000);
 			
-			obj.waitForElementClickable(driver, contactinfopage.click_Submit_Form_Button);
+			obj.waitForElement(driver, contactinfopage.click_Submit_Form_Button);
 			
 			obj.movetoElementofAPage(driver, contactinfopage.click_Submit_Form_Button);
-			obj.waitForElementClickable(driver, contactinfopage.click_Submit_Form_Button);
+			obj.waitForElement(driver, contactinfopage.click_Submit_Form_Button);
 			contactinfopage.click_click_Submit_Form_Button();		
 			Thread.sleep(1000);
 			
@@ -591,7 +591,7 @@ public class Computed_FullyEnrollment_Flow
 					accountsecuritypage.click_txt_NeverMissADeal_No_Button();
 				}
 			}
-			obj.waitForElementClickable(driver, accountsecuritypage.click_Security_Next_Button);
+			obj.waitForElement(driver, accountsecuritypage.click_Security_Next_Button);
 			accountsecuritypage.click_click_Security_Next_Button();
 			obj.waitForElement(driver, congratulationspage.txt_ThankYou_Message_Text);
 			

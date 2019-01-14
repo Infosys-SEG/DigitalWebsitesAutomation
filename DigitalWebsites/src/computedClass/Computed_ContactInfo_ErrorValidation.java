@@ -28,11 +28,11 @@ public class Computed_ContactInfo_ErrorValidation
 		try 
 		{
 			Data obj=new Data();
-			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);
+			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);
 			homepage.click_click_Login_Or_Signup_Button();
-			obj.waitForElementClickable(driver, homepage.click_Register_Button);
+			obj.waitForElement(driver, homepage.click_Register_Button);
 			homepage.click_click_Register_Button();
-			obj.waitForElementClickable(driver, acctlookup.click_Signup_As_New_Member_Button);
+			obj.waitForElement(driver, acctlookup.click_Signup_As_New_Member_Button);
 			obj.scrollingToElementofAPage(driver,acctlookup.click_Signup_As_New_Member_Button);
 			acctlookup.click_click_Signup_As_New_Member_Button();
 			if(contactinfo.isDisplayed_txt_ContactUs_Stepcounter())
@@ -608,7 +608,7 @@ public class Computed_ContactInfo_ErrorValidation
 		       obj.scrollingToElementofAPage(driver, contactinfopage.txt_Text_me_offers);
 		      
 			   contactinfopage.click_click_Submit_Form_Button(); 
-			   obj.waitForElementClickable(driver, accountsecuritypage.txt_Email_Address_Field);
+			   obj.waitForElement(driver, accountsecuritypage.txt_Email_Address_Field);
 			   
 			    if(accountsecuritypage.isDisplayed_txt_Email_Address_Field())
 			    {  

@@ -30,9 +30,9 @@ public class Computed_PreEnrollment_Flow
 		Data obj=new Data();
 		try
 		{
-			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);
+			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);
 			homepage.click_click_Login_Or_Signup_Button();
-			obj.waitForElementClickable(driver, homepage.click_Register_Button);
+			obj.waitForElement(driver, homepage.click_Register_Button);
 			homepage.click_click_Register_Button();			
 		}
 		catch(Exception e)
@@ -54,7 +54,7 @@ public class Computed_PreEnrollment_Flow
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		try
 		{		
-			obj.waitForElementClickable(driver, accountlookuppage.txt_Card_Number_Field);
+			obj.waitForElement(driver, accountlookuppage.txt_Card_Number_Field);
 			if(Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("Card")||Readexcel_RowName.getValue("Card_Type(Card/Phone/CRC)").equalsIgnoreCase("CRC"))
 			{
 				accountlookuppage.type_txt_Card_Number_Field(Readexcel_RowName.getValue("Phone/Card_Number"));
@@ -74,7 +74,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			try
 			{
-				obj.waitForElementClickable(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
+				obj.waitForElement(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);
 				onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
 			}
 			catch(Exception e1)
@@ -260,7 +260,7 @@ public class Computed_PreEnrollment_Flow
 			}
 				
 			contactinfopage.click_click_Submit_Form_Button();;			
-			obj.waitForElementClickable(driver, accountsecuritypage.txt_Email_Address_Field);
+			obj.waitForElement(driver, accountsecuritypage.txt_Email_Address_Field);
 			
 			Reporter.log("Contact info page completed successfully");
 		}
@@ -348,7 +348,7 @@ public class Computed_PreEnrollment_Flow
 				accountsecuritypage.click_txt_NeverMissADeal_No_Button();
 			}
 			obj.scrollingToElementofAPage(driver, accountsecuritypage.click_Security_Next_Button);
-			obj.waitForElementClickable(driver, accountsecuritypage.click_Security_Next_Button);	
+			obj.waitForElement(driver, accountsecuritypage.click_Security_Next_Button);	
 			accountsecuritypage.click_click_Security_Next_Button();
 			
 			Reporter.log("Account info page completed successfully");

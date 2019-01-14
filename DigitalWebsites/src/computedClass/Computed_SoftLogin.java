@@ -51,12 +51,12 @@ public class Computed_SoftLogin
 		    String Softlogin_Phone_number1= Readexcel_RowName.getValue("Softlogin_Phone_number");
 		    String Softlogin_Zipcode1= Readexcel_RowName.getValue("Softlogin_Zipcode");
 		  
-		    obj.waitForElementClickable(driver, logo);
+		    obj.waitForElement(driver, logo);
 			logo.click();
 			
-			obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);		
+			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	obj.scrollingToElementofAPage(driver, (WebElement) homepage.click_Save_Coupon_Button);
-	  		//obj.waitForElementClickable(driver, (WebElement) sl.click_HomePage_Coupons_Button_List);
+	  		//obj.waitForElement(driver, (WebElement) sl.click_HomePage_Coupons_Button_List);
 	  		List<WebElement> buttons = homepage.click_Save_Coupon_Button;  
 	  		int sizee=buttons.size();
 	  		boolean aa=true;
@@ -135,14 +135,16 @@ public class Computed_SoftLogin
 		    String Softlogin_Phone_number1= Readexcel_RowName.getValue("Softlogin_Phone_number");
 		    String Softlogin_Zipcode1= Readexcel_RowName.getValue("Softlogin_Zipcode");
 		  
-		    obj1.waitForElementClickable(driver, logo);
+		    obj1.waitForElement(driver, logo);
 		    logo.click();
-			obj1.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);	
+		   
+			obj1.waitForElement(driver, homepage.click_Login_Or_Signup_Button);	
 		
 			obj1.waitForElement(driver, homepage.click_Rewards_link_Hover);
-			homepage.hover_click_Rewards_link_Hover();
+			homepage.click_click_Rewards_link_Hover();
 			homepage.click_click_Rewards_Rewards_Button();
     	
+			obj1.waitForElement(driver, logoutrewardspage.click_Rewards_Login_Button);
 			//Functionality of Login button in logged out rewards page
 			logoutrewardspage.click_click_Rewards_Login_Button();
 			
@@ -158,13 +160,14 @@ public class Computed_SoftLogin
 			}
 			else
 			{
-				driver.close();
+				//driver.close();
 				Assert.fail("Softlogin failed");
 			}		
 		}
 		catch (Exception e)
 		{
-			driver.close();
+			//driver.close();
+			System.out.println(e);
 			Assert.fail("Error in Softlogin Page or invalid credentials");
 	    }	
 		
@@ -207,11 +210,11 @@ public class Computed_SoftLogin
 		    String Softlogin_Phone_number1= Readexcel_RowName.getValue("Softlogin_Phone_number");
 		    String Softlogin_Zipcode1= Readexcel_RowName.getValue("Softlogin_Zipcode");
 		  
-		    obj1.waitForElementClickable(driver, logo);
+		    obj1.waitForElement(driver, logo);
 		    logo.click();
-			obj1.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);	
+			obj1.waitForElement(driver, homepage.click_Login_Or_Signup_Button);	
 		
-			obj1.waitForElementClickable(driver, homepage.click_Rewards_link_Hover);
+			obj1.waitForElement(driver, homepage.click_Rewards_link_Hover);
 			homepage.hover_click_Rewards_link_Hover();
 			homepage.click_click_Rewards_Rewards_Button();
     	
@@ -225,7 +228,7 @@ public class Computed_SoftLogin
 			obj1.waitForElement(driver, onequickthing.click_Ok_I_Will_Do_This_Now_Button);	
 			
 			onequickthing.click_click_Ok_I_Will_Do_This_Now_Button();
-			obj1.waitForElementClickable(driver, contactinfopage.txt_HeaderName_Text);
+			obj1.waitForElement(driver, contactinfopage.txt_HeaderName_Text);
 			if(contactinfopage.isDisplayed_txt_HeaderName_Text())
 			{	
 				Reporter.log("Contactinfo page is displayed for preenrolled user through softlogin by clicking one quick thing button");

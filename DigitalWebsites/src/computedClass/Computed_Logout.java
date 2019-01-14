@@ -20,9 +20,9 @@ public class Computed_Logout
 		try
 		{
 			
-			obj.waitForElementClickable(driver, homepage.click_Logout_button);
+			obj.waitForElement(driver, homepage.click_Logout_button);
             homepage.click_click_Logout_button();
-            obj.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);
+            obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);
             if(homepage.isDisplayed_click_Login_Or_Signup_Button())
             {
                   Reporter.log("User is logged out successfully");

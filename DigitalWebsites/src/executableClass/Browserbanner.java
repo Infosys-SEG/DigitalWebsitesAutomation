@@ -94,14 +94,15 @@ public class Browserbanner
 		try
 		{
 		
-		obj.waitForElementClickable(driver, logo);
+		obj.waitForElement(driver, logo);
+		obj.waitForElement(driver, homepage.click_Close_cookies_Button);
 		homepage.click_click_Close_cookies_Button();
 		}
 		catch(Exception e)
 		{
 			
 		}
-		obj.waitForElementClickable(driver, logo);
+		obj.waitForElement(driver, logo);
 		logo.click();
 		
 		return driver ;

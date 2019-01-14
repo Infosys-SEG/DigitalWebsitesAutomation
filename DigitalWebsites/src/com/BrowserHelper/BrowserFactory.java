@@ -4,12 +4,12 @@ package com.BrowserHelper;
 import java.awt.Robot;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 public class BrowserFactory 
 {
@@ -38,10 +38,12 @@ public class BrowserFactory
         {
         	try
         	{
-        		System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IE32bit\\IEDriverServer.exe");     	
-    			InternetExplorerOptions options = new InternetExplorerOptions(); 
-    			options.destructivelyEnsureCleanSession();
-            	driver = new InternetExplorerDriver(options); 
+        		System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe");  
+        		DesiredCapabilities dc=new DesiredCapabilities();
+        		dc.setCapability(InternetExplorerDriver.ENABLE_ELEMENT_CACHE_CLEANUP, true);
+    			dc.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
+    		//	dc.setJavascriptEnabled(false);
+            	driver = new InternetExplorerDriver(dc);
             	driver.manage().window().maximize();
             	Thread.sleep(1000);
             	driver.get(URL); 

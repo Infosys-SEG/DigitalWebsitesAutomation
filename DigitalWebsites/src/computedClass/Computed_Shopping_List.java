@@ -69,14 +69,14 @@ public class Computed_Shopping_List
 	    	String Val = obj.popuppath()+" "+bro;
 	    	Runtime.getRuntime().exec(Val);
 	    	
-	    	obj.waitForElementClickable(driver, logo);
+	    	obj.waitForElement(driver, logo);
 	    	logo.click();
-    		obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
+    		obj.waitForElement(driver, homepage.click_Savings_link_Hover);
     		
     		
     		homepage.click_click_Savings_link_Hover();	
     		
-    		//obj.waitForElementClickable(driver, homepage.click_Savings_WeeklyAd_Button);
+    		//obj.waitForElement(driver, homepage.click_Savings_WeeklyAd_Button);
     		
     		homepage.click_click_Savings_WeeklyAd_Button();
     		
@@ -108,7 +108,7 @@ public class Computed_Shopping_List
 					Assert.fail("count not updated");
 				}
 			}
-			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_List_icon_Button);
 			shoppinglistpage.click_click_List_icon_Button();
 	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);
 	        
@@ -416,7 +416,7 @@ public class Computed_Shopping_List
 		    	System.out.println("");
     			Assert.fail("Check action verify parameter from shopping list");
     		}
-		    obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
+		    obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
 		    shoppinglistpage.click_click_Close_Button();
 		    	
 	    }
@@ -449,7 +449,7 @@ public class Computed_Shopping_List
 				
 				Assert.fail("count not updated");
 			}
-			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_List_icon_Button);
 			shoppinglistpage.click_click_List_icon_Button();
 	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);
 	        
@@ -548,14 +548,14 @@ public class Computed_Shopping_List
 			    		
 				}
 			}
-			obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
 			shoppinglistpage.click_click_Close_Button();	  
 	    }
 	    catch(Exception e)
 	    {
 	    	driver.close();
 	    	Assert.fail("Error in shopping list");
-	    	obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
+	    	obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
 	    	shoppinglistpage.click_click_Close_Button();
 	    }
 	    return driver;
@@ -575,7 +575,7 @@ public class Computed_Shopping_List
 			String sc=shoppinglistpage.getText_txt_List_Count_Text();
 			count=Integer.parseInt(sc);
 			
-			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_List_icon_Button);
 			shoppinglistpage.click_click_List_icon_Button();
 	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);
 	        
@@ -643,7 +643,7 @@ public class Computed_Shopping_List
 			
 			obj.movetoElementofAPage(driver, shoppinglistpage.click_Weekly_Ad_Filter_Checkbox);
 			
-			obj.waitForElementClickable(driver, shoppinglistpage.txt_ADD_An_Item_Text_Field);
+			obj.waitForElement(driver, shoppinglistpage.txt_ADD_An_Item_Text_Field);
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 			prodname=Readexcel_RowName.getValue("Add_An_Item");
 			if(action.equalsIgnoreCase("Add"))
@@ -696,7 +696,7 @@ public class Computed_Shopping_List
 				}   
 				
 			}
-			obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
 			shoppinglistpage.click_click_Close_Button();	  
 	    }
 	    catch(Exception e)
@@ -731,7 +731,7 @@ public class Computed_Shopping_List
 				Assert.fail("count not updated");
 			}
 			
-			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_List_icon_Button);
 			shoppinglistpage.click_click_List_icon_Button();
 	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);
 	        
@@ -887,7 +887,7 @@ public class Computed_Shopping_List
 		    		Reporter.log("Products removed in shopping list when items removed from myitems");
 		    	}
 		    }
-			obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
 			shoppinglistpage.click_click_Close_Button();
 		}
 	    catch(Exception e)
@@ -916,7 +916,7 @@ public class Computed_Shopping_List
 	    { 	   
 		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
 			
-			obj.waitForElementClickable(driver, shoppinglistpage.click_List_icon_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_List_icon_Button);
 			shoppinglistpage.click_click_List_icon_Button();
 	        obj.waitForElement(driver,shoppinglistpage.click_Close_Button);      
 	        boolean prodchk=true;      
@@ -1102,7 +1102,7 @@ public class Computed_Shopping_List
 					  	}
 					}   
 	        }
-			obj.waitForElementClickable(driver, shoppinglistpage.click_Close_Button);
+			obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
 			shoppinglistpage.click_click_Close_Button();
 		}
 	    catch(Exception e)

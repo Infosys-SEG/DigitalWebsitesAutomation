@@ -45,9 +45,9 @@ public class Computed_MyStore
 		
 		try
 		{	
-			obj.waitForElementClickable(driver, logo);
+			obj.waitForElement(driver, logo);
 			logo.click();
-			obj.waitForElementClickable(driver, staticInfoBar.click_Static_info_My_Account_Link);
+			obj.waitForElement(driver, staticInfoBar.click_Static_info_My_Account_Link);
 			if(staticInfoBar.isDisplayed_click_Static_info_MyStore_Link())
 			{	
 				if(staticInfoBar.isDisplayed_click_Static_info_MyStore_Address_Text())
@@ -95,10 +95,10 @@ public class Computed_MyStore
 		Data obj=new Data();
 		try
 		{	
-			obj.waitForElementClickable(driver, homepage.click_Global_StoreLocator_Button);
+			obj.waitForElement(driver, homepage.click_Global_StoreLocator_Button);
 			homepage.click_click_Global_StoreLocator_Button();
 			obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			obj.waitForElementClickable(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
+			obj.waitForElement(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
 			
 			if( storelocatorpage.isDisplayed_txt_Enter_Zip_Or_City_Field())
 			{
@@ -195,11 +195,11 @@ public class Computed_MyStore
 		
 		try
 		{	
-			obj.waitForElementClickable(driver, homepage.click_Global_StoreLocator_Button);
+			obj.waitForElement(driver, homepage.click_Global_StoreLocator_Button);
 			homepage.click_click_Global_StoreLocator_Button();
 			obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			obj.waitForElementClickable(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
+			obj.waitForElement(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
+			obj.waitForElement(driver, storelocatorpage.click_Storelocation_Button);
 			storelocatorpage.click_click_Storelocation_Button();
 				
 			storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
@@ -207,7 +207,7 @@ public class Computed_MyStore
 			storelocatorpage.click_click_Search_Button();
 			try
 			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
+				obj.waitForElement(driver, storelocatorpage.click_Weekly_Ad_Link);
 				storelocatorpage.click_click_Weekly_Ad_Link();
 				Runtime.getRuntime().exec(Val);	
 			}
@@ -294,17 +294,17 @@ public class Computed_MyStore
 	    } 
 		try
 		{
-			obj.waitForElementClickable(driver, homepage.click_Global_StoreLocator_Button);
+			obj.waitForElement(driver, homepage.click_Global_StoreLocator_Button);
 			homepage.click_click_Global_StoreLocator_Button();
 			obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
+			obj.waitForElement(driver, storelocatorpage.click_Storelocation_Button);
 			storelocatorpage.click_click_Storelocation_Button();
 			storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
 			storelocatorpage.type_txt_Enter_Zip_Or_City_Field(city);
 			storelocatorpage.click_click_Search_Button();
 			try
 			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_Weekly_Ad_Link);
+				obj.waitForElement(driver, storelocatorpage.click_Weekly_Ad_Link);
 				storelocatorpage.click_click_Weekly_Ad_Link();
 					
 					
@@ -336,109 +336,92 @@ public class Computed_MyStore
 		
 	}
 	
-	public WebDriver SetStore_ChangeLocation(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException
+	public WebDriver SetStore_ChangeLocation(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
-		POM_Generated_StaticInfoBar staticInfoBar = new POM_Generated_StaticInfoBar(driver);
+		//POM_Generated_StaticInfoBar staticinfobar= new POM_Generated_StaticInfoBar(driver);
 		Data obj=new Data();
-		WebElement logo = null;
-		String change_zip="";
-		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
-    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
-    	{
-    		logo=homepage.click_Winndixie_logo;   		
-    	}
-    	else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
-    	{
-    		logo=homepage.click_Bilo_logo;
-    	}
-    	else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-    	{
-    		logo=homepage.click_Harveys_logo;
-    	}
-    	
-    	
-    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
-	    {
-    		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-    		change_zip=Readexcel_RowName.getValue("Change_Zipcode_WD");
-	    	System.out.println(change_zip);
-	    	 		
-	    }
-	    else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
-	    {
-	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-	    	change_zip=Readexcel_RowName.getValue("Change_Zipcode_BL");
-	    	
-	    }
-	    else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-	    {
-	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
-	    	change_zip=Readexcel_RowName.getValue("Change_Zipcode_HV");
-	    	
-	    } 
-
+		
 		try
 		{
-			obj.waitForElementClickable(driver, logo);
-			logo.click();
-			obj.waitForElementClickable(driver, staticInfoBar.click_Static_info_My_Account_Link);
-			staticInfoBar.click_click_Static_info_MyStore_Link();
-			String sdetails=storelocatorpage.getText_txt_StreetAddr_Text();
-			System.out.println(sdetails);
-			obj.waitForElementClickable(driver, homepage.click_Global_StoreLocator_Button);
+			obj.waitForElement(driver, homepage.click_Global_StoreLocator_Button);
 			homepage.click_click_Global_StoreLocator_Button();
+			
 			obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			obj.waitForElementClickable(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-			storelocatorpage.click_click_Storelocation_Button();
-			obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);	
-			storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
-			storelocatorpage.type_txt_Enter_Zip_Or_City_Field(change_zip);
-			storelocatorpage.click_click_Search_Button();
-			try
+			obj.waitForElement(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
+			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+			if(Readexcel_RowName.getValue("Change_Zipcode")!=null)
 			{
-				obj.waitForElementClickable(driver, storelocatorpage.click_View_Store_Details_Button);
-				storelocatorpage.click_click_View_Store_Details_Button();
-						
-				if(storelocatorpage.isDisplayed_click_Make_My_store_Button())
+				storelocatorpage.click_click_Storelocation_Button();
+				obj.waitForElement(driver, storelocatorpage.click_Storelocation_Button);
+				obj.scrollingToElementofAPage(driver, storelocatorpage.ddl_Radius_Dropdown);
+				String rad=storelocatorpage.getValue_ddl_Radius_Dropdown();
+				if(!rad.equals("10 miles"))
 				{
-					obj.waitForElementClickable(driver, storelocatorpage.click_Make_My_store_Button);
+					driver.close();
+					Assert.fail("Default radius is not 10");
+				}
+				storelocatorpage.type_txt_Enter_Zip_Or_City_Field(Readexcel_RowName.getValue("Change_Zipcode"));
+				storelocatorpage.click_click_Search_Button();
+				obj.waitForElement(driver, storelocatorpage.click_Storelocation_Button);
+				obj.scrollingToElementofAPage(driver, storelocatorpage.click_Make_My_store_Button);
+				try 
+				{
 					storelocatorpage.click_click_Make_My_store_Button();
+					obj.waitForElement(driver, storelocatorpage.click_Storelocation_Button);
+					obj.scrollingToElementofAPage(driver, storelocatorpage.click_View_Store_Details_Button);
+					storelocatorpage.click_click_View_Store_Details_Button();
+					obj.waitForElement(driver, storelocatorpage.click_Home_Button);
+					String sdetails=storelocatorpage.getText_txt_StreetAddr_Text();
 					storelocatorpage.click_click_Home_Button();
-					
-					Reporter.log("Store changed successfully");
+					obj.waitForElement(driver, storelocatorpage.txt_StreetAddr_Text);
+					String addr=storelocatorpage.getText_txt_StreetAddr_Text();
+					if(!sdetails.equals(addr))
+					{
+						driver.close();
+						Assert.fail("Store address not changed");
+					}
 				}
-				else
+				catch(NoSuchElementException e) 
 				{
-					Assert.fail("Same store is selected to change");
-				}
-				
+					try
+					{
+						if(	storelocatorpage.isDisplayed_click_Invalid_Store_Error_Text())
+						{
+							driver.close();
+							Assert.fail("No stores found");
+							storelocatorpage.click_click_Home_Button();
+						}
+						else	
+						{
+							driver.close();
+							Assert.fail("No stores found error message is not displaying");
+							storelocatorpage.click_click_Home_Button();
+						}
+					}
+					catch (NoSuchElementException e1)
+					{
+						driver.close();
+						Assert.fail("No stores found error message is not displaying");
+						storelocatorpage.click_click_Home_Button();
+					}
+				}		
 			}
-			catch(NoSuchElementException e) 
+			else
 			{
-				if(	storelocatorpage.isDisplayed_click_Invalid_Store_Error_Text())
-				{
-					driver.close();
-					Assert.fail("Invalid zipcode or city entered");
-					storelocatorpage.click_click_Home_Button();
-				}
-				else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
-				{
-					driver.close();
-					Assert.fail("No stores found for entered city or zipcode ");
-					storelocatorpage.click_click_Home_Button();
-				}
+				storelocatorpage.click_click_Home_Button();
 			}
 		}
-			catch(Exception e)
-			{
-				driver.close();
-				Assert.fail("Error in my store page");
-			}
+		catch(Exception e)
+		{
+			driver.close();
+			Assert.fail("Error in my store page");
+		}
+		
+		
 		return driver;
-		}
+	}
 	public WebDriver SetStore_InvalidZip(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException
 	{
 		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
@@ -481,10 +464,10 @@ public class Computed_MyStore
 	    	
 	    } 
 
-		obj.waitForElementClickable(driver, homepage.click_Global_StoreLocator_Button);
+		obj.waitForElement(driver, homepage.click_Global_StoreLocator_Button);
 		homepage.click_click_Global_StoreLocator_Button();
 		obj.scrollingToElementofAPage(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
-		obj.waitForElementClickable(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
+		obj.waitForElement(driver, storelocatorpage.txt_Enter_Zip_Or_City_Field);
 		try
 		{
 			String Error_Msg;
@@ -492,7 +475,7 @@ public class Computed_MyStore
 			new Readexcel_RowName().excelRead("ErrorMessageSheet",Functionality,"Invalid_Zip_error_msg");
 			Error_Msg= Readexcel_RowName.getValue("Error_Message");
 
-			obj.waitForElementClickable(driver, storelocatorpage.click_Storelocation_Button);
+			obj.waitForElement(driver, storelocatorpage.click_Storelocation_Button);
 			storelocatorpage.click_click_Storelocation_Button();
 			storelocatorpage.click_txt_Enter_Zip_Or_City_Field();
 			storelocatorpage.type_txt_Enter_Zip_Or_City_Field(invalid_zip);

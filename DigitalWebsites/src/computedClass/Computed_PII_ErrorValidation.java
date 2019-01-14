@@ -23,7 +23,7 @@ public class Computed_PII_ErrorValidation
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		Data obj = new Data();
 		String Global="Global";
-		obj.waitForElementClickable(driver, verificationpage.txt_PII_Verification_Month_Field);
+		obj.waitForElement(driver, verificationpage.txt_PII_Verification_Month_Field);
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","PII_Validation",TCName);	
 		try
 		{ 
@@ -336,7 +336,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		Data obj = new Data();
 		
-		obj.waitForElementClickable(driver, verificationpage.txt_PII_Verification_Month_Field);
+		obj.waitForElement(driver, verificationpage.txt_PII_Verification_Month_Field);
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","PII_Validation",TCName);	
 		try
 		

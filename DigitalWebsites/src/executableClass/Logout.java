@@ -27,6 +27,7 @@ public class Logout
 		Computed_SoftLogin softlogin = new Computed_SoftLogin();
 		Computed_Logout logout = new Computed_Logout();
 		driver= browserbanner.BrowserBanner(driver, functionality);
+		driver=browserbanner.Clearcookie(driver, functionality);
 		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 		driver=logout.Logout(driver);
 	}

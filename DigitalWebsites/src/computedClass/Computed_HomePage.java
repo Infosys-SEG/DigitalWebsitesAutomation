@@ -47,7 +47,7 @@ import generatedClass.POM_Generated_Homepage;
 			value="harveyssupermarkets";
 			logo=homepage.click_Harveys_logo;
 		}
-		obj.waitForElementClickable(driver, logo);
+		obj.waitForElement(driver, logo);
 		logo.click();
 		return driver;
 		}	
@@ -58,7 +58,7 @@ import generatedClass.POM_Generated_Homepage;
 			
 			try
 			{
-			    //*obj.waitForElementClickable(driver,staticinfobar.click_Static_info_WeeklyAds_link);
+			    //*obj.waitForElement(driver,staticinfobar.click_Static_info_WeeklyAds_link);
 				//*if(staticinfobar.isDisplayed_click_Static_info_WeeklyAds_link())
 				{
 					
@@ -382,7 +382,7 @@ import generatedClass.POM_Generated_Homepage;
 					
 		    	    //*obj.scrollingToElementofAPage(driver, (WebElement) homepage.click_Save_Coupon_Button);
 		    	    
-		    	    //*obj.waitForElementClickable(driver, (WebElement) homepage.click_Save_Coupon_Button);
+		    	    //*obj.waitForElement(driver, (WebElement) homepage.click_Save_Coupon_Button);
 		    	   
 		    	    List<WebElement> buttons = (List<WebElement>) homepage.click_Save_Coupon_Button; 
 		    	   

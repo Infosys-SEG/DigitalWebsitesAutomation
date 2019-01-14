@@ -64,7 +64,7 @@ public class POM_Generated_Homepage {
 	public WebElement click_Rewards_RegisterNow_Button;
 	
 	// Associated Label : Rewards_Rewards_Button
-	@FindBy(xpath = "//li[@id='rewards']//ul[@role='menu']//a[@href='/rewards-logged-in']")
+	@FindBy(xpath = "//li[@id='rewards']//ul[@role='menu']//a[@href='/rewards-logged-in' or text()='Rewards ']")
 	public WebElement click_Rewards_Rewards_Button;
 	
 	// Associated Label : Savings_link_Hover
