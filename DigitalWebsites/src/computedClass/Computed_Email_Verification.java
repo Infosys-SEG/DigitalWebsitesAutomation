@@ -12,14 +12,11 @@ import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_VerificationPage;
 
-
-
 public class Computed_Email_Verification 
 {
+	Data obj=new Data();
 	public WebDriver email_validatingNext (WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException
-	{
-		
-		
+	{		
 		POM_Generated_VerificationPage email = new POM_Generated_VerificationPage(driver);
 		try 
 		{
@@ -31,7 +28,8 @@ public class Computed_Email_Verification
 			 }
 			 else
 			 {
-				 Assert.fail("issue in navigating to Email verification page");
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "EmailNavErr");
+				 Assert.fail("Issue in navigating to Email verification page");
 			 }
 			 new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality, TCName);
 			 email.type_txt_Enter_Verification_Code_Field(Readexcel_RowName.getValue("inv_Code"));
@@ -43,12 +41,13 @@ public class Computed_Email_Verification
 			 }
 			 else
 			 {
-			 Assert.fail("Next button is enabled before entering the 6 digits");
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "Verify_NextButEnableBef6Dig");
+				 Assert.fail("Next button is enabled before entering the 6 digits");
 			 }
 			 //checking if >6 is not allowed(6 digits & a space)
 			 email.type_txt_Enter_Verification_Code_Field(Readexcel_RowName.getValue("err_Code"));
 		
-			 String err_cd = Readexcel_RowName.getValue("err_Code");
+			// String err_cd = Readexcel_RowName.getValue("err_Code");
 			 //int i=err_cd.length();
 			 String entry_cd = email.getValue_txt_Enter_Verification_Code_Field();
 			 int a = entry_cd.length();
@@ -58,17 +57,18 @@ public class Computed_Email_Verification
 			 }
 			 else
 			 {
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "Verify_MoreThn6DigAllow");
 				 Assert.fail("More than 6 digits is allowed in email verification code field");
 			 }
 			 email.type_txt_Enter_Verification_Code_Field(Readexcel_RowName.getValue("Code"));
 			 if(email.isEnabled_txt_Email_verification_Next())
 			 {
-				 
 				 Reporter.log("Next button is enabled on entering 6 digits code");
 			 }
 			 else
 			 {
-			 Assert.fail("Next button is not enabled after entering the 6 digits");
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "Verify_NextButNotEnableAftr6Dig");
+				 Assert.fail("Next button is not enabled after entering the 6 digits");
 			 }
 			 
 		}
@@ -111,7 +111,7 @@ public class Computed_Email_Verification
 	public WebDriver Invalid_code_email(WebDriver driver,String Functionality,String TCName , String LabelName) throws FileNotFoundException, IOException, InterruptedException, AWTException
 	{
 		
-		Data obj = new Data();
+		//Data obj = new Data();
 		POM_Generated_VerificationPage email = new POM_Generated_VerificationPage(driver);
 		try 
 		{
@@ -180,7 +180,7 @@ public class Computed_Email_Verification
 	public WebDriver Invalid_code_email_thirdtym(WebDriver driver,String Functionality,String TCName , String LabelName) throws FileNotFoundException, IOException, InterruptedException, AWTException
 	{
 		
-		Data obj = new Data();
+		//Data obj = new Data();
 		POM_Generated_VerificationPage email = new POM_Generated_VerificationPage(driver);
 		try 
 		{

@@ -24,7 +24,8 @@ public class HardLogin_Loggedin_Account
 	public void TC001_HardLogin_Access_features () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		
 		Browserbanner br=new Browserbanner();
 		Computed_HardLogin hardlogin = new Computed_HardLogin();
 		Computed_Digital_Coupons dc=new Computed_Digital_Coupons();	
@@ -38,7 +39,7 @@ public class HardLogin_Loggedin_Account
 		driver= br.BrowserBanner(driver, functionality);
 		driver=br.Clearcookie(driver, functionality);
 		driver=hardlogin.Global_HardLogin(driver, functionality,TCName);
-		driver=dc.Loggedin_Coupons_Homepage(driver, functionality, prod, count);
+		driver=dc.Loggedin_Coupons_Homepage(driver, functionality,TCName, prod, count);
 		driver=po.Loggedin_Personalisedoffers(driver, functionality,TCName);
 		driver=wa.WeeklyAdPage(driver, functionality, TCName);
 		driver=wa.AddProduct(driver, prod, count, prodvalu, "circularpage");

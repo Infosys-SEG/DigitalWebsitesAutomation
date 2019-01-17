@@ -34,7 +34,7 @@ public class Reset_Password {
 		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 		driver=hardlogin.Account_HardLogin(driver, functionality,tcname);
 	    driver=myAcct.MyAccount_ResetPassword(driver, functionality, tcname,"save");
-	    driver=logout.Logout(driver);
+	    driver=logout.Logout(driver, functionality, tcname);
 	    driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 	    //Hard Login with new password
 	    driver=hardlogin.Account_HardLogin(driver, functionality,tcname);

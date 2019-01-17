@@ -16,9 +16,9 @@ import computedClass.Computed_SoftLogin;
 
 public class Digital_Coupons 
 {
-	WebDriver driver = null;
+	WebDriver driver;
 	String functionality = "Digital_Coupons";
-	Browserbanner browserbanner=new Browserbanner();
+	Browserbanner browserbanner = new Browserbanner();
 	Computed_SoftLogin softlogin = new Computed_SoftLogin();
 	Computed_Digital_Coupons coupons = new Computed_Digital_Coupons();
 	Computed_Shopping_List shoppinglist = new Computed_Shopping_List();
@@ -29,15 +29,16 @@ public class Digital_Coupons
 	{
 		//For getting current method name and passing as TCName
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		String Functionality=functionality;
+		String Functionality = functionality;
 		String prod="";
 		int count = 0;
+		
 		driver = browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
 		driver = softlogin.SoftLogin_Rewards(driver, Functionality, TCName);
-		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, prod, count);
-		prod=coupons.getprod();
-		count=coupons.getcount();
+		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, TCName, prod, count);
+		prod   = coupons.getprod();
+		count  = coupons.getcount();
 		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
 		driver.close();	
 	}
@@ -47,17 +48,18 @@ public class Digital_Coupons
 	{
 		//For getting current method name and passing as TCName
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		String Functionality=functionality;
+		String Functionality = functionality;
 		String prod="";
 		int count = 0;
+		
 		driver = browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
 		driver = softlogin.SoftLogin_Rewards(driver, Functionality, TCName);
-		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, prod, count);
-		prod=coupons.getprod();
-		count=coupons.getcount();
+		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, TCName, prod, count);
+		prod   = coupons.getprod();
+		count  = coupons.getcount();
 		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
-		driver = logout.Logout(driver);
+		driver = logout.Logout(driver, Functionality, TCName);
 		driver = softlogin.SoftLogin_Rewards(driver, Functionality, TCName);
 		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality);
 		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
@@ -67,11 +69,12 @@ public class Digital_Coupons
 	@Test(priority=3)
 	public void TC_01_Add_Coupons_Guest_user () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
-		String Functionality=functionality;
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		String Functionality = functionality;
 		
 		driver = browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver = coupons.Loggedout_Coupons_Link(driver, Functionality);
+		driver = coupons.Loggedout_Coupons_Link(driver, Functionality, TCName);
 		driver.close();
 	}
 }

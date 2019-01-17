@@ -10,8 +10,6 @@ import org.testng.Reporter;
 
 import Utility.Data;
 import Utility.Readexcel_RowName;
-import generatedClass.POM_Generated_AccountLookupPage;
-import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_VerificationPage;
 
 public class Computed_PII_ErrorValidation 
@@ -22,7 +20,7 @@ public class Computed_PII_ErrorValidation
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		Data obj = new Data();
-		String Global="Global";
+		//String Global="Global";
 		obj.waitForElement(driver, verificationpage.txt_PII_Verification_Month_Field);
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","PII_Validation",TCName);	
 		try
@@ -364,7 +362,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 		public WebDriver Invalid_PhoneNumber_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 		{
 			POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
-			Data obj = new Data();
+			//Data obj = new Data();
 			try
 			{
 				verificationpage.click_txt_PII_Verification_Zipcode_Field();

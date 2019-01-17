@@ -49,8 +49,9 @@ public class Data
 		FileUtils.copyFile(scrfile, new File(Path+name+".jpeg"));
 	}
 	//Ashot
-	public  void Ashot_Screenshot(WebDriver driver,String Path) throws IOException
+	public  void Ashot_Screenshot(WebDriver driver,String Functionality,String TCName,String screenshotName) throws IOException
 	{
+		String Path = System.getProperty("user.dir")+"\\Screenshots\\"+Functionality+"\\"+TCName+"\\"+screenshotName;
 		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100))
 				.takeScreenshot(driver);
 

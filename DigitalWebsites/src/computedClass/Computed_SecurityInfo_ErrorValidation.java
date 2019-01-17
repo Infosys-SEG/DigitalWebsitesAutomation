@@ -433,7 +433,7 @@ public class Computed_SecurityInfo_ErrorValidation
 	public WebDriver Invalid_Domain_ErrorValidation(WebDriver driver,String Functionality,String TCName,String TestDataColumn) throws IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_AccountSecurityPage acctSecurity= new POM_Generated_AccountSecurityPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		 try
 		    {
 			 new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);

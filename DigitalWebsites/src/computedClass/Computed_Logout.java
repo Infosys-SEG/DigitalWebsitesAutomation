@@ -13,10 +13,11 @@ import generatedClass.POM_Generated_Homepage;
 
 public class Computed_Logout 
 {
-	public WebDriver Logout(WebDriver driver) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	Data obj=new Data();
+	public WebDriver Logout(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj=new Data();
+		
 		try
 		{
 			
@@ -27,14 +28,15 @@ public class Computed_Logout
             {
                   Reporter.log("User is logged out successfully");
             }
-
             else
             {
-                  Assert.fail("Login / Register button is not displayed");
+            	obj.Ashot_Screenshot(driver, Functionality, TCName, "Logout_NoLoginORRegButton");
+            	Assert.fail("Login / Register button is not displayed");
             }
 		}
 		catch(Exception e)
 	    {
+			obj.Ashot_Screenshot(driver, Functionality, TCName, "Logout_Err");
 			driver.close();
 	    	Assert.fail("Error in Logout Page");
 	    	

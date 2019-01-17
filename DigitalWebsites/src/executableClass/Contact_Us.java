@@ -13,22 +13,21 @@ import computedClass.Computed_ContactUs;
 
 public class Contact_Us 
 {
-	WebDriver driver = null;
-	String functionality="Contact_Us";
+	WebDriver driver;
+	String functionality = "Contact_Us";
+	Browserbanner browserbanner =new Browserbanner();
+	Computed_ContactUs contactus = new Computed_ContactUs();
 	
-	@Test
+	@Test(priority=1)
 	public void TC001_ContactUs() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
-		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();
-		Browserbanner br=new Browserbanner();
-		Computed_ContactUs contactus=new Computed_ContactUs();
-		driver= br.BrowserBanner(driver, functionality);
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String Functionality = functionality;
 		
-		driver= br.Clearcookie(driver, functionality);
-		driver=contactus.ContactUs(driver, functionality, tcname);
+		driver = browserbanner.BrowserBanner(driver, Functionality);
+		driver = browserbanner.Clearcookie(driver, Functionality);
+		driver = contactus.ContactUs(driver, Functionality, TCName);
 		driver.close();
-		
-		
 	}
 	
 

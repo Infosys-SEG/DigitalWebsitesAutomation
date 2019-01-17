@@ -3,12 +3,11 @@ package com.BrowserHelper;
 
 import java.awt.Robot;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 public class BrowserFactory 
@@ -22,8 +21,8 @@ public class BrowserFactory
         if(browserName.equalsIgnoreCase("Safari"))
         {
                       
-                        driver = new SafariDriver();;
-                        driver.manage().window().maximize();
+        	driver = new SafariDriver();;
+        	driver.manage().window().maximize();
         }
         else if(browserName.equalsIgnoreCase("Chrome"))
         {

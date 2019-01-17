@@ -9,7 +9,6 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
-import Utility.Data;
 import Utility.Writeexcel_RowName;
 import computedClass.Computed_Digital_Coupons;
 import computedClass.Computed_HardLogin;
@@ -33,8 +32,9 @@ public class Shopping_List
 	{
 		//For getting current method name and passing as tcname
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		int count=0;
 		String Functionality = functionality;
+		int count=0;
+		
 		driver= browserbanner.BrowserBanner(driver, Functionality);
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
@@ -63,10 +63,10 @@ public class Shopping_List
 		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
-		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "Added");	
+		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver, Functionality,TCName, proddetails, count, "Added");	
 		
 		//coupons filter
-		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, prod, count);
+		driver = coupons.Loggedin_Coupons_Link(driver, Functionality,TCName, prod, count);
 		prod=coupons.getprod();
 		count=coupons.getcount();
 		System.out.println(count);
@@ -119,7 +119,7 @@ public class Shopping_List
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "DeleteIcon_Removedfromshoppinglist");
-		driver = logout.Logout(driver);
+		driver = logout.Logout(driver, Functionality,TCName);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality);
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "Removed");

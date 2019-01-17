@@ -10,14 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import computedClass.Computed_FuelPerk;
-import computedClass.Computed_MyStore;
 
 public class Fuelperks_Locator_Page 
 {
 	WebDriver driver;
 	String Functionality="Fuelperks_Locator_Page";
 	
-	@Test
+	@Test(priority=1)
 	public void TC001_Fuelperks_locator_Search_with_ZIP() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
@@ -30,7 +29,8 @@ public class Fuelperks_Locator_Page
 		driver=fuelperk.FuelPerk_Zipcode(driver, Functionality, TCName);
 		driver.close();
 	}
-	@Test
+	
+	@Test(priority=2)
 	public void TC002_Fuelperks_locator_Search_with_city_and_state() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	

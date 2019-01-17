@@ -1,7 +1,7 @@
 package computedClass;
 
 
-	import java.awt.AWTException;
+import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
@@ -15,16 +15,16 @@ import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_Homepage;
 
-	public class Computed_HomePage {
+public class Computed_HomePage {
          
-		Data obj=new Data();
+	Data obj=new Data();
 		
-		String Global="Global";
-		String value="";
-		WebElement logo=null;
+	String Global="Global";
+	String value="";
+	WebElement logo=null;
 	
-		public WebDriver Home_general(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException
-		{
+	public WebDriver Home_general(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException
+	{
 		
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Global,Functionality);
@@ -469,7 +469,7 @@ import generatedClass.POM_Generated_Homepage;
 	
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj1 =new Data();
+		//Data obj1 =new Data();
 		try
 		{
 			if(homepage.isDisplayed_click_Rewards_link_Hover())

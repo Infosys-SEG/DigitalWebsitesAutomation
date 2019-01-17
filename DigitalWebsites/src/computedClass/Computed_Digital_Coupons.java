@@ -22,14 +22,13 @@ public class Computed_Digital_Coupons
 {
 	private String prod;
 	private int count;
-
-	public WebDriver Loggedout_Coupons_Link(WebDriver driver, String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	Data obj=new Data();
+	
+	public WebDriver Loggedout_Coupons_Link(WebDriver driver, String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage=new POM_Generated_Homepage(driver);
 		POM_Generated_DigitalCouponsPage couponspage= new POM_Generated_DigitalCouponsPage(driver);
-		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);
-		Data obj=new Data();
-		
+		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);		
 		WebElement logo = null;		
 		boolean aa=true; 	
 		String value="";
@@ -67,15 +66,11 @@ public class Computed_Digital_Coupons
 			Runtime.getRuntime().exec(Val);
 	        obj.waitForElement(driver, logo);
 			logo.click();
-
-			obj.waitForElement(driver, homepage.click_Savings_link_Hover);
-			
-			
+			obj.waitForElement(driver, homepage.click_Savings_link_Hover);	
 			homepage.click_click_Savings_link_Hover();
 			obj.waitForElement(driver, homepage.click_Savings_Coupon_Button);
 			homepage.click_click_Savings_Coupon_Button();
 			
-					
 			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
 			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
@@ -100,27 +95,22 @@ public class Computed_Digital_Coupons
 			obj.waitForElement(driver, homepage.click_HardLogin_button);
 			homepage.click_click_HardLogin_button();
 			obj.waitForElement(driver, hardloginpage.click_Popup_Close_Button);
-			hardloginpage.click_click_Popup_Close_Button();	
-			
-			
+			hardloginpage.click_click_Popup_Close_Button();		
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName, "LogoutCoupPage_Link");
 			driver.close();
-			Assert.fail("Error in Digital coupons page");
-			
+			Assert.fail("Error in Digital coupons page");			
 		}	
-		return driver;	
-			
+		return driver;				
 	}
 	
-	public WebDriver Loggedout_Coupons_Homepage(WebDriver driver, String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Loggedout_Coupons_Homepage(WebDriver driver, String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage=new POM_Generated_Homepage(driver);
 		POM_Generated_DigitalCouponsPage couponspage= new POM_Generated_DigitalCouponsPage(driver);
 		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);
-		
-		Data obj=new Data();
 		WebElement logo = null;		
 		boolean aa=true; 	
 		String value="";
@@ -157,17 +147,13 @@ public class Computed_Digital_Coupons
 		{
 			Runtime.getRuntime().exec(Val);
 			obj.waitForElement(driver, logo);
-			
 			logo.click();
 			Thread.sleep(2000);
-			
 			homepage.click_click_Digitial_Coupons_Logo();
-			
 			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
 			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			Thread.sleep(1000);
-		
 			List<WebElement> buttons= couponspage.click_Digital_Coupon_Add_Button;
 			int sizee=buttons.size();
 			for(int n=1;n<sizee;n++)
@@ -178,7 +164,6 @@ public class Computed_Digital_Coupons
 					if(buttons.get(n).isDisplayed())
 					{	
 						obj.movetoElementofAPage(driver, buttons.get(n));
-						//obj.scrollingToElementofAPage(driver, buttons.get(n));
 						buttons.get(n).click();	
 						aa=false;		
 					}
@@ -187,14 +172,12 @@ public class Computed_Digital_Coupons
 			
 			Thread.sleep(2000);
 			obj.movetoElementofAPage_Click(driver, homepage.click_HardLogin_button);
-			
-			
-			
 			obj.waitForElement(driver, hardloginpage.click_Popup_Close_Button);
 			hardloginpage.click_click_Popup_Close_Button();	
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName, "LogoutCoupHomePage");
 			//driver.close();	
 			System.out.println(e);
 			Assert.fail("Error in Digital coupons page");
@@ -204,18 +187,16 @@ public class Computed_Digital_Coupons
 			
 	}
 	
-	public WebDriver Loggedin_Coupons_Link(WebDriver driver, String Functionality,String prod,int count) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Loggedin_Coupons_Link(WebDriver driver, String Functionality,String TCName,String prod,int count) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage=new POM_Generated_Homepage(driver);
 		POM_Generated_DigitalCouponsPage couponspage= new POM_Generated_DigitalCouponsPage(driver);
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
-		Data obj=new Data();
 		String cont = null;
 		WebElement logo = null;		
 		boolean aa=true; 	
 		String value="";
-		
-
+	
 	    new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
     	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
     	{
@@ -250,23 +231,13 @@ public class Computed_Digital_Coupons
 			Runtime.getRuntime().exec(Val);
 			Thread.sleep(2000);
 			obj.movetoElementofAPage_Click(driver, logo);
-			/*obj.waitForElement(driver, logo);	
-			
-			logo.click();*/
-			
-			obj.waitForElement(driver, homepage.click_Savings_link_Hover);	
-			
-			
-					
+			obj.waitForElement(driver, homepage.click_Savings_link_Hover);			
 			homepage.click_click_Savings_link_Hover();
 			obj.waitForElement(driver, homepage.click_Savings_Coupon_Button);
 			homepage.click_click_Savings_Coupon_Button();
-		
 			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
 			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
-			
-			
 			List<WebElement> buttons= couponspage.click_Digital_Coupon_Add_Button;
 			List<WebElement> prodsummary=couponspage.txt_Digital_Coupon_Prod_summary_Text;
 			List<WebElement> proddesc=couponspage.txt_Digital_Coupon_Prod_Desc_Text;
@@ -277,13 +248,11 @@ public class Computed_Digital_Coupons
 				if(aa==true)
 				{
 					if(buttons.get(n).isDisplayed())
-					{	
-						
+					{		
 						cont=shoppinglistpage.getText_txt_List_Count_Text();
 						count = Integer.parseInt(cont);						
 						prod=prodsummary.get(n).getText()+" "+proddesc.get(n).getText();
-						buttons.get(n).click();
-							
+						buttons.get(n).click();						
 						try
 						{
 							if(couponspage.isDisplayed_click_Digital_Coupon_Paypal_Popup_Close_Button())
@@ -320,6 +289,7 @@ public class Computed_Digital_Coupons
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName, "TickMarkNotCngd");
 				Assert.fail("Coupons added and not changed to tick mark");
 			}
 
@@ -327,6 +297,7 @@ public class Computed_Digital_Coupons
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName, "LoginCoupLink_Page");
 			System.out.println(e);
 			//driver.close();
 			Assert.fail("Error in Digital coupons page");
@@ -335,18 +306,15 @@ public class Computed_Digital_Coupons
 		return driver;			
 	}
 	
-	public WebDriver Loggedin_Coupons_Homepage(WebDriver driver, String Functionality,String prod,int count) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Loggedin_Coupons_Homepage(WebDriver driver, String Functionality,String TCName,String prod,int count) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage=new POM_Generated_Homepage(driver);
 		POM_Generated_DigitalCouponsPage couponspage= new POM_Generated_DigitalCouponsPage(driver);
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
-		
-		Data obj=new Data();
 		String cont = null;
 		WebElement logo = null;		
 		boolean aa=true; 	
 		String value="";
-		
 	    
 	    new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
     	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
@@ -439,6 +407,7 @@ public class Computed_Digital_Coupons
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName, "TickMarkNotCngd");
 				Assert.fail("Coupons added and not changed to tick mark");
 			}
 
@@ -446,6 +415,7 @@ public class Computed_Digital_Coupons
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName, "LoginCoupHomePage");
 			//driver.close();
 			System.out.println(e);
 			Assert.fail("Error in Digital coupons page");

@@ -15,7 +15,6 @@ import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_StaticInfoBar;
 import generatedClass.POM_Generated_StoreLocatorPage;
-import generatedClass.POM_Generated_WeeklyAdPage;
 
 public class Computed_MyStore 
 {
@@ -427,22 +426,11 @@ public class Computed_MyStore
 		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		String invalid_zip="";
-		WebElement logo = null;
+	//	WebElement logo = null;
 		Data obj=new Data();
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
-    	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
-    	{
-    		logo=homepage.click_Winndixie_logo;   		
-    	}
-    	else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
-    	{
-    		logo=homepage.click_Bilo_logo;
-    	}
-    	else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-    	{
-    		logo=homepage.click_Harveys_logo;
-    	}
+    	
     	
     	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 	    {

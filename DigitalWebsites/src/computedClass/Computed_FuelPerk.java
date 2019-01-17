@@ -3,12 +3,9 @@ package computedClass;
 import java.awt.AWTException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Reporter;
 
 import Utility.Data;
 import Utility.Readexcel_RowName;
@@ -23,44 +20,30 @@ public class Computed_FuelPerk
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		Data obj=new Data();
 		String zip="";
-		String value="";
+		//String value="";
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
 	    if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 	    {
-	    	value="winndixie";
-	    	 		
-	    }
-	    else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
-	    {
-	    	value="bi-lo";
-	    	
-	    }
-	    else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-	    {
-	    	value="harveyssupermarkets";
-	    	
-	    }
-	    
-	    if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
-	    {
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    //	value="winndixie";
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 	    	zip=Readexcel_RowName.getValue("WD_ZIP");
 	    	System.out.println(zip);
 	    	 		
 	    }
 	    else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 	    {
+	    //	value="bi-lo";
 	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 	    	zip=Readexcel_RowName.getValue("BL_ZIP");
-	    	
 	    }
 	    else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 	    {
+	    	//value="harveyssupermarkets";
 	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 	    	zip=Readexcel_RowName.getValue("HY_ZIP");
-	    	
-	    } 
+	    }
+	    
 		try
 		{
 			obj.waitForElement(driver, homepage.click_Global_StoreLocator_Button);
@@ -109,28 +92,12 @@ public class Computed_FuelPerk
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		Data obj=new Data();
 		String city="";
-		String value="";
+		//String value="";
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
 	    if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 	    {
-	    	value="winndixie";
-	    	 		
-	    }
-	    else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
-	    {
-	    	value="bi-lo";
-	    	
-	    }
-	    else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-	    {
-	    	value="harveyssupermarkets";
-	    	
-	    }
-	    
-	    if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
-	    {
-			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
+	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 	    	city=Readexcel_RowName.getValue("WD_CITY");
 	    	 		
 	    }

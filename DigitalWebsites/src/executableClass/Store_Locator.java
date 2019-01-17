@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
 
 import computedClass.Computed_HardLogin;
 import computedClass.Computed_MyStore;
-import computedClass.Computed_Static_Info_bar;
 import computedClass.Computed_WeeklyAd;
 
 public class Store_Locator
@@ -125,7 +124,7 @@ public class Store_Locator
 		
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		Browserbanner br=new Browserbanner();
-		Computed_HardLogin hardlogin =new Computed_HardLogin();
+		//Computed_HardLogin hardlogin =new Computed_HardLogin();
 		
 		Computed_MyStore mystore= new Computed_MyStore();
 		driver= br.BrowserBanner(driver, Functionality);
