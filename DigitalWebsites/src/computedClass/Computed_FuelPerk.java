@@ -55,6 +55,7 @@ public class Computed_FuelPerk
 			String rad=storelocatorpage.getValue_ddl_Radius_Dropdown();
 			if(!rad.equals("10"))
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"defrad_err");
 				driver.close();
 				Assert.fail("Default radius is not 10");
 			}
@@ -73,12 +74,14 @@ public class Computed_FuelPerk
 		{
 			if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_zip");
 				driver.close();
 				Assert.fail("Invalid zip code");
 				storelocatorpage.click_click_Home_Button();	
 			}
 			else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"no_store");
 				driver.close();
 				Assert.fail("No stores found for the given zip code");
 				storelocatorpage.click_click_Home_Button();
@@ -124,6 +127,7 @@ public class Computed_FuelPerk
 			String rad=storelocatorpage.getValue_ddl_Radius_Dropdown();
 			if(!rad.equals("10"))
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"def_rad");
 				driver.close();
 				Assert.fail("Default radius is not 10");
 			}
@@ -142,12 +146,14 @@ public class Computed_FuelPerk
 		{
 			if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_city");
 				driver.close();
 				Assert.fail("Invalid city");
 				storelocatorpage.click_click_Home_Button();	
 			}
 			else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"no_stores");
 				driver.close();
 				Assert.fail("No stores found for the given city");
 				storelocatorpage.click_click_Home_Button();

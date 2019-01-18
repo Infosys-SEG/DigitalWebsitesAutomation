@@ -80,7 +80,7 @@ public class Set_Pin_PW_in_Security_Info {
 				String Functionality=functionality;
 				driver=browserbanner.BrowserBanner(driver, Functionality);
 				driver=browserbanner.Clearcookie(driver, Functionality);
-				driver=preenrollmentflow.SignUpPage(driver);
+				driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 				driver = preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 				driver = preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 				driver = preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
@@ -97,7 +97,7 @@ public class Set_Pin_PW_in_Security_Info {
 				String Functionality=functionality;
 				driver=browserbanner.BrowserBanner(driver, Functionality);
 				driver=browserbanner.Clearcookie(driver, Functionality);
-				driver=preenrollmentflow.SignUpPage(driver);
+				driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 				driver = preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 				driver = preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 				driver = preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
@@ -131,7 +131,7 @@ public class Set_Pin_PW_in_Security_Info {
 		String Functionality=functionality;
 		driver = browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver = preenrollmentflow.SignUpPage(driver);
+		driver = preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 		driver = preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver = preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver = preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
@@ -147,7 +147,7 @@ public class Set_Pin_PW_in_Security_Info {
 		String Functionality=functionality;
 		driver=browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=SecurityInfo.ResetPassword_ErrorMsgValidation(driver, Functionality, TCName);
@@ -180,7 +180,7 @@ public class Set_Pin_PW_in_Security_Info {
 		String Functionality=functionality;
 		driver=browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=SecurityInfo.PIN_Field_Validation(driver, Functionality, TCName);
@@ -195,7 +195,7 @@ public class Set_Pin_PW_in_Security_Info {
 				String Functionality=functionality;
 				driver=browserbanner.BrowserBanner(driver, Functionality);
 				driver = browserbanner.Clearcookie(driver, Functionality);
-				driver=preenrollmentflow.SignUpPage(driver);
+				driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 				driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 				driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 				driver=SecurityInfo.Invalid_Domain_ErrorValidation(driver, Functionality, TCName,"Invalid_Domain1");

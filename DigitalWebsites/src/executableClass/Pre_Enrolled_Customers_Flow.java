@@ -30,7 +30,7 @@ public class Pre_Enrolled_Customers_Flow
 		String Functionality=functionality;
 		driver=browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
@@ -47,7 +47,7 @@ public class Pre_Enrolled_Customers_Flow
 		String Functionality=functionality;
 		driver=browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
@@ -65,7 +65,7 @@ public class Pre_Enrolled_Customers_Flow
 		String Functionality=functionality;
 		driver=browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
@@ -84,7 +84,7 @@ public class Pre_Enrolled_Customers_Flow
 		String Functionality=functionality;
 		driver=browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);
@@ -102,7 +102,7 @@ public class Pre_Enrolled_Customers_Flow
 		String Functionality=functionality;
 		driver=browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver=preenrollmentflow.SignUpPage(driver);
+		driver=preenrollmentflow.SignUpPage(driver,Functionality, TCName);
 		driver=preenrollmentflow.AccountLookupPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.ContactInfoPage(driver, Functionality, TCName);
 		driver=preenrollmentflow.AccountSecurityPage(driver, Functionality, TCName);

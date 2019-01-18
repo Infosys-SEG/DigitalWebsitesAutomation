@@ -1,7 +1,6 @@
 package com.BrowserHelper;
 
 
-import java.awt.Robot;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -11,16 +10,12 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 public class BrowserFactory 
-{
-		static WebDriver driver;
-        Robot rb;
+{		     
+	public WebDriver startbrowser(WebDriver driver,String browserName,String URL) throws InterruptedException, IOException
+	{
        
-        public WebDriver startbrowser(String browserName,String URL) throws InterruptedException, IOException
-        {
-       
-        if(browserName.equalsIgnoreCase("Safari"))
-        {
-                      
+		if(browserName.equalsIgnoreCase("Safari"))
+		{                
         	driver = new SafariDriver();;
         	driver.manage().window().maximize();
         }
@@ -37,15 +32,19 @@ public class BrowserFactory
         {
         	try
         	{
-        		System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe");  
-        		DesiredCapabilities dc=new DesiredCapabilities();
-        		dc.setCapability(InternetExplorerDriver.ENABLE_ELEMENT_CACHE_CLEANUP, true);
+        		DesiredCapabilities dc=new DesiredCapabilities();        		
+        		dc.setBrowserName("internet explorer");
     			dc.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
-    		//	dc.setJavascriptEnabled(false);
+    			dc.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING, false);
+    			dc.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+    			dc.setJavascriptEnabled(true);
+    			System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\New folder\\IEDriverServer.exe");
             	driver = new InternetExplorerDriver(dc);
             	driver.manage().window().maximize();
+            	driver.manage().deleteAllCookies();
             	Thread.sleep(1000);
-            	driver.get(URL); 
+            	driver.get(URL);
+            	//driver.navigate().to(URL);
             	System.out.println("done");
         	}
         	catch(Exception e)
@@ -53,15 +52,9 @@ public class BrowserFactory
         		System.out.println(e);
         	}
         }
-        
-       
-       System.out.println(URL);
-      
-        
-      //wait
-        Thread.sleep(2000);
-       
-        return driver;
-      
-        }
+		System.out.println(URL);       
+		//wait
+		Thread.sleep(1000);     
+		return driver;     
+	}
 }

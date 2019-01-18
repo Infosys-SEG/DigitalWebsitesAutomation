@@ -22,12 +22,12 @@ import generatedClass.POM_Generated_One_Quick_Thing_Popup;
 
 public class Computed_PreEnrollment_Flow 
 {
-
+	Data obj=new Data();
 	//Signup page
-	public WebDriver SignUpPage(WebDriver driver) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
+	public WebDriver SignUpPage(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException, EncryptedDocumentException, InvalidFormatException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj=new Data();
+		
 		try
 		{
 			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);
@@ -37,6 +37,7 @@ public class Computed_PreEnrollment_Flow
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"error_signup");
 			driver.close();
 			Assert.fail("Error in Signup page");
 		}
@@ -49,7 +50,7 @@ public class Computed_PreEnrollment_Flow
 		POM_Generated_AccountLookupPage accountlookuppage = new POM_Generated_AccountLookupPage(driver);
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		POM_Generated_One_Quick_Thing_Popup onequickthing = new POM_Generated_One_Quick_Thing_Popup(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		try
@@ -87,6 +88,7 @@ public class Computed_PreEnrollment_Flow
 		}	
 		catch (Exception e) 
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_card");
 			Assert.fail("Invalid Card number or Error in Account lookup page");
         }
 		return driver;
@@ -97,13 +99,14 @@ public class Computed_PreEnrollment_Flow
 	{	
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		POM_Generated_AccountSecurityPage accountsecuritypage = new POM_Generated_AccountSecurityPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		Writeexcel_RowName write = new Writeexcel_RowName();
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		try
 		{
 			if(!contactinfopage.getText_txt_HeaderName_Text().equals("Hello"))
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_contactinfo");
 				driver.close();
 				Assert.fail("Contact info header is displaying wrongly");
 			}
@@ -113,6 +116,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ysal");
 				driver.close();
 				Assert.fail("Salutation is pre populating");
 			}
@@ -122,6 +126,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_yfname");
 				driver.close();
 				Assert.fail("FirstName is pre populating");
 			}
@@ -131,6 +136,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_yadd");
 				driver.close();
 				Assert.fail("Address is pre populating");
 			}
@@ -140,6 +146,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ylname");
 				driver.close();
 				Assert.fail("LastName is pre populating");
 			}	
@@ -151,6 +158,7 @@ public class Computed_PreEnrollment_Flow
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_yaddr");
 					driver.close();
 					Assert.fail("Additional Address is pre populating");
 				}
@@ -160,6 +168,7 @@ public class Computed_PreEnrollment_Flow
 			{
 				if (!contactinfopage.getValue_txt_Additional_Address_Field().equals(""))
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_addaddr");
 					driver.close();
 					Assert.fail("Additional Address is pre populating");
 				}
@@ -171,6 +180,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ymnth");
 				driver.close();
 				Assert.fail("Month is pre populating");
 			}	
@@ -180,6 +190,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ydat");
 				driver.close();
 				Assert.fail("Date is pre populating");
 			}
@@ -190,6 +201,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_yyr");
 				driver.close();
 				Assert.fail("Year is pre populating");
 			}	
@@ -200,6 +212,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ycity");
 				driver.close();
 				Assert.fail("City is pre populating");
 			}
@@ -217,6 +230,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ystate");
 				driver.close();
 				Assert.fail("State is pre populating");
 			}
@@ -228,6 +242,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ph");
 				driver.close();
 				Assert.fail("Primary_Phone_Number is pre populating");
 			}
@@ -238,6 +253,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_yzip");
 				driver.close();
 				Assert.fail("ZipCode is pre populating");
 			}
@@ -255,6 +271,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ytxt");
 				driver.close();
 				Assert.fail("Text_Me_Offers radio button is already selected");
 			}
@@ -266,6 +283,7 @@ public class Computed_PreEnrollment_Flow
 		}
 		catch (Exception e) 
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_contactinfo");
 		//	driver.close();
 			System.out.println(e);
 			Assert.fail("Error in Contactinfo page");
@@ -279,7 +297,7 @@ public class Computed_PreEnrollment_Flow
 	{
 		POM_Generated_AccountSecurityPage accountsecuritypage = new  POM_Generated_AccountSecurityPage(driver);
 		POM_Generated_CongratulationsPage congratulationspage = new POM_Generated_CongratulationsPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality , TCName);
@@ -291,6 +309,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_yemail");
 				driver.close();
 				Assert.fail("Email address is pre populating");
 			}
@@ -301,6 +320,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ypwd");
 				driver.close();
 				Assert.fail("Password is pre populating");
 			}				
@@ -310,6 +330,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_confpwd");
 				driver.close();
 				Assert.fail("Confirm Password is pre populating");
 			}	 	
@@ -320,6 +341,7 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pin");
 				driver.close();
 				Assert.fail("Pin is pre populating");
 			} 					
@@ -329,6 +351,8 @@ public class Computed_PreEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_confpin");
+						
 				driver.close();
 				Assert.fail("Confirm Pin is pre populating");
 			}
@@ -362,6 +386,7 @@ public class Computed_PreEnrollment_Flow
 			}	
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 				driver.close();
 				Assert.fail("Congratulations Message not displayed");
 				
@@ -370,6 +395,7 @@ public class Computed_PreEnrollment_Flow
 		catch (Exception e) 
 		{	
 			//driver.close();
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_acc");
 			System.out.println(e);
 			Assert.fail("Error in Accountinfo page");
 			

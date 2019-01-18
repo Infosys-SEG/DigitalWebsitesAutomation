@@ -56,7 +56,7 @@ public class POM_Generated_Homepage {
 	public WebElement click_Close_cookies_Button;
 	
 	// Associated Label : Rewards_link_Hover
-	@FindBy(id = "rewards")
+	@FindBy(xpath = "//li[@id='rewards']//a[@data-toggle='dropdown' and text()='Rewards ']")
 	public WebElement click_Rewards_link_Hover;
 	
 	// Associated Label : Rewards_RegisterNow_Button

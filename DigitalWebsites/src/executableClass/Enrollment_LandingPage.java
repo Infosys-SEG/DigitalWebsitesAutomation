@@ -21,10 +21,10 @@ public class Enrollment_LandingPage {
 		public void TC001_Enrollment_landing_page() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 		{	
 			String Functionality=functionality;
-	
+			String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
 			driver = browserbanner.BrowserBanner(driver, Functionality);
 			driver = browserbanner.Clearcookie(driver, Functionality);
-			driver = register.Enrollment_Landing_Page(driver, Functionality);
+			driver = register.Enrollment_Landing_Page(driver, Functionality,TCName);
 			driver.close();
 		}
 }

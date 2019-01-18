@@ -3,16 +3,15 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [SEG Roadrunner]">
   <parameter name="BrowserType" value="Chrome"/>
   <parameter name="Banner" value="Winndixie"/>
-  <test name="SoftLogin__Chrome(failed)">
+  <test name="Logout__Chrome(failed)">
     <parameter name="BrowserType" value="Chrome"/>
     <parameter name="Banner" value="Winndixie"/>
     <classes>
-      <class name="executableClass.SoftLogin">
+      <class name="executableClass.Logout">
         <methods>
-          <include name="TC001_SoftLogin_Phone_And_Zip_login"/>
-          <include name="TC003_SoftLogin_loggedout_user"/>
+          <include name="TC001_Logout"/>
         </methods>
-      </class> <!-- executableClass.SoftLogin -->
+      </class> <!-- executableClass.Logout -->
     </classes>
-  </test> <!-- SoftLogin__Chrome(failed) -->
+  </test> <!-- Logout__Chrome(failed) -->
 </suite> <!-- Failed suite [SEG Roadrunner] -->

@@ -114,6 +114,7 @@ public class Computed_WeeklyAd
     			}
     			else
     			{
+    				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_StoreNear");
     				Assert.fail("Locate a store near you button is not displayed");
     			}
     			if(weeklyadpage.isDisplayed_txt_Please_Select_A_Store_Text())
@@ -122,6 +123,7 @@ public class Computed_WeeklyAd
     			}
     			else
     			{
+    				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_store");
     				Assert.fail("Please select a store near to view weekly ads text is not displayed");
     			}	
     			weeklyadpage.type_txt_Select_Store_Field(Store_Zip);
@@ -139,12 +141,14 @@ public class Computed_WeeklyAd
 			}
     		else
     		{
+    			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAdTextError");
     			driver.close();
     			Assert.fail("Error in Your WeeklyAd text");
     		}
     	}
     	catch(Exception e)
 		{
+    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd Page");
     		//driver.close();
     		System.out.println(e);
     		Assert.fail("Error in Weekly Ad page");
@@ -153,7 +157,7 @@ public class Computed_WeeklyAd
 	}
 	
 	
-	public WebDriver AddProduct(WebDriver driver, String proddetails,int count,String prodvalu,String addpage) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver AddProduct(String Functionality,String TCName,WebDriver driver, String proddetails,int count,String prodvalu,String addpage) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
@@ -231,6 +235,7 @@ public class Computed_WeeklyAd
 						}
 						else
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_notred");
 							Assert.fail("Added products are not highlighted in Red color");
 						}
 						count=count+1;
@@ -249,6 +254,7 @@ public class Computed_WeeklyAd
 		}		
 		catch(Exception e)
 		{	
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAdCircular");
 			System.out.println(e);
 			//driver.close();
 			Assert.fail("Error in weekly ad circular page");
@@ -256,7 +262,7 @@ public class Computed_WeeklyAd
 		return driver;
 	}
 	
-	public WebDriver AddAgain(WebDriver driver,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver AddAgain(String Functionality,String TCName,WebDriver driver,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		
@@ -292,12 +298,14 @@ public class Computed_WeeklyAd
 					}
 					catch(Exception e2)
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 						weeklyadpage.click_click_Product_Overlay_Close_Button();
 						Assert.fail("Items added is still displaying as Add to list instead Remove from list in overlay");
 					}
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 					weeklyadpage.click_click_Product_Overlay_Close_Button();
 					Assert.fail("View Deals Button is displayed");	
 					
@@ -310,17 +318,20 @@ public class Computed_WeeklyAd
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 					Assert.fail("Items added is still displaying as Add to list instead Remove from list");				
 				}
 			}
 			catch(NoSuchElementException e1)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 				Assert.fail("Items added is still displaying as Add to list instead Remove from list");	
 			}
 		}
 		
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_Add Product again");
 			System.out.println(e);
 			//driver.close();
 			Assert.fail("Un Expected Error in Add again product");
@@ -329,7 +340,7 @@ public class Computed_WeeklyAd
 	}
 			
 			
-	public WebDriver Removeproduct(WebDriver driver,String Functionality,String proddetails,int count,String removepage) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Removeproduct(WebDriver driver,String Functionality,String TCName,String proddetails,int count,String removepage) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_ShoppingListPage shoppinglist = new POM_Generated_ShoppingListPage(driver);
@@ -372,6 +383,7 @@ public class Computed_WeeklyAd
 						}
 						else
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_productcolorerr");
 							Assert.fail("Added products are not highlighted in Red color");
 						}
 					
@@ -418,6 +430,7 @@ public class Computed_WeeklyAd
 		}
 		catch(Exception e)
 	    {
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd page");
 			System.out.println(e);
 			//driver.close();
 			Assert.fail("Error in Weekly Ad page or remove from list");
@@ -425,7 +438,7 @@ public class Computed_WeeklyAd
 		return driver;		
 	}
 	
-	public WebDriver RemoveAgain(WebDriver driver,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver RemoveAgain(String Functionality,String TCName,WebDriver driver,String prodvalu) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
@@ -463,11 +476,13 @@ public class Computed_WeeklyAd
 					}
 					catch(Exception e2)
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 						Assert.fail("Items Removed is still displaying as Remove from list instead Add to list in overlay");
 					}
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 					Assert.fail("View Deals Button is not displayed");		
 					
 				}	
@@ -479,17 +494,20 @@ public class Computed_WeeklyAd
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 					Assert.fail("Items Removed is still displaying as Remove from list instead Add to list");					
 				}
 			}
 			catch(NoSuchElementException e1)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 				Assert.fail("Items Removed is still displaying as Remove from list instead Add to list");	
 			}
 		}
 		
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 			driver.close();
 			Assert.fail("Un Expected Error in Remove again product");
 		}

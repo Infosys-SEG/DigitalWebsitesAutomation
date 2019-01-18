@@ -7,18 +7,17 @@ import org.openqa.selenium.WebElement;
 
 import com.BrowserHelper.BrowserFactory;
 
+import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_Homepage;
 
 
 public class Browserbanner 
 {
-	
+	Data obj=new Data();
 	public WebDriver BrowserBanner(WebDriver driver, String Functionality) throws InterruptedException, IOException 
-	{
-		
-		BrowserFactory browserFactory = new BrowserFactory();
-		
+	{		
+		BrowserFactory browserFactory = new BrowserFactory();		
 		String Winndixie="https://scqa.winndixie.com";
 		String Bilo="https://scqa.bi-lo.com";
 		String Harveys="https://scqa.harveyssupermarkets.com";
@@ -31,29 +30,25 @@ public class Browserbanner
 		if(Readexcel_RowName.getValue("Chrome(Y/N)").equalsIgnoreCase("Y"))
 		{
 			browser="Chrome";
-		}
-			
+		}		
 		else if(Readexcel_RowName.getValue("IE(Y/N)").equalsIgnoreCase("Y"))
 		{
 			browser="IE";
 		}
 		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 		{
-			url=Winndixie;
-			
+			url=Winndixie;		
 		}
 		else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 		{
-			url=Bilo;
-			
+			url=Bilo;		
 		}
 		else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 		{
-			url=Harveys;
-			
+			url=Harveys;			
 		}
 			
-		driver = browserFactory.startbrowser(browser, url);
+		driver = browserFactory.startbrowser(driver, browser, url);
 		
 		return driver ;
 	}
@@ -86,10 +81,10 @@ public class Browserbanner
 		try
 		{
 			System.out.println("3");
-			//obj.waitForElement(driver, logo);
+			obj.waitForElementClickable(driver, logo);
 			System.out.println("4");
 			Thread.sleep(2000);
-			//obj.waitForElement(driver, homepage.click_Close_cookies_Button);
+			obj.waitForElementClickable(driver, homepage.click_Close_cookies_Button);
 			System.out.println("5");
 			homepage.click_click_Close_cookies_Button();
 		}
@@ -98,7 +93,7 @@ public class Browserbanner
 			
 		}
 		Thread.sleep(2000);
-		//obj.waitForElement(driver, logo);
+		obj.waitForElementClickable(driver, logo);
 		logo.click();
 	
 		return driver ;

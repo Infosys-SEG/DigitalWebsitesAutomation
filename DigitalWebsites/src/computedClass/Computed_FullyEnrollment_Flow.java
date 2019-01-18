@@ -87,6 +87,7 @@ public class Computed_FullyEnrollment_Flow
 		catch (Exception e) 
 		{
 		//	driver.close();
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"card_err");
 			System.out.println(e);
 			Assert.fail("Card Number is already registered or Invalid card number");
 	    }
@@ -107,6 +108,7 @@ public class Computed_FullyEnrollment_Flow
 			
 			if(!verificationpage.getText_txt_VerificationPage_HeaderName_Text().equals("Hi "+Readexcel_RowName.getValue("FirstName")+"! Thanks for helping us find your account"))
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_header");
 				driver.close();
 				Assert.fail("Verification page header is displaying wrongly");
 			}
@@ -130,6 +132,7 @@ public class Computed_FullyEnrollment_Flow
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_verify");
 			driver.close();
 			Assert.fail("Error in verification page");
 		}
@@ -170,6 +173,7 @@ public class Computed_FullyEnrollment_Flow
 		catch(Exception e)
 		{
 			//driver.close();
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_PII");
 			Assert.fail("Invalid PII verification details");
 		}
 		return driver;
@@ -193,10 +197,12 @@ public class Computed_FullyEnrollment_Flow
 		    if (!contactinfopage.getValue_ddl_Salutation_Field().equals(Readexcel_RowName.getValue("Salutation")))
 		    {
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_sal");
 		    	Assert.fail("Salutation is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Fname_Field().equals(Readexcel_RowName.getValue("FirstName")))
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_fname");
 		    	driver.close();
 		    	Assert.fail("First Name is not pre populating");
 			}	
@@ -208,39 +214,46 @@ public class Computed_FullyEnrollment_Flow
 		    if (!contactinfopage.getValue_txt_Lname_Field().equals(Readexcel_RowName.getValue("LastName")))
 		    {
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_lname");
 		    	Assert.fail("Last Name is not pre populating");
 			}	
 		    if (!(contactinfopage.getValue_txt_Additional_Address_Field()).equals(String.valueOf(Readexcel_RowName.getValue("Address2")).replace( "null","")))
 		    {
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_addr");
 		    	Assert.fail("Additional address is not pre populating");
 			}
 		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_Month_Field);
 		    if (!contactinfopage.getValue_txt_Month_Field().equals(Readexcel_RowName.getValue("Month")))
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_mnth");
 		    	driver.close();
 		    	Assert.fail("Month is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Date_Field().equals(Readexcel_RowName.getValue("Date")))
 		    {
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_dat");
 		    	Assert.fail("Date is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Year_Field().equals(Readexcel_RowName.getValue("Year")))
 		    {
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_yr");
 		    	Assert.fail("Year is not pre populating");
 			}		
 		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_City_Field);
 		    if (!contactinfopage.getValue_txt_City_Field().equals(Readexcel_RowName.getValue("City")))
 		    {
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_city");
 		    	Assert.fail("City is not pre populating");
 			}
 		    obj.scrollingToElementofAPage(driver, contactinfopage.ddl_State_Field);
 		    if (!contactinfopage.getValue_ddl_State_Field().equals(Readexcel_RowName.getValue("State_Code")))
 		    {
 		    	/*driver.close();*/
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_state");
 		    	Assert.fail("State is not pre populating");
 			}
 		    obj.scrollingToElementofAPage(driver, contactinfopage.txt_Primary_Phone_Number_Field);	
@@ -265,6 +278,7 @@ public class Computed_FullyEnrollment_Flow
 					{
 						if(changephonenumsheet.equals(""))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"empty_ph");
 							Assert.fail("Change phonenumber value is empty in datasheet");
 						}
 						else
@@ -282,6 +296,7 @@ public class Computed_FullyEnrollment_Flow
 						{
 							if(changephonenumsheet.equals(""))
 							{
+								obj.Ashot_Screenshot(driver, Functionality, TCName,"data_empty");
 								Assert.fail("Change phonenumber value is empty in datasheet");
 							}
 							else
@@ -299,6 +314,7 @@ public class Computed_FullyEnrollment_Flow
 							{
 								if(changephonenumsheet.equals(""))
 								{
+									obj.Ashot_Screenshot(driver, Functionality, TCName,"empty_ph");
 									Assert.fail("Change phonenumber value is empty in datasheet");
 								}
 								else
@@ -318,12 +334,14 @@ public class Computed_FullyEnrollment_Flow
 			else
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ph");
 				Assert.fail("Primary Phone number is not pre populating");
 			}
 			obj.scrollingToElementofAPage(driver, contactinfopage.txt_Zipcode_Field);
 			if (!contactinfopage.getValue_txt_Zipcode_Field().equals(Readexcel_RowName.getValue("Zip")))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_zip");
 				Assert.fail("ZipCode is not pre populating");
 			}
 			if(Readexcel_RowName.getValue("Text_Me_Offers(Y/N)").equalsIgnoreCase("Y"))
@@ -374,6 +392,7 @@ public class Computed_FullyEnrollment_Flow
 	    catch(Exception e)
 	    {
 	    	//driver.close();
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_contpage");
 	    	System.out.println(e);
 	    	Assert.fail("Error in contactinfo page");
 	    }
@@ -443,6 +462,7 @@ public class Computed_FullyEnrollment_Flow
 						{
 							if(changeemailsheet.equals(""))
 							{
+								obj.Ashot_Screenshot(driver, Functionality, TCName,"empty_email");
 								Assert.fail("Change email address value is empty in datasheet");
 							}
 							else
@@ -462,6 +482,7 @@ public class Computed_FullyEnrollment_Flow
 							{
 								if(changeemailsheet.equals(""))
 								{
+									obj.Ashot_Screenshot(driver, Functionality, TCName,"empty_email");
 									Assert.fail("Change email address value is empty in datasheet");
 								}
 								else
@@ -480,6 +501,7 @@ public class Computed_FullyEnrollment_Flow
 				else
 				{
 					//driver.close();
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_email");
 					Assert.fail("Email address is not pre populating or not matched");
 				}
 			}
@@ -508,6 +530,7 @@ public class Computed_FullyEnrollment_Flow
 				else
 				{
 					//driver.close();
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pwd");
 					Assert.fail("Password is pre populating");
 				}				
 				if (accountsecuritypage.getValue_txt_Set_Password2_Field().equals(""))
@@ -517,6 +540,7 @@ public class Computed_FullyEnrollment_Flow
 				else
 				{
 					//driver.close();
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"conf_pwd_err");
 					Assert.fail("Confirm Password is pre populating");
 				}
 			}
@@ -544,6 +568,7 @@ public class Computed_FullyEnrollment_Flow
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pin");
 					driver.close();
 					Assert.fail("Pin is pre populating");
 				} 					
@@ -554,6 +579,7 @@ public class Computed_FullyEnrollment_Flow
 				else
 				{
 					//driver.close();
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_confpin");
 					Assert.fail("Confirm Pin is pre populating");
 				}
 			}
@@ -601,6 +627,7 @@ public class Computed_FullyEnrollment_Flow
 			}	
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"no_msg");
 				//driver.close();
 				Assert.fail("Congratulations Message not displayed");
 				
@@ -609,6 +636,7 @@ public class Computed_FullyEnrollment_Flow
 		catch (Exception e) 
 		{
 			//driver.close();
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_accinfo");
 			System.out.println(e);
 			Assert.fail("Error in Accountinfo Page");
 	    }
@@ -634,6 +662,7 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nodata");
 				Assert.fail("Data is not displayed in PII page when the user navigates back from contact info page");
 			}
 			if(verificationpage.isDisplayed_txt_img_stepCounter_verificationPage_Active())
@@ -642,6 +671,7 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_verify");
 				Assert.fail("verification tab is NOT highlighted in step counter");
 			}
 			if(verificationpage.isDisplayed_txt_img_stepCounter_contactinfo_InActive())
@@ -650,6 +680,7 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_contactinfo");
 				Assert.fail("Contact info tab is highlighted in step counter");
 			}
 			if(verificationpage.isDisplayed_txt_img_stepCounter_SecurityInfo_InActive())
@@ -658,6 +689,7 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_secinfo");
 				Assert.fail("Security info tab is highlighted in step counter");
 			}	
 		    verificationpage.click_txt_PII_Verification_Date_Field();
@@ -665,6 +697,7 @@ public class Computed_FullyEnrollment_Flow
 		    if(contactinfopage.isDisplayed_txt_Fname_Field())
 		    	Reporter.log("Contact info page is displayed");
 		    else
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_coninfo");
 		    	Assert.fail("contact info page is not displayed");
 		    if(contactinfopage.isDisplayed_txt_img_stepcounter_verification_done())
 		    {
@@ -672,12 +705,14 @@ public class Computed_FullyEnrollment_Flow
 		    }
 		    else
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_verifytab");
 		    	Assert.fail("Verification tab in Step counter is NOT displayed as completed");
 		    }
 		}
 		catch (Exception e) 
 		{	
 			System.out.println(e);
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			Assert.fail("Error when user navigates back to PII verification page from contact info page");
 			
 		}
@@ -702,6 +737,7 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"nodata_err");
 				Assert.fail("Data is not displayed in contact info page when the user navigates back from Security info page");
 			}
 			if(contactinfopage.isDisplayed_txt_img_stepcounter_contactinfo_active())
@@ -710,6 +746,7 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_contactinfo");
 				Assert.fail("contact info tab is NOT highlighted in step counter");
 			}
 			if(contactinfopage.isDisplayed_txt_img_stepcounter_verification_done())
@@ -718,6 +755,7 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_verifytab");
 				Assert.fail("Verification tab is NOT showing as completed in step counter");
 			}
 			if(contactinfopage.isDisplayed_txt_img_stepCounter_SecurityInfo_InActive())
@@ -726,6 +764,7 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_secinfo");
 				Assert.fail("security info tab is highlighted in step counter");
 			}
 			contactinfopage.click_txt_Primary_Phone_Number_Field();
@@ -737,12 +776,14 @@ public class Computed_FullyEnrollment_Flow
 		    }
 		    else
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_contactinfo");
 		    	Assert.fail("contact info page is NOT displayed as completed in stepcounter");
 		    }
 		    
 		}
 		catch (Exception e) 
 		{	
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_contactinfo");
 			System.out.println(e);
 			Assert.fail("Error when user navigates back to contact info page from security info page");
 			
@@ -779,7 +820,7 @@ public class Computed_FullyEnrollment_Flow
 			url1= driver.getCurrentUrl();
 			System.out.println(url1);
 			driver.close();							
-			driver=browserFactory.startbrowser(browser, url1);	
+			driver=browserFactory.startbrowser(driver, browser, url1);	
 			
 			driver.findElement(By.xpath("//a[@id='CookieClsBtn']")).click();
 			//if(contactinfopage.getValue_txt_Fname_Field().equals(""))
@@ -790,11 +831,13 @@ public class Computed_FullyEnrollment_Flow
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_err");
 				Assert.fail("Data is displayed in contact info page when the user opens the session after closing it");
 			}
 		}
 		catch (Exception e) 
 		{	
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_close");
 			System.out.println(e);
 			Assert.fail("Error while validating after closing the browser");
 			

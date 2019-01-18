@@ -45,9 +45,9 @@ public class SoftLogin
 		driver = coupons.Loggedin_Coupons_Homepage(driver, Functionality,TCName, prod, count);
 		driver = deals.Loggedin_Personalisedoffers(driver, Functionality,TCName);
 		driver = weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver = weeklyad.AddProduct(driver, prod, count, prodvalu,"circularpage");
-		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, Functionality);
-		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality);
+		driver = weeklyad.AddProduct(functionality,TCName,driver, prod, count, prodvalu,"circularpage");
+		driver=staticinfobar.LoginStaticinfobar_Rewards(driver, Functionality,TCName);
+		driver=staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality,TCName); 
 		driver.close();
 	}
 	
@@ -61,7 +61,7 @@ public class SoftLogin
 		driver= browserbanner.BrowserBanner(driver, Functionality);
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=softlogin.SoftLogin_Rewards(driver, Functionality,tcname);
-		driver=staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality);
+		driver=staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality,tcname);
 		driver.close();
 	}
 	
@@ -80,9 +80,9 @@ public class SoftLogin
 		driver=coupons.Loggedout_Coupons_Homepage(driver, Functionality,TCName);
 		driver=deals.Loggedout_Personalisedoffers(driver, Functionality,TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, prod, count, prodvalu,"circularpage");
+		driver = weeklyad.AddProduct(functionality,TCName,driver, prod, count, prodvalu,"circularpage");
 		driver=rewards.Myrewards_general(driver, Functionality);
-		driver=rewards.loggedout_Myreward(driver, Functionality);
+		driver=rewards.loggedout_Myreward(driver, Functionality, TCName);
 		driver.close();
 	}
 }

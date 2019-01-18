@@ -20,6 +20,7 @@ import generatedClass.POM_Generated_SoftLoginPage;
 
 public class Computed_SoftLogin 
 {
+	Data obj=new Data();
 	//Softlogin by clicking save coupon button in homepage
 	public WebDriver SoftLogin_SaveCoupon(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
@@ -87,12 +88,14 @@ public class Computed_SoftLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed"); 
 				driver.close();
 				Assert.fail("Softlogin failed");
 			}
 		}
 		catch (Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed"); 
 			driver.close();
 			Assert.fail("Error in Softlogin Page or invalid credentials");
 	    }	
@@ -135,16 +138,16 @@ public class Computed_SoftLogin
 		    String Softlogin_Phone_number1= Readexcel_RowName.getValue("Softlogin_Phone_number");
 		    String Softlogin_Zipcode1= Readexcel_RowName.getValue("Softlogin_Zipcode");
 		  
-		    obj1.waitForElement(driver, logo);
+		    obj1.waitForElementClickable(driver, logo);
 		    logo.click();
 		   
-			obj1.waitForElement(driver, homepage.click_Login_Or_Signup_Button);	
+			obj1.waitForElementClickable(driver, homepage.click_Login_Or_Signup_Button);	
 		
-			obj1.waitForElement(driver, homepage.click_Rewards_link_Hover);
+			obj1.waitForElementClickable(driver, homepage.click_Rewards_link_Hover);
 			homepage.click_click_Rewards_link_Hover();
 			homepage.click_click_Rewards_Rewards_Button();
     	
-			obj1.waitForElement(driver, logoutrewardspage.click_Rewards_Login_Button);
+			obj1.waitForElementClickable(driver, logoutrewardspage.click_Rewards_Login_Button);
 			//Functionality of Login button in logged out rewards page
 			logoutrewardspage.click_click_Rewards_Login_Button();
 			
@@ -160,12 +163,14 @@ public class Computed_SoftLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed"); 
 				//driver.close();
 				Assert.fail("Softlogin failed");
 			}		
 		}
 		catch (Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 			//driver.close();
 			System.out.println(e);
 			Assert.fail("Error in Softlogin Page or invalid credentials");
@@ -235,12 +240,14 @@ public class Computed_SoftLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed"); 
 				driver.close();
 				Assert.fail("Contactinfo page is not displayed for preenrolled user through softlogin by clicking one quick thing button");
 			}		
 		}
 		catch (Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed"); 
 			driver.close();
 			Assert.fail("Error in Softlogin Page or one quick thing popup");
 	    }	

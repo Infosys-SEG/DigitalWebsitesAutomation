@@ -20,7 +20,7 @@ public class POM_Generated_DigitalCouponsPage {
 
 
 	// Associated Label : Digital_Coupon_page_Link
-	@FindBy(xpath = "//a[@aria-current='page']//span[text()='Digital Coupons']")
+	@FindBy(xpath = "//ul[@class='navTabMenu']//span[text()='Digital Coupons']")
 	public WebElement click_Digital_Coupon_page_Link;
 	
 	// Associated Label : Digital_Coupon_Add_Button

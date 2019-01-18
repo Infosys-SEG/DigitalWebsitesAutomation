@@ -123,11 +123,13 @@ public class Computed_EnrollmentVerify
 		    	}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"pickup_error");
 					Assert.fail("Pickup text message is not displayed");
 		    	}
 		    }
 			catch(Exception e)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"pickup_err");
 				Assert.fail("Pickup text message is not displayed");
 		    }
 		}		
@@ -173,6 +175,7 @@ public class Computed_EnrollmentVerify
 		    }
 		    else
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName, "fuelrew_err");
 		    	Assert.fail("Fuel rewards URL is wrong");
 		    }
 		 
@@ -182,6 +185,7 @@ public class Computed_EnrollmentVerify
     	catch(Exception e)
 		{
     		//driver.close();
+    		obj.Ashot_Screenshot(driver, Functionality, TCName,"fuelrew_err");
     		System.out.println(e);
 			Assert.fail("Error in Fuel rewards page after enrollment");
 		}	
@@ -240,6 +244,7 @@ public class Computed_EnrollmentVerify
 		    if(!namev.equals("Hello "+Readexcel_RowName.getValue("FirstName")+"!"))
 		    {
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"incorrect_rew");
 		    	Assert.fail("Incorrect rewards page");
 		    }
 		    else
@@ -251,6 +256,7 @@ public class Computed_EnrollmentVerify
 	    catch(Exception e4)
 	    {
 	    	//driver.close();
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"error_rew");
 	    	System.out.println(e4);
 			Assert.fail("Error in rewards page after enrollment");
 			
@@ -273,6 +279,7 @@ public class Computed_EnrollmentVerify
 	    			}
 	    			else
 	    			{
+	    				obj.Ashot_Screenshot(driver, Functionality, TCName, "pickup_err");
 	    				Assert.fail("pickedup text not matched or not displayed");
 	    			}
 	    		}
@@ -293,52 +300,62 @@ public class Computed_EnrollmentVerify
 	 	    }
 	    	catch(Exception e5)
 	    	{
+	    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_rew");
 	    		Assert.fail("Error in rewards status in my account page");
 	    	} 	
 	    	
 	    	if (!contactinfopage.getValue_ddl_Salutation_Field().equals(Readexcel_RowName.getValue("Salutation")))
 	    	{
 	    		//driver.close();
+	    		obj.Ashot_Screenshot(driver, Functionality, TCName,"data_sal");
 	    		Assert.fail("Salutation is not pre populating");
 	    	}
 		    if (!contactinfopage.getValue_txt_Fname_Field().equals(Readexcel_RowName.getValue("FirstName")))
 			{
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_fname");
 		    	Assert.fail("First Name is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Lname_Field().equals(Readexcel_RowName.getValue("LastName")))
 			{
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_lname");
 		    	Assert.fail("Last Name is not pre populating");
 			}
 		    if (!contactinfopage.getValue_txt_Month_Field().equals(Readexcel_RowName.getValue("Month")))
 			{
 		    	//driver.close();
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"data_mnth");
 		    	Assert.fail("Month is not pre populating");
 			}
 			if (!contactinfopage.getValue_txt_Date_Field().equals(Readexcel_RowName.getValue("Date")))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_dat");
 				Assert.fail("Date is not pre populating");
 			}
 			if (!contactinfopage.getValue_txt_Year_Field().equals(Readexcel_RowName.getValue("Year")))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_yr");
 				Assert.fail("Year is pre populating");
 			}		
 			if (!myaccountpage.getValue_txt_Email_Address_Field().equals(Readexcel_RowName.getValue("EmailAddress")))
 			{
 			//	driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_email");
 				Assert.fail("Email address is not pre populating");
 			}
 			if (!contactinfopage.getValue_txt_Address_Field().equals(Readexcel_RowName.getValue("Address1")))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_add");
 				Assert.fail("Address is not pre populating");
 			}
 			if (!(contactinfopage.getValue_txt_Additional_Address_Field().replace("", "null")).equals(String.valueOf(Readexcel_RowName.getValue("Address2"))))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_add1");
 				Assert.fail("Additional address is not pre populating");
 			}			
 			  String phonenumsheet=Readexcel_RowName.getValue("Primary_Phone");		    
@@ -349,6 +366,7 @@ public class Computed_EnrollmentVerify
 			if (!phonenumsite.equals(phonenumsheet))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_ph");
 				Assert.fail("Primary phone number is not pre populating");
 			}
 			
@@ -358,6 +376,7 @@ public class Computed_EnrollmentVerify
 				{
 					if(contactinfopage.isEnabled_click_TextMeOffers_Yes_Button())
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"data_txt");
 						Assert.fail("Text Me offers section is displayed");	 
 					}	   
 					else
@@ -376,11 +395,13 @@ public class Computed_EnrollmentVerify
 						}
 						else
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"data_txt");
 							Assert.fail("Text Me offers section is displayed and selected Yes button" );
 						}
 					}	   
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"data_txt");
 						Assert.fail("Text Me offers section is not displayed");
 						
 					}
@@ -393,32 +414,39 @@ public class Computed_EnrollmentVerify
 			if (!contactinfopage.getValue_txt_City_Field().equals(Readexcel_RowName.getValue("City")))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_city");
 				Assert.fail("City is not pre populating");
 			}
 			if (!contactinfopage.getValue_ddl_State_Field().equals(Readexcel_RowName.getValue("State_Code")))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_State");
 				Assert.fail("State is not pre populating");
 			}
 			if (!contactinfopage.getValue_txt_Zipcode_Field().equals(Readexcel_RowName.getValue("Zip")))
 			{
 				//driver.close();
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_zip");
 				Assert.fail("Zip is not pre populating");
 			}
 			if(!myaccountpage.getValue_txt_Set_Password1_Field().equalsIgnoreCase(""))
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_pwd");
 				Assert.fail("Password1 is displaying some values");
 			}
 			if(!myaccountpage.getValue_txt_Set_Password2_Field().equalsIgnoreCase(""))
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_pwdr");
 				Assert.fail("Password2 is displaying some values");
 			}
 			if(!myaccountpage.getValue_txt_Set_Pin1_Field().equalsIgnoreCase(""))
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_pin");
 				Assert.fail("Pin1 is displaying some values");
 			}
 			if(!myaccountpage.getValue_txt_Set_Pin2_Field().equalsIgnoreCase(""))
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"data_pinr");
 				Assert.fail("Pin2 is displaying some values");
 			}
 			Reporter.log("My account details are verified");
@@ -429,6 +457,7 @@ public class Computed_EnrollmentVerify
 	    {
 	    	//driver.close();
 	    	System.out.println(e6);
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_edt");
 	    	Assert.fail("Error in Edit Account Details page after enrollment");
 			
 		}	

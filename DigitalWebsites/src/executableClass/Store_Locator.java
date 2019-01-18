@@ -50,7 +50,7 @@ public class Store_Locator
 		
 		driver=mystore.StoreLocator_Zipcode(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, prod, count, prodvalu, "circularpage");
+		driver = weeklyad.AddProduct(Functionality,TCName,driver, prod, count, prodvalu,"circularpage");
 		prod=weeklyad.getprodvalu();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
@@ -76,7 +76,7 @@ public class Store_Locator
 		
 		driver=mystore.StoreLocator_CityState(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, prod, count, prodvalu, "circularpage");
+		driver = weeklyad.AddProduct(Functionality,TCName,driver, prod, count, prodvalu,"circularpage");
 		prod=weeklyad.getprodvalu();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();

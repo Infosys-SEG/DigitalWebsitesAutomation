@@ -20,7 +20,7 @@ public class Updated_Homepage
 {
 	WebDriver driver = null;
 	String functionality="Updated_HomePage";
-	
+	String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();
 	@Test (priority=1)
 	public void TC001_Home_page_for_Logged_out_user () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
@@ -33,10 +33,10 @@ public class Updated_Homepage
 		driver=browserbanner.Clearcookie(driver, functionality);
 		
 		driver=homepage.Home_general(driver, functionality);
-		driver=homepage.Home_topbanner(driver, functionality);
-		driver=homepage.Home_logosguest(driver, functionality);
-		driver=homepage.Home_CouponRotator(driver, functionality);
-		driver=homepage.Home_bottomblock(driver, functionality);
+		driver=homepage.Home_topbanner(driver, functionality,tcname);
+		driver=homepage.Home_logosguest(driver, functionality,tcname);
+		driver=homepage.Home_CouponRotator(driver, functionality,tcname);
+		driver=homepage.Home_bottomblock(driver, functionality,tcname);
 		driver.close();
 	}
 	
@@ -52,10 +52,10 @@ public class Updated_Homepage
 		driver=browserbanner.Clearcookie(driver, functionality);
 		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 		driver=homepage.Home_general(driver, functionality);
-		driver=homepage.Home_topbanner(driver, functionality);
-		driver=homepage.Home_logos(driver, functionality);
-		driver=homepage.Home_CouponRotator(driver, functionality);
-		driver=homepage.Home_bottomblock(driver, functionality);
+		driver=homepage.Home_topbanner(driver, functionality,tcname);
+		driver=homepage.Home_logos(driver, functionality,tcname);
+		driver=homepage.Home_CouponRotator(driver, functionality,tcname);
+		driver=homepage.Home_bottomblock(driver, functionality,tcname);
 		driver.close();
 	}
 	@Test (priority=3)
@@ -70,10 +70,10 @@ public class Updated_Homepage
 		driver=browserbanner.Clearcookie(driver, functionality);
 		driver=hardlogin.Global_HardLogin(driver, functionality,tcname);
 		driver=homepage.Home_general(driver, functionality);
-		driver=homepage.Home_topbanner(driver, functionality);
-		driver=homepage.Home_logos(driver, functionality);
-		driver=homepage.Home_CouponRotator(driver, functionality);
-		driver=homepage.Home_bottomblock(driver, functionality);
+		driver=homepage.Home_topbanner(driver, functionality,tcname);
+		driver=homepage.Home_logos(driver, functionality,tcname);
+		driver=homepage.Home_CouponRotator(driver, functionality,tcname);
+		driver=homepage.Home_bottomblock(driver, functionality,tcname);
 		driver.close();
 	}
 	

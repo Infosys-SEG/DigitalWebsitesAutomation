@@ -42,9 +42,9 @@ public class HardLogin_Loggedin_Account
 		driver=dc.Loggedin_Coupons_Homepage(driver, functionality,TCName, prod, count);
 		driver=po.Loggedin_Personalisedoffers(driver, functionality,TCName);
 		driver=wa.WeeklyAdPage(driver, functionality, TCName);
-		driver=wa.AddProduct(driver, prod, count, prodvalu, "circularpage");
-		driver=sib.LoginStaticinfobar_Rewards(driver, functionality);
-		driver=sib.LoginStaticinfobar_MyAccount(driver, functionality, functionality);
+		driver=wa.AddProduct(functionality,TCName,driver, prod, count, prodvalu, "circularpage");
+		driver=sib.LoginStaticinfobar_Rewards(driver, functionality,TCName);
+		driver=sib.LoginStaticinfobar_MyAccount(driver, functionality, functionality,TCName); 
 		driver.close();
 	}
 	
@@ -86,13 +86,13 @@ public class HardLogin_Loggedin_Account
 	@Test(priority=4)
 	public void  TC006_HardLogin_CCCNumber_and_Forgotpasswordlink() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
-		
+		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		Browserbanner br=new Browserbanner();
 		Computed_HardLogin hardlogin = new Computed_HardLogin();
 		
 		driver= br.BrowserBanner(driver, functionality);
 		driver=br.Clearcookie(driver, functionality);
-		driver=hardlogin.Validate_HardLogin_Modal_Links(driver, functionality);
+		driver=hardlogin.Validate_HardLogin_Modal_Links(driver, functionality,TCName);
 		driver.close();
 	}
 	

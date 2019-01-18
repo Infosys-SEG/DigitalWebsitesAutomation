@@ -31,7 +31,7 @@ public class LoggedIn_for_Rewards_Section
 		driver=browserbanner.Clearcookie(driver, functionality);
 		driver=hardlogin.Global_HardLogin(driver, functionality,tcname);
 		driver=loggedin.Myrewards_general(driver, functionality);
-		driver=loggedin.Loggedin_Myrewardpage(driver, functionality);
+		driver=loggedin.Loggedin_Myrewardpage(driver, functionality, tcname);
 		driver=loggedin.Loggedin_Myrewardpage_editacc(driver, functionality,tcname,"hardlogin");
 		driver.close();
 	}
@@ -48,7 +48,7 @@ public class LoggedIn_for_Rewards_Section
 		driver=browserbanner.Clearcookie(driver, functionality);
 		driver=softlogin.SoftLogin_Rewards(driver, functionality,tcname);
 		driver=loggedin.Myrewards_general(driver, functionality);
-		driver=loggedin.Loggedin_Myrewardpage(driver, functionality);
+		driver=loggedin.Loggedin_Myrewardpage(driver, functionality,tcname);
 		driver=loggedin.Loggedin_Myrewardpage_editacc(driver, functionality,tcname,"softlogin");
 		driver.close();
 	 }

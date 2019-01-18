@@ -15,7 +15,7 @@ public class Global_Nav_Update
 {
 	WebDriver driver = null;
 	String functionality="Global_Nav_Update";
-	
+	String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
 	@Test (priority=1)
 	public void TC001_Rewards_link_in_Global_nav () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
@@ -25,7 +25,7 @@ public class Global_Nav_Update
 		driver= browserbanner.BrowserBanner(driver, functionality);
 		driver=browserbanner.Clearcookie(driver, functionality);
 		driver=homepage.Home_general(driver, functionality);
-		driver=homepage.Globalnavupdate(driver, functionality);
+		driver=homepage.Globalnavupdate(driver, functionality,TCName);
 	    driver.close();
 	}
 	

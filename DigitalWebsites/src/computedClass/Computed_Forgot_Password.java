@@ -44,6 +44,7 @@ public class Computed_Forgot_Password
 	    	}
 	    	else
 	    	{
+	    		obj.Ashot_Screenshot(driver, functionality, TCName,"frgt_pwd");
 	    		Assert.fail("Forgot password page is not displayed");
 	    	}
 	    	forgotpassword.type_txt_Email_Address_Field("Invalid");
@@ -55,6 +56,7 @@ public class Computed_Forgot_Password
 	    	}
 	    	else
 	    	{
+	    		obj.Ashot_Screenshot(driver, functionality, TCName,"invalidemail_noerr");
 	    		Assert.fail("Error message is not displayed when invalid email is entered");
 	    	}	
 	    	forgotpassword.type_txt_Email_Address_Field("");
@@ -66,12 +68,13 @@ public class Computed_Forgot_Password
 	    	}
 	    	else
 	    	{
+	    		obj.Ashot_Screenshot(driver, functionality, TCName,"Noerr_email");
 	    		Assert.fail("Error message is not displayed when email not exist is entered");
 	    	}	
 		}
 		catch(Exception e)
 	    {
-			
+			obj.Ashot_Screenshot(driver, functionality, TCName,"frgt_err");
 	    	Assert.fail("Error in Forgot Password Page");
 	    	
 	    }
@@ -103,6 +106,7 @@ public class Computed_Forgot_Password
 		    	}
 		    	else
 		    	{
+		    		obj.Ashot_Screenshot(driver, functionality, TCName,"err_frgt");
 		    		Assert.fail("Forgot password page is not displayed");
 		    	}
 		    	forgotpassword.type_txt_Email_Address_Field(Valid_Test_Email);
@@ -113,6 +117,7 @@ public class Computed_Forgot_Password
 		    	}
 		    	else
 		    	{
+		    		obj.Ashot_Screenshot(driver, functionality, TCName,"mail_notsent");
 		    		Assert.fail("Mail is not sent");
 		    	}	
 		    	forgotpassword.click_click_Home_Button();
@@ -124,6 +129,7 @@ public class Computed_Forgot_Password
 		    	
 			catch(Exception e)
 		    {
+				obj.Ashot_Screenshot(driver, functionality, TCName,"err_logout");
 				driver.close();
 		    	Assert.fail("Error in Logout Page");
 		    	

@@ -15,7 +15,7 @@ public class Update_Footer
 {
 	WebDriver driver = null;
 	String functionality="Update_Footer";
-	
+	String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();
 	@Test (priority=1)
 	public void TC001_Rewards_Terms_and_conditions () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
@@ -25,7 +25,7 @@ public class Update_Footer
 		driver= browserbanner.BrowserBanner(driver, functionality);
 		driver=browserbanner.Clearcookie(driver, functionality);
 		driver=homepage.Home_general(driver, functionality);
-		driver=homepage.Myrewardfooterlink(driver, functionality);
+		driver=homepage.Myrewardfooterlink(driver, functionality,tcname);
 		driver.close();
 	}
 

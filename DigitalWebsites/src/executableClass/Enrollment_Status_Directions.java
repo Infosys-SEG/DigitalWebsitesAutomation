@@ -43,7 +43,7 @@ public class Enrollment_Status_Directions {
 		
 		driver = browserbanner.BrowserBanner(driver, Functionality);
 		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver = preenrolled.SignUpPage(driver);
+		driver = preenrolled.SignUpPage(driver, Functionality, TCName);
 		driver = preenrolled.AccountLookupPage(driver, Functionality, TCName);
 		driver.close();
 		

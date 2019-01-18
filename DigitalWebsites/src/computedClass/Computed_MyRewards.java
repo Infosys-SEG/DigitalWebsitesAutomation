@@ -23,6 +23,7 @@ import generatedClass.POM_Generated_StaticInfoBar;
 
 public class Computed_MyRewards 
 {
+	Data obj=new Data();
 	Data obj1 =new Data();
 	String global="Global";
 	String value="";
@@ -51,7 +52,7 @@ public class Computed_MyRewards
  	   
      }		
 	
-	public WebDriver Loggedin_Myrewardpage(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Loggedin_Myrewardpage(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_LoggedIn_RewardsPage loginrewardspage = new POM_Generated_LoggedIn_RewardsPage(driver);
 		POM_Generated_StaticInfoBar staticInfoBar = new POM_Generated_StaticInfoBar(driver);
@@ -126,7 +127,8 @@ public class Computed_MyRewards
 	        }
 	        else
 	        {
-	        Assert.fail("Gold status is not displayed for the user");
+	        	 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_nogoldstatus");	
+	             Assert.fail("Gold status is not displayed for the user");
 	        }
 	        
 			if(loginrewardspage.isDisplayed_click_Recent_Transactions_8_Text())
@@ -141,12 +143,14 @@ public class Computed_MyRewards
 			}
 			else
 			{
-				Assert.fail("Useful links section is not displayed in Rewards page");
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_nousefullinks");
+				 Assert.fail("Useful links section is not displayed in Rewards page");
 			}
 		
 		}
 		catch(Exception e)
 		{
+			 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_rewards");
 			Assert.fail("Error in logged in rewards screen");
 		}
 		return driver;
@@ -166,7 +170,7 @@ public class Computed_MyRewards
 			String namev= loginrewardspage.getText_txt_MyRewards_Name_Verify();
 		    if(!namev.equals("Hello "+Readexcel_RowName.getValue("FirstName")+"!"))
 		    {
-		    	
+		    	 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_incorrectrew");
 		    	Assert.fail("Incorrect rewards page");
 		    } 
 		    else 
@@ -186,6 +190,7 @@ public class Computed_MyRewards
 				}
 		        else
 		        {
+		        	 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_navacc");
 		        	Assert.fail("User is not navigated to account details page");
 				}
 		       
@@ -193,6 +198,7 @@ public class Computed_MyRewards
 			}
 			else
 			{
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_editacc");
 				Assert.fail("Edit Account Details link is not present in the Useful links section");
 			}
 		}
@@ -201,7 +207,7 @@ public class Computed_MyRewards
 		    String namev= loginrewardspage.getText_txt_MyRewards_Name_Verify();
 		    if(!namev.equals("Hello "+Readexcel_RowName.getValue("FirstName")+"!"))
 		    {
-		    	
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName, "err_incorrectrew");
 		    	Assert.fail("Incorrect rewards page");
 		    } 
 			if(loginrewardspage.isDisplayed_txt_Usefullink_EditAccount_Link())
@@ -222,6 +228,7 @@ public class Computed_MyRewards
 		}
 		catch(Exception e)
 			{
+			    obj.Ashot_Screenshot(driver, Functionality, TCName, "err_editacc");
 				Assert.fail("Error in edit account section in Rewards page");
 			}
 		
@@ -258,6 +265,7 @@ public class Computed_MyRewards
 					}
 			        else
 			        {
+			        	 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_navacc");
 			        	Assert.fail("User is not navigated to account details page");
 					}
 			       
@@ -265,6 +273,7 @@ public class Computed_MyRewards
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_editacc");
 					Assert.fail("Edit Account Details link is not present in the Useful links section");
 				}
 			}
@@ -302,6 +311,7 @@ public class Computed_MyRewards
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_notnav");
 					Assert.fail("User is not navigated to microsite pages");
 				}
 			
@@ -309,6 +319,7 @@ public class Computed_MyRewards
 			}
 			else
 	        {
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_nolink");
 				Assert.fail("View Personalized Ads link is not present in the Useful links section");
 	        }
 			Thread.sleep(250);
@@ -326,6 +337,7 @@ public class Computed_MyRewards
 				}
 		        else
 		        {
+		        	 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_navfaq");
 		        	Assert.fail("User is not navigated to FAQ page");
 					
 				}
@@ -334,6 +346,7 @@ public class Computed_MyRewards
 		     }
 			else
 			{
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_nofaq");
 				Assert.fail("Frequently Asked questions link is not present in the Useful links section");
 	        }
 			String curl=driver.getCurrentUrl();
@@ -347,6 +360,7 @@ public class Computed_MyRewards
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_fuelrew");
 					Assert.fail("Fuel Rewards link is not present in useful links section");
 				}
 			}
@@ -362,6 +376,7 @@ public class Computed_MyRewards
 				}
 			    else
 				{
+			    	 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_nofuelrew");
 					Assert.fail("Fuel Rewards link is not present in useful links section");
 				}
 			  }
@@ -374,6 +389,7 @@ public class Computed_MyRewards
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_navfuelrew");
 					Assert.fail("User is not navigated to Fuel Rewards page");
 				}
 				
@@ -394,6 +410,7 @@ public class Computed_MyRewards
 				}
 		        else
 		        {
+		        	 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_naverr");
 		        	Assert.fail("User is not navigated to Fuel locator page");
 				}
 				
@@ -401,11 +418,13 @@ public class Computed_MyRewards
 			}
 			else
 	        {
+				 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_findfuel");
 				Assert.fail("Find Fuel near you link is not present in the Useful links section");
 	        }
 		}
 		catch(Exception e)
 		{
+			 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_usefullinks");
 			Assert.fail("Error in useful links section");
 		}
 			return driver;
@@ -413,7 +432,7 @@ public class Computed_MyRewards
 		
 		
 	
-	public WebDriver loggedout_Myreward(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver loggedout_Myreward(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_LoggedOut_RewardsPage logoutrewardspage = new POM_Generated_LoggedOut_RewardsPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -440,6 +459,7 @@ public class Computed_MyRewards
 		}
 		else
 		{
+			 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_nomodal");
 			Assert.fail("On clicking Login button,Soft login modal is not displayed");
 		}
 		
@@ -462,6 +482,7 @@ public class Computed_MyRewards
 	      }
 	    else
 	    {
+	    	 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_regnow");
 	    	Assert.fail("On clicking Register Now button, account look up page is not displayed");	
 	    }
 		driver.navigate().to(lorurl);
@@ -473,6 +494,7 @@ public class Computed_MyRewards
 	  }
 	catch(Exception e)
 	{
+		 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_logoutrew");
 		Assert.fail("error in logged out rewards page");
 	}
 	

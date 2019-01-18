@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="executableClass.Logout">
+      <class name="executableClass.SoftLogin">
         <methods>
-          <include name="TC001_Logout"/>
+          <include name="TC001_SoftLogin_Phone_And_Zip_login"/>
         </methods>
-      </class> <!-- executableClass.Logout -->
+      </class> <!-- executableClass.SoftLogin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

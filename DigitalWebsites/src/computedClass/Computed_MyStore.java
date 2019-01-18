@@ -18,11 +18,12 @@ import generatedClass.POM_Generated_StoreLocatorPage;
 
 public class Computed_MyStore 
 {
+	Data obj=new Data();
 	public WebDriver SetStore(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_StaticInfoBar staticInfoBar = new POM_Generated_StaticInfoBar(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj=new Data();
+		
 		String Global="Global";
 		WebElement logo =null;
 		
@@ -55,6 +56,7 @@ public class Computed_MyStore
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_mystoreadd");
 					Assert.fail("Mystore address text is not displaying");
 				}
 				staticInfoBar.click_click_Static_info_MyStore_Change_Link();
@@ -67,6 +69,7 @@ public class Computed_MyStore
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_nomsg");
 					Assert.fail("Please set the store text is not displaying");
 				}
 				staticInfoBar.click_click_Static_info_Set_Store_Link();
@@ -79,6 +82,7 @@ public class Computed_MyStore
 		
 		catch (NoSuchElementException e1)
 		{
+			 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_nolinks");
 			driver.close();
 			Assert.fail("Store links are not displayed");
 			
@@ -91,7 +95,7 @@ public class Computed_MyStore
 	{
 		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		try
 		{	
 			obj.waitForElement(driver, homepage.click_Global_StoreLocator_Button);
@@ -109,6 +113,7 @@ public class Computed_MyStore
 			    }
 			    else
 			    {
+			    	 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidtitle");
 			    	Assert.fail("Title text is displayed as "+s);
 			    } 
 				
@@ -119,17 +124,20 @@ public class Computed_MyStore
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nosearch");
 					Assert.fail("Search button is not present");
 				}
 			}
 			else
 			{
+				 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_notext");     
 				Assert.fail("Textbox is not displayed");
 			}
 				
 		}
 		catch(NoSuchElementException e)
 		{
+			 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nav");
 			Assert.fail("Error in navigation to store locator page");
 		}
 		return driver;
@@ -139,7 +147,7 @@ public class Computed_MyStore
 	{
 		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		String value="";
 		String zip="";
 	
@@ -214,12 +222,14 @@ public class Computed_MyStore
 			{
 				if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_zip");
 					driver.close();
 					Assert.fail("Invalid zipcode");
 					storelocatorpage.click_click_Home_Button();	
 				}
 				else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nostore");
 					driver.close();
 					Assert.fail("No stores found for the given zip code");
 					storelocatorpage.click_click_Home_Button();
@@ -228,6 +238,7 @@ public class Computed_MyStore
 		}
 		catch(Exception e)
 		{
+			 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nostores");
 			Assert.fail("error in locating stores");
 		}
 		
@@ -239,7 +250,7 @@ public class Computed_MyStore
 	{
 		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		String value="";
 		String city="";
 	
@@ -313,12 +324,14 @@ public class Computed_MyStore
 			{
 				if(storelocatorpage.isDisplayed_txt_Invalid_store_text())
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_city");
 					driver.close();
 					Assert.fail("Invalid City");
 					storelocatorpage.click_click_Home_Button();	
 				}
 				else if( storelocatorpage.isDisplayed_txt_Invalid_zipcode_txt())
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nostore");
 						driver.close();
 						Assert.fail("No stores found for entered city ");
 						storelocatorpage.click_click_Home_Button();
@@ -328,6 +341,7 @@ public class Computed_MyStore
 		}
 		catch(Exception e)
 		{
+			 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nostore");
 			Assert.fail("error in locating stores");
 		}
 		
@@ -340,7 +354,7 @@ public class Computed_MyStore
 		POM_Generated_StoreLocatorPage storelocatorpage = new POM_Generated_StoreLocatorPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		//POM_Generated_StaticInfoBar staticinfobar= new POM_Generated_StaticInfoBar(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		
 		try
 		{
@@ -358,6 +372,7 @@ public class Computed_MyStore
 				String rad=storelocatorpage.getValue_ddl_Radius_Dropdown();
 				if(!rad.equals("10 miles"))
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_defrad");
 					driver.close();
 					Assert.fail("Default radius is not 10");
 				}
@@ -378,6 +393,7 @@ public class Computed_MyStore
 					String addr=storelocatorpage.getText_txt_StreetAddr_Text();
 					if(!sdetails.equals(addr))
 					{
+						 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_add");
 						driver.close();
 						Assert.fail("Store address not changed");
 					}
@@ -388,12 +404,14 @@ public class Computed_MyStore
 					{
 						if(	storelocatorpage.isDisplayed_click_Invalid_Store_Error_Text())
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nostore");
 							driver.close();
 							Assert.fail("No stores found");
 							storelocatorpage.click_click_Home_Button();
 						}
 						else	
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nostore");
 							driver.close();
 							Assert.fail("No stores found error message is not displaying");
 							storelocatorpage.click_click_Home_Button();
@@ -401,6 +419,7 @@ public class Computed_MyStore
 					}
 					catch (NoSuchElementException e1)
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nostore");
 						driver.close();
 						Assert.fail("No stores found error message is not displaying");
 						storelocatorpage.click_click_Home_Button();
@@ -414,6 +433,7 @@ public class Computed_MyStore
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_store");
 			driver.close();
 			Assert.fail("Error in my store page");
 		}
@@ -427,7 +447,7 @@ public class Computed_MyStore
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		String invalid_zip="";
 	//	WebElement logo = null;
-		Data obj=new Data();
+		//Data obj=new Data();
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
     	
@@ -476,17 +496,20 @@ public class Computed_MyStore
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invaliderr");
 					Assert.fail("Displayed error message is not as expected:" +storelocatorpage.getText_txt_Invalid_zipcode_txt());
 				}
 				}
 			else
 			{
+				 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 				Assert.fail("Error message is not displayed");
 			}
 				
 		}
 		catch(Exception e)
 		{
+			 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nostore");
 			Assert.fail("Error in store locating page");
 		}
 		

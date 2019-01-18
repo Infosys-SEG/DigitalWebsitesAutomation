@@ -14,7 +14,7 @@ import generatedClass.POM_Generated_RegisterNowPage;
 
 public class Computed_Register {
 
-	public WebDriver Enrollment_Landing_Page(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException
+	public WebDriver Enrollment_Landing_Page(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException
 	{
 		Data obj =new Data();
 		POM_Generated_RegisterNowPage register= new POM_Generated_RegisterNowPage(driver);
@@ -33,6 +33,7 @@ public class Computed_Register {
 				 }
 				 else	 
 				 {
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noimg");
 					 Assert.fail("SEG rewards card image is NOT displayed");
 				 }
 			    register.click_click_RegisterNowButton_Section1();
@@ -43,6 +44,7 @@ public class Computed_Register {
 			    }
 			    else
 			    {
+			    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_acclookup");
 			     Assert.fail("Account lookup page is NO displayed after clicking Register now button in Enrollment landing page" );
 			    }
 			    driver.navigate().back();
@@ -52,6 +54,7 @@ public class Computed_Register {
 			    }
 			    else
 			    {
+			    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nobenefits");
 			    	Assert.fail("Benefits section is not displayed");
 			    }
 			    if(register.isDisplayed_txt_GoldStatus_Section3())
@@ -60,6 +63,7 @@ public class Computed_Register {
 				}
 				else
 				{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nogoldstatus");
 				Assert.fail("Gold Status section is not displayed");
 				}
 			    if(register.isDisplayed_txt_NeverMiss_Section4())
@@ -68,6 +72,7 @@ public class Computed_Register {
 				}
 				else
 				{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nodealsection");
 				Assert.fail("Never miss a deal section is NOT displayed at the bottom");
 				}
 			    register.click_txt_RegisterNow_Section4();
@@ -78,6 +83,7 @@ public class Computed_Register {
 			    }
 			    else
 			    {
+			     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noacclookup");
 			     Assert.fail("Account lookup page is NO displayed after clicking Register now button in Enrollment landing page" );
 			    }
 			    driver.navigate().back();
@@ -88,6 +94,7 @@ public class Computed_Register {
 			    }
 			    else
 			    {
+			    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noFAQ");
 			     Assert.fail("Rewards FAQ page is NOT displayed");
 			    }
 			 }
@@ -95,6 +102,7 @@ public class Computed_Register {
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"error_regnow");
 			System.out.println(e);
 			Assert.fail("Error in Register Now Page");
 		}

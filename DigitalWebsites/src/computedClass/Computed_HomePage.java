@@ -51,7 +51,7 @@ public class Computed_HomePage {
 		logo.click();
 		return driver;
 		}	
-		public WebDriver Home_topbanner(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+		public WebDriver Home_topbanner(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 		{
 			
 			POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -72,6 +72,7 @@ public class Computed_HomePage {
 			}
 			catch(Exception e)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_home");
 				System.out.println(e);
 				Assert.fail("Error in logged in Home page");
 			}
@@ -79,7 +80,7 @@ public class Computed_HomePage {
 			
 		}
 		
-		public WebDriver Home_logos(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException  
+		public WebDriver Home_logos(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException  
 					
 		{
 			POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -97,6 +98,7 @@ public class Computed_HomePage {
 			       	}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 						Assert.fail("Online Grocery logo is not displaying");
 					}
 						  }
@@ -129,12 +131,14 @@ public class Computed_HomePage {
 						}
 						else
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_weeklyad_nav");
 							Assert.fail("User is not navigated to Weekly ad page");
 						}
 						driver.navigate().to(curl);
 					}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 						Assert.fail("Weekly ad logo is not displaying");
 					}
 					if(homepage.isDisplayed_click_PersonalizedAd_Logo())
@@ -158,6 +162,7 @@ public class Computed_HomePage {
 						
 						else
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nav");
 							Assert.fail("User is not navigated to microsite page");
 						}
 					    driver.navigate().to(curl);
@@ -183,6 +188,7 @@ public class Computed_HomePage {
 						 }
 						else
 						 {
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_couponspage");
 							Assert.fail("User is not navigated to microsite coupons page");
 						 }
 						}
@@ -195,6 +201,7 @@ public class Computed_HomePage {
 							 }
 							else
 							 {
+								obj.Ashot_Screenshot(driver, Functionality, TCName,"err_couponspage");
 								Assert.fail("User is not navigated to microsite coupons page");
 							 }
 						 }
@@ -205,6 +212,7 @@ public class Computed_HomePage {
 		
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 						Assert.fail("Digital Coupons logo is not displaying");
 					}
 					if(homepage.isDisplayed_txt_NeverMissADeal_text())
@@ -215,17 +223,19 @@ public class Computed_HomePage {
 					}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noblck");
 						Assert.fail("Never miss out on a deal block is not displayed");
 					}
 				
 		   }
 		   catch(Exception e)
 				{
+			        obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 					Assert.fail("Home page logos are not displayed");
 				}
 			    return driver;
 		}
-		public WebDriver Home_logosguest(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException  
+		public WebDriver Home_logosguest(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException  
 		
 		{
 			POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -242,6 +252,7 @@ public class Computed_HomePage {
 			       	}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 						Assert.fail("Online Grocery logo is not displaying");
 					}
 						  }
@@ -278,12 +289,14 @@ public class Computed_HomePage {
 						}
 						else
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noweeklyad_nav");
 							Assert.fail("User is not navigated to Weekly ad page");
 						}
 						driver.navigate().to(curl);
 					}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 						Assert.fail("Weekly ad logo is not displaying");
 					}
 					if(homepage.isDisplayed_click_PersonalizedAd_Logo())
@@ -303,12 +316,14 @@ public class Computed_HomePage {
 						
 						else
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nonav");
 							Assert.fail("User is not navigated to microsite page");
 						}
 					    driver.navigate().to(curl);
 					}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 						Assert.fail("Personalized ad logo is not displaying");
 					}
 					if(homepage.isDisplayed_click_Digitial_Coupons_Logo())
@@ -328,6 +343,7 @@ public class Computed_HomePage {
 						 }
 						else
 						 {
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nonav");
 							Assert.fail("User is not navigated to microsite coupons page");
 						 }
 						}
@@ -340,6 +356,7 @@ public class Computed_HomePage {
 							 }
 							else
 							 {
+								obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nonav");
 								Assert.fail("User is not navigated to microsite coupons page");
 							 }
 						 }
@@ -350,6 +367,7 @@ public class Computed_HomePage {
 		
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 						Assert.fail("Digital Coupons logo is not displaying");
 					}
 					if(homepage.isDisplayed_txt_NeverMissADeal_text())
@@ -360,12 +378,14 @@ public class Computed_HomePage {
 					}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noblock");
 						Assert.fail("Never miss out on a deal block is not displayed");
 					}
 				
 		   }
 		   catch(Exception e)
 				{
+			   obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nologo");
 					Assert.fail("Home page logos are not displayed");
 				}
 			    return driver;
@@ -373,7 +393,7 @@ public class Computed_HomePage {
 		
 		
 		
-		public WebDriver Home_CouponRotator(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException  	
+		public WebDriver Home_CouponRotator(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException  	
 		       
 		{
 			    POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -406,12 +426,13 @@ public class Computed_HomePage {
 				}
 				catch(Exception e)
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_couponrot");
 					Assert.fail("Error in coupons rotator in home page");
 				}
 				return driver;
 			}
 		
-	public WebDriver Home_bottomblock(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException  	
+	public WebDriver Home_bottomblock(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException  	
 	       
 		{
 			    POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -427,13 +448,14 @@ public class Computed_HomePage {
 			}
 			catch(Exception e)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_home");
 				System.out.println(e);
 				Assert.fail("Error in logged in Home page");
 			}
 			return driver;
 		}
 	
-	public WebDriver Myrewardfooterlink(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Myrewardfooterlink(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		Data obj1 =new Data();
@@ -453,6 +475,7 @@ public class Computed_HomePage {
 	    	}
 	    	else
 	    	{
+	    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noTC");
 	    		Assert.fail("user is not navigated to terms and conditions page");
 	    	}
 	    	driver.navigate().to(hom);
@@ -460,12 +483,13 @@ public class Computed_HomePage {
 		   }
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_home");
 			Assert.fail("Issue in home page");
 		}
 		return driver;
 	}
 	
-	public WebDriver Globalnavupdate(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Globalnavupdate(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -517,7 +541,8 @@ public class Computed_HomePage {
 		}
 		catch(Exception e)
 		{
-		Assert.fail("Issue in home page");
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_home");
+		    Assert.fail("Issue in home page");
 		}
 		
 		return driver;

@@ -17,7 +17,7 @@ import generatedClass.POM_Generated_StaticInfoBar;
 
 public class Computed_Static_Info_bar 
 {	
-	public WebDriver LoginStaticinfobar_WeeklyAd(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver LoginStaticinfobar_WeeklyAd(WebDriver driver,String Functionality, String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_StaticInfoBar staticinfobar = new POM_Generated_StaticInfoBar(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -74,25 +74,29 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+
 					driver.close();
 					Assert.fail("Weekly ad text is not displaying");
 				}
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 				driver.close();
 				Assert.fail("Weekly ad link is not displaying");
 			}
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 			driver.close();
 			Assert.fail("Error in weekly ad link");
 		}
 		return driver;
 	}	
 	
-	public WebDriver LoginStaticinfobar_Rewards(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver LoginStaticinfobar_Rewards(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_StaticInfoBar staticinfobar = new POM_Generated_StaticInfoBar(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -134,6 +138,7 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 					driver.close();
 					Assert.fail("My Rewards text is not displaying");
 				}
@@ -148,6 +153,7 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 					driver.close();
 					Assert.fail("Different points");
 				}
@@ -155,12 +161,14 @@ public class Computed_Static_Info_bar
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 				driver.close();
 				Assert.fail("My Rewards link is not displaying");
 			}	
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 			driver.close();
 			Assert.fail("Error in rewards link");
 		}
@@ -168,7 +176,7 @@ public class Computed_Static_Info_bar
 	}
 	
 	
-	public WebDriver LoginStaticinfobar_MyAccount(WebDriver driver,String Functionality,String MyAccfunc) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver LoginStaticinfobar_MyAccount(WebDriver driver,String Functionality,String MyAccfunc,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_StaticInfoBar staticinfobar= new POM_Generated_StaticInfoBar(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
@@ -203,6 +211,7 @@ public class Computed_Static_Info_bar
 			{
 				if(!staticinfobar.isDisplayed_click_Static_info_My_Account_Text())
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 					driver.close();
 					Assert.fail("My Account text is not displaying");
 				}
@@ -218,6 +227,7 @@ public class Computed_Static_Info_bar
 					}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 						driver.close();
 						Assert.fail("Hard Login popup is not displaying");
 					}
@@ -232,6 +242,7 @@ public class Computed_Static_Info_bar
 					}
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 						driver.close();
 						Assert.fail("My Account page is displayed for hardlogin user by clicking on My Account static info bar");
 					}
@@ -239,12 +250,14 @@ public class Computed_Static_Info_bar
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 				driver.close();
 				Assert.fail("My Account link is not displaying");
 			}	
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
 			driver.close();
 			Assert.fail("Error in MyAccount link");
 		}

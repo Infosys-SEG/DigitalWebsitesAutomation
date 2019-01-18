@@ -74,6 +74,7 @@ public class Computed_Email_Verification
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"Issue_verify");
 			Assert.fail("Issue in email verification screen");
 		}
 		
@@ -97,11 +98,13 @@ public class Computed_Email_Verification
 			 }
 			 else
 			 {
+			 obj.Ashot_Screenshot(driver, Functionality, TCName,"Spl_charEmail");
 			 Assert.fail("Special characters are allowed in Email verification code field");
 			 }
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"Issue_verify");
 			Assert.fail("Issue in email verification screen");
 		}
 
@@ -123,6 +126,7 @@ public class Computed_Email_Verification
 			 }
 			 else
 			 {
+				 obj.Ashot_Screenshot(driver, Functionality, TCName,"issue_verifyscrn");
 				 Assert.fail("issue in navigating to Email verification page");
 			 }
 			 //first time error message
@@ -142,6 +146,7 @@ public class Computed_Email_Verification
 		    	 }
 		    	 else
 		    	 {
+		    		 obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_code");
 		    		 Assert.fail("Error message is not displayed on entering invalid code for the first time");
 		    	 }
 		    		 
@@ -162,6 +167,7 @@ public class Computed_Email_Verification
 		    	 }
 		    	 else
 		    	 {
+		    		 obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_code_sec");
 		    		 Assert.fail("Error message is not displayed on entering invalid code for the second time");
 		    	 }
 		    		 
@@ -170,6 +176,7 @@ public class Computed_Email_Verification
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"issue_verify");
 			Assert.fail("Issue in email verification screen");
 		}
 		
@@ -201,6 +208,7 @@ public class Computed_Email_Verification
 		    	 }
 		    	 else
 		    	 {
+		    		 obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_code_third");
 		    		 Assert.fail("Error message is not displayed on entering invalid code for the third time");
 		    	 }
 		    	 //if(!email.isDisplayed_txt_Email_verification_Next())
@@ -213,6 +221,7 @@ public class Computed_Email_Verification
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"issue_verify");
 			Assert.fail("Issue in email verification screen");
 		}
 		

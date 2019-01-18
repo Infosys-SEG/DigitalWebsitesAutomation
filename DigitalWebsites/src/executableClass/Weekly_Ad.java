@@ -35,7 +35,7 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
+		driver=weeklyad.AddProduct(Functionality,TCName,driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "Added");	
@@ -55,10 +55,10 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"overlay");
+		driver=weeklyad.AddProduct(Functionality,TCName,driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		prodvalu=weeklyad.getprodvalu();
-		driver = weeklyad.AddAgain(driver,prodvalu);	
+		driver = weeklyad.AddAgain(Functionality,TCName,driver,prodvalu);	
 		//driver.close();
 	}
 	
@@ -75,8 +75,8 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
-		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count,"circularpage");
+		driver=weeklyad.AddProduct(Functionality,TCName,driver, proddetails, count, prodvalu,"circularpage");
+		driver=weeklyad.Removeproduct(driver,Functionality,TCName, prodvalu, count,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
@@ -97,8 +97,8 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"overlay");
-		driver=weeklyad.Removeproduct(driver, Functionality, prodvalu, count,"overlay");
+		driver=weeklyad.AddProduct(Functionality,TCName,driver, proddetails, count, prodvalu,"overlay");
+		driver=weeklyad.Removeproduct(driver,Functionality,TCName, prodvalu, count,"overlay");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
@@ -119,18 +119,18 @@ public class Weekly_Ad
 		driver=browserbanner.Clearcookie(driver, Functionality);
 		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
-		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
+		driver=weeklyad.AddProduct(Functionality,TCName,driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "DeleteIcon_Removedfromshoppinglist");
-		driver = weeklyad.RemoveAgain(driver, prodvalu);
-		driver=weeklyad.AddProduct(driver, proddetails, count, prodvalu,"circularpage");
+		driver = weeklyad.RemoveAgain(TCName,Functionality,driver, prodvalu);
+		driver=weeklyad.AddProduct(Functionality,TCName,driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();
 		count=weeklyad.getcount();
 		prodvalu=weeklyad.getprodvalu();
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, proddetails, count, "DeleteAllButton_Removedfromshoppinglist");
-		driver = weeklyad.RemoveAgain(driver, prodvalu);
+		driver = weeklyad.RemoveAgain(TCName,Functionality,driver, prodvalu);
 		//driver.close();
 	}
 	

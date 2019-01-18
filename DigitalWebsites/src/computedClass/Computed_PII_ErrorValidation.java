@@ -14,12 +14,12 @@ import generatedClass.POM_Generated_VerificationPage;
 
 public class Computed_PII_ErrorValidation 
 {
-	
+	Data obj = new Data();
 	// Enter PII DOB column
 	public WebDriver PII_Validation_EnterDOB(WebDriver driver,String Functionality , String TCName, String TestDataColumn) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
-		Data obj = new Data();
+		
 		//String Global="Global";
 		obj.waitForElement(driver, verificationpage.txt_PII_Verification_Month_Field);
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet","PII_Validation",TCName);	
@@ -42,6 +42,7 @@ public class Computed_PII_ErrorValidation
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pii");
 			System.out.println(e);
 			Assert.fail("Error in PII Verification page");
 		}
@@ -49,7 +50,7 @@ public class Computed_PII_ErrorValidation
 	}
 	
 	// Validate invalid month
-	public WebDriver Invalid_Month_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Invalid_Month_ErrMsg(WebDriver driver,String labelname,String Functionality ,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		
@@ -68,13 +69,14 @@ public class Computed_PII_ErrorValidation
     		}
 			else
 			{
-				
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidmnth");
 				Assert.fail("Error message is not  displayed on entering invalid month in Birthday field ");
     		}
     		
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
@@ -82,7 +84,7 @@ public class Computed_PII_ErrorValidation
 	}
 	
 	//validate invalid date
-	public WebDriver Invalid_Day_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Invalid_Day_ErrMsg(WebDriver driver,String labelname,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		
@@ -102,20 +104,21 @@ public class Computed_PII_ErrorValidation
     		}
 			else
 			{
-				
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_dat");
 				Assert.fail("Error message is not  displayed on entering invalid date in Birthday field ");
     		}
     		
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
 		return driver;
 	}
 	//validate invalid year
-	public WebDriver Invalid_Year_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Invalid_Year_ErrMsg(WebDriver driver,String labelname,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		
@@ -134,12 +137,14 @@ public class Computed_PII_ErrorValidation
     		}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalid yr");
 				Assert.fail("Error message is not  displayed on entering invalid year in Birthday field ");
 			}
     		
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
@@ -179,6 +184,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
     		}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"noerror_zip");
 				Assert.fail("Error message is not displayed on entering zip less than 5 digits");
 			}
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
@@ -193,12 +199,14 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_zip");
 				Assert.fail("More than 5 digits is allowed in zip code field");
 			}
     		
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
@@ -206,7 +214,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 	}
 
 //validate invalid month & date
-	public WebDriver Invalid_Month_Day_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Invalid_Month_Day_ErrMsg(WebDriver driver,String labelname,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 	
@@ -224,12 +232,14 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
   		}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"noerror_invalid datmnth");
 				Assert.fail("Error message is not  displayed on entering invalid Date & Month in Birthday field ");
 			}
   		
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
@@ -237,7 +247,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 	}
 	
 //validate invalid date & year
-    public WebDriver Invalid_Day_Year_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+    public WebDriver Invalid_Day_Year_ErrMsg(WebDriver driver,String labelname,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 		{
 			POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 		
@@ -255,12 +265,14 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 	  		}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invaliddatyr");
 					Assert.fail("Error message is not  displayed on entering invalid Date & Year in Birthday field ");
 				}
 	  		
 			}
 			catch(Exception e)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 				//driver.close();
 				Assert.fail("Error in PII Verification page");
 			}
@@ -268,7 +280,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 		}		
 
   //validate invalid month & year
-	public WebDriver Invalid_Month_Year_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Invalid_Month_Year_ErrMsg(WebDriver driver,String labelname,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 	
@@ -286,12 +298,14 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
   		}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidmnthyr");
 				Assert.fail("Error message is not  displayed on entering invalid Month & Year in Birthday field ");
 			}
   		
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
@@ -299,7 +313,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 	}
 	
 	//validate invalid month,date & year
-	public WebDriver Invalid_Month_Day_Year_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Invalid_Month_Day_Year_ErrMsg(WebDriver driver,String labelname,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 	
@@ -317,12 +331,14 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
   		}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalid");
 				Assert.fail("Error message is not  displayed on entering invalid Month, Date & Year in Birthday field ");
 			}
   		
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			driver.close();
 			Assert.fail("Error in PII Verification page");
 		}
@@ -352,6 +368,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 		}
 		catch(Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PII");
 			driver.close();
 			Assert.fail("Error in PII page");
 		}
@@ -359,7 +376,7 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 	}
 	
 	// validate invalid NPA phone number message
-		public WebDriver Invalid_PhoneNumber_ErrMsg(WebDriver driver,String labelname) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+		public WebDriver Invalid_PhoneNumber_ErrMsg(WebDriver driver,String labelname,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 		{
 			POM_Generated_VerificationPage verificationpage = new POM_Generated_VerificationPage(driver);
 			//Data obj = new Data();
@@ -379,19 +396,20 @@ public WebDriver Invalid_Zipcode_ErrMsg(WebDriver driver,String Functionality,St
 					}
 					else
 					{	
-						
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ph");
 						Assert.fail("Errormessage mismatched ");	 
 					}
 				}		
 				else
 				{	
-					
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"no_errormsg");
 					Assert.fail("Error message not displayed");	 
 				}
 				
 			}
 			catch(Exception e)
 			{	
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"invalid_phone");
 				//driver.close();
 				Assert.fail("Wrong phone number");
 			}    		

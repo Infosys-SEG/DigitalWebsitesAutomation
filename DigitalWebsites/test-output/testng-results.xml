@@ -2,53 +2,22 @@
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="103999" started-at="2019-01-14T12:15:38Z" finished-at="2019-01-14T12:17:21Z">
+  <suite name="Default suite" duration-ms="36583" started-at="2019-01-18T10:41:13Z" finished-at="2019-01-18T10:41:49Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="103999" started-at="2019-01-14T12:15:38Z" finished-at="2019-01-14T12:17:21Z">
-      <class name="executableClass.Logout">
-        <test-method status="FAIL" signature="TC001_Logout()[pri:1, instance:executableClass.Logout@598067a5]" name="TC001_Logout" duration-ms="103907" started-at="2019-01-14T17:45:38Z" finished-at="2019-01-14T17:47:21Z">
-          <exception class="org.openqa.selenium.NoSuchWindowException">
-            <message>
-              <![CDATA[Currently focused window has been closed.
-Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
-System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:37137/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 8fe90175-9881-4189-9ba8-41b185499d13
-*** Element info: {Using=xpath, value=//div[@id='wd-site-logo']}]]>
-            </message>
+    <test name="Default test" duration-ms="36583" started-at="2019-01-18T10:41:13Z" finished-at="2019-01-18T10:41:49Z">
+      <class name="executableClass.SoftLogin">
+        <test-method status="FAIL" signature="TC001_SoftLogin_Phone_And_Zip_login()[pri:1, instance:executableClass.SoftLogin@3f49dace]" name="TC001_SoftLogin_Phone_And_Zip_login" duration-ms="36477" started-at="2019-01-18T16:11:13Z" finished-at="2019-01-18T16:11:49Z">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchWindowException: Currently focused window has been closed.
-Build info: version: 'unknown', revision: 'unknown', time: 'unknown'
-System info: host: 'VDI-HDQ-0027', ip: '10.211.4.91', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_45'
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:37137/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 8fe90175-9881-4189-9ba8-41b185499d13
-*** Element info: {Using=xpath, value=//div[@id='wd-site-logo']}
-	at sun.reflect.GeneratedConstructorAccessor32.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy5.toString(Unknown Source)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.toString(ExpectedConditions.java:293)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:224)
-	at Utility.Data.waitForElement(Data.java:73)
-	at executableClass.Browserbanner.Clearcookie(Browserbanner.java:105)
-	at executableClass.Logout.TC001_Logout(Logout.java:30)
+              <![CDATA[java.lang.NullPointerException
+	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getCurrentScrollY(ViewportPastingDecorator.java:79)
+	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:54)
+	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:35)
+	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:143)
+	at Utility.Data.Ashot_Screenshot(Data.java:56)
+	at computedClass.Computed_SoftLogin.SoftLogin_Rewards(Computed_SoftLogin.java:173)
+	at executableClass.SoftLogin.TC001_SoftLogin_Phone_And_Zip_login(SoftLogin.java:44)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -76,11 +45,11 @@ Session ID: 8fe90175-9881-4189-9ba8-41b185499d13
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC001_Logout -->
-      </class> <!-- executableClass.Logout -->
+        </test-method> <!-- TC001_SoftLogin_Phone_And_Zip_login -->
+      </class> <!-- executableClass.SoftLogin -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

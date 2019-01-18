@@ -22,14 +22,14 @@ public class Loggedout_Rewards_Page
 	public void TC001_Rewards_Page_for_Logged_Out_users () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		//For getting current method name and passing as tcname
-		//String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
+		String tcname = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		Browserbanner browserbanner=new Browserbanner();
 	
 		Computed_MyRewards loggedout = new Computed_MyRewards();
 		driver= browserbanner.BrowserBanner(driver, functionality);
 		driver=browserbanner.Clearcookie(driver, functionality);
 		
-		driver=loggedout.loggedout_Myreward(driver, functionality);
+		driver=loggedout.loggedout_Myreward(driver, functionality, tcname);
 		driver.close();
 	}
 }

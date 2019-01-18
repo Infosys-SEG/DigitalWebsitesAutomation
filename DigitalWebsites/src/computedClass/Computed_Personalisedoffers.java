@@ -18,13 +18,14 @@ import generatedClass.POM_Generated_WeeklyAdPage;
 
 public class Computed_Personalisedoffers 
 {
+	Data obj=new Data();
 	public WebDriver Loggedin_Personalisedoffers(WebDriver driver, String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_WeeklyAdPage weeklyadpage = new POM_Generated_WeeklyAdPage(driver);
 		POM_Generated_ShoppingListPage shoppingListPage = new POM_Generated_ShoppingListPage(driver);
 		POM_Generated_PersonalizedOffersPage personalizedofferspage = new POM_Generated_PersonalizedOffersPage(driver);
-		Data obj=new Data();
+		
 		WebElement logo = null;
 		String url="";
 		
@@ -98,6 +99,7 @@ public class Computed_Personalisedoffers
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_weeklyad");
 				driver.close();
 				Assert.fail("Error in Your WeeklyAd text");
 			
@@ -105,6 +107,7 @@ public class Computed_Personalisedoffers
 		}
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_offers");
 	    	//driver.close();
 	    	System.out.println(e);
 	    	Assert.fail("Error in personalised offers page");
@@ -194,6 +197,7 @@ public class Computed_Personalisedoffers
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_weeklyad");
 			//	driver.close();
 				Assert.fail("Error in Your WeeklyAd text");
 			
@@ -201,6 +205,7 @@ public class Computed_Personalisedoffers
 		}
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_weeklyad");
 	    	//driver.close();
 	    	System.out.println(e);
 	    	Assert.fail("Error in Weekly Ad page");

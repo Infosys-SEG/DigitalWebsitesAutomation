@@ -39,7 +39,7 @@ public class Digital_Coupons
 		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, TCName, prod, count);
 		prod   = coupons.getprod();
 		count  = coupons.getcount();
-		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
+		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon",Functionality,TCName);
 		driver.close();	
 	}
 	
@@ -58,11 +58,11 @@ public class Digital_Coupons
 		driver = coupons.Loggedin_Coupons_Link(driver, Functionality, TCName, prod, count);
 		prod   = coupons.getprod();
 		count  = coupons.getcount();
-		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
+		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon",Functionality,TCName);
 		driver = logout.Logout(driver, Functionality, TCName);
 		driver = softlogin.SoftLogin_Rewards(driver, Functionality, TCName);
-		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality);
-		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon");
+		driver = shoppinglist.ShoppingList_Navigation(driver, Functionality,TCName);
+		driver = shoppinglist.Coupons_ShoppingList(driver, prod, count, "Digital_Coupon", Functionality,TCName);
 		driver.close();	
 	}
 	

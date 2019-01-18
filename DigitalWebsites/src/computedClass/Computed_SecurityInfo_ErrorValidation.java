@@ -14,6 +14,7 @@ import generatedClass.POM_Generated_AccountSecurityPage;
 
 public class Computed_SecurityInfo_ErrorValidation 
 {
+	Data obj=new Data();
 	public WebDriver ResetPassword_ErrorMsgValidation(WebDriver driver,String Functionality,String TCName) throws IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_AccountSecurityPage acctSecurity= new POM_Generated_AccountSecurityPage(driver);
@@ -44,11 +45,13 @@ public class Computed_SecurityInfo_ErrorValidation
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"wrngerr_msg");
 				     Assert.fail("Displayed Error Message is not the expected : "+acctSecurity.getText_txt_Error_NotSamePwds_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						Assert.fail("Error message is not displayed when Passwords are not matching :"+acctSecurity.getText_txt_Error_NotSamePwds_Msg());
 					}	
 		      	
@@ -66,11 +69,13 @@ public class Computed_SecurityInfo_ErrorValidation
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_wrngmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+acctSecurity.getText_txt_Error_SetPassword_Info_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						Assert.fail("Error message is not displayed when Password is less than 8 digits :"+acctSecurity.getText_txt_Error_SetPassword_Info_Msg());
 					}	
 		      	
@@ -85,11 +90,13 @@ public class Computed_SecurityInfo_ErrorValidation
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_wrngmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+acctSecurity.getText_txt_Error_SetPassword_Info_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						Assert.fail("Error message is not displayed when Password is more than 16 digits :"+acctSecurity.getText_txt_Error_SetPassword_Info_Msg());
 					}	
 		      	
@@ -104,11 +111,13 @@ public class Computed_SecurityInfo_ErrorValidation
 					 }
 				     else
 				     {
+				    	 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_wrngmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+acctSecurity.getText_txt_Error_SetPassword_Info_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						Assert.fail("Error message is not displayed when Password doesnt have any capital letter :"+acctSecurity.getText_txt_Error_SetPassword_Info_Msg());
 					}	
 		     
@@ -123,11 +132,13 @@ public class Computed_SecurityInfo_ErrorValidation
 					 }
 				     else
 				     {
+				    	 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_wrngmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+acctSecurity.getText_txt_Error_SetPassword_Info_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						Assert.fail("Error message is not displayed when Password doesnt have any number :"+acctSecurity.getText_txt_Error_SetPassword_Info_Msg());
 					}	
 		        // Password does not have lower letter
@@ -141,16 +152,19 @@ public class Computed_SecurityInfo_ErrorValidation
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_wrngmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+acctSecurity.getText_txt_Error_SetPassword_Info_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						Assert.fail("Error message is not displayed when Password doesnt have any lower letter :"+acctSecurity.getText_txt_Error_SetPassword_Info_Msg());
 					}	
 	      }
 					 catch(Exception e)
 					    {
+						    obj.Ashot_Screenshot(driver, Functionality, TCName,"err_resetpwd");
 					    	System.out.println(e);
 					    	Assert.fail("Error in Reset Password ");
 					    }
@@ -159,7 +173,7 @@ public class Computed_SecurityInfo_ErrorValidation
 	public WebDriver ResetPIN_ErrorMsgValidation(WebDriver driver,String Functionality,String TCName) throws IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_AccountSecurityPage acctSecurity= new POM_Generated_AccountSecurityPage(driver);
-		Data obj=new Data();
+		
 		 try
 		    {
 			    new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
@@ -204,11 +218,13 @@ public class Computed_SecurityInfo_ErrorValidation
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_wrngmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+acctSecurity.getText_txt_Error_NotSamePINs_Msg()); 
 				     }
 				     }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						Assert.fail("Error message is not displayed when PINs are not matching :"+acctSecurity.getText_txt_Error_NotSamePINs_Msg());
 					}	
 		//Repeating Digit PIN error validation
@@ -238,11 +254,13 @@ public class Computed_SecurityInfo_ErrorValidation
 					  }
 				     else
 				     {
+				    	 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 				     Assert.fail("Error message is NOT displayed when repeated digits PIN is entered : "+acctSecurity.getText_txt_Error_SetPIN_Info_Msg()); 
 				     }
 				     }
 				else
 					{
+					    obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						Assert.fail("Error message is NOT displayed when repeated digits PIN is entered :"+acctSecurity.getText_txt_Error_SetPIN_Info_Msg());
 					}	
 		//Easily guessable PIN error validation
@@ -257,11 +275,13 @@ public class Computed_SecurityInfo_ErrorValidation
 					     Reporter.log(" Error message displayed is same as Error message expected if PIN is easily guessable : "+acctSecurity.getText_txt_Error_SetPIN_Info_Msg());
 					     else
 					     {
+					     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 					     Assert.fail("Error message displayed is NOT same as Error message expected if PIN is easily guessable : "+acctSecurity.getText_txt_PIN_Requirement_Popup()); 
 					     }
 					     } 
 					else
 						{
+						    obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 							Assert.fail("Error message is NOT displayed when easily guessable digits PIN is entered :"+acctSecurity.getText_txt_PIN_Requirement_Popup());
 						}	
 		//House Number PIN Error Validation
@@ -275,10 +295,12 @@ public class Computed_SecurityInfo_ErrorValidation
 							if(Error_Msg.equals(acctSecurity.getText_txt_Error_SetPIN_Info_Msg()))
 							     Reporter.log(" Error message displayed is same as Error message expected if PIN is house number: "+acctSecurity.getText_txt_Error_SetPIN_Info_Msg());
 							else
+								 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 							     Assert.fail("Error message displayed is NOT same as Error message expected if PIN is house number: "+acctSecurity.getText_txt_PIN_Requirement_Popup()); 
 						    }
 						     else
 						     {
+						     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 						     Assert.fail("Error message is NOT displayed when house number is entered as PIN number : "+acctSecurity.getText_txt_PIN_Requirement_Popup()); 
 						     }
 							
@@ -309,11 +331,13 @@ public class Computed_SecurityInfo_ErrorValidation
 								if(Error_Msg.equals(acctSecurity.getText_txt_Error_SetPIN_Info_Msg()))
 								     Reporter.log(" Error message displayed is same as Error message expected if PIN is last 4 digits of phone number : "+acctSecurity.getText_txt_Error_SetPIN_Info_Msg());
 								else
-								     Assert.fail("Error message displayed is NOT same as Error message expected if PIN is last 4 digits of phone number: "+acctSecurity.getText_txt_Error_SetPIN_Info_Msg()); 
+									obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
+								    Assert.fail("Error message displayed is NOT same as Error message expected if PIN is last 4 digits of phone number: "+acctSecurity.getText_txt_Error_SetPIN_Info_Msg()); 
 							    }
 								else
 									{
-										Assert.fail("Error message is NOT displayed when Phone number is entered as PIN number :"+acctSecurity.getText_txt_PIN_Requirement_Popup());
+									obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
+									Assert.fail("Error message is NOT displayed when Phone number is entered as PIN number :"+acctSecurity.getText_txt_PIN_Requirement_Popup());
 									}	
 		//Entering Wrong PIN for 3 times
 								    acctSecurity.type_txt_Set_Pin1_Field(valid_pin);
@@ -327,6 +351,7 @@ public class Computed_SecurityInfo_ErrorValidation
 									}
 									else
 									{
+										obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 										Assert.fail("Appropriate Error message is NOT displayed when invalid PIN is given for first time : "+acctSecurity.getText_txt_Error_ConfirmPIN_Info_Msg());
 									}
 								    acctSecurity.type_txt_Set_Pin2_Field(PIN_EasilyGuessable);
@@ -337,6 +362,7 @@ public class Computed_SecurityInfo_ErrorValidation
 								    }
 									else
 									{
+										obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 										Assert.fail("Appropriate Error message is NOT displayed when invalid PIN is given for second time : "+acctSecurity.getText_txt_Error_ConfirmPIN_Info_Msg());
 								    }
 								    acctSecurity.type_txt_Set_Pin2_Field(PIN_House);
@@ -348,12 +374,14 @@ public class Computed_SecurityInfo_ErrorValidation
 									     if(Error_Msg.equals(acctSecurity.getText_txt_Error_InvalidPins_3Times_Msg()))
 									     Reporter.log("Appropriate Error message is displayed when invalid PIN is given for third time : "+acctSecurity.getText_txt_Error_InvalidPins_3Times_Msg());
 									     else
+									    	 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
 									    	 Assert.fail("Appropriate Error message is NOT displayed when invalid PIN is given for third time : "+acctSecurity.getText_txt_Error_InvalidPins_3Times_Msg());
 									    }
 		    }
 									    
 		    catch(Exception e)
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nopin");
 		    	System.out.println(e);
 		    	Assert.fail("PIN section is not displayed ");
 		    }
@@ -378,6 +406,7 @@ public class Computed_SecurityInfo_ErrorValidation
 			    }
 			    else
 			    {
+			    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pinfield");
 			    	Assert.fail("PIN Field does not accept character or special character");
 			    }
 			    //PIN HELP TEXT
@@ -394,6 +423,7 @@ public class Computed_SecurityInfo_ErrorValidation
 			        }
 			        else
 			        {
+			        	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nopintext");
 			        	Assert.fail("PIN help text is NOT  displayed while mouse oing on Info icon");
 			        }
 			        //EYE ICON
@@ -406,6 +436,7 @@ public class Computed_SecurityInfo_ErrorValidation
 				    }
 				    else
 				    {
+				    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nopin");
 				    	Assert.fail("PIN is not displayed in encrypted form");
 				    }
 				    acctSecurity.click_click_Eye_Icon_SetPIN();
@@ -416,6 +447,7 @@ public class Computed_SecurityInfo_ErrorValidation
 				    }
 				    else
 				    {
+				    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_numnotdisplayed");
 				    	Assert.fail("User is NOT able to see the numbers after clicking Eye icon");
 				    }
 				    
@@ -425,6 +457,7 @@ public class Computed_SecurityInfo_ErrorValidation
 		    }
 			    catch(Exception e)
 			    {
+			    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nopin");
 			    	System.out.println(e);
 			    	Assert.fail("PIN section is not displayed ");
 			    }
@@ -453,19 +486,22 @@ public class Computed_SecurityInfo_ErrorValidation
                     }
             	   else
             	   {
+            		   obj.Ashot_Screenshot(driver, Functionality, TCName,"err_wrongmsg");
             		   Assert.fail("Appropriate Error message is NOT displayed as:"+acctSecurity.getText_txt_Error_InvalidEmail());
             	   }   
                }
                else
                {
+            	   obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nomsg");
             	   Assert.fail("Error message is NOT displayed when user enteres invalid domain");
                }
 			 }
 		    
 		    catch(Exception e)
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_accsec");
 		    	System.out.println(e);
-		    	Assert.fail("Error in Account Securoty page ");
+		    	Assert.fail("Error in Account Security page ");
 		    }
 		return driver;
 	}

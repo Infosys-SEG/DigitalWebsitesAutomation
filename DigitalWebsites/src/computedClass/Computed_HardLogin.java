@@ -61,11 +61,13 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_hardlogin");
 				Assert.fail("Hardlogin failed");
 			}
 		}
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_hardlogin");
 	    	System.out.println(e);
 	    	Assert.fail("Error in hardlogin page");
 	    }
@@ -125,6 +127,7 @@ public class Computed_HardLogin
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_hardlogin");
 					driver.close();
 					Assert.fail("Hardlogin failed");
 				}
@@ -132,6 +135,7 @@ public class Computed_HardLogin
 		}
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_hardlogin");
 	    	driver.close();
 	    	Assert.fail("Error in Hardlogin Page");
 	    }
@@ -176,12 +180,14 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_contactinfo");
 				driver.close();
 				Assert.fail("Contactinfo page is not displayed for preenrolled user through hardlogin by clicking one quick thing button");
 			}		
 		}
 		catch (Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_hardlogin");
 			driver.close();
 			Assert.fail("Error in Hardlogin Page or one quick thing popup");
 	    }	
@@ -227,12 +233,14 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_verify");
 				driver.close();
 				Assert.fail("Verification method page is not displayed for fullyenrolled user through hardlogin by clicking one quick thing button");
 			}		
 		}
 		catch (Exception e)
 		{
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_hardlogin");
 			driver.close();
 			Assert.fail("Error in Hardlogin Page or one quick thing popup");
 	    }	
@@ -241,7 +249,7 @@ public class Computed_HardLogin
 		return driver;	
 	}
 	
-	public WebDriver Validate_HardLogin_Modal_Links(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Validate_HardLogin_Modal_Links(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_HardLoginPage hardloginpage = new POM_Generated_HardLoginPage(driver);
@@ -270,6 +278,7 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nolink");
 				driver.close();
 				Assert.fail("Forgot password link is not displayed");
 			}
@@ -285,12 +294,14 @@ public class Computed_HardLogin
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noacc");
 					driver.close();
 					Assert.fail("Account lookup page is not displayed by clicking on Signup now");
 				}
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nolink");
 				driver.close();
 				Assert.fail("Not a member?Sign Up now link is not displayed ");	
 			}
@@ -313,6 +324,7 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_NoFAQ");
 				driver.close();
 				Assert.fail("FAQ page is not displayed in a new tab");
 				
@@ -323,6 +335,7 @@ public class Computed_HardLogin
 	     }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"Err_hardlogin");
 	    	driver.close();
 	    	Assert.fail("Error in Hardlogin Page");
 	    	
@@ -368,6 +381,7 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, functionality, TCName,"invalid_email");
 				driver.close();
 				Assert.fail("error message is NOT displayed correctly for Invalid Email address :"+ Error1);	
 			}
@@ -385,6 +399,7 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, functionality, TCName,"no_errmsg");
 				driver.close();	
 				Assert.fail("error message is NOT displayed correctly if email doesnt exist :"+ Error1);
 		    }
@@ -402,6 +417,7 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, functionality, TCName,"no_errmsg");
 				driver.close();	
 				Assert.fail("error message is NOT displayed correctly for Invalid Password :"+ Error1);
 		    }
@@ -419,12 +435,14 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, functionality, TCName,"no_errmsg");
 				driver.close();	
 				Assert.fail("error message is NOT displayed correctly for Invalid Password :"+ Error1);
 		    }
 		}
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, functionality, TCName,"err_hardlogin");
 	    	driver.close();
 	    	Assert.fail("Error in hardlogin page");
 	    }
@@ -459,12 +477,14 @@ public class Computed_HardLogin
 		    	}
 		    	else
 		    	{
+		    		obj.Ashot_Screenshot(driver, functionality, TCName,"exp_issue");
 					driver.close();	
 					Assert.fail("After 15 mins,hard login is NOT changed to softlogin mode");
 			    }	
 	    	}
 	    	else
 			{
+	    		obj.Ashot_Screenshot(driver, functionality, TCName,"exp_issue");
 				driver.close();	
 				Assert.fail("After 15 minuts, Edit account page is NOT automatically navigated to Logged in Rewards page");
 		    }
@@ -472,6 +492,7 @@ public class Computed_HardLogin
 		}
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, functionality, TCName,"err_accexp");
 	    	driver.close();
 	    	Assert.fail("Error in Account expiration");
 	    }
@@ -510,11 +531,13 @@ public class Computed_HardLogin
 			}
 			else
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"hardlogin_err");
 				Assert.fail("Hardlogin failed");
 			}
         }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_hardlogin");
 	    	Assert.fail("issue in hardlogin");
 	    	
 	    }

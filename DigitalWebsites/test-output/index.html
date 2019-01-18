@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\ragunk\AppData\Local\Temp\testng-eclipse--1499898603\testng-customsuite.xml</span>
+                    <span>C:\Users\ragunk\AppData\Local\Temp\testng-eclipse-1074962851\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="executableClass.Logout" hash-for-method="TC001_Logout">TC001_Logout</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="executableClass.SoftLogin" hash-for-method="TC001_SoftLogin_Phone_And_Zip_login">TC001_SoftLogin_Phone_And_Zip_login</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -120,44 +120,22 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">executableClass.Logout</span>
+              <span class="class-name">executableClass.SoftLogin</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="TC001_Logout">
-                  </a> <!-- TC001_Logout -->
-                  <span class="method-name">TC001_Logout</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchWindowException: Currently focused window has been closed.
-Build info: version: &apos;unknown&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
-System info: host: &apos;VDI-HDQ-0027&apos;, ip: &apos;10.211.4.91&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_45&apos;
-Driver info: org.openqa.selenium.ie.InternetExplorerDriver
-Capabilities {acceptInsecureCerts: false, browserName: internet explorer, browserVersion: 11, javascriptEnabled: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), se:ieOptions: {browserAttachTimeout: 0, elementScrollBehavior: 0, enablePersistentHover: true, ie.browserCommandLineSwitches: , ie.ensureCleanSession: false, ie.fileUploadDialogTimeout: 3000, ie.forceCreateProcessApi: false, ignoreProtectedModeSettings: false, ignoreZoomSetting: false, initialBrowserUrl: http://localhost:37137/, nativeEvents: true, requireWindowFocus: false}, setWindowRect: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
-Session ID: 8fe90175-9881-4189-9ba8-41b185499d13
-*** Element info: {Using=xpath, value=//div[@id=&apos;wd-site-logo&apos;]}
-	at sun.reflect.GeneratedConstructorAccessor32.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy5.toString(Unknown Source)
-	at java.lang.String.valueOf(Unknown Source)
-	at java.lang.StringBuilder.append(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.toString(ExpectedConditions.java:293)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:224)
-	at Utility.Data.waitForElement(Data.java:73)
-	at executableClass.Browserbanner.Clearcookie(Browserbanner.java:105)
-	at executableClass.Logout.TC001_Logout(Logout.java:30)
+                  <a name="TC001_SoftLogin_Phone_And_Zip_login">
+                  </a> <!-- TC001_SoftLogin_Phone_And_Zip_login -->
+                  <span class="method-name">TC001_SoftLogin_Phone_And_Zip_login</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getCurrentScrollY(ViewportPastingDecorator.java:79)
+	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:54)
+	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:35)
+	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:143)
+	at Utility.Data.Ashot_Screenshot(Data.java:56)
+	at computedClass.Computed_SoftLogin.SoftLogin_Rewards(Computed_SoftLogin.java:173)
+	at executableClass.SoftLogin.TC001_SoftLogin_Phone_And_Zip_login(SoftLogin.java:44)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -192,7 +170,7 @@ Session ID: 8fe90175-9881-4189-9ba8-41b185499d13
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\ragunk\AppData\Local\Temp\testng-eclipse--1499898603\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\ragunk\AppData\Local\Temp\testng-eclipse-1074962851\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -201,7 +179,11 @@ Session ID: 8fe90175-9881-4189-9ba8-41b185499d13
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;executableClass.Logout&quot;/&gt;
+      &lt;class name=&quot;executableClass.SoftLogin&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;TC001_SoftLogin_Phone_And_Zip_login&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- executableClass.SoftLogin --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -243,14 +225,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC001_Logout')
-data.setCell(0, 2, 'executableClass.Logout')
-data.setCell(0, 3, 103907);
+data.setCell(0, 1, 'TC001_SoftLogin_Phone_And_Zip_login')
+data.setCell(0, 2, 'executableClass.SoftLogin')
+data.setCell(0, 3, 36477);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 36 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -265,9 +247,18 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">executableClass.SoftLogin</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">TC003_SoftLogin_loggedout_user</span>
+                <br/>
+                <span class="ignored-method-name">TC002_SoftLogin_unable_to_view_account</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -276,11 +267,11 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">executableClass.Logout</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">executableClass.SoftLogin</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">TC001_Logout</span>
+                <span class="method-name">TC001_SoftLogin_Phone_And_Zip_login</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->

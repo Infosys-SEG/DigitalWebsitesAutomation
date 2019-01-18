@@ -25,11 +25,11 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 public class Data 
 {
-	public static WebDriver driver;
+	/*public static WebDriver driver;
 	WebElement webElement = null;
 	WebDriverWait webDriverWait;
 	String Pass_screenShot=".\\ScreenShot_Pass\\";
-	String Fail_screenShot=".\\ScreenShot_Failed\\";	
+	String Fail_screenShot=".\\ScreenShot_Failed\\";	*/
 	
 	//Get row num
 	public int rownum(String SheetName) throws IOException
@@ -60,11 +60,11 @@ public class Data
 				new File(Path+".png"));
 	}
 	//waitForElementClickable
-	public WebElement waitForElementClickable(WebDriver driver,WebElement item)
+	public WebDriver waitForElementClickable(WebDriver driver,WebElement item)
 	{
 		WebDriverWait wait=new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.elementToBeClickable(item));
-		return item;
+		return driver;
 	}
 	
 	//wait for element	
@@ -74,17 +74,19 @@ public class Data
 		wait.until(ExpectedConditions.visibilityOf(item));
 		return driver;
 	}
-	public List<WebElement> waitForElements(WebDriver driver, List<WebElement> elements) 
+	@SuppressWarnings("unchecked")
+	public List<WebDriver> waitForElements(WebDriver driver, List<WebElement> elements) 
 	{
 		WebDriverWait wait=new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.visibilityOfAllElements(elements));
-		return elements;
+		return (List<WebDriver>) driver;
+		
 	}
-	public WebElement waitForElementselected(WebDriver driver, WebElement element) 
+	public WebDriver waitForElementselected(WebDriver driver, WebElement element) 
 	{
 		WebDriverWait wait=new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.elementToBeSelected(element));
-		return element;
+		return driver;
 	}
 	//scrollingToElementofAPage
 	public WebDriver scrollingToElementofAPage(WebDriver driver,WebElement item) 
@@ -113,7 +115,7 @@ public class Data
 	{
 		Actions actions = new Actions(driver);
 
-		actions.moveToElement(item).click().perform();
+		actions.moveToElement(item).pause(500).click().perform();
 		return driver;
 	}
 	public WebDriver movetoElement_JS(WebDriver driver,WebElement item) 

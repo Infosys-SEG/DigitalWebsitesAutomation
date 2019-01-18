@@ -19,6 +19,7 @@ import generatedClass.POM_Generated_StaticInfoBar;
 
 public class Computed_MyAccount 
 {
+	Data obj = new Data();
 	public WebDriver Loggedin_MyAccountpage(WebDriver driver,String Functionality,String TCName,String opt) throws IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
@@ -27,7 +28,7 @@ public class Computed_MyAccount
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_StaticInfoBar staticinfobar = new POM_Generated_StaticInfoBar(driver);
 		
-		Data obj=new Data();
+		//Data obj=new Data();
 		
 	    try
 	    {
@@ -177,6 +178,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Salutation").equals(contactinfopage.getValue_ddl_Salutation_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_notsaved");
 							Assert.fail("Salutation has not changed after save");
 						}
 					}
@@ -184,6 +186,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("FirstName").equals(contactinfopage.getValue_txt_Fname_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"fname_notsaved");
 							Assert.fail("FirstName has not changed after save");
 						}
 					}
@@ -191,6 +194,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("LastName").equals(contactinfopage.getValue_txt_Lname_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"lname_notsaved");
 							Assert.fail("LastName has not changed after save");
 						}
 					}
@@ -198,6 +202,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Month").equals(contactinfopage.getValue_txt_Month_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"month_notsaved");
 							Assert.fail("Month has not changed after save");
 						}
 					}
@@ -205,6 +210,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Date").equals(contactinfopage.getValue_txt_Date_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"date_notsaved");
 							Assert.fail("Date has not changed after save");
 						}
 					}
@@ -212,6 +218,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Year").equals(contactinfopage.getValue_txt_Year_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"yr_notsaved");
 							Assert.fail("Year has not changed after save");
 						}
 					}
@@ -219,6 +226,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("EmailAddress").equals(myaccountpage.getValue_txt_Email_Address_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"email_ntsaved");
 							Assert.fail("EmailAddress has not changed after save");
 						}
 					}
@@ -226,6 +234,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Address1").equals(contactinfopage.getValue_txt_Address_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"add_notsaved");
 							Assert.fail("Address1 has not changed after save");
 						}
 					}
@@ -233,6 +242,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Address2").equals(contactinfopage.getValue_txt_Additional_Address_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"addr_ntsaved");
 							Assert.fail("Address2 has not changed after save");
 						}
 					}
@@ -240,6 +250,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("Primary_Phone").equals(contactinfopage.getValue_txt_Primary_Phone_Number_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"ph_notsaved");
 							Assert.fail("Primary_Phone has not changed after save");
 						}
 					}
@@ -247,6 +258,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("City").equals(contactinfopage.getValue_txt_City_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"city_notsaved");
 							Assert.fail("City has not changed after save");
 						}
 					}
@@ -254,6 +266,7 @@ public class Computed_MyAccount
 					{
 						if(!Readexcel_RowName.getValue("State_Code").equals(contactinfopage.getValue_ddl_State_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"state_notsaved");
 							Assert.fail("State has not changed after save");
 						}
 					}
@@ -262,6 +275,7 @@ public class Computed_MyAccount
 						
 						if(!(Readexcel_RowName.getValue("Zip")).contains(contactinfopage.getValue_txt_Zipcode_Field()))
 						{
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"zip_notsaved");
 							Assert.fail("Zip has not changed after save");
 						}
 					}
@@ -284,6 +298,7 @@ public class Computed_MyAccount
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_save");
 					Assert.fail("save message is not displaying");
 				}	
 			}
@@ -295,81 +310,98 @@ public class Computed_MyAccount
 				{
 					if(!Salutation1.equals(contactinfopage.getValue_ddl_Salutation_Field()))
 					{
-						Assert.fail("salutation has changed for cancel");
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"sal_cancel");						Assert.fail("salutation has changed for cancel");
 					}
 					if(!FirstName1.equals(contactinfopage.getValue_txt_Fname_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"fname_cancel");
 						Assert.fail("FirstName has changed for cancel");
 					}
 					if(!LastName1.equals(contactinfopage.getValue_txt_Lname_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"lname_cancel");
 						Assert.fail("LastName has changed for cancel");
 					}
 					if(!Month1.equals(contactinfopage.getValue_txt_Month_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"mnth_cancel");
 						Assert.fail("Month has changed for cancel");
 					}
 					if(!Date1.equals(contactinfopage.getValue_txt_Date_Field()))
 					{
-						Assert.fail("Date has changed for cancel");
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"dat_cancel");						Assert.fail("Date has changed for cancel");
 					}
 					if(!Year1.equals(contactinfopage.getValue_txt_Year_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"yr_cancel");
 						Assert.fail("Year has changed for cancel");
 					}
 					if(!EmailAddress1.equals(myaccountpage.getValue_txt_Email_Address_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"email_cancel");
 						Assert.fail("EmailAddress has changed for cancel");
 					}
 					if(!Address11.equals(contactinfopage.getValue_txt_Address_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"add_cancel");
 						Assert.fail("Address1 has changed for cancel");
 					}
 					if(!Address12.equals(contactinfopage.getValue_txt_Additional_Address_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"addr_cancel");
 						Assert.fail("Address2 has changed for cancel");
 					}
 					if(!Primary_Phone_Number.equals(contactinfopage.getValue_txt_Primary_Phone_Number_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_prmyph");
 						Assert.fail("Primary_Phone_Number has changed for cancel");
 					}
 					if(!City1.equals(contactinfopage.getValue_txt_City_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"city_cancel");
 						Assert.fail("City has changed for cancel");
 					}
 					if(!State1.equals(contactinfopage.getValue_ddl_State_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"state_cancel");
 						Assert.fail("State has changed for cancel");
 					}
 					if(!Zip1.equals(contactinfopage.getValue_txt_Zipcode_Field()))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"zip_cancel");
 						Assert.fail("Zip has changed for cancel");
 					}
 					if(!myaccountpage.getValue_txt_Set_Password1_Field().equalsIgnoreCase(""))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"pwd_cancel");
 						Assert.fail("Password1 is displaying some values after cancel");
 					}
 					if(!myaccountpage.getValue_txt_Set_Password2_Field().equalsIgnoreCase(""))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"pwdr_cancel");
 						Assert.fail("Password2 is displaying some values after cancel");
 					}
 					if(!myaccountpage.getValue_txt_Set_Pin1_Field().equalsIgnoreCase(""))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"pin_cancel");
 						Assert.fail("Pin1 is displaying some values after cancel");
 					}
 					if(!myaccountpage.getValue_txt_Set_Pin2_Field().equalsIgnoreCase(""))
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"pinr_cancel");
 						Assert.fail("Pin2 is displaying some values after cancel");
 					}
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_save");
 					Assert.fail("Your changes have been not saved. message is not displaying");
 				}	
 			}
 	    }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_editacc");
 	    	System.out.println(e);
 	    	Assert.fail("Error in Edit Account Details page");
 	    }
@@ -380,7 +412,7 @@ public class Computed_MyAccount
 	{
 		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
 		String a;
-		Data obj=new Data();
+		//Data obj=new Data();
 		
 	    try
 	    {
@@ -394,6 +426,7 @@ public class Computed_MyAccount
 		    }
 		    else
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_textPin");
 		    	Assert.fail("Watermark text is displayed for Set PIN field as "+a);
 		    }
 		    a=myaccountpage.txt_Set_Pin2_Field.getAttribute("placeholder");
@@ -404,6 +437,7 @@ public class Computed_MyAccount
 		    }
 		    else
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_confpin");
 		    	Assert.fail("Watermark text is displayed for confirm PIN field as "+a);
 		    }
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
@@ -430,6 +464,7 @@ public class Computed_MyAccount
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_save");
 					Assert.fail("save message is not displaying");
 				}	
 			}
@@ -447,12 +482,14 @@ public class Computed_MyAccount
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_resetpin");
 					Assert.fail("Reset PIN is not cancelled");
 				}	
 			}
 	    }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_resetpin");
 	    	System.out.println(e);
 	    	Assert.fail("Error in Reset PIN ");
 	    }
@@ -463,7 +500,7 @@ public class Computed_MyAccount
 	{
 		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
 		
-		Data obj=new Data();
+		//Data obj=new Data();
 		 try
 		    {
 			    new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
@@ -508,11 +545,13 @@ public class Computed_MyAccount
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalid");
 				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_NotMatchingPIns_Msg()); 
 				     }
 				     }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidpin");
 						Assert.fail("Error message is not displayed when PINs are not matching :"+myaccountpage.getText_txt_Error_NotMatchingPIns_Msg());
 					}	
 					myaccountpage.click_click_Cancel_Button();
@@ -544,11 +583,13 @@ public class Computed_MyAccount
 					  }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PIN");
 				     Assert.fail("Error message is NOT displayed when repeated digits PIN is entered : "+myaccountpage.getText_txt_Error_Pin_Modal_Msg()); 
 				     }
 				     }
 				else
 					{
+					    obj.Ashot_Screenshot(driver, Functionality, TCName,"err_PIN");
 						Assert.fail("Error message is NOT displayed when repeated digits PIN is entered :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
 					}	
 					myaccountpage.click_click_Cancel_Button();
@@ -575,12 +616,14 @@ public class Computed_MyAccount
 						  }
 					     else
 					     {
+					     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pin");
 					     Assert.fail("Error message is NOT displayed when easily guessable digits PIN is entered : "+myaccountpage.getText_txt_Error_Pin_Modal_Msg()); 
 					     }
 					     }
 					else
 						{
-							Assert.fail("Error message is NOT displayed when easily guessable digits PIN is entered :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
+						 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pin");
+						 Assert.fail("Error message is NOT displayed when easily guessable digits PIN is entered :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
 						}	
 						myaccountpage.click_click_Cancel_Button();
 		//House Number PIN Error Validation
@@ -605,12 +648,14 @@ public class Computed_MyAccount
 							  }
 						     else
 						     {
+						     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_homepin");
 						     Assert.fail("Error message is NOT displayed when house number is entered as PIN number : "+myaccountpage.getText_txt_Error_Pin_Modal_Msg()); 
 						     }
 						     }
 						else
 							{
-								Assert.fail("Error message is NOT displayed when house number is entered as PIN number :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
+							obj.Ashot_Screenshot(driver, Functionality, TCName,"err_homepin");
+							Assert.fail("Error message is NOT displayed when house number is entered as PIN number :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
 							}	
 							myaccountpage.click_click_Cancel_Button();
 		//CRC Number PIN Error Validation
@@ -635,12 +680,14 @@ public class Computed_MyAccount
 								  }
 							     else
 							     {
+							     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_CRC");
 							     Assert.fail("Error message is NOT displayed when CRC number is entered as PIN number : "+myaccountpage.getText_txt_Error_Pin_Modal_Msg()); 
 							     }
 							     }
 							else
 								{
-									Assert.fail("Error message is NOT displayed when CRC number is entered as PIN number :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
+								obj.Ashot_Screenshot(driver, Functionality, TCName,"err_CRC");
+								Assert.fail("Error message is NOT displayed when CRC number is entered as PIN number :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
 								}	
 								myaccountpage.click_click_Cancel_Button();
 			//Phone Number PIN Error Validation
@@ -665,12 +712,14 @@ public class Computed_MyAccount
 									  }
 								     else
 								     {
+								     obj.Ashot_Screenshot(driver, Functionality, TCName,"ERR_PH");
 								     Assert.fail("Error message is NOT displayed when phone number is entered as PIN number : "+myaccountpage.getText_txt_Error_Pin_Modal_Msg()); 
 								     }
 								     }
 								else
 									{
-										Assert.fail("Error message is NOT displayed when phone number is entered as PIN number :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
+									obj.Ashot_Screenshot(driver, Functionality, TCName,"err_ph");
+									Assert.fail("Error message is NOT displayed when phone number is entered as PIN number :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
 									}	
 									myaccountpage.click_click_Cancel_Button();
 		//Entering Wrong PIN for 3 times
@@ -700,12 +749,14 @@ public class Computed_MyAccount
 										  }
 									     else
 									     {
+									     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_wrongpin");	 
 									     Assert.fail("Error message is NOT displayed when wrong PIN is entrered 3 times : "+myaccountpage.getText_txt_Error_Pin_Modal_Msg()); 
 									     }
 									     }
 									else
 										{
-											Assert.fail("Error message is NOT displayed when phone number is entered as PIN number :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
+										obj.Ashot_Screenshot(driver, Functionality, TCName,"err_phone");
+										Assert.fail("Error message is NOT displayed when phone number is entered as PIN number :"+myaccountpage.getText_txt_Error_Pin_Modal_Msg());
 										}	
 										myaccountpage.click_click_Cancel_Button();
 				
@@ -713,6 +764,7 @@ public class Computed_MyAccount
 		    }
 		    catch(Exception e)
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_resetpin");
 		    	System.out.println(e);
 		    	Assert.fail("Error in Reset PIN ");
 		    }
@@ -723,7 +775,7 @@ public class Computed_MyAccount
 	{
 		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
 		String a;
-		Data obj=new Data();
+		//Data obj=new Data();
 		Writeexcel_RowName obj1=new Writeexcel_RowName();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;	
 	    try
@@ -741,6 +793,7 @@ public class Computed_MyAccount
 		    }
 		    else
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_watermarktext");
 		    	Assert.fail("Watermark text is displayed for Set Password field as "+a);
 		    }
 		    a=myaccountpage.txt_Set_Password2_Field.getAttribute("placeholder");
@@ -751,6 +804,7 @@ public class Computed_MyAccount
 		    }
 		    else
 		    {
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_watermarktext");
 		    	Assert.fail("Watermark text is displayed for confirm Password field as "+a);
 		    }
 			if(Readexcel_RowName.getValue("Password")!=null)
@@ -778,6 +832,7 @@ public class Computed_MyAccount
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_save");
 					Assert.fail("save message is not displaying");
 				}	
 			}
@@ -796,6 +851,7 @@ public class Computed_MyAccount
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_resetpwd");
 					Assert.fail("ResetPassword is not cancelled");
 				}	
 			}
@@ -803,6 +859,7 @@ public class Computed_MyAccount
 	    }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_resetpwd");
 	    	System.out.println(e);
 	    	Assert.fail("Error in Reset Password ");
 	    }
@@ -813,7 +870,7 @@ public class Computed_MyAccount
 	{
 		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
 		
-		Data obj=new Data();
+		//Data obj=new Data();
 		Writeexcel_RowName obj1=new Writeexcel_RowName();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;	
 	    try
@@ -849,6 +906,7 @@ public class Computed_MyAccount
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_oldpwd");
 					Assert.fail("old password is not set");
 				}	
 			}
@@ -866,6 +924,7 @@ public class Computed_MyAccount
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_resetpwd");
 					Assert.fail("ResetPassword is not cancelled");
 				}	
 			}
@@ -873,6 +932,7 @@ public class Computed_MyAccount
 	    }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_reset");
 	    	System.out.println(e);
 	    	Assert.fail("Error in Reset PIN ");
 	    }
@@ -908,11 +968,13 @@ public class Computed_MyAccount
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_NotMatchingPwds_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pwdmsg");
 						Assert.fail("Error message is not displayed when Passwords are not matching :"+myaccountpage.getText_txt_Error_NotMatchingPwds_Msg());
 					}	
 		      	myaccountpage.click_click_Cancel_Button();
@@ -929,11 +991,13 @@ public class Computed_MyAccount
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pwd");
 						Assert.fail("Error message is not displayed when Password is less than 8 digits :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
 					}	
 		      	myaccountpage.click_click_Cancel_Button();
@@ -948,11 +1012,13 @@ public class Computed_MyAccount
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_msg");
 				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidmsg");
 						Assert.fail("Error message is not displayed when Password is more than 16 digits :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
 					}	
 		      	myaccountpage.click_click_Cancel_Button();
@@ -967,11 +1033,13 @@ public class Computed_MyAccount
 					 }
 				     else
 				     {
+				    	 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pwd");
 						Assert.fail("Error message is not displayed when Password doesnt have any capital letter :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
 					}	
 		      	myaccountpage.click_click_Cancel_Button();
@@ -986,11 +1054,13 @@ public class Computed_MyAccount
 					 }
 				     else
 				     {
+				     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_invalidmsg");
 				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pwd");
 						Assert.fail("Error message is not displayed when Password doesnt have any number :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
 					}	
 		      	myaccountpage.click_click_Cancel_Button();
@@ -1005,11 +1075,13 @@ public class Computed_MyAccount
 					 }
 				     else
 				     {
+				    	 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_msg");
 				     Assert.fail("Displayed Error Message is not the expected : "+myaccountpage.getText_txt_Error_SetPwd_Msg()); 
 				     }    
 				    }
 					else
 					{
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_msg");
 						Assert.fail("Error message is not displayed when Password doesnt have any lower letter :"+myaccountpage.getText_txt_Error_SetPwd_Msg());
 					}	
 		      	myaccountpage.click_click_Cancel_Button();
@@ -1019,6 +1091,7 @@ public class Computed_MyAccount
 	      }
 					 catch(Exception e)
 					    {
+						    obj.Ashot_Screenshot(driver, Functionality, TCName,"err_resetpwd");
 					    	System.out.println(e);
 					    	Assert.fail("Error in Reset Password ");
 					    }
@@ -1029,7 +1102,7 @@ public class Computed_MyAccount
 	{
 		
 		POM_Generated_ContactInfoPage contactInfo = new POM_Generated_ContactInfoPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		try
 		{
@@ -1045,11 +1118,13 @@ public class Computed_MyAccount
 			   }
 			   else
 		       {
+				   obj.Ashot_Screenshot(driver, Functionality, TCName,"err_yesbutton");
 				   Assert.fail("Yes button is checked");
 			   } 
 		   }
 		  else
 			 {
+			     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_textmeyes");
 				 Assert.fail("Text Me offers Yes radio button is not displayed");
 			 }	   
 		   if(contactInfo.isEnabled_click_TextMeOffers_No_Button())
@@ -1061,17 +1136,20 @@ public class Computed_MyAccount
 			   }
 			   else
 		       {
+				   obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nobutton");
 				   Assert.fail("No button is checked");
 			   } 
 		   }
 		  else
 			 {
+			     obj.Ashot_Screenshot(driver, Functionality, TCName,"err_text");
 				 Assert.fail("Text Me offers No radio button is not displayed");
 			 }	   
 		   
 		}
 		 catch(Exception e)
 	    {
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_text");
 	    	System.out.println(e);
 	    	Assert.fail("Text Me offer section is not displayed. check your test data");
 	    }
@@ -1083,7 +1161,7 @@ public class Computed_MyAccount
 	{
 		
 		POM_Generated_ContactInfoPage contactInfo = new POM_Generated_ContactInfoPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		try
 		{
@@ -1097,6 +1175,7 @@ public class Computed_MyAccount
 		   }	   
 		   else
 		   {
+			   obj.Ashot_Screenshot(driver, Functionality, TCName,"err_text");
 			   Assert.fail("Text Me offers section is displayed");  
 		   }
 		}
@@ -1124,6 +1203,7 @@ public class Computed_MyAccount
     }
     else
     {
+    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pwd");
     	Assert.fail("Password is not displayed in encrypted form");
     }
     myaccountpage.click_click_Eye_Icon_SetPassword();
@@ -1134,6 +1214,7 @@ public class Computed_MyAccount
     }
     else
     {
+    	obj.Ashot_Screenshot(driver, Functionality, TCName,"error_eye");
     	Assert.fail("User is NOT able to see the numbers after clicking Eye icon");
     }
     return driver;

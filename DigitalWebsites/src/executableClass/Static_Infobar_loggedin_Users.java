@@ -32,9 +32,9 @@ public class Static_Infobar_loggedin_Users
 		driver=browserbanner.Clearcookie(driver, functionality);
 		driver = hardlogin.Global_HardLogin(driver, functionality,tcname);
 		driver = mystore.SetStore(driver, functionality, tcname);
-		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "Hardlogin");
+		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "Hardlogin",tcname);
 		driver.close();
 	}
 	
@@ -51,9 +51,9 @@ public class Static_Infobar_loggedin_Users
 		driver=browserbanner.Clearcookie(driver, functionality);
 		driver = hardlogin.Global_HardLogin(driver, functionality,tcname);
 		driver = mystore.SetStore(driver, functionality, tcname);
-		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "Hardlogin");
+		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "Hardlogin",tcname);
 		driver.close();
 	}
 	
@@ -72,9 +72,9 @@ public class Static_Infobar_loggedin_Users
 		driver = softlogin.SoftLogin_Rewards(driver, functionality, tcname);
 		driver = hardlogin.Account_HardLogin(driver, functionality,tcname );
 		driver = mystore.SetStore(driver, functionality, tcname);
-		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "Hardlogin");
+		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "Hardlogin",tcname);
 		driver.close();
 	}
 	
@@ -93,9 +93,9 @@ public class Static_Infobar_loggedin_Users
 		driver = softlogin.SoftLogin_Rewards(driver, functionality, tcname);
 		
 		driver = mystore.SetStore(driver, functionality, tcname);
-		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "SoftLogin");
+		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "Softlogin",tcname);
 		driver.close();
 	}
 	
@@ -114,9 +114,9 @@ public class Static_Infobar_loggedin_Users
 		driver = softlogin.SoftLogin_Rewards(driver, functionality, tcname);
 		
 		driver = mystore.SetStore(driver, functionality, tcname);
-		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality);
-		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "SoftLogin");
+		driver = staticinfobar.LoginStaticinfobar_WeeklyAd(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, functionality,tcname);
+		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, functionality, "Softlogin",tcname);
 		driver.close();
 	}
 }

@@ -19,6 +19,7 @@ import generatedClass.POM_Generated_ShoppingListPage;
 
 public class Computed_Shopping_List 
 {
+	Data obj=new Data();
 	List<WebElement> totalprod= null;
     List<WebElement> prodsummary=null;
     List<WebElement> proddesc= null;
@@ -28,12 +29,12 @@ public class Computed_Shopping_List
     List<WebElement> qty=null;
     private String proddetails;
 	private int count;
-    public WebDriver ShoppingList_Navigation(WebDriver driver,String Functionality) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+    public WebDriver ShoppingList_Navigation(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
     	POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
-		Data obj=new Data();
+		
 		String value="";
 		WebElement logo = null;
 	    try
@@ -84,6 +85,7 @@ public class Computed_Shopping_List
     	}
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_shoplist");
 	    	Assert.fail("Error in shopping list navigation");
 	    }
 		return driver;
@@ -93,7 +95,7 @@ public class Computed_Shopping_List
 	public WebDriver WeeklyAd_Deals_ShoppingList(WebDriver driver,String Functionality,String TCName,String proddetails,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		Robot rb = new Robot();
 	    try
 	    { 	   
@@ -104,6 +106,7 @@ public class Computed_Shopping_List
 			{
 				if(scl!=count)
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_count");
 					driver.close();
 					Assert.fail("count not updated");
 				}
@@ -143,6 +146,7 @@ public class Computed_Shopping_List
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noprint");
 					Assert.fail("Print list button is not displayed in shopping list page");
 				}
 				if(shoppinglistpage.isDisplayed_click_Email_List_Button())
@@ -151,11 +155,13 @@ public class Computed_Shopping_List
 				}
 				else
 				{
+					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noemail");
 					Assert.fail("Email list button is not displayed in shopping list page");
 				}
 			}
 			catch(Exception e)
 			{
+				 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_emailorprint");
 				Assert.fail("Error in Email list  or print list button in shopping list page");
 			}
 			obj.movetoElementofAPage(driver, shoppinglistpage.click_Weekly_Ad_Filter_Checkbox);
@@ -170,6 +176,7 @@ public class Computed_Shopping_List
 			else
 			{
 				prodchk=false;
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_total");
 				Assert.fail("Error in total products");
 			}
 	        
@@ -244,6 +251,7 @@ public class Computed_Shopping_List
 									}
 				    				else
 				    				{
+				    					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_defqty");
 				    					Assert.fail("Default quantity 1 is not displaying for Products added in shoppinglist");
 				    				}
 				    			}
@@ -325,6 +333,7 @@ public class Computed_Shopping_List
 									}
 									else
 									{
+										obj.Ashot_Screenshot(driver, Functionality, TCName,"err_qty");
 										Assert.fail("Quantity not changed");
 									}
 								}
@@ -335,7 +344,8 @@ public class Computed_Shopping_List
 				    		}
 				    		else
 				    		{
-				    			Assert.fail("Check action verify parameter forn shopping list");
+				    			 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_check");
+				    			Assert.fail("Check action verify parameter from shopping list");
 				    		}
 		    			}
 		    		}
@@ -346,6 +356,7 @@ public class Computed_Shopping_List
 		    	if(chk==false)
 		    	{
 		    		//driver.close();
+		    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_nopdt");
 		    		Assert.fail("Products are not displaying in shoppinglist when items added from circular page");
 		    		
 		    	}
@@ -358,6 +369,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==true)
 		    	{
+		    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pdtremov");
 		    		driver.close();
 		    		Assert.fail("Products are displaying in shoppinglist when items removed from circular page");
 		    		
@@ -371,6 +383,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==false)
 		    	{
+		    		 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_delpdt");
 		    		driver.close();
 		    		Assert.fail("Products are not removed from shoppinglist by clicking delete icon");
 		    		
@@ -385,6 +398,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==false)
 		    	{
+		    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_mutliplepdtnotremoved");
 		    		driver.close();
 		    		Assert.fail("Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button");
 		    		
@@ -402,6 +416,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==false)
 		    	{
+		    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_qtynotupdated");
 		    		//driver.close();
 		    		Assert.fail("Edited Quantity is not updated in shopping list");
 		    		
@@ -413,6 +428,7 @@ public class Computed_Shopping_List
 		    }
 		    else
     		{
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_check");
 		    	System.out.println("");
     			Assert.fail("Check action verify parameter from shopping list");
     		}
@@ -422,6 +438,7 @@ public class Computed_Shopping_List
 	    }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_shoplist");
 	    	//driver.close();
 	    	System.out.println(e);
 	    	Assert.fail("Error in shopping list");
@@ -431,10 +448,10 @@ public class Computed_Shopping_List
 	    return driver;  	  
 	}
 	
-	public WebDriver Coupons_ShoppingList(WebDriver driver,String prod,int count,String pageverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+	public WebDriver Coupons_ShoppingList(WebDriver driver,String prod,int count,String pageverify,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		Robot rb = new Robot(); 
 	    try
 	    { 
@@ -445,6 +462,7 @@ public class Computed_Shopping_List
 			System.out.println(scl);
 			if(scl!=count)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_count");
 				driver.close();
 				
 				Assert.fail("count not updated");
@@ -543,6 +561,7 @@ public class Computed_Shopping_List
 			   
 				if(chk==false)
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_coupons");
 					driver.close();
 					Assert.fail("Coupons are not added in shoppinglist");
 			    		
@@ -553,6 +572,7 @@ public class Computed_Shopping_List
 	    }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_shoplist");
 	    	driver.close();
 	    	Assert.fail("Error in shopping list");
 	    	obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
@@ -565,7 +585,7 @@ public class Computed_Shopping_List
 	public WebDriver Add_Remove_MyItems_ShoppingList(WebDriver driver,String Functionality,String TCName, int count,String action) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		Robot rb = new Robot();
 		String prodname="";
 	    try
@@ -614,6 +634,7 @@ public class Computed_Shopping_List
 			}
 			catch(Exception e)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_remove");
 				Assert.fail("Error in Remove all checked items button");
 			}
 			
@@ -625,6 +646,7 @@ public class Computed_Shopping_List
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noprint");
 					Assert.fail("Print list button is not displayed in shopping list page");
 				}
 				if(shoppinglistpage.isDisplayed_click_Email_List_Button())
@@ -633,11 +655,13 @@ public class Computed_Shopping_List
 				}
 				else
 				{
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noemail");
 					Assert.fail("Email list button is not displayed in shopping list page");
 				}
 			}
 			catch(Exception e)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_emailorprint");
 				Assert.fail("Error in Email list or print list button in shopping list page");
 			}
 			
@@ -701,6 +725,7 @@ public class Computed_Shopping_List
 	    }
 	    catch(Exception e)
 	    {
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_shoplist");
 	    	//driver.close();
 	    	System.out.println(e);
 	    	Assert.fail("Error in shopping list");
@@ -714,7 +739,7 @@ public class Computed_Shopping_List
 	public WebDriver Check_MyItems_ShoppingList(WebDriver driver,String Functionality,String TCName,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
-		Data obj=new Data();
+		//Data obj=new Data();
 		Robot rb = new Robot();
 		String prodname="";
 		String editname="";
@@ -727,6 +752,7 @@ public class Computed_Shopping_List
 			
 			if(scl!=count)
 			{
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_count");
 				driver.close();
 				Assert.fail("count not updated");
 			}
@@ -839,6 +865,7 @@ public class Computed_Shopping_List
 									}
 									else
 									{
+										obj.Ashot_Screenshot(driver, Functionality, TCName,"err_qtynotupdated");
 										Assert.fail("Quantity not changed");
 									}
 								}
@@ -852,6 +879,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==false)
 		    	{
+		    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pdtnotadded");
 		    		//driver.close();
 		    		Assert.fail("Products are not displaying in shoppinglist when items added from myitems");
 		    		
@@ -866,6 +894,7 @@ public class Computed_Shopping_List
 		    	if(chk==false)
 		    	{
 		    		//driver.close();
+		    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pdtnotadded");
 		    		Assert.fail("Products are not displaying in shoppinglist when items Edited from myitems");
 		    		
 		    	}
@@ -878,6 +907,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==true)
 		    	{
+		    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_pdt");
 		    		driver.close();
 		    		Assert.fail("Products are displaying in shoppinglist when items removed from myitems");
 		    		
@@ -893,6 +923,7 @@ public class Computed_Shopping_List
 	    catch(Exception e)
 	    {
 	    	//driver.close();
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_myitems");
 	    	System.out.println(e);
 	    	Assert.fail("Error in myitems shopping list");
 	    	
@@ -906,7 +937,7 @@ public class Computed_Shopping_List
 	{
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
 		
-		Data obj=new Data();
+		//Data obj=new Data();
 		Robot rb = new Robot();
 		String prodname="";
 		String editname="";
@@ -959,6 +990,7 @@ public class Computed_Shopping_List
 				else
 				{
 					prodchk=false;
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_total");
 					Assert.fail("Error in total products");
 				}
 				
@@ -1108,6 +1140,7 @@ public class Computed_Shopping_List
 	    catch(Exception e)
 	    {
 	    	//driver.close();
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_shoplist");
 	    	System.out.println(e);
 	    	Assert.fail("Error in shopping list");
 	    	

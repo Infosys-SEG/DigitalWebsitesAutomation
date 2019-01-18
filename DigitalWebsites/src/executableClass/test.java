@@ -23,7 +23,8 @@ public class test
 		
 		driver= br.Clearcookie(driver, "HardLogin_Loggedin_Account");
 		driver=hardlogin.Global_HardLogin(driver, "HardLogin_Loggedin_Account","TC001_HardLogin_Access_features");
-		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, "Static_Infobar_loggedin_Users");
+		//driver = staticinfobar.LoginStaticinfobar_Rewards(driver, "Static_Infobar_loggedin_Users");
+		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, "Static_Infobar_loggedin_Users","");
 		List<WebElement> s=driver.findElements(By.xpath("//div[@class='col-md-4 col-sm-4 col-xs-12 p-0 text-center r-cells']"));
 		int len=s.size();
 		System.out.println(len);
