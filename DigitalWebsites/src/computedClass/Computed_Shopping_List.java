@@ -67,14 +67,14 @@ public class Computed_Shopping_List
 	    	{
 	    		bro=ie;
 	    	}
-	    	String Val = obj.popuppath()+" "+bro;
-	    	Runtime.getRuntime().exec(Val);
+	    	String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
+	    	
 	    	
 	    	obj.waitForElement(driver, logo);
 	    	logo.click();
     		obj.waitForElement(driver, homepage.click_Savings_link_Hover);
     		
-    		
+    		Runtime.getRuntime().exec(Val);
     		homepage.click_click_Savings_link_Hover();	
     		
     		//obj.waitForElement(driver, homepage.click_Savings_WeeklyAd_Button);
@@ -146,7 +146,7 @@ public class Computed_Shopping_List
 				}
 				else
 				{
-					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noprint");
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noprint");
 					Assert.fail("Print list button is not displayed in shopping list page");
 				}
 				if(shoppinglistpage.isDisplayed_click_Email_List_Button())
@@ -155,7 +155,7 @@ public class Computed_Shopping_List
 				}
 				else
 				{
-					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noemail");
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_noemail");
 					Assert.fail("Email list button is not displayed in shopping list page");
 				}
 			}
@@ -344,7 +344,7 @@ public class Computed_Shopping_List
 				    		}
 				    		else
 				    		{
-				    			 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_check");
+				    			 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_chkActnVerParameter");
 				    			Assert.fail("Check action verify parameter from shopping list");
 				    		}
 		    			}
@@ -412,7 +412,7 @@ public class Computed_Shopping_List
 		    {
 		    	Reporter.log("verified shopping list only as expected");
 		    }
-		    if(actionverify.equalsIgnoreCase("editqty"))
+		    else if(actionverify.equalsIgnoreCase("editqty"))
 		    {
 		    	if(chk==false)
 		    	{
@@ -428,8 +428,7 @@ public class Computed_Shopping_List
 		    }
 		    else
     		{
-		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_check");
-		    	System.out.println("");
+		    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_chkActnVerParameter");
     			Assert.fail("Check action verify parameter from shopping list");
     		}
 		    obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
@@ -438,13 +437,10 @@ public class Computed_Shopping_List
 	    }
 	    catch(Exception e)
 	    {
-	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_shoplist");
-	    	//driver.close();
-	    	System.out.println(e);
-	    	Assert.fail("Error in shopping list");
-	    	
-	    }
-	
+	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"err_Noshoplist");
+	    	driver.close();
+	    	Assert.fail("Error in shopping list or shopping list not opened");    	
+	    }	
 	    return driver;  	  
 	}
 	

@@ -28,9 +28,16 @@ public class test
 		List<WebElement> s=driver.findElements(By.xpath("//div[@class='col-md-4 col-sm-4 col-xs-12 p-0 text-center r-cells']"));
 		int len=s.size();
 		System.out.println(len);
-		for (int i = 0; i<len;i++)
+		if(len!=0)
 		{
-			System.out.println(s.get(i).getText());
+			for (int i = 0; i<len;i++)
+			{
+				System.out.println(s.get(i).getText());
+			}
+		}
+		else
+		{
+			System.out.println("No recent transactions");
 		}
 	}
 

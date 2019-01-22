@@ -65,7 +65,7 @@ public class Computed_EnrollmentVerify
 		{
 			bro=ie;
 		}
-		String Val = obj.popuppath()+" "+bro;
+		String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		String cardstatus="";

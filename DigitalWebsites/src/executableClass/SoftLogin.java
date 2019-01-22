@@ -46,8 +46,8 @@ public class SoftLogin
 		driver = deals.Loggedin_Personalisedoffers(driver, Functionality,TCName);
 		driver = weeklyad.WeeklyAdPage(driver, Functionality, TCName);
 		driver = weeklyad.AddProduct(functionality,TCName,driver, prod, count, prodvalu,"circularpage");
-		driver=staticinfobar.LoginStaticinfobar_Rewards(driver, Functionality,TCName);
-		driver=staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality,TCName); 
+		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, Functionality,TCName);
+		driver = staticinfobar.LoginStaticinfobar_MyAccount(driver, Functionality, Functionality,TCName); 
 		driver.close();
 	}
 	

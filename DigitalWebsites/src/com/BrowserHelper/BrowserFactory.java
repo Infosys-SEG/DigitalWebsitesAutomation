@@ -2,11 +2,13 @@ package com.BrowserHelper;
 
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 public class BrowserFactory 
@@ -37,12 +39,20 @@ public class BrowserFactory
     			dc.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
     			dc.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING, false);
     			dc.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
+    			dc.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
+    			dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+    			dc.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+    			dc.setCapability("ignoreProtectedModeSettings", true);
+    			dc.setCapability("ignoreZoomSetting", true);
     			dc.setJavascriptEnabled(true);
     			System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\New folder\\IEDriverServer.exe");
             	driver = new InternetExplorerDriver(dc);
+            	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
             	driver.manage().window().maximize();
             	driver.manage().deleteAllCookies();
-            	Thread.sleep(1000);
+            	driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
+    			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+    			System.out.println("before");
             	driver.get(URL);
             	//driver.navigate().to(URL);
             	System.out.println("done");

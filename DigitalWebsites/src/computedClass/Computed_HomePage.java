@@ -115,12 +115,12 @@ public class Computed_HomePage {
 				    	{
 				    		bro=ie;
 				    	}
-				    	String Val = obj.popuppath()+" "+bro;
-			    	    Runtime.getRuntime().exec(Val);
+				    	String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
+			    	  
 			    	    
 			    	    String 	logo2=homepage.getText_click_WeeklyAd_Logo();	
 						Reporter.log(logo2 +" logo is displayed in home page");	
-						
+						  Runtime.getRuntime().exec(Val);
 					    homepage.click_click_WeeklyAd_Logo();
 					    String adurl=driver.getCurrentUrl();
 					    //* System.out.println(adurl);
@@ -272,12 +272,13 @@ public class Computed_HomePage {
 				    	{
 				    		bro=ie;
 				    	}
-				    	String Val = obj.popuppath()+" "+bro;
-			    	    Runtime.getRuntime().exec(Val);
+				    	String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
+			    	  
 			    	
 			    	    
 			    	    String 	logo2=homepage.getText_click_WeeklyAd_Logo();	
 						Reporter.log(logo2 +" logo is displayed in home page");	
+						  Runtime.getRuntime().exec(Val);
 					    homepage.click_click_WeeklyAd_Logo();
 					    
 					    String adurl=driver.getCurrentUrl();

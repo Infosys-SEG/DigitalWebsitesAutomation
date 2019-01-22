@@ -74,10 +74,10 @@ public class Computed_WeeklyAd
 	    	{
 	    		bro=ie;
 	    	}
-	    	String Val = obj.popuppath()+" "+bro;
-	    	Runtime.getRuntime().exec(Val);
+	    	String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
 	    	
-	    	obj.waitForElement(driver, logo);
+	    	
+	    	obj.waitForElementClickable(driver, logo);
 	    	logo.click();
 	    	try
 	    	{
@@ -90,17 +90,10 @@ public class Computed_WeeklyAd
 	    	{
 	    	        //exception handling
 	    	}
-    		obj.waitForElement(driver, homepage.click_Savings_link_Hover);
+    		obj.waitForElementClickable(driver, homepage.click_Savings_link_Hover);
     		homepage.click_click_Savings_link_Hover();	
-    	//	Runtime.getRuntime().exec(Val);
-    		
-    		
-    		
-    		//obj.waitForElement(driver, homepage.click_Savings_WeeklyAd_Button);
-    		
+    		Runtime.getRuntime().exec(Val);		
     		obj.movetoElementofAPage_Click(driver, homepage.click_Savings_WeeklyAd_Button);
-//    	/	homepage.click_click_Savings_WeeklyAd_Button();
-    		
     		obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
     		
     		if(driver.getCurrentUrl().equalsIgnoreCase(url))
@@ -148,6 +141,9 @@ public class Computed_WeeklyAd
     	}
     	catch(Exception e)
 		{
+    		System.out.println(driver);
+    		System.out.println(Functionality);
+    		System.out.println(TCName);
     		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd Page");
     		//driver.close();
     		System.out.println(e);

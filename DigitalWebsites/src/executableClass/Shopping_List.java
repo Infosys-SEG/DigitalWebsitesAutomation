@@ -204,7 +204,7 @@ public class Shopping_List
 		String Functionality = functionality;
 		driver= browserbanner.BrowserBanner(driver, Functionality);
 		driver=browserbanner.Clearcookie(driver, Functionality);
-		driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
+	//	driver=hardlogin.Global_HardLogin(driver, Functionality, TCName);
 		driver=weeklyad.WeeklyAdPage(driver, Functionality, TCName);
 		driver=weeklyad.AddProduct(functionality,TCName,driver, proddetails, count, prodvalu,"circularpage");
 		proddetails=weeklyad.getproddetails();

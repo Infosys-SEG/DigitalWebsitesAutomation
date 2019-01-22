@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="1" total="1" passed="0">
   <reporter-output>
+    <line>
+      <![CDATA[Locate a store near you button is displayed]]>
+    </line>
+    <line>
+      <![CDATA[Please select a store near to view weekly ads text is displayed]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="36583" started-at="2019-01-18T10:41:13Z" finished-at="2019-01-18T10:41:49Z">
+  <suite name="Default suite" duration-ms="89059" started-at="2019-01-22T07:42:15Z" finished-at="2019-01-22T07:43:44Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="36583" started-at="2019-01-18T10:41:13Z" finished-at="2019-01-18T10:41:49Z">
-      <class name="executableClass.SoftLogin">
-        <test-method status="FAIL" signature="TC001_SoftLogin_Phone_And_Zip_login()[pri:1, instance:executableClass.SoftLogin@3f49dace]" name="TC001_SoftLogin_Phone_And_Zip_login" duration-ms="36477" started-at="2019-01-18T16:11:13Z" finished-at="2019-01-18T16:11:49Z">
-          <exception class="java.lang.NullPointerException">
+    <test name="Default test" duration-ms="89059" started-at="2019-01-22T07:42:15Z" finished-at="2019-01-22T07:43:44Z">
+      <class name="executableClass.Shopping_List">
+        <test-method status="FAIL" signature="TC_21_RemoveMultipleItems_CircularItems()[pri:9, instance:executableClass.Shopping_List@1e397ed7]" name="TC_21_RemoveMultipleItems_CircularItems" duration-ms="88966" started-at="2019-01-22T13:12:15Z" finished-at="2019-01-22T13:13:44Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Error in weekly ad circular page]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getCurrentScrollY(ViewportPastingDecorator.java:79)
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:54)
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:35)
-	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:143)
-	at Utility.Data.Ashot_Screenshot(Data.java:56)
-	at computedClass.Computed_SoftLogin.SoftLogin_Rewards(Computed_SoftLogin.java:173)
-	at executableClass.SoftLogin.TC001_SoftLogin_Phone_And_Zip_login(SoftLogin.java:44)
+              <![CDATA[java.lang.AssertionError: Error in weekly ad circular page
+	at org.testng.Assert.fail(Assert.java:94)
+	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:263)
+	at executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems(Shopping_List.java:209)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -45,11 +50,17 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
+            <line>
+              <![CDATA[Locate a store near you button is displayed]]>
+            </line>
+            <line>
+              <![CDATA[Please select a store near to view weekly ads text is displayed]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- TC001_SoftLogin_Phone_And_Zip_login -->
-      </class> <!-- executableClass.SoftLogin -->
+        </test-method> <!-- TC_21_RemoveMultipleItems_CircularItems -->
+      </class> <!-- executableClass.Shopping_List -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

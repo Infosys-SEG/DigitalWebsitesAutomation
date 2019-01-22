@@ -178,7 +178,7 @@ public class Computed_MyStore
 		{
 			bro=ie;
 		}
-		String Val = obj.popuppath()+" "+bro;
+		String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
 		
 		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 	    {
@@ -281,7 +281,7 @@ public class Computed_MyStore
 		{
 			bro=ie;
 		}
-		String Val = obj.popuppath()+" "+bro;
+		String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
 		
 		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 	    {

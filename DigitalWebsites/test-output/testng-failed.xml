@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="executableClass.SoftLogin">
+      <class name="executableClass.Shopping_List">
         <methods>
-          <include name="TC001_SoftLogin_Phone_And_Zip_login"/>
+          <include name="TC_21_RemoveMultipleItems_CircularItems"/>
         </methods>
-      </class> <!-- executableClass.SoftLogin -->
+      </class> <!-- executableClass.Shopping_List -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jan 18 16:11:13 IST 2019</td>
+<td>Started on:</td><td>Tue Jan 22 13:12:15 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>36 seconds (36583 ms)</td>
+<tr><td>Total time:</td><td>89 seconds (89059 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,19 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='executableClass.SoftLogin.TC001_SoftLogin_Phone_And_Zip_login()'><b>TC001_SoftLogin_Phone_And_Zip_login</b><br>Test class: executableClass.SoftLogin</td>
-<td><div><pre>java.lang.NullPointerException
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getCurrentScrollY(ViewportPastingDecorator.java:79)
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:54)
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:35)
-	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:143)
-	at Utility.Data.Ashot_Screenshot(Data.java:56)
-	at computedClass.Computed_SoftLogin.SoftLogin_Rewards(Computed_SoftLogin.java:173)
-	at executableClass.SoftLogin.TC001_SoftLogin_Phone_And_Zip_login(SoftLogin.java:44)
+<td title='executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems()'><b>TC_21_RemoveMultipleItems_CircularItems</b><br>Test class: executableClass.Shopping_List<br/>
+<a href="#Output-259319861" onClick='toggleBox("Output-259319861", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-259319861" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-259319861">
+Locate a store near you button is displayed<br/>
+Please select a store near to view weekly ads text is displayed<br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: Error in weekly ad circular page
+	at org.testng.Assert.fail(Assert.java:94)
+	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:263)
+	at executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems(Shopping_List.java:209)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -109,15 +113,11 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-</pre></div><a href='#' onClick='toggleBox("stack-trace854653864", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace854653864'><pre>java.lang.NullPointerException
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getCurrentScrollY(ViewportPastingDecorator.java:79)
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:54)
-	at ru.yandex.qatools.ashot.shooting.ViewportPastingDecorator.getScreenshot(ViewportPastingDecorator.java:35)
-	at ru.yandex.qatools.ashot.AShot.takeScreenshot(AShot.java:143)
-	at Utility.Data.Ashot_Screenshot(Data.java:56)
-	at computedClass.Computed_SoftLogin.SoftLogin_Rewards(Computed_SoftLogin.java:173)
-	at executableClass.SoftLogin.TC001_SoftLogin_Phone_And_Zip_login(SoftLogin.java:44)
+</pre></div><a href='#' onClick='toggleBox("stack-trace259319861", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace259319861'><pre>java.lang.AssertionError: Error in weekly ad circular page
+	at org.testng.Assert.fail(Assert.java:94)
+	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:263)
+	at executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems(Shopping_List.java:209)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -144,8 +144,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
 </pre></div></td>
-<td>36</td>
-<td>executableClass.SoftLogin@3f49dace</td></tr>
+<td>88</td>
+<td>executableClass.Shopping_List@1e397ed7</td></tr>
 </table><p>
 </body>
 </html>

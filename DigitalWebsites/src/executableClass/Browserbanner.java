@@ -1,7 +1,6 @@
 package executableClass;
 
 import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -59,43 +58,36 @@ public class Browserbanner
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		
 		WebElement logo = null;
-	 
+		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet", "Global", Functionality);
 	
 		if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 		{
-			
 			logo=homepage.click_Winndixie_logo;
 		}
 		else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 		{
-			
 			logo = homepage.click_Bilo_logo;
 		}
 		else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
-		{
-			
+		{	
 			logo = homepage.click_Harveys_logo;
 		}
 			
 		try
-		{
-			System.out.println("3");
-			obj.waitForElementClickable(driver, logo);
-			System.out.println("4");
-			Thread.sleep(2000);
+		{			
+			System.out.println("4");			  			   			
 			obj.waitForElementClickable(driver, homepage.click_Close_cookies_Button);
 			System.out.println("5");
-			homepage.click_click_Close_cookies_Button();
+			homepage.click_click_Close_cookies_Button();	
 		}
 		catch(Exception e)
 		{
-			
-		}
-		Thread.sleep(2000);
+			System.out.println("catch");
+		}	
+		System.out.println("5555");
 		obj.waitForElementClickable(driver, logo);
 		logo.click();
-	
 		return driver ;
 	}
 }

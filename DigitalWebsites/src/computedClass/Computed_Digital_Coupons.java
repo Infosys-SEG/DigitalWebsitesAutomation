@@ -63,10 +63,11 @@ public class Computed_Digital_Coupons
 		String Val = obj.popuppath()+" "+bro;
 		try
 		{
-			Runtime.getRuntime().exec(Val);
+			
 	        obj.waitForElement(driver, logo);
 			logo.click();
 			obj.waitForElement(driver, homepage.click_Savings_link_Hover);	
+			Runtime.getRuntime().exec(Val);
 			homepage.click_click_Savings_link_Hover();
 			obj.waitForElement(driver, homepage.click_Savings_Coupon_Button);
 			homepage.click_click_Savings_Coupon_Button();
@@ -142,13 +143,14 @@ public class Computed_Digital_Coupons
 		{
 			bro=ie;
 		}
-		String Val = obj.popuppath()+" "+bro;
+		String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";;
 		try
 		{
-			Runtime.getRuntime().exec(Val);
+			
 			obj.waitForElement(driver, logo);
 			logo.click();
 			Thread.sleep(2000);
+			Runtime.getRuntime().exec(Val);
 			homepage.click_click_Digitial_Coupons_Logo();
 			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();
@@ -228,10 +230,11 @@ public class Computed_Digital_Coupons
 		try
 		{
 			//To handle window pop up Authentication				
-			Runtime.getRuntime().exec(Val);
+			
 			Thread.sleep(2000);
 			obj.movetoElementofAPage_Click(driver, logo);
-			obj.waitForElement(driver, homepage.click_Savings_link_Hover);			
+			obj.waitForElement(driver, homepage.click_Savings_link_Hover);		
+			Runtime.getRuntime().exec(Val);
 			homepage.click_click_Savings_link_Hover();
 			obj.waitForElement(driver, homepage.click_Savings_Coupon_Button);
 			homepage.click_click_Savings_Coupon_Button();
@@ -347,13 +350,14 @@ public class Computed_Digital_Coupons
 		try
 		{
 			//To handle window pop up Authentication				
-			Runtime.getRuntime().exec(Val);
+			
 			obj.waitForElement(driver, logo);	
 			
 			logo.click();
 			
 			Reporter.log("waiting for element");
 			Thread.sleep(2000);
+			Runtime.getRuntime().exec(Val);
 			obj.movetoElementofAPage_Click(driver, homepage.click_Digitial_Coupons_Logo);
 			obj.waitForElement(driver, couponspage.click_Digital_Coupon_page_Link);
 			couponspage.click_click_Digital_Coupon_page_Link();

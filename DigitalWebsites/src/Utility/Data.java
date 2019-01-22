@@ -3,9 +3,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-
 import javax.imageio.ImageIO;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -21,7 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import ru.yandex.qatools.ashot.screentaker.ViewportPastingStrategy;
 
 public class Data 
 {
@@ -51,13 +49,27 @@ public class Data
 	//Ashot
 	public  void Ashot_Screenshot(WebDriver driver,String Functionality,String TCName,String screenshotName) throws IOException
 	{
-		String Path = System.getProperty("user.dir")+"\\Screenshots\\"+Functionality+"\\"+TCName+"\\"+screenshotName;
-		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100))
-				.takeScreenshot(driver);
+		System.out.println(driver);
+		System.out.println(Functionality);
+		System.out.println(TCName);
+		String Path = System.getProperty("user.dir")+"\\Screenshots/"+Functionality+"/"+TCName+"/";
+		File file=new File(Path);
+		if (!file.exists()) {
+			
+			file=file.getParentFile();
+			System.out.println("File created " + file);
+			file=new File(file+"/"+TCName);
+			file.mkdirs();
+			file.createNewFile();
+           
+		}
 
+		
+		Screenshot screenshot = new AShot().shootingStrategy(new ViewportPastingStrategy(1000)).takeScreenshot(driver);
+		
 		// To save the screenshot in desired location
 		ImageIO.write(screenshot.getImage(), "PNG",
-				new File(Path+".png"));
+				new File(file+"/"+screenshotName+".png"));
 	}
 	//waitForElementClickable
 	public WebDriver waitForElementClickable(WebDriver driver,WebElement item)
@@ -115,7 +127,7 @@ public class Data
 	{
 		Actions actions = new Actions(driver);
 
-		actions.moveToElement(item).pause(500).click().perform();
+		actions.moveToElement(item).pause(500).click().build().perform();
 		return driver;
 	}
 	public WebDriver movetoElement_JS(WebDriver driver,WebElement item) 

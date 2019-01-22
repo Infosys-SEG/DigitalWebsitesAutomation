@@ -57,7 +57,7 @@ public class Computed_Static_Info_bar
 		{
 			bro=ie;
 		}
-		String Val = obj.popuppath()+" "+bro;
+		String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
 		try
 		{
 			obj.waitForElement(driver, logo);

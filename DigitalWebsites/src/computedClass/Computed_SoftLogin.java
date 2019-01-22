@@ -170,13 +170,14 @@ public class Computed_SoftLogin
 		}
 		catch (Exception e)
 		{
+			System.out.println(driver);
+			System.out.println(Functionality);
+			System.out.println(TCName);
 			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_SoftLoginFailed");
 			//driver.close();
 			System.out.println(e);
 			Assert.fail("Error in Softlogin Page or invalid credentials");
-	    }	
-		
-		
+	    }		
 		return driver;	
 	}
 	
