@@ -23,20 +23,19 @@ public class Account_Setup_page
 	{
 		//For getting current method name and passing as TCName
 		
-		String Functionality = functionality;
+		String Functionality=functionality;
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		
-		driver = browserbanner.BrowserBanner(driver, Functionality);
-		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver = contactinfo.Contactinfo_nav(driver, Functionality,TCName);
-		driver = contactinfo.Invalid_Or_Empty_FirstName_ErrMsg(driver, Functionality,TCName,"Invalid_Or_Empty_FirstName_ErrMsg");
-		driver = contactinfo.Invalid_Or_Empty_LastName_ErrMsg(driver,Functionality,TCName, "Invalid_Or_Empty_LastName_ErrMsg");
-		driver = contactinfo.Empty_DOB_ErrMsg(driver,Functionality,TCName,"Empty_DOB_ErrMsg");
-		driver = contactinfo.Empty_PhoneNumber_ErrMsg(driver,Functionality,TCName,"Empty_PhoneNumber_ErrMsg");
-		driver = contactinfo.Empty_Address_ErrMsg(driver,Functionality,TCName, "Empty_Address_ErrMsg");
-		driver = contactinfo.Empty_City_ErrMsg(driver,Functionality,TCName,"Empty_City_ErrMsg");
-		driver = contactinfo.Empty_State_ErrMsg(driver,Functionality,TCName,"Empty_State_ErrMsg");
-		driver = contactinfo.Empty_Zipcode_ErrMsg(driver,Functionality,TCName, "Empty_Zipcode_ErrMsg");
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver= browserbanner.Clearcookie(driver, Functionality);
+		driver= contactinfo.Contactinfo_nav(driver, Functionality,TCName);
+		driver=contactinfo.Invalid_Or_Empty_FirstName_ErrMsg(driver, Functionality,TCName,"Invalid_Or_Empty_FirstName_ErrMsg");
+		driver=contactinfo.Invalid_Or_Empty_LastName_ErrMsg(driver,Functionality,TCName, "Invalid_Or_Empty_LastName_ErrMsg");
+		driver=contactinfo.Empty_DOB_ErrMsg(driver,Functionality,TCName,"Empty_DOB_ErrMsg");
+		driver=contactinfo.Empty_PhoneNumber_ErrMsg(driver,Functionality,TCName,"Empty_PhoneNumber_ErrMsg");
+		driver=contactinfo.Empty_Address_ErrMsg(driver,Functionality,TCName, "Empty_Address_ErrMsg");
+		driver=contactinfo.Empty_City_ErrMsg(driver,Functionality,TCName,"Empty_City_ErrMsg");
+		driver=contactinfo.Empty_State_ErrMsg(driver,Functionality,TCName,"Empty_State_ErrMsg");
+		driver=contactinfo.Empty_Zipcode_ErrMsg(driver,Functionality,TCName, "Empty_Zipcode_ErrMsg");
 	    driver.close();
 	}
 	
@@ -44,12 +43,11 @@ public class Account_Setup_page
 	public void TC004_Error_message_validation_Salutation () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		String Functionality = functionality;
-		
-		driver = browserbanner.BrowserBanner(driver, Functionality);
-		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver = contactinfo.Contactinfo_nav(driver, Functionality,TCName);
-		driver = contactinfo.ContactInfoPage_Nosalutation(driver, Functionality,TCName,"Error_landline_primaryphone");
+		String Functionality=functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver= browserbanner.Clearcookie(driver, Functionality);
+		driver= contactinfo.Contactinfo_nav(driver, Functionality,TCName);
+		driver= contactinfo.ContactInfoPage_Nosalutation(driver, Functionality,TCName,"Error_landline_primaryphone");
 		driver.close();
 		
 	}
@@ -58,11 +56,10 @@ public class Account_Setup_page
 	{
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
 		String Functionality=functionality;
-		
-		driver = browserbanner.BrowserBanner(driver, Functionality);
-		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver = contactinfo.Contactinfo_nav(driver, Functionality,TCName);
-		driver = contactinfo.Empty_Offers_selection(driver, Functionality,TCName,"Empty_Offers_selection");
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver= browserbanner.Clearcookie(driver, Functionality);
+		driver= contactinfo.Contactinfo_nav(driver, Functionality,TCName);
+		driver= contactinfo.Empty_Offers_selection(driver, Functionality,TCName,"Empty_Offers_selection");
 		driver.close();
 	}
 
@@ -70,12 +67,11 @@ public class Account_Setup_page
 	public void TC010_Error_message_validation_character_and_special_characters_in_Phone_Number () throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		String Functionality = functionality;
-		
-		driver = browserbanner.BrowserBanner(driver, Functionality);
-		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver = contactinfo.Contactinfo_nav(driver, Functionality,TCName);
-		driver = contactinfo.ContactInfoPage_phone(driver,Functionality,TCName);
+		String Functionality=functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver= browserbanner.Clearcookie(driver, Functionality);
+		driver= contactinfo.Contactinfo_nav(driver, Functionality,TCName);
+		driver= contactinfo.ContactInfoPage_phone(driver,Functionality,TCName);
 		driver.close();
 	
 	}
@@ -84,11 +80,12 @@ public class Account_Setup_page
 	public void TC019_error_message_Invalid_NPA_number_range_format() throws InterruptedException, EncryptedDocumentException, FileNotFoundException, InvalidFormatException, IOException, AWTException
 	{
 		String TCName = Thread.currentThread().getStackTrace()[1].getMethodName();	
-		String Functionality = functionality;
-		driver = browserbanner.BrowserBanner(driver, Functionality);
-		driver = browserbanner.Clearcookie(driver, Functionality);
-		driver = contactinfo.Contactinfo_nav(driver, Functionality,TCName);		
-		driver= contactinfo.validate_phoneNumber_InvalidNPACodeNumber(driver, "Invalid_PhoneNumberformat_ErrMsg",Functionality,TCName);
+		String Functionality=functionality;
+		driver= browserbanner.BrowserBanner(driver, Functionality);
+		driver= browserbanner.Clearcookie(driver, Functionality);
+		driver= contactinfo.Contactinfo_nav(driver, Functionality,TCName);
+		
+		driver= contactinfo.validate_phoneNumber_InvalidNPACodeNumber(driver, "Invalid_PhoneNumber_ErrMsg",Functionality,TCName);
 		driver.close();
 	
 	}
@@ -99,8 +96,9 @@ public class Account_Setup_page
 		String Functionality=functionality;
 		driver= browserbanner.BrowserBanner(driver, Functionality);
 		driver= browserbanner.Clearcookie(driver, Functionality);
-		driver= contactinfo.Contactinfo_nav(driver, Functionality,TCName);	
-		driver= contactinfo.validate_phoneNumber_InvalidCentralOfficeCodeNumber(driver, "Invalid_PhoneNumberformat_ErrMsg",Functionality,TCName);
+		driver= contactinfo.Contactinfo_nav(driver, Functionality,TCName);
+		
+		driver= contactinfo.validate_phoneNumber_InvalidCentralOfficeCodeNumber(driver, "Invalid_PhoneNumber_ErrMsg",Functionality,TCName);
 		driver.close();
 	
 	}

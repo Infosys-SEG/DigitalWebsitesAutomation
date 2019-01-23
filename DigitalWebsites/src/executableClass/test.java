@@ -27,12 +27,36 @@ public class test
 		driver = staticinfobar.LoginStaticinfobar_Rewards(driver, "Static_Infobar_loggedin_Users","");
 		List<WebElement> s=driver.findElements(By.xpath("//div[@class='col-md-4 col-sm-4 col-xs-12 p-0 text-center r-cells']"));
 		int len=s.size();
-		System.out.println(len);
+		
 		if(len!=0)
 		{
+			int ch1=0;
+			int ch2=1;
+			int ch3=0;
 			for (int i = 0; i<len;i++)
 			{
-				System.out.println(s.get(i).getText());
+				if(i==ch1)
+				{
+					ch1+=3;
+					String firstcol=s.get(i).getText();
+					Character f=firstcol.charAt(0);
+					if(f.equals('+'))
+					{
+						System.out.println("Positive");
+					}
+					else if(f.equals('-'))
+					{
+						System.out.println("Negative");
+					}
+					else
+					{
+						System.out.println("No symbols");
+					}
+				}
+				else if(i==ch2)
+				{
+					
+				}
 			}
 		}
 		else

@@ -215,7 +215,7 @@ public class Shopping_List
 		count=weeklyad.getcount();
 		write.excelwrite(Functionality, TCName, "product2", proddetails);
 		driver = shoppinglist.WeeklyAd_Deals_ShoppingList(driver,  Functionality,TCName, "2", count, "Delete_Multipleitems");	
-		driver.close();
+	//	driver.close();
 	}
 	
 }

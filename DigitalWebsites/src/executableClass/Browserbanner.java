@@ -75,17 +75,14 @@ public class Browserbanner
 		}
 			
 		try
-		{			
-			System.out.println("4");			  			   			
+		{									  			   			
 			obj.waitForElementClickable(driver, homepage.click_Close_cookies_Button);
-			System.out.println("5");
 			homepage.click_click_Close_cookies_Button();	
 		}
 		catch(Exception e)
 		{
-			System.out.println("catch");
+			
 		}	
-		System.out.println("5555");
 		obj.waitForElementClickable(driver, logo);
 		logo.click();
 		return driver ;

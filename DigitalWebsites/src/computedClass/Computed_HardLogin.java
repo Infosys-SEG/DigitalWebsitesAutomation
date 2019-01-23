@@ -41,7 +41,7 @@ public class Computed_HardLogin
 	    	new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality, TCName);
 	    	String Hardlogin_Email_Address= Readexcel_RowName.getValue("Hardlogin_Email_Address");
 	    	String Hardlogin_Password= Readexcel_RowName.getValue("Hardlogin_Password");
-	    	System.out.println(Hardlogin_Email_Address);
+	    	
 	    	obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
 	    	
 	    	homepage.click_click_Login_Or_Signup_Button();

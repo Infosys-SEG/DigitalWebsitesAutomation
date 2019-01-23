@@ -27,7 +27,7 @@ public class Computed_ContactInfo_ErrorValidation
 		POM_Generated_ContactInfoPage contactinfo= new POM_Generated_ContactInfoPage(driver);
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_AccountLookupPage acctlookup = new POM_Generated_AccountLookupPage(driver);
-		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Global,Functionality);
+		//new Readexcel_RowName().excelRead("Global_TestData_Sheet",Global,Functionality);
 		try 
 		{
 			
@@ -35,10 +35,20 @@ public class Computed_ContactInfo_ErrorValidation
 			homepage.click_click_Login_Or_Signup_Button();
 			obj.waitForElementClickable(driver, homepage.click_Register_Button);
 			homepage.click_click_Register_Button();
+			//Thread.sleep(2000);
 			obj.waitForElementClickable(driver, acctlookup.click_Signup_As_New_Member_Button);
-			obj.scrollingToElementofAPage(driver,acctlookup.click_Signup_As_New_Member_Button);
+			
+			obj.movetoElementofAPage(driver, acctlookup.click_Signup_As_New_Member_Button);
+			//obj.movetoElementofAPage(driver, acctlookup.click_Get_Started_With_SEG_Button);
+			//System.out.println("enter");
+			if(acctlookup.isDisplayed_click_Signup_As_New_Member_Button())
+			{
+			//System.out.println("exists");
 			acctlookup.click_click_Signup_As_New_Member_Button();
-			if(contactinfo.isDisplayed_txt_ContactUs_Stepcounter())
+			
+			}
+			obj.waitForElement(driver,contactinfo.txt_Fname_Field);
+			if(contactinfo.isDisplayed_txt_HeaderName_Text())
 			{
 				Reporter.log("Navigated to Contact info page");
 			}
@@ -46,7 +56,8 @@ public class Computed_ContactInfo_ErrorValidation
 		}
 		catch(Exception e)
 		{
-			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_UnablNavigate to Contact"); 
+			System.out.println(e);
+			//obj.Ashot_Screenshot(driver, Functionality, TCName,"err_UnablNavigate to Contact"); 
 			Assert.fail("Unable to navigate to Contact info screen");
 		}
 		return driver;
@@ -215,13 +226,13 @@ public class Computed_ContactInfo_ErrorValidation
 		if(contactinfo.isDisplayed_txt_Error_Invalid_PhoneNumber()) 
 		{
 			
-			if(contactinfo.getText_txt_Error_Invalid_PhoneType().equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("ErrorMessage"))))
+			if(contactinfo.getText_txt_Error_Invalid_PhoneNumber().equalsIgnoreCase(String.valueOf(Readexcel_RowName.getValue("ErrorMessage"))))
 			{
 				Reporter.log("Errormessage Matched");
 			}
 			else
 			{	
-				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_UnablNavigate to Contact");
+				//obj.Ashot_Screenshot(driver, Functionality, TCName,"err_UnablNavigate to Contact");
 				driver.close();
 				Assert.fail("Error message mismatched");	 
 			}
@@ -258,10 +269,12 @@ public class Computed_ContactInfo_ErrorValidation
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality ,TCName);
 			obj.scrollingToTop(driver);
 			obj.waitForElementClickable(driver, contactinfo.txt_Primary_Phone_Number_Field);
+			//String ph = Readexcel_RowName.getValue("InvalidNPACode_PhoneNumber");
+			//System.out.println(ph);
 			contactinfo.type_txt_Primary_Phone_Number_Field(String.valueOf(Readexcel_RowName.getValue("InvalidNPACode_PhoneNumber")));
 			contactinfo.txt_Text_me_offers.click();
 			
-			new Readexcel_RowName().excelRead("ErrorMessageSheet","AccountLookupPage",labelname);
+			new Readexcel_RowName().excelRead("ErrorMessageSheet","ContactInfoPage",labelname);
 
 			if(contactinfo.isDisplayed_txt_Error_Invalid_PhoneNumber()) 
 			{
@@ -281,7 +294,7 @@ public class Computed_ContactInfo_ErrorValidation
 			{
 				if(driver.getTitle().equalsIgnoreCase("Account Info | Security"))
 				{
-					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_UnablNavigate to Contact");
+					//obj.Ashot_Screenshot(driver, Functionality, TCName,"err_UnablNavigate to Contact");
 					Reporter.log("Invalid NPA code format is accpeted and application navigates to contact info page");
 					Assert.fail("Invalid country code is accepted");
 				}

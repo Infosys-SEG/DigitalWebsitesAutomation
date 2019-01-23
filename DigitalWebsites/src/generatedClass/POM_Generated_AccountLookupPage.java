@@ -34,7 +34,7 @@ public class POM_Generated_AccountLookupPage {
 	public WebElement click_Get_Started_With_SEG_Button;
 	
 	// Associated Label : Signup_As_New_Member_Button
-	@FindBy(xpath = "//a[@href='/plenti']")
+	@FindBy(xpath = "//a[@href='/segrewards/contact-info']")
 	public WebElement click_Signup_As_New_Member_Button;
 	
 	// Associated Label : Use_Different_Card_Link

@@ -31,8 +31,7 @@ public class Computed_Shopping_List
 	private int count;
     public WebDriver ShoppingList_Navigation(WebDriver driver,String Functionality,String TCName) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
-    	POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
-		
+    	POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);		
 		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
 		
 		String value="";
@@ -70,17 +69,13 @@ public class Computed_Shopping_List
 	    	String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
 	    	
 	    	
-	    	obj.waitForElement(driver, logo);
+	    	obj.waitForElementClickable(driver, logo);
 	    	logo.click();
     		obj.waitForElement(driver, homepage.click_Savings_link_Hover);
     		
     		Runtime.getRuntime().exec(Val);
-    		homepage.click_click_Savings_link_Hover();	
-    		
-    		//obj.waitForElement(driver, homepage.click_Savings_WeeklyAd_Button);
-    		
-    		homepage.click_click_Savings_WeeklyAd_Button();
-    		
+    		homepage.click_click_Savings_link_Hover();	    		
+    		homepage.click_click_Savings_WeeklyAd_Button();	
     		obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
     	}
 	    catch(Exception e)
@@ -90,7 +85,31 @@ public class Computed_Shopping_List
 	    }
 		return driver;
 	  }
-    
+    public WebDriver ShoppingList_CheckCount(WebDriver driver,String Functionality,String TCName,String checkvalue) throws FileNotFoundException, IOException, InterruptedException, AWTException 
+   	{		
+   		POM_Generated_ShoppingListPage shoppinglistpage = new POM_Generated_ShoppingListPage(driver);
+
+   	    try
+       	{
+       		obj.waitForElementClickable(driver, shoppinglistpage.txt_List_Count_Text);
+       		String valu=shoppinglistpage.getText_txt_List_Count_Text();
+       		if(valu.equalsIgnoreCase(checkvalue))
+       		{
+       			Reporter.log("Products count updated in shopping list after updation");
+       		}
+       		else
+       		{
+       			Assert.fail("Products count are not updated in shopping list after updation");
+       		}
+       		
+       	}
+   	    catch(Exception e)
+   	    {
+   	    	obj.Ashot_Screenshot(driver, Functionality, TCName,"shoplist_NoCountUpdat");
+   	    	Assert.fail("Error in shopping list count");
+   	    }
+   		return driver;
+   	  }
     
 	public WebDriver WeeklyAd_Deals_ShoppingList(WebDriver driver,String Functionality,String TCName,String proddetails,int count,String actionverify) throws FileNotFoundException, IOException, InterruptedException, AWTException 
 	{
@@ -99,14 +118,14 @@ public class Computed_Shopping_List
 		Robot rb = new Robot();
 	    try
 	    { 	   
-		    obj.waitForElement(driver, shoppinglistpage.txt_List_Count_Text);
+		    obj.waitForElementClickable(driver, shoppinglistpage.txt_List_Count_Text);
 			String sc=shoppinglistpage.getText_txt_List_Count_Text();
 			int scl=Integer.parseInt(sc);
 			if(!actionverify.equalsIgnoreCase("")||count!=0)
 			{
 				if(scl!=count)
 				{
-					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_count");
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_count");
 					driver.close();
 					Assert.fail("count not updated");
 				}
@@ -205,7 +224,8 @@ public class Computed_Shopping_List
 			}
 		    if(prodchk==true) 
 		    {
-		    	outerloop:
+		    	
+		    	outerloop:		    		
 		    	for(int k=0;k<size;k++)
 		    	{		
 		    		for(int j=0;j<size && finished==false;j++)
@@ -251,7 +271,7 @@ public class Computed_Shopping_List
 									}
 				    				else
 				    				{
-				    					 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_defqty");
+				    					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_defqty");
 				    					Assert.fail("Default quantity 1 is not displaying for Products added in shoppinglist");
 				    				}
 				    			}
@@ -299,22 +319,32 @@ public class Computed_Shopping_List
 				    		}
 				    		else if(actionverify.equalsIgnoreCase("Delete_Multipleitems"))
 				    		{		
+				    			
 				    			if(product1.equalsIgnoreCase(summary+" "+pric+" "+desc))
-				    			{				    			
-				    				checkbox.get(k).click();				    		
+				    			{
+				    				
+				    				checkbox.get(k).click();
+				    				System.out.println("prod1 clicked");
 				    				itemnumber+=1;
+				    				finished=true;	
+				    				Thread.sleep(500);
 				    			}
 				    			else if(product2.equalsIgnoreCase(summary+" "+pric+" "+desc))
 				    			{
-				    				checkbox.get(k).click();				    		
-				    				itemnumber+=1;		    										    			
+				    				
+				    				checkbox.get(k).click();		
+				    				System.out.println("prod2 clicked");
+				    				itemnumber+=1;		
+				    				finished=true;	
+				    				Thread.sleep(500);
 				    			}
 				    			int val=Integer.parseInt(proddetails);
 				    			if(itemnumber==val)
 				    			{
-				    				chk=true;
-				    				finished=true;				    				
+				    				System.out.println("before remove all");
+				    				chk=true;				    							    				
 				    				obj.movetoElementofAPage_Click(driver, shoppinglistpage.click_Remove_All_Checked_Items_Button);
+				    				System.out.println("Removed all");
 				    				Thread.sleep(3000);
 				    				break outerloop;
 				    			}
@@ -348,7 +378,9 @@ public class Computed_Shopping_List
 				    			Assert.fail("Check action verify parameter from shopping list");
 				    		}
 		    			}
+		    			
 		    		}
+		    		finished=false;
 				}
 		  	}
 		    if(actionverify.equalsIgnoreCase("Added"))
@@ -383,7 +415,7 @@ public class Computed_Shopping_List
 		    {
 		    	if(chk==false)
 		    	{
-		    		 obj.Ashot_Screenshot(driver, Functionality, TCName,"err_delpdt");
+		    		obj.Ashot_Screenshot(driver, Functionality, TCName,"err_delpdt");
 		    		driver.close();
 		    		Assert.fail("Products are not removed from shoppinglist by clicking delete icon");
 		    		
@@ -432,7 +464,7 @@ public class Computed_Shopping_List
     			Assert.fail("Check action verify parameter from shopping list");
     		}
 		    obj.waitForElement(driver, shoppinglistpage.click_Close_Button);
-		    shoppinglistpage.click_click_Close_Button();
+		   shoppinglistpage.click_click_Close_Button();
 		    	
 	    }
 	    catch(Exception e)

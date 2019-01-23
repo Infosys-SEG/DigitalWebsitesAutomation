@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jan 22 13:12:15 IST 2019</td>
+<td>Started on:</td><td>Wed Jan 23 13:01:47 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>89 seconds (89059 ms)</td>
+<tr><td>Total time:</td><td>109 seconds (109099 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,8 +67,8 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
@@ -76,76 +76,24 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems()'><b>TC_21_RemoveMultipleItems_CircularItems</b><br>Test class: executableClass.Shopping_List<br/>
-<a href="#Output-259319861" onClick='toggleBox("Output-259319861", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1829460911" onClick='toggleBox("Output-1829460911", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-259319861" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-259319861">
+<a href="#Output-1829460911" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1829460911">
 Locate a store near you button is displayed<br/>
 Please select a store near to view weekly ads text is displayed<br/>
+Added products are highlighted in Red color<br/>
+Product added from overlay page<br/>
+Added products are highlighted in Red color<br/>
+Product added from overlay page<br/>
+Print list button is displayed in shopping list page<br/>
+Email list button is displayed in shopping list page<br/>
+Multiple Products are not removed from shoppinglist by selecting and clicking delete all items button<br/>
 </div>
 </td>
-<td><div><pre>java.lang.AssertionError: Error in weekly ad circular page
-	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:263)
-	at executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems(Shopping_List.java:209)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1129)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:746)
-	at org.testng.TestRunner.run(TestRunner.java:600)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
-	at org.testng.TestNG.runSuites(TestNG.java:1104)
-	at org.testng.TestNG.run(TestNG.java:1076)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-</pre></div><a href='#' onClick='toggleBox("stack-trace259319861", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace259319861'><pre>java.lang.AssertionError: Error in weekly ad circular page
-	at org.testng.Assert.fail(Assert.java:94)
-	at computedClass.Computed_WeeklyAd.AddProduct(Computed_WeeklyAd.java:263)
-	at executableClass.Shopping_List.TC_21_RemoveMultipleItems_CircularItems(Shopping_List.java:209)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:100)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:646)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:811)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1129)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
-	at org.testng.TestRunner.privateRun(TestRunner.java:746)
-	at org.testng.TestRunner.run(TestRunner.java:600)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1264)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1189)
-	at org.testng.TestNG.runSuites(TestNG.java:1104)
-	at org.testng.TestNG.run(TestNG.java:1076)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:150)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
-</pre></div></td>
-<td>88</td>
-<td>executableClass.Shopping_List@1e397ed7</td></tr>
+<td></td>
+<td>109</td>
+<td>executableClass.Shopping_List@73846619</td></tr>
 </table><p>
 </body>
 </html>
