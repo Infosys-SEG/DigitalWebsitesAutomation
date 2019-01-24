@@ -72,7 +72,7 @@ public class POM_Generated_Homepage {
 	public WebElement click_Savings_link_Hover;
 	
 	// Associated Label : Savings_WeeklyAd_Button
-	@FindBy(xpath = "//li[@id='savings']//a[@href='https://winndixie.pdn.retaileriq.com/weeklyad' and text()='Weekly Ad ']")
+	@FindBy(xpath = "//li[@id='savings']//a[text()='Weekly Ad ']")
 	public WebElement click_Savings_WeeklyAd_Button;
 	
 	// Associated Label : Savings_Coupon_Button

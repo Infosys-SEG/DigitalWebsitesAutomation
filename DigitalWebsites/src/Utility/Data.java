@@ -52,18 +52,21 @@ public class Data
 		System.out.println(driver);
 		System.out.println(Functionality);
 		System.out.println(TCName);
-		String Path = System.getProperty("user.dir")+"\\Screenshots/"+Functionality+"/"+TCName+"/";
+		String Path = System.getProperty("user.dir")+"\\Screenshots\\"+Functionality+"\\"+TCName+"\\";
 		File file=new File(Path);
-		if (!file.exists()) {
-			
+		if (!file.exists()) 
+		{		
 			file=file.getParentFile();
-			System.out.println("File created " + file);
-			file=new File(file+"/"+TCName);
-			file.mkdirs();
+			file.mkdir();
 			file.createNewFile();
-           
 		}
-
+		file=new File(file+"\\"+TCName);
+		if (!file.exists()) 
+		{
+			file=file.getParentFile();	
+			file.mkdir();
+			file.createNewFile(); 
+		}
 		
 		Screenshot screenshot = new AShot().shootingStrategy(new ViewportPastingStrategy(1000)).takeScreenshot(driver);
 		

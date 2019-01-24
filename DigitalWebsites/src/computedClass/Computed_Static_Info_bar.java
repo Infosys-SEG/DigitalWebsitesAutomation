@@ -127,9 +127,9 @@ public class Computed_Static_Info_bar
 	 
 		try 
 		{
-			obj.waitForElement(driver, logo);
+			obj.waitForElementClickable(driver, logo);
 			logo.click();
-			obj.waitForElement(driver, staticinfobar.click_Static_info_My_Rewards_Link);
+			obj.waitForElementClickable(driver, staticinfobar.click_Static_info_My_Rewards_Link);
 			if(staticinfobar.isDisplayed_click_Static_info_My_Rewards_Link())
 			{
 				if(staticinfobar.isDisplayed_click_Static_info_My_Rewards_Text())
@@ -138,7 +138,7 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
-					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"errRewtxtNotDisp"); 
 					driver.close();
 					Assert.fail("My Rewards text is not displaying");
 				}
@@ -153,7 +153,7 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
-					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_RewDiffPTS"); 
 					driver.close();
 					Assert.fail("Different points");
 				}

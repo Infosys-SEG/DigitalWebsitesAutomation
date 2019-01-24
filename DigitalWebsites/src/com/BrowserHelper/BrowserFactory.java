@@ -41,6 +41,7 @@ public class BrowserFactory
     			dc.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false);
     			dc.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, true);
     			dc.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+    			dc.setCapability(CapabilityType.SUPPORTS_JAVASCRIPT, true);
     			dc.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
     			dc.setCapability("ignoreProtectedModeSettings", true);
     			dc.setCapability("ignoreZoomSetting", true);

@@ -494,6 +494,7 @@ public class Computed_MyRewards
 	  }
 	catch(Exception e)
 	{
+		System.out.println(e);
 		 obj.Ashot_Screenshot(driver, Functionality, TCName, "err_logoutrew");
 		Assert.fail("error in logged out rewards page");
 	}

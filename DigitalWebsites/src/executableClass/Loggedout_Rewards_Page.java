@@ -27,8 +27,7 @@ public class Loggedout_Rewards_Page
 	
 		Computed_MyRewards loggedout = new Computed_MyRewards();
 		driver= browserbanner.BrowserBanner(driver, functionality);
-		driver=browserbanner.Clearcookie(driver, functionality);
-		
+		driver=browserbanner.Clearcookie(driver, functionality);		
 		driver=loggedout.loggedout_Myreward(driver, functionality, tcname);
 		driver.close();
 	}

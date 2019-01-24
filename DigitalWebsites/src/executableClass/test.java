@@ -7,6 +7,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.Color;
+import org.testng.Assert;
 
 import computedClass.Computed_HardLogin;
 import computedClass.Computed_Static_Info_bar;
@@ -32,31 +34,84 @@ public class test
 		{
 			int ch1=0;
 			int ch2=1;
-			int ch3=0;
-			for (int i = 0; i<len;i++)
+			int ch3=2;
+			for (int i = 0; i<len-2;i++)
 			{
 				if(i==ch1)
 				{
 					ch1+=3;
-					String firstcol=s.get(i).getText();
+					String firstcol=s.get(i).getText();		
+					boolean savedval=firstcol.startsWith("Saved");		
 					Character f=firstcol.charAt(0);
+					String clr=driver.findElement(By.xpath("//span[text()= '"+firstcol+" ']")).getAttribute("class");
+					if(clr.equalsIgnoreCase("tran-points negative-points"))
+					{
+						clr="negative-points";
+					}		
+					String color = driver.findElement(By.className(clr)).getCssValue("color");
+					String hex = Color.fromString(color).asHex();
 					if(f.equals('+'))
 					{
-						System.out.println("Positive");
+						if(hex.equalsIgnoreCase("#1399d1"))
+						{
+							System.out.println("Positive color matched");
+						}
+						else
+						{
+							System.out.println("Positive color not matched");
+						}
+						if(i+2==ch3)
+						{
+							ch3+=3;
+							String thirdcol=s.get(i+2).getText();
+							
+							System.out.println(thirdcol);
+						}
 					}
 					else if(f.equals('-'))
 					{
 						System.out.println("Negative");
+					}
+					else if(savedval==true)
+					{
+						if(hex.equalsIgnoreCase("#d0324b"))
+						{
+							System.out.println("Saved value color matched");
+						}
+						else
+						{
+							System.out.println("Saved value color not matched");
+						}
+						if(i+2==ch3)
+						{
+							ch3+=3;
+							String thirdcol=s.get(i+2).getText();
+							if(thirdcol.equalsIgnoreCase("Fuel savings at the pump "))
+							{
+								System.out.println("matched for fuel saving");
+							}
+							
+							else
+							{
+							System.out.println(thirdcol);
+							}
+						}
 					}
 					else
 					{
 						System.out.println("No symbols");
 					}
 				}
-				else if(i==ch2)
+				if(i+1==ch2)
 				{
-					
+					ch2+=3;
+					String seccol=s.get(i+1).getText();
+					if(seccol.isEmpty())
+					{
+						Assert.fail("Transaction date and store is not displayed");
+					}
 				}
+				
 			}
 		}
 		else
