@@ -1,5 +1,7 @@
 //******************************
 package  generatedClass;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -108,6 +110,14 @@ public class POM_Generated_LoggedIn_RewardsPage {
 	// Associated Label : Usefullink_FuelRewards_Link_bl
 	@FindBy(xpath = "//a[text()='Fuel Rewards program']")
 	public WebElement txt_Usefullink_FuelRewards_Link_bl;
+	
+	// Associated Label : Recent_Transactions_date_time
+	@FindBy(xpath = "//div[text()='Recent transactions ']//span[@class='recent-tran-sub hidden-xs']")
+	public WebElement txt_Recent_Transactions_date_time;
+	
+	// Associated Label : Recent_Transactions_Detailed_List
+	@FindBy(xpath = "//div[@class='col-md-4 col-sm-4 col-xs-12 p-0 text-center r-cells']")
+	public List<WebElement> txt_Recent_Transactions_Detailed_List;
 	
 
 //*******************************************************************************
@@ -1106,6 +1116,98 @@ public class POM_Generated_LoggedIn_RewardsPage {
 	// selected or Not :  Usefullink_FuelRewards_Link_bl
 	public boolean isSelected_txt_Usefullink_FuelRewards_Link_bl(){
 		if(txt_Usefullink_FuelRewards_Link_bl.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Recent_Transactions_date_time
+	public void type_txt_Recent_Transactions_date_time(String value) {
+		txt_Recent_Transactions_date_time.clear();
+		txt_Recent_Transactions_date_time.sendKeys(value);
+	}
+
+	//click:  Recent_Transactions_date_time
+	public void click_txt_Recent_Transactions_date_time(){
+		txt_Recent_Transactions_date_time.click();
+	}
+
+	// Hover:  Recent_Transactions_date_time
+	public void hover_txt_Recent_Transactions_date_time(){
+		Actions action=new Actions(driver); 
+		action.moveToElement(txt_Recent_Transactions_date_time).build().perform();
+	}
+
+	// visible or Not :  Recent_Transactions_date_time
+	public boolean isDisplayed_txt_Recent_Transactions_date_time(){
+		if(txt_Recent_Transactions_date_time.isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Recent_Transactions_date_time
+	public boolean isEnabled_txt_Recent_Transactions_date_time(){
+		if(txt_Recent_Transactions_date_time.isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Recent_Transactions_date_time
+	public String getCssValue_txt_Recent_Transactions_date_time(String attribute) {
+		return txt_Recent_Transactions_date_time.getCssValue(attribute);
+	}
+
+	//Get the text :  Recent_Transactions_date_time
+	public String getText_txt_Recent_Transactions_date_time(){
+		return txt_Recent_Transactions_date_time.getText();
+	}
+
+	//Get the value :  Recent_Transactions_date_time
+	public String getValue_txt_Recent_Transactions_date_time(){
+		return txt_Recent_Transactions_date_time.getAttribute("value");
+	}
+	// selected or Not :  Recent_Transactions_date_time
+	public boolean isSelected_txt_Recent_Transactions_date_time(){
+		if(txt_Recent_Transactions_date_time.isSelected()) { return true; } else { return false;} 
+	}
+
+	// Type:  Recent_Transactions_Detailed_List
+	public void type_txt_Recent_Transactions_Detailed_List(String value) {
+		txt_Recent_Transactions_Detailed_List.clear();
+		((WebElement) txt_Recent_Transactions_Detailed_List).sendKeys(value);
+	}
+
+	//click:  Recent_Transactions_Detailed_List
+	public void click_txt_Recent_Transactions_Detailed_List(){
+		((WebElement) txt_Recent_Transactions_Detailed_List).click();
+	}
+
+	// Hover:  Recent_Transactions_Detailed_List
+	public void hover_txt_Recent_Transactions_Detailed_List(){
+		Actions action=new Actions(driver); 
+		action.moveToElement((WebElement) txt_Recent_Transactions_Detailed_List).build().perform();
+	}
+
+	// visible or Not :  Recent_Transactions_Detailed_List
+	public boolean isDisplayed_txt_Recent_Transactions_Detailed_List(){
+		if(((WebElement) txt_Recent_Transactions_Detailed_List).isDisplayed()) { return true; } else { return false;} 
+	}
+
+	// Enabled or Not :  Recent_Transactions_Detailed_List
+	public boolean isEnabled_txt_Recent_Transactions_Detailed_List(){
+		if(((WebElement) txt_Recent_Transactions_Detailed_List).isEnabled()) { return true; } else { return false;} 
+	}
+
+	// Get CSS attribute :  Recent_Transactions_Detailed_List
+	public String getCssValue_txt_Recent_Transactions_Detailed_List(String attribute) {
+		return ((WebElement) txt_Recent_Transactions_Detailed_List).getCssValue(attribute);
+	}
+
+	//Get the text :  Recent_Transactions_Detailed_List
+	public String getText_txt_Recent_Transactions_Detailed_List(){
+		return ((WebElement) txt_Recent_Transactions_Detailed_List).getText();
+	}
+
+	//Get the value :  Recent_Transactions_Detailed_List
+	public String getValue_txt_Recent_Transactions_Detailed_List(){
+		return ((WebElement) txt_Recent_Transactions_Detailed_List).getAttribute("value");
+	}
+	// selected or Not :  Recent_Transactions_Detailed_List
+	public boolean isSelected_txt_Recent_Transactions_Detailed_List(){
+		if(((WebElement) txt_Recent_Transactions_Detailed_List).isSelected()) { return true; } else { return false;} 
 	}
 
 }

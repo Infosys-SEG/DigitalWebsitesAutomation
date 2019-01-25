@@ -74,7 +74,7 @@ public class Computed_Static_Info_bar
 				}
 				else
 				{
-					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAdTxtnotdisplayed"); 
 
 					driver.close();
 					Assert.fail("Weekly ad text is not displaying");
@@ -82,14 +82,14 @@ public class Computed_Static_Info_bar
 			}
 			else
 			{
-				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAdLinknotdisplayed"); 
 				driver.close();
 				Assert.fail("Weekly ad link is not displaying");
 			}
 		}
 		catch(Exception e)
 		{
-			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAdLinknotdisplayed"); 
 			driver.close();
 			Assert.fail("Error in weekly ad link");
 		}
@@ -129,6 +129,7 @@ public class Computed_Static_Info_bar
 		{
 			obj.waitForElementClickable(driver, logo);
 			logo.click();
+			obj.waitForElement(driver, staticinfobar.click_Static_info_My_Rewards_Text);
 			obj.waitForElementClickable(driver, staticinfobar.click_Static_info_My_Rewards_Link);
 			if(staticinfobar.isDisplayed_click_Static_info_My_Rewards_Link())
 			{
@@ -161,7 +162,7 @@ public class Computed_Static_Info_bar
 			}
 			else
 			{
-				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_RewardLinknotdisplayed"); 
 				driver.close();
 				Assert.fail("My Rewards link is not displaying");
 			}	
@@ -211,7 +212,7 @@ public class Computed_Static_Info_bar
 			{
 				if(!staticinfobar.isDisplayed_click_Static_info_My_Account_Text())
 				{
-					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+					obj.Ashot_Screenshot(driver, Functionality, TCName,"err_MyAccTxtNotDisp"); 
 					driver.close();
 					Assert.fail("My Account text is not displaying");
 				}
@@ -227,7 +228,7 @@ public class Computed_Static_Info_bar
 					}
 					else
 					{
-						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_HardLoginPopupNotdisp"); 
 						driver.close();
 						Assert.fail("Hard Login popup is not displaying");
 					}
@@ -236,13 +237,12 @@ public class Computed_Static_Info_bar
 				{
 					obj.waitForElement(driver, contactinfopage.txt_Fname_Field);
 					if(contactinfopage.isDisplayed_txt_Fname_Field())
-					{
-						
+					{					
 						Reporter.log("My Account page is displayed for hardlogin user by clicking on My Account static info bar");
 					}
 					else
 					{
-						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+						obj.Ashot_Screenshot(driver, Functionality, TCName,"err_MyAccPageNotdisplayed"); 
 						driver.close();
 						Assert.fail("My Account page is displayed for hardlogin user by clicking on My Account static info bar");
 					}
@@ -250,18 +250,17 @@ public class Computed_Static_Info_bar
 			}
 			else
 			{
-				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+				obj.Ashot_Screenshot(driver, Functionality, TCName,"err_MyAccLinknotdisplayed"); 
 				driver.close();
 				Assert.fail("My Account link is not displaying");
 			}	
 		}
 		catch(Exception e)
 		{
-			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_WeeklyAd not displayed"); 
+			obj.Ashot_Screenshot(driver, Functionality, TCName,"err_MyAccLinknotdisplayed"); 
 			driver.close();
 			Assert.fail("Error in MyAccount link");
-		}
-		
+		}		
 		return driver;
 	}
 }

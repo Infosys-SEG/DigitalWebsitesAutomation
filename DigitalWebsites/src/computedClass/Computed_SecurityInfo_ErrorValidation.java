@@ -185,22 +185,22 @@ public class Computed_SecurityInfo_ErrorValidation
 				String Confirm_Pin = Readexcel_RowName.getValue("Confirm_Pin");
 
 				String Error_Msg;
-				String PIN_CRC = null;
-				String PIN_CRC_WD =Readexcel_RowName.getValue("PIN_CRC_WD");
-				String PIN_CRC_HY =Readexcel_RowName.getValue("PIN_CRC_HY");
+				//String PIN_CRC = null;
+			//	String PIN_CRC_WD =Readexcel_RowName.getValue("PIN_CRC_WD");
+			//	String PIN_CRC_HY =Readexcel_RowName.getValue("PIN_CRC_HY");
 				new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global", Functionality);
 				if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
 				{	
-					 PIN_CRC=PIN_CRC_WD;
+					// PIN_CRC=PIN_CRC_WD;
 				}
 				else if(Readexcel_RowName.getValue("Bilo(Y/N)").equalsIgnoreCase("Y"))
 				{	
-					 PIN_CRC=PIN_CRC_HY;
+					// PIN_CRC=PIN_CRC_HY;
 				}
 				else if(Readexcel_RowName.getValue("Harveys(Y/N)").equalsIgnoreCase("Y"))
 				{
 					
-					 PIN_CRC=PIN_CRC_HY;
+					// PIN_CRC=PIN_CRC_HY;
 				}
 		 
 	    // Not Matching PINs error validation

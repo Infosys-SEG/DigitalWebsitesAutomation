@@ -7,7 +7,6 @@ import java.io.IOException;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.junit.Assert;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
@@ -15,7 +14,6 @@ import Utility.Data;
 import Utility.Readexcel_RowName;
 import generatedClass.POM_Generated_CongratulationsPage;
 import generatedClass.POM_Generated_ContactInfoPage;
-import generatedClass.POM_Generated_DigitalCouponsPage;
 import generatedClass.POM_Generated_Homepage;
 import generatedClass.POM_Generated_LoggedIn_RewardsPage;
 import generatedClass.POM_Generated_MyAccountPage;
@@ -30,15 +28,16 @@ public class Computed_EnrollmentVerify
 		POM_Generated_Homepage homepage = new POM_Generated_Homepage(driver);
 		POM_Generated_MyAccountPage myaccountpage = new POM_Generated_MyAccountPage(driver);
 		POM_Generated_LoggedIn_RewardsPage loginrewardspage = new POM_Generated_LoggedIn_RewardsPage(driver);
-		POM_Generated_DigitalCouponsPage digitalcouponspage = new POM_Generated_DigitalCouponsPage(driver);
+		//POM_Generated_DigitalCouponsPage digitalcouponspage = new POM_Generated_DigitalCouponsPage(driver);
 		POM_Generated_ContactInfoPage contactinfopage = new POM_Generated_ContactInfoPage(driver);
 		
 		Data obj=new Data();
 		String neverdealsurl="";
-		String v="";
+		//String v="";
 		String notpickeduptext = "Rewards #: Be sure to pick up your new card next time you shop!";
 		String pickeduptext = "Rewards #: ";
-	    new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
+		String fuelrewardsurl = "https://www.fuelrewards.com/";
+	   /* new Readexcel_RowName().excelRead("Global_TestData_Sheet","Global",Functionality);
     	if(Readexcel_RowName.getValue("Winndixie(Y/N)").equalsIgnoreCase("Y"))
     	{
     		v="winndixie";
@@ -53,7 +52,7 @@ public class Computed_EnrollmentVerify
     	{
     		v="harveyssupermarkets";		
     	}
-    	String fuelrewardsurl = "https://www.fuelrewards.com/";
+    	
     	String coup="https://"+v+".pdn.retaileriq.com";
 	    String ie="Windows Security";
 	    String bro="";
@@ -65,7 +64,7 @@ public class Computed_EnrollmentVerify
 		{
 			bro=ie;
 		}
-		String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";
+		String Val = obj.popuppath()+" "+bro+" "+"15000"+" "+"pdnAccess"+" "+"greasemonkey";*/
 		
 		new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality,TCName);
 		String cardstatus="";

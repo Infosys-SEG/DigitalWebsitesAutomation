@@ -96,7 +96,7 @@ public class Computed_AccountLookup_ErrorValidation
 		{
 			new Readexcel_RowName().excelRead("Global_TestData_Sheet",Functionality ,TCName);
 			String enteredNumber="";
-			String inputPhoneNumber="";
+			//String inputPhoneNumber="";
 			int lenEnteredNumber;
 			obj.scrollingToTop(driver);
 			obj.waitForElement(driver, homepage.click_Login_Or_Signup_Button);		
@@ -105,7 +105,7 @@ public class Computed_AccountLookup_ErrorValidation
 	    	homepage.click_click_Register_Button();
 	    	
 			obj.waitForElement(driver, accountlookuppage.txt_Phone_Number_Field);
-			inputPhoneNumber=String.valueOf(Readexcel_RowName.getValue(TestDataColumn));
+			//inputPhoneNumber=String.valueOf(Readexcel_RowName.getValue(TestDataColumn));
 			
 			obj.scrollingToElementofAPage(driver, accountlookuppage.click_Get_Started_With_SEG_Button);
 			obj.waitForElement(driver, accountlookuppage.txt_Phone_Number_Field);

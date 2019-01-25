@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="executableClass.Weekly_Ad">
+      <class name="executableClass.LoggedIn_for_Rewards_Section">
         <methods>
-          <include name="TC01_Add_items_to_list_ADD_TO_LIST_button_item_added"/>
+          <include name="TC008_Verify_the_Recent_Transactions_page_SoftLogin"/>
         </methods>
-      </class> <!-- executableClass.Weekly_Ad -->
+      </class> <!-- executableClass.LoggedIn_for_Rewards_Section -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
